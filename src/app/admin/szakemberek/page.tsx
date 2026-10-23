@@ -112,7 +112,7 @@ export default async function SzakemberekPage({ searchParams }: { searchParams: 
           </div>
           <span style={{ fontSize: "14px", color: "#5E6A62" }}>
             Komfort: „Mennyire érezted magad biztonságban és komfortosan?” · Ajánlási mutató: ajánlók (9–10) − kritikusok (0–6) aránya ·
-            Alkalmak értékelése: a havi kérdőív 5–10. állításának átlaga azoktól, akik az adott szakember alkalma után töltötték ki.
+            Alkalmak értékelése: a havi kérdőív 5., 6., 7. és 10. állításának átlaga (közvetlen hatás, fókusz, testtudatosság, folytatási igény) azoktól, akik az adott szakember alkalma után töltötték ki. A gondoskodó kultúra és a szervezés a céget minősíti, ezért itt nem számít bele.
           </span>
         </div>
       )}

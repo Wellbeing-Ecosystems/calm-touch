@@ -41,6 +41,12 @@ export const MONTHLY_REVERSED = [0, 1, 2]; // mentális terhelés, készenléti 
 export const MONTHLY_STATE_ITEMS = [0, 1, 2, 3, 10];
 /** Az alkalmak értékelése a havi kérdőívben: közvetlen hatás … folytatási igény. */
 export const MONTHLY_VALUE_ITEMS = [4, 5, 6, 7, 8, 9];
+/**
+ * A szakember értékeléséhez csak azok az állítások számítanak, amelyekre a szakembernek hatása van:
+ * közvetlen hatás, fókusz, testtudatosság, folytatási igény. A gondoskodó kultúra (7.) és a szervezés (8.)
+ * a céget minősíti, ezért a szakember értékelésében nem szerepel.
+ */
+export const PRACTITIONER_VALUE_ITEMS = [4, 5, 6, 9];
 
 /** A riportban pozitív irányú elnevezések (10 = legjobb). */
 export const SNAPSHOT_ITEMS = ["Feszültségmentesség", "Nyugalom", "Gondolati nyugalom", "Mentális frissesség", "Energia", "Testi ellazultság"];
@@ -224,7 +230,7 @@ export function buildPractitionerStats(snaps: Snapshot[], monthly: Monthly[], na
       improvedPct: deltas.length ? Math.round((100 * deltas.filter((d) => d > 0).length) / deltas.length) : null,
       comfort: avg(posts.map((x) => x.comfort).filter((x): x is number => x != null)),
       nps: recs.length ? Math.round((100 * (recs.filter((r) => r >= 9).length - recs.filter((r) => r <= 6).length)) / recs.length) : null,
-      value: avg(m.map((x) => avg(MONTHLY_VALUE_ITEMS.map((i) => x.answers[i]))!)),
+      value: avg(m.map((x) => avg(PRACTITIONER_VALUE_ITEMS.map((i) => x.answers[i]))!)),
       monthlyCount: m.length,
       responses: pairs.length,
     });
