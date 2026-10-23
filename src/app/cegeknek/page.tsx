@@ -100,7 +100,8 @@ export default function CegeknekPage() {
 <div style={{"background": "#3F6E8C", "color": "#FFFFFF", "borderRadius": "18px", "padding": "26px", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "18px", "fontWeight": "800", "color": "#2C5069", "background": "#FFFFFF", "borderRadius": "999px", "padding": "3px 16px"}}>Pulse+</span>
 <b style={{"fontSize": "19px"}}>Kiegészítő műszeres állapotfelmérés</b>
-<span style={{"color": "#F2F6F9"}}>Egyszeri élettani állapotfelmérés a kérdőívek mellé: szívritmus-variabilitás (HRV) és EEG mérés, így a megélt állapot mellett a szervezet stresszterhelése is látható. Ára egyedi ajánlat alapján: [PULSE+ ÁR].</span>
+<span style={{"color": "#F2F6F9"}}>Egyszeri műszeres állapotfelmérés a kérdőívek mellé: agyi aktivitás (qEEG), szívritmus-variabilitás (HRV) és kognitív teszt, így a megélt állapot mellett az idegrendszer terhelése is látható. Ára egyedi ajánlat alapján: [PULSE+ ÁR].</span>
+<a href="/calm-touch/pulse-plus" style={{"alignSelf": "flex-start", "color": "#FFFFFF", "fontWeight": "700"}}>A Pulse+ részletei <span className="ct-arrow">→</span></a>
 </div>
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "20px"}}>
