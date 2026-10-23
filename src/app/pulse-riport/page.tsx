@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function PulseRiportPage() {
   return (
 <div style={{"fontFamily": "var(--ct-text)", "color": "#2E3631", "background": "#FAF6F1", "lineHeight": "1.5", "fontSize": "16px"}}>
-<div style={{"maxWidth": "1180px", "margin": "0 auto", "padding": "40px 24px 64px", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
+<div style={{"maxWidth": "1180px", "margin": "0 auto", "padding": "clamp(28px, 4vw, 40px) 20px clamp(48px, 6vw, 64px)", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
 <div style={{"display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "alignItems": "flex-end", "gap": "16px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}>
 <span style={{"alignSelf": "flex-start", "fontSize": "12px", "letterSpacing": "0.2em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE · HAVI RIPORT</span>

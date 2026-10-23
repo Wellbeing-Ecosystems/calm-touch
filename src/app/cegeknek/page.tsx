@@ -13,19 +13,19 @@ export default function CegeknekPage() {
 <header style={{"borderBottom": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "padding": "18px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="/calm-touch" style={{"textDecoration": "none", "display": "flex", "flexDirection": "column"}}>
-<img src="/calm-touch/brand/logo-fekvo.webp" alt="Calm Touch – Stresszoldás érintéssel" style={{"display": "block", "height": "56px", "width": "auto", "maxWidth": "100%"}} />
+<img className="ct-logo" src="/calm-touch/brand/logo-fekvo.webp" alt="Calm Touch – Stresszoldás érintéssel" style={{"display": "block", "height": "56px", "width": "auto", "maxWidth": "100%"}} />
 </a>
-<nav aria-label="Fő navigáció" style={{"display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "24px", "fontSize": "15px"}}>
+<nav aria-label="Fő navigáció" className="ct-nav" style={{"display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "24px", "fontSize": "15px"}}>
 <a href="/calm-touch" style={{"textDecoration": "none", "color": "#2E3631"}}>Főoldal</a>
 <a href="#pulse" style={{"textDecoration": "none", "color": "#3F6E8C"}}>Pulse riport</a>
 <a href="#csomagok" style={{"textDecoration": "none", "color": "#2E3631"}}>Csomagok</a>
 <a href="#gyik" style={{"textDecoration": "none", "color": "#2E3631"}}>GYIK</a>
-<a href="#ajanlat" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
+<a href="#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
 </nav>
 </div>
 </header>
-<section style={{"padding": "72px 24px 80px"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "48px", "alignItems": "end"}}>
+<section style={{"padding": "clamp(48px, 5.0vw, 72px) 20px clamp(48px, 5.6vw, 80px)"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "22px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#55665A", "fontWeight": "500"}}>HR-NEK ÉS VEZETŐKNEK</span>
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 4.5vw, 58px)", "lineHeight": "1.04", "textWrap": "balance"}}>Mérhető mentális felfrissülés a munkanapon belül.</h1>
@@ -35,7 +35,7 @@ export default function CegeknekPage() {
 <a href="/calm-touch/pulse-riport" style={{"textDecoration": "none", "color": "#55665A", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "500", "border": "1px solid #55665A", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Példa Pulse riport</a>
 </div>
 </div>
-<div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "28px", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
+<div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "clamp(20px, 3vw, 28px)", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="HR-vezető és wellbeing szakember kötetlenül beszélget egy tárgyalóban, laptop és bögrék mellett." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "14px"}} />
 <b style={{"fontSize": "18px"}}>Miért most?</b>
 <span style={{"color": "#3B443E"}}>Az európai dolgozók 29%-a számol be stresszről, depresszióról vagy szorongásról; több mint 40%-uk súlyos időnyomás alatt dolgozik. A magyarok a munkahelyi feszültséget tartják egészségtelen szokásaik fő okozójának.</span>
@@ -44,7 +44,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="pulse" style={{"padding": "88px 24px", "background": "#2C5069", "color": "#FFFFFF"}}>
+<section id="pulse" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#2C5069", "color": "#FFFFFF"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px", "maxWidth": "50rem"}}>
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.18em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE</span>
@@ -111,7 +111,7 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "14px", "color": "#E6EAE4"}}>A küszöbértékek kiinduló javaslatok; az első három hónap adatai alapján finomítjuk őket. A riport kimondja korlátait is: az önkéntes résztvevők állapotát mutatja, nem az egész szervezetét.</span>
 </div>
 </section>
-<section style={{"padding": "88px 24px"}}>
+<section style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "40px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>A MÉRÉS SZABÁLYAI</span>
@@ -124,7 +124,7 @@ export default function CegeknekPage() {
 </ul>
 <a href="/calm-touch/folyamat" style={{"alignSelf": "flex-start", "color": "#55665A", "fontWeight": "500"}}>A teljes folyamat ábrán <span className="ct-arrow">→</span></a>
 </div>
-<div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "28px", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
+<div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "clamp(20px, 3vw, 28px)", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <b style={{"fontSize": "18px"}}>Amit kap</b>
 <ul style={{"margin": "0", "paddingLeft": "20px", "display": "flex", "flexDirection": "column", "gap": "10px", "color": "#3B443E"}}>
 <li>Havi Calm-Touch Pulse riport: a csapat aktuális terhelése, az alkalmak hatása és a havi trend, zöld–sárga–piros jelzéssel.</li>
@@ -139,7 +139,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="csomagok" style={{"padding": "88px 24px", "background": "#FFFFFF"}}>
+<section id="csomagok" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#FFFFFF"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "32px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>CSOMAGOK</span>
@@ -198,7 +198,7 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Bevezető nettó árak. Résztvevőszám 15–20 perces alkalmakkal, egy szakemberrel. Számlázás cégre, alkalmanként.</span>
 </div>
 </section>
-<section id="gyik" style={{"padding": "88px 24px"}}>
+<section id="gyik" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
 <div style={{"maxWidth": "860px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>Gyakori kérdések</h2>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "12px"}}>
@@ -212,7 +212,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="ajanlat" style={{"padding": "88px 24px", "background": "#F4E3E4"}}>
+<section id="ajanlat" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#F4E3E4"}}>
 <div style={{"maxWidth": "860px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>Kérjen pilot ajánlatot</h2>
@@ -221,7 +221,7 @@ export default function CegeknekPage() {
 <OfferForm />
 </div>
 </section>
-<footer style={{"padding": "32px 24px", "borderTop": "1px solid #EADFD2"}}>
+<footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
 <span>Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft. · [NÉV] · [E-MAIL] · [TELEFONSZÁM]</span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
