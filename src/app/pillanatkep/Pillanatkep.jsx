@@ -4,6 +4,7 @@ import { Component, Fragment } from "react";
 import { PRIVACY_URL } from "../config";
 import {
   pulseLive, readOccasionSlug, loadOccasion, submitSnapshot, monthlyDone, rememberParticipant,
+  savePre, loadPre, clearPre,
 } from "@/lib/pulse-client";
 
 const ERR = "Most nem sikerült elmenteni. Ellenőrizd a kapcsolatot, és próbáld újra.";
@@ -12,7 +13,7 @@ export default class Pillanatkep extends Component {
   constructor(props) {
     super(props);
     this.state = { step: 'kod', code: '', pre: [5, 5, 5, 5, 5, 5], post: [5, 5, 5, 5, 5, 5], u1: 0, u2: 5, u3: '', skipped: false,
-      mode: pulseLive ? 'loading' : 'demo', slug: null, occasion: null, team: '', consent: false, busy: false, error: '', monthly: null };
+      mode: pulseLive ? 'loading' : 'demo', slug: null, occasion: null, team: '', consent: false, busy: false, error: '', monthly: null, hasPre: true, resumed: false };
   }
 
   async componentDidMount() {
@@ -21,7 +22,11 @@ export default class Pillanatkep extends Component {
     if (!slug) { this.setState({ mode: 'demo' }); return; }
     try {
       const occasion = await loadOccasion(slug);
-      this.setState(occasion ? { mode: 'live', slug, occasion } : { mode: 'invalid', slug });
+      if (!occasion) { this.setState({ mode: 'invalid', slug }); return; }
+      const saved = loadPre(slug);
+      this.setState(saved
+        ? { mode: 'live', slug, occasion, code: saved.code, team: saved.team ?? '', consent: true, pre: saved.pre, step: 'alkalom', resumed: true }
+        : { mode: 'live', slug, occasion });
     } catch {
       this.setState({ mode: 'invalid', slug });
     }
@@ -42,7 +47,7 @@ export default class Pillanatkep extends Component {
       this.setState({ busy: false });
       if (res === 'duplicate') {
         this.setState({ error: phase === 'pre'
-          ? 'Ezzel a kóddal erre az alkalomra már küldtek be előtte-pillanatképet. Ha nem te voltál, lépj vissza, és válassz másik kódot.'
+          ? 'Ezzel a kóddal erre az alkalomra már beküldték az előtte-kérdéseket. Ha te voltál (például újratöltődött az oldal), lépj tovább az utána-kérdésekre. Ha nem, válassz másik kódot.'
           : 'Ezzel a kóddal erre az alkalomra már beküldték az utána-pillanatképet.' });
       }
       return res;
@@ -63,7 +68,8 @@ export default class Pillanatkep extends Component {
       'Mennyire érzel most feszülést a fejed, vállad vagy karod körül?'
     ];
     // Eredmény: minden sor 10 = legjobb; a negatív kérdéseknél fordított pontozás (11 − válasz).
-    const SHORT = ['Feszültségmentesség', 'Nyugalom', 'Gondolati nyugalom', 'Mentális frissesség', 'Energia', 'Testi ellazultság'];
+    // Az eredményképernyő a kitöltő saját válaszait mutatja (ahogy a kérdés szólt); a riport a 10 = legjobb pontokat használja.
+    const RAW = ['Feszültség', 'Nyugalom', 'Pörgő gondolatok', 'Mentális fáradtság', 'Energia, frissesség', 'Testi feszülés'];
     const REVERSED = [0, 2, 3, 5];
     const score = (a) => a.map((x, i) => (REVERSED.includes(i) ? 11 - x : x));
     const fmt = (v) => v.toFixed(1).replace('.', ',');
@@ -95,17 +101,28 @@ export default class Pillanatkep extends Component {
       codeInvalid: s.code.length !== 4 || (live && !s.consent) || s.mode === 'loading' || s.mode === 'invalid',
       setCode: (e) => this.setState({ code: e.target.value.replace(/\D/g, '').slice(0, 4) }),
       toElotte: () => { rememberParticipant(s.code, s.team || null); this.setState({ step: 'elotte', error: '' }); },
-      toAlkalom: async () => { if ((await this.save('pre')) === 'ok') this.setState({ step: 'alkalom' }); },
+      toAlkalom: async () => {
+        if ((await this.save('pre')) !== 'ok') return;
+        if (live) savePre(s.slug, s.code, s.team || null, s.pre);
+        this.setState({ step: 'alkalom', hasPre: true });
+      },
+      toUtanaNoPre: () => {
+        const saved = live ? loadPre(s.slug) : null;
+        this.setState(saved && saved.code === s.code
+          ? { step: 'utana', error: '', pre: saved.pre, hasPre: true }
+          : { step: 'utana', error: '', hasPre: false });
+      },
       toUtana: () => this.setState({ step: 'utana' }),
       toEredmeny: async () => {
         const res = await this.save('post');
         if (res === 'error') return;
+        if (live) clearPre(s.slug);
         let monthly = null;
         if (live) { try { monthly = await monthlyDone(s.slug, s.code); } catch { monthly = true; } }
         this.setState({ step: 'eredmeny', monthly, error: res === 'duplicate' ? '' : this.state.error });
       },
       backToKod: () => this.setState({ step: 'kod', error: '' }),
-      restart: () => this.setState({ step: 'kod', error: '', monthly: null, consent: false, pre: [5, 5, 5, 5, 5, 5], post: [5, 5, 5, 5, 5, 5], u1: 0, u2: 5, u3: '', skipped: false }),
+      restart: () => this.setState({ step: 'kod', error: '', monthly: null, hasPre: true, resumed: false, consent: false, pre: [5, 5, 5, 5, 5, 5], post: [5, 5, 5, 5, 5, 5], u1: 0, u2: 5, u3: '', skipped: false }),
       preItems: items('pre'),
       postItems: items('post'),
       u1Options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({ n, selected: s.u1 === n, notSelected: s.u1 !== n, pick: () => this.setState({ u1: n }) })),
@@ -115,7 +132,16 @@ export default class Pillanatkep extends Component {
       setU3: (e) => this.setState({ u3: e.target.value }),
       tPre: fmt(tPre), tPost: fmt(tPost), tDelta: delta(tPost - tPre) + ' pont',
       rPre: fmt(rPre), rPost: fmt(rPost), rDelta: delta(rPost - rPre) + ' pont',
-      rows: SHORT.map((short, i) => { const a = score(s.pre)[i], b = score(s.post)[i]; return { short, pre: a, post: b, prePct: a * 10, postPct: b * 10 }; }),
+      rows: RAW.map((label, i) => {
+        const neg = REVERSED.includes(i), a = s.pre[i], b = s.post[i];
+        return { label, pre: a, post: b, prePct: a * 10, postPct: b * 10,
+          num: neg ? '#7E3A4A' : '#5C6830', preBar: neg ? '#E3B5BF' : '#C9D1AE', postBar: neg ? '#A65D6B' : '#5C6830' };
+      }),
+      postRows: RAW.map((label, i) => ({ label, post: s.post[i] })),
+      hasPre: s.hasPre,
+      noPre: !s.hasPre,
+      resumed: s.resumed,
+      tPostOnly: fmt(tPost),
       offerHavi: first && !s.skipped,
       skipped: first && s.skipped,
       alreadyDone: !first,
@@ -191,10 +217,12 @@ export default class Pillanatkep extends Component {
 </div>
 </Fragment>))}
 <button type="button" onClick={v.toAlkalom} disabled={v.busy} style={{"minHeight": "52px", "border": "none", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "font": "inherit", "fontWeight": "500", "cursor": "pointer"}}>Kész, kezdhetjük</button>
+{v.error && (<button type="button" onClick={v.toUtanaNoPre} style={{"minHeight": "44px", "border": "1px solid #3F6E8C", "borderRadius": "999px", "background": "#DDE8EF", "color": "#2C5069", "font": "inherit", "fontWeight": "600", "cursor": "pointer"}}>Én voltam – tovább az utána-kérdésekre</button>)}
 {v.error && (<button type="button" onClick={v.backToKod} style={{"minHeight": "44px", "border": "1px solid #A9C1D1", "borderRadius": "999px", "background": "transparent", "color": "#2C5069", "font": "inherit", "cursor": "pointer"}}>Másik kódot választok</button>)}
 </div>
 </>)}
 {v.isAlkalom && (<>
+{v.resumed && (<p style={{"margin": "0", "background": "#DDE8EF", "color": "#2C5069", "borderRadius": "12px", "padding": "10px 14px", "fontSize": "14px"}}>Visszatöltöttük az előtte-válaszaidat, folytathatod onnan, ahol abbahagytad.</p>)}
 <div style={{"minHeight": "620px", "display": "flex", "flexDirection": "column", "justifyContent": "center", "alignItems": "center", "gap": "20px", "textAlign": "center"}}>
 <span style={{"color": "#55665A", "display": "flex"}}><svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true" style={{"fill": "none", "stroke": "currentColor", "strokeWidth": "1.2", "strokeLinecap": "round", "strokeLinejoin": "round"}}><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z" /><path d="M5 19l7-7" /></svg></span>
 <h2 style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontSize": "34px", "fontWeight": "600", "lineHeight": "1.1"}}>Most csak ülj le, és engedd el.</h2>
@@ -244,8 +272,8 @@ export default class Pillanatkep extends Component {
 </>)}
 {v.isEredmeny && (<>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "18px"}}>
-<h2 style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "600", "lineHeight": "1.1"}}>Ez változott 20 perc alatt</h2>
-<div style={{"display": "grid", "gridTemplateColumns": "repeat(2, minmax(0, 1fr))", "gap": "12px"}}>
+<h2 style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "600", "lineHeight": "1.1"}}>{v.hasPre ? 'Ez változott 20 perc alatt' : 'Köszönjük!'}</h2>
+{v.hasPre && (<div style={{"display": "grid", "gridTemplateColumns": "repeat(2, minmax(0, 1fr))", "gap": "12px"}}>
 <div style={{"background": "#2C5069", "color": "#FFFFFF", "borderRadius": "14px", "padding": "16px", "display": "flex", "flexDirection": "column", "gap": "4px"}}>
 <span style={{"fontSize": "13px", "color": "#DDE8EF"}}>Jóllét-index</span>
 <span style={{"fontSize": "22px", "fontWeight": "600"}}>{v.tPre} <span className="ct-arrow">→</span> {v.tPost}</span>
@@ -256,17 +284,27 @@ export default class Pillanatkep extends Component {
 <span style={{"fontSize": "22px", "fontWeight": "600"}}>{v.rPre} <span className="ct-arrow">→</span> {v.rPost}</span>
 <span style={{"fontSize": "14px", "color": "#7E3A4A"}}>{v.rDelta}</span>
 </div>
+</div>)}
+{v.hasPre && (<div style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "16px", "display": "flex", "flexDirection": "column", "gap": "16px"}}>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "6px"}}>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "20px"}}>Hogy érzem magam?</b>
+<div style={{"background": "#DDE8EF", "borderRadius": "10px", "padding": "6px 10px", "display": "flex", "justifyContent": "space-between", "gap": "8px", "fontSize": "12px", "color": "#2C5069"}}><span>1 = nem jellemző</span><span>10 = teljes mértékben</span></div>
+<div style={{"display": "flex", "justifyContent": "flex-end", "gap": "14px", "fontSize": "12px", "color": "#5E6A62"}}><span style={{"display": "inline-flex", "alignItems": "center", "gap": "6px"}}><span style={{"width": "8px", "height": "8px", "borderRadius": "4px", "background": "#D3D5C8"}}></span>Előtte (világos)</span><span style={{"display": "inline-flex", "alignItems": "center", "gap": "6px"}}><span style={{"width": "8px", "height": "8px", "borderRadius": "4px", "background": "#5E6A62"}}></span>Utána (sötét)</span></div>
 </div>
-<div style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "16px", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
 {v.rows.map((r, r_i) => (<Fragment key={r_i}>
-<div style={{"display": "flex", "flexDirection": "column", "gap": "5px"}}>
-<div style={{"display": "flex", "justifyContent": "space-between", "gap": "8px", "fontSize": "14px"}}><span>{r.short}</span><b>{r.pre} <span className="ct-arrow">→</span> {r.post}</b></div>
-<div style={{"height": "6px", "background": "#EEF3F6", "borderRadius": "3px"}}><div style={{"height": "6px", "background": "#A9C1D1", "borderRadius": "3px", "width": `${r.prePct}%`}}></div></div>
-<div style={{"height": "6px", "background": "#EEF3F6", "borderRadius": "3px"}}><div style={{"height": "6px", "background": "#3F6E8C", "borderRadius": "3px", "width": `${r.postPct}%`}}></div></div>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "6px"}}>
+<div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "baseline", "gap": "8px"}}><span style={{"fontWeight": "600"}}>{r.label}</span><b style={{"fontFamily": "var(--ct-display)", "fontSize": "22px", "color": r.num}}>{r.pre} <span className="ct-arrow">→</span> {r.post}</b></div>
+<div style={{"height": "8px", "background": "#EEEDE4", "borderRadius": "4px"}}><div style={{"height": "8px", "background": r.preBar, "borderRadius": "4px", "width": `${r.prePct}%`}}></div></div>
+<div style={{"height": "8px", "background": "#EEEDE4", "borderRadius": "4px"}}><div style={{"height": "8px", "background": r.postBar, "borderRadius": "4px", "width": `${r.postPct}%`}}></div></div>
 </div>
 </Fragment>))}
-<div style={{"display": "flex", "gap": "16px", "fontSize": "12px", "color": "#5E6A62"}}><span style={{"display": "inline-flex", "alignItems": "center", "gap": "6px"}}><span style={{"width": "14px", "height": "6px", "background": "#A9C1D1", "borderRadius": "3px"}}></span>előtte</span><span style={{"display": "inline-flex", "alignItems": "center", "gap": "6px"}}><span style={{"width": "14px", "height": "6px", "background": "#3F6E8C", "borderRadius": "3px"}}></span>utána</span><span>· 10 = a legjobb állapot</span></div>
-</div>
+<span style={{"fontSize": "12px", "color": "#5E6A62"}}>A saját válaszaid. Bordó sorokban (feszültség, pörgő gondolatok, fáradtság, testi feszülés) a kisebb érték a jobb, zöld sorokban a nagyobb.</span>
+</div>)}
+{v.noPre && (<div style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "16px", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
+<b>Köszönjük, az utána-válaszaidat rögzítettük.</b>
+<span style={{"color": "#3B443E", "fontSize": "14px"}}>Az előtte-válaszaid ezen a telefonon már nem érhetők el, ezért itt nem tudjuk összevetni őket. A rendszerben a kódod alapján összepárosítjuk, így bekerülnek a csoport eredményébe.</span>
+{v.postRows.map((r, r_i) => (<Fragment key={r_i}><div style={{"display": "flex", "justifyContent": "space-between", "fontSize": "14px"}}><span>{r.label}</span><b>{r.post}</b></div></Fragment>))}
+</div>)}
 {v.offerHavi && (<>
 <div style={{"background": "#F4E3E4", "borderRadius": "14px", "padding": "18px", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <b>Ez a hónap első alkalma.</b>
@@ -281,7 +319,7 @@ export default class Pillanatkep extends Component {
 {v.alreadyDone && (<>
 <div style={{"background": "#E9EBD6", "borderRadius": "14px", "padding": "18px", "color": "#2E3631"}}>Ebben a hónapban már kitöltötted a havi kérdőívet – köszönjük! Legközelebb a következő hónap első alkalma után kérjük.</div>
 </>)}
-<button type="button" onClick={v.restart} style={{"minHeight": "44px", "border": "1px solid #A9B39A", "borderRadius": "999px", "background": "transparent", "color": "#55665A", "font": "inherit", "cursor": "pointer"}}>Új pillanatkép (demó)</button>
+{v.isDemo && (<button type="button" onClick={v.restart} style={{"minHeight": "44px", "border": "1px solid #A9B39A", "borderRadius": "999px", "background": "transparent", "color": "#55665A", "font": "inherit", "cursor": "pointer"}}>Új pillanatkép (demó)</button>)}
 </div>
 </>)}
 </div>

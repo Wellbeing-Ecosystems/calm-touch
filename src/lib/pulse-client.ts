@@ -111,3 +111,31 @@ export function recallParticipant(): { code: string; team: string | null } {
     return { code: "", team: null };
   }
 }
+
+/**
+ * Az előtte-válaszok helyben (a telefonon) megmaradnak az alkalom végéig, így ha a böngésző
+ * az alkalom alatt újratölti az oldalt, az utána-kérdések és az eredmény ugyanúgy működik.
+ * Csak ezen az eszközön tárolódik, 12 óra után vagy az utána-pillanatkép beküldésekor törlődik.
+ */
+type SavedPre = { code: string; team: string | null; pre: number[]; t: number };
+const preKey = (slug: string) => `ct-pre-${slug}`;
+export function savePre(slug: string, code: string, team: string | null, pre: number[]) {
+  try { localStorage.setItem(preKey(slug), JSON.stringify({ code, team, pre, t: Date.now() })); } catch {}
+}
+export function loadPre(slug: string): SavedPre | null {
+  try {
+    const raw = localStorage.getItem(preKey(slug));
+    if (!raw) return null;
+    const v = JSON.parse(raw) as SavedPre;
+    if (!v || !Array.isArray(v.pre) || v.pre.length !== 6 || Date.now() - v.t > 12 * 3600 * 1000) {
+      localStorage.removeItem(preKey(slug));
+      return null;
+    }
+    return v;
+  } catch {
+    return null;
+  }
+}
+export function clearPre(slug: string) {
+  try { localStorage.removeItem(preKey(slug)); } catch {}
+}
