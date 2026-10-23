@@ -40,9 +40,9 @@ export default function CalmTouchPage() {
 <img src="/calm-touch/images/01-kezdo-vallerintes.webp" alt="Lehunyt szemmel pihenő munkatárs; a szakember két keze gyengéden a ruhával fedett vállán nyugszik." style={{"position": "relative", "display": "block", "width": "100%", "maxWidth": "440px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
 <div style={{"position": "absolute", "left": "0", "bottom": "4px", "background": "#FFFFFF", "borderRadius": "24px", "padding": "18px 20px", "boxShadow": "0 12px 32px rgba(44, 80, 105, 0.16)", "width": "256px", "boxSizing": "border-box", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "baseline"}}><b style={{"fontSize": "15px", "color": "#2C5069"}}>Calm-Touch Pulse</b><span style={{"fontSize": "12px", "color": "#5E6A62"}}>példa · 1–10</span></div>
-<div style={{"display": "flex", "justifyContent": "space-between", "fontSize": "14px"}}><span>Feszültség</span><b style={{"color": "#7E3A4A"}}>7 → 3</b></div>
+<div style={{"display": "flex", "justifyContent": "space-between", "fontSize": "14px"}}><span>Feszültség</span><b style={{"color": "#7E3A4A"}}>7 <span className="ct-arrow">→</span> 3</b></div>
 <div style={{"height": "8px", "background": "#F4E3E4", "borderRadius": "4px"}}><div style={{"width": "30%", "height": "8px", "background": "#A65D6B", "borderRadius": "4px"}}></div></div>
-<div style={{"display": "flex", "justifyContent": "space-between", "fontSize": "14px"}}><span>Nyugalom</span><b style={{"color": "#5C6830"}}>3 → 7</b></div>
+<div style={{"display": "flex", "justifyContent": "space-between", "fontSize": "14px"}}><span>Nyugalom</span><b style={{"color": "#5C6830"}}>3 <span className="ct-arrow">→</span> 7</b></div>
 <div style={{"height": "8px", "background": "#E9EBD6", "borderRadius": "4px"}}><div style={{"width": "70%", "height": "8px", "background": "#6E7B3C", "borderRadius": "4px"}}></div></div>
 </div>
 </div>
@@ -263,7 +263,7 @@ export default function CalmTouchPage() {
 <span style={{"marginTop": "6px", "fontWeight": "700", "color": "#4E2530"}}>Bevezető nettó ár: 75 000 Ft</span>
 </div>
 </div>
-<a href="/calm-touch/cegeknek" style={{"alignSelf": "flex-start", "color": "#7E3A4A", "fontWeight": "700"}}>Megnézem a céges részleteket →</a>
+<a href="/calm-touch/cegeknek" style={{"alignSelf": "flex-start", "color": "#7E3A4A", "fontWeight": "700"}}>Megnézem a céges részleteket <span className="ct-arrow">→</span></a>
 </div>
 </section>
 <section style={{"padding": "84px 24px"}}>

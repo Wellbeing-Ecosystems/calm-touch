@@ -162,19 +162,19 @@ export default class Pillanatkep extends Component {
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(2, minmax(0, 1fr))", "gap": "12px"}}>
 <div style={{"background": "#2C5069", "color": "#FFFFFF", "borderRadius": "14px", "padding": "16px", "display": "flex", "flexDirection": "column", "gap": "4px"}}>
 <span style={{"fontSize": "13px", "color": "#DDE8EF"}}>Feszültségindex</span>
-<span style={{"fontSize": "22px", "fontWeight": "600"}}>{v.tPre} → {v.tPost}</span>
+<span style={{"fontSize": "22px", "fontWeight": "600"}}>{v.tPre} <span className="ct-arrow">→</span> {v.tPost}</span>
 <span style={{"fontSize": "14px", "color": "#DDE8EF"}}>{v.tDelta}</span>
 </div>
 <div style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "16px", "display": "flex", "flexDirection": "column", "gap": "4px"}}>
 <span style={{"fontSize": "13px", "color": "#5E6A62"}}>Feltöltődési index</span>
-<span style={{"fontSize": "22px", "fontWeight": "600"}}>{v.rPre} → {v.rPost}</span>
+<span style={{"fontSize": "22px", "fontWeight": "600"}}>{v.rPre} <span className="ct-arrow">→</span> {v.rPost}</span>
 <span style={{"fontSize": "14px", "color": "#7E3A4A"}}>{v.rDelta}</span>
 </div>
 </div>
 <div style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "16px", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
 {v.rows.map((r, r_i) => (<Fragment key={r_i}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "5px"}}>
-<div style={{"display": "flex", "justifyContent": "space-between", "gap": "8px", "fontSize": "14px"}}><span>{r.short}</span><b>{r.pre} → {r.post}</b></div>
+<div style={{"display": "flex", "justifyContent": "space-between", "gap": "8px", "fontSize": "14px"}}><span>{r.short}</span><b>{r.pre} <span className="ct-arrow">→</span> {r.post}</b></div>
 <div style={{"height": "6px", "background": "#EEF3F6", "borderRadius": "3px"}}><div style={{"height": "6px", "background": "#A9C1D1", "borderRadius": "3px", "width": `${r.prePct}%`}}></div></div>
 <div style={{"height": "6px", "background": "#EEF3F6", "borderRadius": "3px"}}><div style={{"height": "6px", "background": "#3F6E8C", "borderRadius": "3px", "width": `${r.postPct}%`}}></div></div>
 </div>

@@ -122,7 +122,7 @@ export default function CegeknekPage() {
 <li>Nincs név, e-mail vagy beosztás: a résztvevő saját 4 jegyű kódot választ.</li>
 <li>A cég csak legalább 5 fős csoportok összesített adatát látja. Megőrzés: 12 hónap, utána csak az összesített riport marad.</li>
 </ul>
-<a href="/calm-touch/folyamat" style={{"alignSelf": "flex-start", "color": "#55665A", "fontWeight": "500"}}>A teljes folyamat ábrán →</a>
+<a href="/calm-touch/folyamat" style={{"alignSelf": "flex-start", "color": "#55665A", "fontWeight": "500"}}>A teljes folyamat ábrán <span className="ct-arrow">→</span></a>
 </div>
 <div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "28px", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <b style={{"fontSize": "18px"}}>Amit kap</b>

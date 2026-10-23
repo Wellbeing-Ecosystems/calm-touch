@@ -4,3 +4,6 @@
 .ct-root a:hover{color:#4A5426}
 .ct-root a:focus-visible,.ct-root button:focus-visible,.ct-root summary:focus-visible,.ct-root input:focus-visible,.ct-root select:focus-visible,.ct-root textarea:focus-visible{outline:3px solid #3F6E8C;outline-offset:3px;border-radius:6px}
 .ct-root button:disabled{opacity:.55;cursor:not-allowed}
+
+/* A nyilak (→ ←) nincsenek a webes Nunito készletben: biztos rendszer-betűtípusra esnek vissza. */
+.ct-arrow{font-family:"Segoe UI Symbol","Segoe UI",Arial,"Helvetica Neue","DejaVu Sans","Noto Sans",sans-serif;font-weight:400}
