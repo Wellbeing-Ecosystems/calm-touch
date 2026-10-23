@@ -14,7 +14,9 @@ később saját domainre költözik.
 | `/calm-touch/pillanatkep?a=<alkalom>` | Pillanatkép előtte–utána (alkalom nélkül demó) |
 | `/calm-touch/havi-kerdoiv?a=<alkalom>` | 11 állításos havi kérdőív (alkalom nélkül demó) |
 | `/calm-touch/admin` | Admin: cégek, csapatok, alkalmak, QR-kódok (jelszóval védett) |
-| `/calm-touch/admin/riport` | Havi Pulse riport valódi adatokból (jelszóval védett) |
+| `/calm-touch/admin/riport` | Havi Pulse riport valódi adatokból (admin) |
+| `/calm-touch/admin/szakemberek` | Szakemberek értékelése (admin) |
+| `/calm-touch/admin/helyszin` | Helyszíni beállítás: cég + szakember → QR (admin és admin2) |
 
 A projekt `basePath: "/calm-touch"` beállítással fut (`next.config.ts`), a gyökér `/` ide irányít.
 
@@ -25,7 +27,7 @@ A projekt `basePath: "/calm-touch"` beállítással fut (`next.config.ts`), a gy
 - `supabase/migrations/` – az adatbázis séma (Calm-Touch Pulse). Beállítás: `docs/supabase-beallitas.md`.
 - `src/lib/pulse-client.ts` – a kérdőívek beküldése (böngésző, publishable kulcs).
 - `src/lib/pulse-server.ts`, `src/lib/pulse-metrics.ts` – admin és riportszámítás (szerver, secret kulcs).
-- `src/proxy.ts` – az admin felület jelszavas védelme (`ADMIN_PASSWORD`).
+- `src/proxy.ts`, `src/lib/admin-auth.ts` – az admin felület jelszavas védelme két szerepkörrel (`ADMIN_PASSWORD`, `ADMIN2_PASSWORD`).
 - `public/images/` – fotók és illusztrációk (WebP), `og-1200x630.jpg` megosztási kép.
 - `public/brand/` – logók, favicon, apple-touch-icon.
 - `docs/arculat/logokeszlet/` – a teljes logókészlet (nyers anyag).

@@ -125,7 +125,7 @@ export default class Pillanatkep extends Component {
       live,
       busy: s.busy,
       error: s.error,
-      company: s.occasion ? [s.occasion.company, s.occasion.label].filter(Boolean).join(' · ') : '',
+      company: s.occasion ? [s.occasion.company, s.occasion.label, s.occasion.practitioner && `Szakember: ${s.occasion.practitioner}`].filter(Boolean).join(' · ') : '',
       teams: s.occasion ? s.occasion.teams : [],
       hasTeams: Boolean(s.occasion && s.occasion.teams.length),
       team: s.team,

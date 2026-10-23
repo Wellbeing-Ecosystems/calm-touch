@@ -9,7 +9,9 @@ admin felületen elkészül a havi riport. Amíg nincs beállítva, a kérdőív
 2. **New project**
    - **Name:** `calm-touch`
    - **Database password:** erős jelszó – mentsd el egy jelszókezelőbe.
-   - **Region:** **Central EU (Frankfurt)** – az adatok így az EU-ban maradnak.
+   - **Region:** **Need a specific region?** → **Central EU (Frankfurt)** – az adatok így az EU-ban maradnak.
+   - **Security:** *Enable Data API* bekapcsolva; *Automatically expose new tables* **kikapcsolva**;
+     *Enable automatic RLS* bekapcsolva (ha van ilyen sor). Az SQL-fájl minden szükséges jogot kifejezetten megad.
    - Csomag: a **Free** az induláshoz elég.
 3. Várd meg, amíg a projekt elkészül (1–2 perc).
 
@@ -43,19 +45,38 @@ Vercel → **calm-touch** projekt → **Settings → Environment Variables**. Ad
 | `SUPABASE_SECRET_KEY` | a secret key |
 | `ADMIN_PASSWORD` | az admin felület jelszava (legalább 12 karakter) |
 | `ADMIN_USER` | *(nem kötelező)* felhasználónév, alapból `admin` |
+| `ADMIN2_PASSWORD` | a helyszíni hozzáférés jelszava (admin2) – csak a helyszíni beállítást látja |
+| `ADMIN2_USER` | *(nem kötelező)* felhasználónév, alapból `admin2` |
 | `PULSE_LINK_BASE` | *(nem kötelező)* a QR-linkek alapcíme, pl. `https://pszichoszoc.hu` |
 
 Utána **Deployments** → a legfelső sor **⋯** menüje → **Redeploy**. A változók csak új deploy után élnek.
 
 ## 5. Használat
 
+### Hozzáférések
+- **admin** – minden: cégek, alkalmak, szakemberek, havi riport, szakemberek értékelése.
+- **admin2** – csak a **Helyszíni beállítás** (`…/calm-touch/admin/helyszin`): cég és szakember kiválasztása
+  vagy felvétele, QR-kód megjelenítése. Riportot és értékelést nem lát (a szakemberek nem látják egymás eredményét).
+
+### Helyszínen, a program előtt (admin vagy admin2)
+1. Telefonon: `…/calm-touch/admin/helyszin`.
+2. Cég (választás vagy új név) + szakember (választás vagy új név) → **QR-kód megjelenítése**.
+   Ha a cégnek ma még nincs alkalma, a rendszer létrehozza; ha van, ahhoz kapcsolódik.
+3. A résztvevők a szakember saját QR-kódját olvassák be. Csere vagy újabb szakember: ugyanezen az oldalon
+   **Szakembercsere vagy újabb szakember ugyanitt** → saját QR-kód. A válasz mindig annak a szakembernek
+   számít, akinek a kódján érkezett.
+
+### Előre tervezve (admin)
 - **Admin:** `…/calm-touch/admin` – a böngésző kéri a felhasználónevet és jelszót.
-  - **Új cég** (csapatokkal, ha kell) → **Új alkalom** → megjelenik a QR-kód, letölthető PNG-ben.
+  - **Új cég** (csapatokkal, ha kell) → **Új alkalom** (első szakemberrel) → szakemberenként saját QR-kód, letölthető PNG-ben.
+  - Alkalmanként további szakember adható hozzá; az „Általános” QR-kódon érkező válasz nem köthető szakemberhez.
   - A QR-kódot ki lehet nyomtatni az asztali táblára; a résztvevő ezzel nyitja meg a pillanatképet.
   - Az alkalom végén **Alkalom lezárása** – utána a link már nem fogad választ.
 - **Riport:** `…/calm-touch/admin/riport` – cég és hónap kiválasztása, **Nyomtatás / PDF** gombbal menthető.
   - 5 fő alatt figyelmeztetés jelenik meg: a cég felé ilyenkor nem adható ki.
   - Csapat csak legalább 5 főnél jelenik meg külön.
+- **Szakemberek értékelése:** `…/calm-touch/admin/szakemberek` – hónap vagy 3/12 hónap, az összes cégen át:
+  hatás (jóllét-index változása), komfort, ajánlási mutató, alkalmak havi értékelése. Csak admin látja.
 
 ## Hogyan működik a védelem
 
@@ -63,7 +84,8 @@ Utána **Deployments** → a legfelső sor **⋯** menüje → **Redeploy**. A v
   sorszintű védelem (RLS) van. Beküldeni csak ellenőrző adatbázis-függvényeken át lehet
   (érvényes alkalom, 4 jegyű kód, 1–10 közötti értékek, hozzájárulás, alkalmanként/havonta egyszer).
 - Az admin felület jelszóval védett, és szerveroldalon, a secret kulccsal olvas.
-- Tárolt adatok: a résztvevő saját 4 jegyű kódja, opcionálisan a csapata, a válaszok és az időpont.
+- Tárolt adatok: a résztvevő saját 4 jegyű kódja, opcionálisan a csapata, a válaszok, az időpont, és hogy melyik
+  szakember kódján érkezett.
   Név, e-mail, beosztás nincs.
 
 ## Később: HR-hozzáférés

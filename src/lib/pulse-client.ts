@@ -22,6 +22,7 @@ export type OccasionInfo = {
   company: string;
   label: string | null;
   date: string;
+  practitioner: string | null;
   teams: { id: string; name: string }[];
 };
 

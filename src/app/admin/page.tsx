@@ -1,56 +1,50 @@
-import { headers } from "next/headers";
-import QRCode from "qrcode";
+import Link from "next/link";
 import { adminDb, adminDbConfigured } from "@/lib/pulse-server";
-import { addTeams, createCompany, createOccasion, setOccasionActive } from "./actions";
-import { H1, H2, SetupNotice, button, card, ghost, input, label } from "./ui";
+import { addStation, addTeams, createCompany, createOccasion, createPractitioner, setOccasionActive, setPractitionerActive } from "./actions";
+import { codeLinks, linkBase } from "./qr";
+import { H1, H2, Notice, SetupNotice, button, card, ghost, input, label } from "./ui";
 
 export const dynamic = "force-dynamic";
 
-type Company = {
-  id: string;
-  name: string;
-  ct_teams: { id: string; name: string }[];
-  ct_occasions: { id: string; slug: string; label: string | null; occasion_date: string; active: boolean }[];
-};
-
-/** A QR-linkek alapcíme: PULSE_LINK_BASE, különben az aktuális kérés domainje. */
-async function linkBase() {
-  if (process.env.PULSE_LINK_BASE) return process.env.PULSE_LINK_BASE.replace(/\/$/, "");
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
-}
+type Station = { id: string; slug: string; practitioner_id: string };
+type Occasion = { id: string; slug: string; label: string | null; occasion_date: string; active: boolean; ct_stations: Station[] };
+type Company = { id: string; name: string; ct_teams: { id: string; name: string }[]; ct_occasions: Occasion[] };
+type Practitioner = { id: string; name: string; active: boolean };
 
 export default async function AdminPage() {
   if (!adminDbConfigured) {
-    return (
-      <>
-        <H1>Cégek és alkalmak</H1>
-        <SetupNotice />
-      </>
-    );
+    return (<><H1>Cégek és alkalmak</H1><SetupNotice /></>);
   }
-
-  const { data, error } = await adminDb()
-    .from("ct_companies")
-    .select("id, name, ct_teams(id, name), ct_occasions(id, slug, label, occasion_date, active)")
-    .order("name");
-  if (error) throw error;
-  const companies = (data ?? []) as Company[];
+  const db = adminDb();
+  const [cRes, pRes] = await Promise.all([
+    db.from("ct_companies")
+      .select("id, name, ct_teams(id, name), ct_occasions(id, slug, label, occasion_date, active, ct_stations(id, slug, practitioner_id))")
+      .order("name"),
+    db.from("ct_practitioners").select("id, name, active").order("name"),
+  ]);
+  if (cRes.error) throw cRes.error;
+  if (pRes.error) throw pRes.error;
+  const companies = (cRes.data ?? []) as Company[];
+  const practitioners = (pRes.data ?? []) as Practitioner[];
+  const activePractitioners = practitioners.filter((p) => p.active);
+  const pName = new Map(practitioners.map((p) => [p.id, p.name]));
   const base = await linkBase();
 
-  const occasionsWithQr = await Promise.all(
+  const view = await Promise.all(
     companies.map(async (c) => ({
       ...c,
       occasions: await Promise.all(
         [...c.ct_occasions]
           .sort((a, b) => b.occasion_date.localeCompare(a.occasion_date))
-          .map(async (o) => {
-            const snapUrl = `${base}/calm-touch/pillanatkep?a=${o.slug}`;
-            const qr = await QRCode.toDataURL(snapUrl, { margin: 1, width: 360, color: { dark: "#2C5069", light: "#FFFFFF" } });
-            return { ...o, snapUrl, monthlyUrl: `${base}/calm-touch/havi-kerdoiv?a=${o.slug}`, qr };
-          }),
+          .map(async (o) => ({
+            ...o,
+            general: await codeLinks(base, o.slug, 240),
+            stations: await Promise.all(
+              [...o.ct_stations]
+                .sort((a, b) => (pName.get(a.practitioner_id) ?? "").localeCompare(pName.get(b.practitioner_id) ?? "", "hu"))
+                .map(async (s) => ({ ...s, name: pName.get(s.practitioner_id) ?? "–", ...(await codeLinks(base, s.slug, 240)) })),
+            ),
+          })),
       ),
     })),
   );
@@ -60,11 +54,12 @@ export default async function AdminPage() {
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         <H1>Cégek és alkalmak</H1>
         <p style={{ margin: 0, color: "#5E6A62" }}>
-          Minden alkalomhoz saját QR-kód tartozik. A résztvevő ezzel nyitja meg a pillanatképet; a válasz így a megfelelő céghez és alkalomhoz kerül.
+          Egy alkalmon több szakember is dolgozhat: mindegyikük saját QR-kódot kap, és a válasz annak a szakembernek számít, akinek a kódjával a résztvevő kitöltött.
+          A helyszínen, közvetlenül a program előtt a <Link href="/admin/helyszin">Helyszíni beállítás</Link> oldalon is beállítható.
         </p>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(340px, 100%), 1fr))", gap: "16px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", gap: "16px" }}>
         <form action={createCompany} style={card}>
           <H2>Új cég</H2>
           <label style={label}>Cégnév<input name="name" required style={input} /></label>
@@ -84,15 +79,43 @@ export default async function AdminPage() {
               {companies.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
           </label>
+          <label style={label}>
+            Első szakember <span style={{ fontWeight: 400, color: "#5E6A62" }}>(továbbiak később is hozzáadhatók)</span>
+            <select name="practitioner_id" style={input} defaultValue="">
+              <option value="">Később adom meg</option>
+              {activePractitioners.map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}
+            </select>
+          </label>
           <label style={label}>Dátum<input type="date" name="date" style={input} /></label>
           <label style={label}>Megnevezés <span style={{ fontWeight: 400, color: "#5E6A62" }}>(pl. „Okt. 23. délelőtt”)</span><input name="label" style={input} /></label>
           <button type="submit" style={{ ...button, alignSelf: "flex-start" }} disabled={!companies.length}>Alkalom létrehozása</button>
         </form>
+
+        <section style={card}>
+          <H2>Szakemberek</H2>
+          <form action={createPractitioner} style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
+            <input name="name" required placeholder="Szakember neve" aria-label="Új szakember neve" style={{ ...input, flex: "1 1 180px" }} />
+            <button type="submit" style={ghost}>Felvétel</button>
+          </form>
+          {practitioners.length === 0 && <span style={{ color: "#5E6A62", fontSize: "14px" }}>Még nincs felvett szakember.</span>}
+          <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+            {practitioners.map((p) => (
+              <li key={p.id} style={{ display: "flex", alignItems: "center", gap: "8px", border: "1px solid #DDE8EF", borderRadius: "999px", padding: "4px 6px 4px 14px", opacity: p.active ? 1 : 0.6 }}>
+                <span style={{ fontWeight: 600 }}>{p.name}</span>
+                <form action={setPractitionerActive}>
+                  <input type="hidden" name="id" value={p.id} />
+                  <input type="hidden" name="active" value={p.active ? "false" : "true"} />
+                  <button type="submit" style={{ ...ghost, minHeight: "30px", fontSize: "13px" }}>{p.active ? "Inaktiválás" : "Aktiválás"}</button>
+                </form>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
 
-      {occasionsWithQr.length === 0 && <p style={{ color: "#5E6A62" }}>Még nincs felvett cég.</p>}
+      {view.length === 0 && <p style={{ color: "#5E6A62" }}>Még nincs felvett cég.</p>}
 
-      {occasionsWithQr.map((c) => (
+      {view.map((c) => (
         <section key={c.id} style={{ ...card, gap: "18px" }}>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "baseline", gap: "12px" }}>
             <H2>{c.name}</H2>
@@ -106,27 +129,51 @@ export default async function AdminPage() {
             <button type="submit" style={ghost}>Csapat hozzáadása</button>
           </form>
           {c.occasions.length === 0 && <p style={{ margin: 0, color: "#5E6A62" }}>Ehhez a céghez még nincs alkalom.</p>}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(300px, 100%), 1fr))", gap: "14px" }}>
-            {c.occasions.map((o) => (
-              <article key={o.id} style={{ border: "1px solid #DDE8EF", borderRadius: "14px", padding: "16px", display: "flex", flexDirection: "column", gap: "10px", opacity: o.active ? 1 : 0.6 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", gap: "8px", alignItems: "baseline" }}>
-                  <b>{o.occasion_date}{o.label ? ` · ${o.label}` : ""}</b>
+
+          {c.occasions.map((o) => (
+            <article key={o.id} style={{ border: "1px solid #DDE8EF", borderRadius: "14px", padding: "16px", display: "flex", flexDirection: "column", gap: "14px", opacity: o.active ? 1 : 0.6 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "8px", alignItems: "center" }}>
+                <b style={{ fontSize: "17px" }}>{o.occasion_date}{o.label ? ` · ${o.label}` : ""}</b>
+                <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
                   <span style={{ fontSize: "13px", color: o.active ? "#2F6B4A" : "#A63D32", fontWeight: 600 }}>{o.active ? "aktív" : "lezárva"}</span>
+                  <form action={setOccasionActive}>
+                    <input type="hidden" name="id" value={o.id} />
+                    <input type="hidden" name="active" value={o.active ? "false" : "true"} />
+                    <button type="submit" style={ghost}>{o.active ? "Alkalom lezárása" : "Újranyitás"}</button>
+                  </form>
                 </div>
-                <img src={o.qr} alt={`QR-kód: ${c.name}, ${o.occasion_date}`} style={{ width: "180px", height: "180px", alignSelf: "center" }} />
-                <a href={o.qr} download={`calm-touch-qr-${o.occasion_date}-${o.slug}.png`} style={{ alignSelf: "center", fontSize: "14px", color: "#2C5069" }}>QR-kód letöltése</a>
-                <div style={{ fontSize: "13px", wordBreak: "break-all", display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <span>Pillanatkép: <a href={o.snapUrl} target="_blank" rel="noopener noreferrer">{o.snapUrl}</a></span>
-                  <span>Havi kérdőív: <a href={o.monthlyUrl} target="_blank" rel="noopener noreferrer">{o.monthlyUrl}</a></span>
+              </div>
+
+              {o.stations.length === 0 && (
+                <Notice tone="warn">Ehhez az alkalomhoz még nincs szakember rendelve. Az általános QR-kódon érkező válaszok nem köthetők szakemberhez.</Notice>
+              )}
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(220px, 100%), 1fr))", gap: "12px" }}>
+                {o.stations.map((s) => (
+                  <div key={s.id} style={{ background: "#F2F6F9", borderRadius: "12px", padding: "12px", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", textAlign: "center" }}>
+                    <b style={{ color: "#2C5069" }}>{s.name}</b>
+                    <img src={s.qr} alt={`QR-kód: ${c.name}, ${o.occasion_date}, ${s.name}`} style={{ width: "160px", height: "160px" }} />
+                    <a href={s.qr} download={`calm-touch-qr-${o.occasion_date}-${s.name}.png`} style={{ fontSize: "13px", color: "#2C5069" }}>QR-kód letöltése</a>
+                    <a href={s.snapUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: "12px", wordBreak: "break-all" }}>{s.snapUrl}</a>
+                  </div>
+                ))}
+                <div style={{ border: "1px dashed #CDB8A3", borderRadius: "12px", padding: "12px", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", textAlign: "center" }}>
+                  <b style={{ color: "#5E6A62" }}>Általános (szakember nélkül)</b>
+                  <img src={o.general.qr} alt={`Általános QR-kód: ${c.name}, ${o.occasion_date}`} style={{ width: "120px", height: "120px" }} />
+                  <a href={o.general.snapUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: "12px", wordBreak: "break-all" }}>{o.general.snapUrl}</a>
                 </div>
-                <form action={setOccasionActive}>
-                  <input type="hidden" name="id" value={o.id} />
-                  <input type="hidden" name="active" value={o.active ? "false" : "true"} />
-                  <button type="submit" style={ghost}>{o.active ? "Alkalom lezárása" : "Újranyitás"}</button>
-                </form>
-              </article>
-            ))}
-          </div>
+              </div>
+
+              <form action={addStation} style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
+                <input type="hidden" name="occasion_id" value={o.id} />
+                <select name="practitioner_id" required defaultValue="" aria-label="Szakember hozzáadása" style={{ ...input, flex: "1 1 200px" }}>
+                  <option value="" disabled>Szakember hozzáadása…</option>
+                  {activePractitioners.filter((p) => !o.ct_stations.some((s) => s.practitioner_id === p.id)).map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}
+                </select>
+                <button type="submit" style={ghost}>Hozzáadás</button>
+              </form>
+            </article>
+          ))}
         </section>
       ))}
     </>

@@ -9,6 +9,7 @@
 
 export type Snapshot = {
   occasion_id: string;
+  practitioner_id?: string | null;
   team_id: string | null;
   participant_code: string;
   phase: "pre" | "post";
@@ -18,6 +19,7 @@ export type Snapshot = {
 };
 
 export type Monthly = {
+  practitioner_id?: string | null;
   team_id: string | null;
   participant_code: string;
   answers: number[];
@@ -178,3 +180,54 @@ export function buildReport(snaps: Snapshot[], monthly: Monthly[], teamNames: Ma
 
 export const fmt1 = (v: number | null, signed = false) =>
   v == null ? "–" : `${signed && v > 0 ? "+" : ""}${v.toFixed(1).replace(".", ",").replace("-", "−")}`;
+
+/* ---------------------------------------------------------------------------
+ * Szakemberek értékelése – belső használatra (admin). Az alkalom kódja köti a
+ * válaszokat a szakemberhez; a résztvevőnek ezt nem kell megadnia.
+ * ------------------------------------------------------------------------- */
+
+export type PractitionerStats = {
+  id: string;
+  name: string;
+  occasions: number;
+  participants: number;
+  effect: number | null;
+  effectStatus: Status;
+  improvedPct: number | null;
+  comfort: number | null;
+  nps: number | null;
+  value: number | null;
+  monthlyCount: number;
+  responses: number;
+};
+
+export function buildPractitionerStats(snaps: Snapshot[], monthly: Monthly[], names: Map<string, string>): PractitionerStats[] {
+  const ids = new Set<string>(
+    [...snaps, ...monthly].map((x) => x.practitioner_id).filter((x): x is string => Boolean(x)),
+  );
+  const out: PractitionerStats[] = [];
+  for (const id of ids) {
+    const s = snaps.filter((x) => x.practitioner_id === id);
+    const m = monthly.filter((x) => x.practitioner_id === id);
+    const pairs = pairUp(s);
+    const deltas = pairs.map((p) => wellbeingIndex(p.post.answers) - wellbeingIndex(p.pre.answers));
+    const posts = s.filter((x) => x.phase === "post");
+    const recs = posts.map((x) => x.recommend).filter((x): x is number => x != null);
+    const effect = avg(deltas);
+    out.push({
+      id,
+      name: names.get(id) ?? "Ismeretlen",
+      occasions: new Set(s.map((x) => x.occasion_id)).size,
+      participants: new Set(s.map((x) => `${x.occasion_id}|${x.participant_code}`)).size,
+      effect,
+      effectStatus: effectStatus(effect),
+      improvedPct: deltas.length ? Math.round((100 * deltas.filter((d) => d > 0).length) / deltas.length) : null,
+      comfort: avg(posts.map((x) => x.comfort).filter((x): x is number => x != null)),
+      nps: recs.length ? Math.round((100 * (recs.filter((r) => r >= 9).length - recs.filter((r) => r <= 6).length)) / recs.length) : null,
+      value: avg(m.map((x) => avg(MONTHLY_VALUE_ITEMS.map((i) => x.answers[i]))!)),
+      monthlyCount: m.length,
+      responses: pairs.length,
+    });
+  }
+  return out.sort((a, b) => a.name.localeCompare(b.name, "hu"));
+}

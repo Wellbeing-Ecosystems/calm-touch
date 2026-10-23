@@ -85,7 +85,7 @@ export default class HaviKerdoiv extends Component {
       isInvalid: s.mode === 'invalid',
       live,
       error: s.error,
-      company: s.occasion ? s.occasion.company : '',
+      company: s.occasion ? [s.occasion.company, s.occasion.practitioner && `Szakember: ${s.occasion.practitioner}`].filter(Boolean).join(' · ') : '',
       teams: s.occasion ? s.occasion.teams : [],
       hasTeams: Boolean(s.occasion && s.occasion.teams.length),
       team: s.team,
