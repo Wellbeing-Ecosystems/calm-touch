@@ -16,3 +16,17 @@
 }
 
 @media print{.ct-noprint{display:none!important}body{background:#fff!important}}
+
+/* Mérési módszertan oldal (/modszertan) */
+.ct-method h2 { font-family: var(--ct-display); font-weight: 700; color: #55665A; font-size: clamp(24px, 2.6vw, 30px); line-height: 1.15; margin: 36px 0 10px; }
+.ct-method h3 { font-family: var(--ct-display); font-weight: 700; color: #2C5069; font-size: 20px; margin: 24px 0 8px; }
+.ct-method p { margin: 0 0 12px; }
+.ct-method ul, .ct-method ol { margin: 0 0 12px; padding-left: 22px; }
+.ct-method li { margin: 4px 0; }
+.ct-method ol li { font-size: 15px; }
+.ct-method a { color: #3F6E8C; overflow-wrap: anywhere; }
+.ct-method em { color: #5A4248; }
+.ct-method table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 15px; background: #FFFFFF; border-radius: 12px; overflow: hidden; display: block; overflow-x: auto; }
+.ct-method th { background: #DDE8EF; color: #2C5069; text-align: left; font-weight: 700; padding: 10px 12px; }
+.ct-method td { padding: 10px 12px; border-top: 1px solid #EADFD2; vertical-align: top; }
+@media (max-width: 600px) { .ct-method table { font-size: 14px; } .ct-method th, .ct-method td { padding: 8px 9px; } }

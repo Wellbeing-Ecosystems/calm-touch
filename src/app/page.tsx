@@ -219,6 +219,7 @@ export default function CalmTouchPage() {
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "14px"}}>
 <a href="/calm-touch/pulse-riport" style={{"textDecoration": "none", "background": "#FAF6F1", "color": "#2E3631", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Megnézem a HR Pulse riportot</a>
 <a href="/calm-touch/pillanatkep" style={{"textDecoration": "none", "color": "#FAF6F1", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "700", "border": "1px solid #F1D3D7", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Kipróbálom a pillanatképet</a>
+<a href="/calm-touch/modszertan" style={{"textDecoration": "underline", "color": "#FAF6F1", "padding": "14px 6px", "fontWeight": "600", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Mérési módszertan</a>
 </div>
 </div>
 </section>

@@ -123,6 +123,7 @@ export default function CegeknekPage() {
 <li>A cég csak legalább 5 fős csoportok összesített adatát látja. Megőrzés: 12 hónap, utána csak az összesített riport marad.</li>
 </ul>
 <a href="/calm-touch/folyamat" style={{"alignSelf": "flex-start", "color": "#55665A", "fontWeight": "500"}}>A teljes folyamat ábrán <span className="ct-arrow">→</span></a>
+<a href="/calm-touch/modszertan" style={{"alignSelf": "flex-start", "color": "#3F6E8C", "fontWeight": "500"}}>Mérési módszertan és szakmai háttér <span className="ct-arrow">→</span></a>
 </div>
 <div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "clamp(20px, 3vw, 28px)", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <b style={{"fontSize": "18px"}}>Amit kap</b>
@@ -225,6 +226,7 @@ export default function CegeknekPage() {
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
 <span>Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft. · [NÉV] · [E-MAIL] · [TELEFONSZÁM]</span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
+<a href="/calm-touch/modszertan">Mérési módszertan</a>
 <a href="#ajanlat">Adatkezelési tájékoztató</a>
 <a href="#ajanlat">Impresszum</a>
 </div>
