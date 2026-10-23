@@ -32,7 +32,7 @@ export default class HaviKerdoiv extends Component {
     const s = this.state;
     const ITEMS = [
       ['Mentális terhelés', 'Gyakran éreztem, hogy túl sok minden szakad rám egyszerre.'],
-      ['Készenléti állapot', 'Napközben nehezen tudtam rövid időre kikapcsolni.'],
+      ['Kikapcsolódás', 'Napközben könnyen ki tudtam kapcsolni rövid időre.'],
       ['Kimerülés', 'A munkanap végén mentálisan kimerültnek éreztem magam.'],
       ['Regeneráció', 'Tudtam tudatosan szünetet tartani a munkanapomban.'],
       ['Közvetlen hatás', 'A Calm-Touch utáni órákban nyugodtabb voltam.'],

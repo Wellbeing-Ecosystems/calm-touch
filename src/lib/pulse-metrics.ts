@@ -3,7 +3,7 @@
  *
  * Pillanatkép (6 kérdés, 1–10): [0] feszültség, [1] nyugalom, [2] pörgő gondolatok,
  * [3] mentális fáradtság, [4] energia, [5] testi feszülés.
- * Havi kérdőív (11 állítás, 1–10): [0] mentális terhelés, [1] készenléti állapot,
+ * Havi kérdőív (11 állítás, 1–10): [0] mentális terhelés, [1] kikapcsolódás (2026.10.23-tól pozitív megfogalmazás),
  * [2] kimerülés, … [10] fenntarthatóság.
  */
 
@@ -36,8 +36,8 @@ export const MIN_GROUP = 5;
  * hogy 10 = a legjobb állapot.
  */
 export const SNAPSHOT_REVERSED = [0, 2, 3, 5]; // feszültség, pörgő gondolatok, mentális fáradtság, testi feszülés
-export const MONTHLY_REVERSED = [0, 1, 2]; // mentális terhelés, készenléti állapot, kimerülés
-/** A havi jóllét-index tételei: terhelés, készenlét, kimerülés, regeneráció, fenntarthatóság. */
+export const MONTHLY_REVERSED = [0, 2]; // mentális terhelés, kimerülés
+/** A havi jóllét-index tételei: terhelés, kikapcsolódás, kimerülés, regeneráció, fenntarthatóság. */
 export const MONTHLY_STATE_ITEMS = [0, 1, 2, 3, 10];
 /** Az alkalmak értékelése a havi kérdőívben: közvetlen hatás … folytatási igény. */
 export const MONTHLY_VALUE_ITEMS = [4, 5, 6, 7, 8, 9];
@@ -59,7 +59,7 @@ const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.le
 /** Jóllét-index (1–10, 10 = legjobb): a 6 pillanatkép-kérdés pontjainak átlaga, fordított pontozással. */
 export const wellbeingIndex = (a: number[]) => avg(scoreSnapshot(a))!;
 
-/** Havi jóllét-index (1–10, 10 = legjobb): terhelés, készenlét, kimerülés (fordítva), regeneráció, fenntarthatóság. */
+/** Havi jóllét-index (1–10, 10 = legjobb): terhelés és kimerülés (fordítva), kikapcsolódás, regeneráció, fenntarthatóság. */
 export const monthlyIndex = (a: number[]) => avg(MONTHLY_STATE_ITEMS.map((i) => scoreMonthly(a)[i]))!;
 
 /** Állapot-pulzus (érkezéskori jóllét-index): 6 felett zöld, 4 felett sárga, 4 vagy alatta piros. */
