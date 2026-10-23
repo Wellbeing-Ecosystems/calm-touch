@@ -1,0 +1,156 @@
+[
+  {
+    "file": "webp/01-kezdo-vallerintes.webp",
+    "width": 1600,
+    "height": 2000,
+    "bytes": 294600,
+    "alt_hu": "Lehunyt szemmel pihenő munkatárs; a szakember két keze gyengéden a ruhával fedett vállán nyugszik."
+  },
+  {
+    "file": "jpg/01-kezdo-vallerintes.jpg",
+    "width": 1600,
+    "height": 2000,
+    "bytes": 379407,
+    "alt_hu": "Lehunyt szemmel pihenő munkatárs; a szakember két keze gyengéden a ruhával fedett vállán nyugszik."
+  },
+  {
+    "file": "webp/02-megoldas-fejerintes.webp",
+    "width": 1600,
+    "height": 2000,
+    "bytes": 351666,
+    "alt_hu": "Közeli kép a lehunyt szemű férfi fején, a halánték mellett, hajon keresztül nyugvó kézről."
+  },
+  {
+    "file": "jpg/02-megoldas-fejerintes.jpg",
+    "width": 1600,
+    "height": 2000,
+    "bytes": 386121,
+    "alt_hu": "Közeli kép a lehunyt szemű férfi fején, a halánték mellett, hajon keresztül nyugvó kézről."
+  },
+  {
+    "file": "webp/03-egy-nap-a-fejedben.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 229312,
+    "alt_hu": "Fáradt munkatárs a laptop előtt, egyik kezét a homlokára téve; az asztalon telefon és jegyzetek."
+  },
+  {
+    "file": "jpg/03-egy-nap-a-fejedben.jpg",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 367146,
+    "alt_hu": "Fáradt munkatárs a laptop előtt, egyik kezét a homlokára téve; az asztalon telefon és jegyzetek."
+  },
+  {
+    "file": "webp/04-egyeztetes.webp",
+    "width": 1200,
+    "height": 1200,
+    "bytes": 190492,
+    "alt_hu": "Szakember és munkatárs egyeztet egy szék mellett; a szakember a saját vállán mutatja az érintési területet."
+  },
+  {
+    "file": "jpg/04-egyeztetes.jpg",
+    "width": 1200,
+    "height": 1200,
+    "bytes": 335932,
+    "alt_hu": "Szakember és munkatárs egyeztet egy szék mellett; a szakember a saját vállán mutatja az érintési területet."
+  },
+  {
+    "file": "webp/05-qr-beolvasas.webp",
+    "width": 1200,
+    "height": 1200,
+    "bytes": 143730,
+    "alt_hu": "Munkatárs telefonnal olvassa be az asztali táblán látható QR-kódot."
+  },
+  {
+    "file": "jpg/05-qr-beolvasas.jpg",
+    "width": 1200,
+    "height": 1200,
+    "bytes": 279813,
+    "alt_hu": "Munkatárs telefonnal olvassa be az asztali táblán látható QR-kódot."
+  },
+  {
+    "file": "webp/06-alkalom-utan.webp",
+    "width": 1200,
+    "height": 1200,
+    "bytes": 171178,
+    "alt_hu": "Ellazult munkatárs egy irodai székben ülve, enyhén mosolyogva nézi a telefonját."
+  },
+  {
+    "file": "jpg/06-alkalom-utan.jpg",
+    "width": 1200,
+    "height": 1200,
+    "bytes": 303053,
+    "alt_hu": "Ellazult munkatárs egy irodai székben ülve, enyhén mosolyogva nézi a telefonját."
+  },
+  {
+    "file": "webp/07-pulse-telefon.webp",
+    "width": 1600,
+    "height": 2000,
+    "bytes": 249474,
+    "alt_hu": "Kézben tartott telefon a Calm-Touch Pulse Hogy érzem magam? felületével, 1–10-es skálán (1 = nem jellemző, 10 = teljes mértékben), Előtte és Utána sávokkal: feszültség 7-ről 3-ra, nyugalom 3-ról 7-re, koncentráció 4-ről 8-ra; Illusztráció jelöléssel."
+  },
+  {
+    "file": "jpg/07-pulse-telefon.jpg",
+    "width": 1600,
+    "height": 2000,
+    "bytes": 377169,
+    "alt_hu": "Kézben tartott telefon a Calm-Touch Pulse Hogy érzem magam? felületével, 1–10-es skálán (1 = nem jellemző, 10 = teljes mértékben), Előtte és Utána sávokkal: feszültség 7-ről 3-ra, nyugalom 3-ról 7-re, koncentráció 4-ről 8-ra; Illusztráció jelöléssel."
+  },
+  {
+    "file": "webp/08-ceges-megbeszeles.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 333756,
+    "alt_hu": "HR-vezető és wellbeing szakember kötetlenül beszélget egy tárgyalóban, laptop és bögrék mellett."
+  },
+  {
+    "file": "jpg/08-ceges-megbeszeles.jpg",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 380826,
+    "alt_hu": "HR-vezető és wellbeing szakember kötetlenül beszélget egy tárgyalóban, laptop és bögrék mellett."
+  },
+  {
+    "file": "webp/09-calm-touch-sarok.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 384108,
+    "alt_hu": "Csendes irodai pihenősarok kárpitozott székkel, bordó párnával, kis asztallal, QR-táblával és növényekkel."
+  },
+  {
+    "file": "jpg/09-calm-touch-sarok.jpg",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 392763,
+    "alt_hu": "Csendes irodai pihenősarok kárpitozott székkel, bordó párnával, kis asztallal, QR-táblával és növényekkel."
+  },
+  {
+    "file": "webp/10-wellbeing-nap.webp",
+    "width": 2400,
+    "height": 1350,
+    "bytes": 308700,
+    "alt_hu": "Irodai wellbeing nap: az előtérben ülő munkatárs vállán gyengéden nyugvó kezek, a háttérben beszélgető kollégák."
+  },
+  {
+    "file": "jpg/10-wellbeing-nap.jpg",
+    "width": 2400,
+    "height": 1350,
+    "bytes": 385596,
+    "alt_hu": "Irodai wellbeing nap: az előtérben ülő munkatárs vállán gyengéden nyugvó kezek, a háttérben beszélgető kollégák."
+  },
+  {
+    "file": "webp/12-megosztas-og.webp",
+    "width": 1200,
+    "height": 630,
+    "bytes": 117800,
+    "alt_hu": "Lehunyt szemmel pihenő munkatárs; a szakember két keze gyengéden a ruhával fedett vállán nyugszik."
+  },
+  {
+    "file": "jpg/12-megosztas-og.jpg",
+    "width": 1200,
+    "height": 630,
+    "bytes": 189667,
+    "alt_hu": "Lehunyt szemmel pihenő munkatárs; a szakember két keze gyengéden a ruhával fedett vállán nyugszik."
+  }
+]

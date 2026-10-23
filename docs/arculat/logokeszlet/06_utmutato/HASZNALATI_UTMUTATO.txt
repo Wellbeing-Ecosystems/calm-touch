@@ -1,0 +1,31 @@
+CALM TOUCH – LOGÓKÉSZLET
+Új színpaletta • 2026. október 23.
+
+01_negyzetes: 256, 512, 1024, 1280 px; átlátszó és krém háttér, PNG.
+02_teglalap: 480, 960, 1660 px szélesség, aránytartó magasság; átlátszó PNG/WebP és krém hátteres PNG.
+03_emblema: 128, 256, 512, 1024 px, átlátszó PNG.
+04_favicon: 16, 32, 48, 64, 96, 180, 192, 512 px PNG; többméretes favicon.ico; apple-touch-icon.png; site.webmanifest.
+05_egyszinu: sötét és világos, átlátszó hátteres változatok.
+
+SZÍNEK
+Olívazöld: #7D8B3E – embléma, Calm felirat.
+Halvány bordó: #9E4B5B – kéz, Touch felirat.
+Zsályazöld: #E2E4CE – világos részletek.
+Krém: #F7F1E5 – háttér.
+Sötét: #33352B – szlogen és egyszínű változat.
+Az árnyalatos részek az alapszínek világosabb/sötétebb tónusait használják.
+
+KIEGÉSZÍTŐ PALETTA
+Mérés kék #3F6E8C; mélykék #2C5069; középkék #A9C1D1; halványkék #DDE8EF.
+A kék a Pulse/Pulse+ jelöléshez fenntartott szín; az alaplogó nem használja.
+
+HASZNÁLAT
+Weboldal fejlécéhez: 02_teglalap, 960 px PNG vagy WebP.
+Profilképhez: 01_negyzetes, 1024 px.
+Kis ikonhoz: 03_emblema vagy a megfelelő favicon.
+Sötét felületre: 05_egyszinu, vilagos változat.
+A PNG átlátszó részei nem fekete hátteret jelentenek.
+A faviconokat és a webmanifestet ugyanabba a webes könyvtárba töltsd fel; a HTML-példában gyökérkönyvtár szerepel.
+
+FORRÁS ÉS MÉRET
+A készlet a csatolt raszteres látványterv képszerkesztéssel átszínezett változatából készült, az eredeti forma és betűkép követésével. Nem eredeti vektoros mesterfájl; pixelpontos forma- és betűazonosság nem garantálható. A négyzetes export 1280 px-es mérete részben felnagyított; a fekvő logó külön elemek elrendezésével készült. Nagy nyomdai felhasználáshoz az eredeti SVG/AI/PDF szükséges. A csomag nem tartalmaz álvektoros SVG-t.

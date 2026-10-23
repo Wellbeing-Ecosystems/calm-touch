@@ -1,0 +1,22 @@
+CALM-TOUCH – WEBES KÉPCSOMAG
+
+10 generált illusztráció és az 1. képből vágott megosztási kép.
+A webp és jpg mappák azonos képek alternatív formátumait tartalmazzák; elég a választott formátumot feltölteni.
+Minden webes képfájl 400 000 bájt alatti és a kért pixelméretű. Az eredeti generálásnál nagyobb célméreteknél az export felskálázott; a részletesség nem natív 2400/2000 px.
+A 11. kép szándékosan hiányzik: az a tényleges szakember valódi portréja legyen. Fotózás: félalak, oldalról ablakfény, olajzöld vagy krémszínű ruha, elmosott növényes irodai háttér, nyugodt tekintet a kamerába.
+
+BEILLESZTÉS ELŐTT
+05 és 09: a képen látható generált QR-minta illusztráció, működése nem ellenőrzött. A végleges célcím alapján előállított kódra cserélendő, ha beolvashatónak kell lennie.
+07: a kijelzőn a Pulse / Hogy érzem magam? illusztratív felülete szerepel halványzöld kiemeléssel, 1–10-es értékelési skálával (1 = nem jellemző, 10 = teljes mértékben), soronként Előtte és Utána sávval. A mérési elemek (Pulse felirat, skálamagyarázat, jelmagyarázat, osztások) a mérés kék színét kapták. Az Illusztráció jelölés maradjon jól látható. Feszültség 7 → 3; Nyugalom 3 → 7; Koncentráció 4 → 8. Ezek kizárólag szemléltető példaértékek, nem mért eredmények.
+Az íves keretet a weboldal CSS-e alakítsa, a képfájl téglalap alakú.
+A képek szintetikus illusztrációk, nem megvalósult alkalmak vagy valódi ügyfelek dokumentációi; ügyfélvéleményhez vagy referenciához nem használhatók.
+Valódi fotózáshoz minden szereplőtől írásos modellhozzájárulás szükséges.
+
+A CSV és JSON tartalmazza a fájlneveket, méreteket és magyar alt szövegeket. A promptok.txt a generálási leírásokat tartalmazza.
+
+
+SZÍNPALETTA (Calm-Touch_paletta.png)
+Alapszínek: krém #F7F1E5, zsályazöld #E2E4CE, olívazöld #7D8B3E, halvány bordó #9E4B5B, sötét szöveg #33352B.
+Mérés (új): mérés kék #3F6E8C, mély kék #2C5069, középkék #A9C1D1, halványkék #DDE8EF.
+A kék kizárólag a méréshez kapcsolódó elemeken jelenjen meg: Calm-Touch Pulse (kérdőíves előtte–utána mérés, 1–10 skála) és Calm-Touch Pulse+ (kiegészítve műszeres HRV- és EEG-méréssel).
+Kontraszt krém háttéren: #3F6E8C 4,9:1, #2C5069 7,6:1 – mindkettő megfelel a WCAG AA szintnek normál szövegre is. Fehér szöveg #3F6E8C alapon 5,5:1.

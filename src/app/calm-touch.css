@@ -1,0 +1,6 @@
+/* Calm Touch aloldal – izolált alapstílusok. Az oldalak stílusa a komponensekben, inline van. */
+.ct-root{min-height:100vh;background:#FAF6F1;color:#2E3631;font-family:var(--ct-text),'Segoe UI',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.ct-root a{color:#5C6830}
+.ct-root a:hover{color:#4A5426}
+.ct-root a:focus-visible,.ct-root button:focus-visible,.ct-root summary:focus-visible,.ct-root input:focus-visible,.ct-root select:focus-visible,.ct-root textarea:focus-visible{outline:3px solid #3F6E8C;outline-offset:3px;border-radius:6px}
+.ct-root button:disabled{opacity:.55;cursor:not-allowed}
