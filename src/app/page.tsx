@@ -289,7 +289,7 @@ export default function CalmTouchPage() {
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px"}}>
-<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos.webp" alt="Calm Touch – Stresszoldás érintéssel" style={{"display": "block", "height": "44px", "width": "auto", "maxWidth": "100%"}} /><span>Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span></span>
+<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos.webp" alt="Calm Touch – Stresszoldás érintéssel" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span></span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
 <a href="#kezdo" style={{"color": "#E9EBD6"}}>Adatkezelési tájékoztató</a>
 <a href="#kezdo" style={{"color": "#E9EBD6"}}>Részvételi és beleegyezési nyilatkozat</a>
