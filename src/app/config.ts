@@ -4,3 +4,9 @@
  * Példa: export const OFFER_EMAIL: string | null = "info@pszichoszoc.hu";
  */
 export const OFFER_EMAIL: string | null = null;
+
+/**
+ * Az adatkezelési tájékoztató címe – a pillanatkép és a havi kérdőív hozzájárulás-pipája
+ * erre hivatkozik. Az éles honlap tájékoztatójának címét kell ide beírni.
+ */
+export const PRIVACY_URL = "https://pszichoszoc.hu/adatkezelesi-tajekoztato";

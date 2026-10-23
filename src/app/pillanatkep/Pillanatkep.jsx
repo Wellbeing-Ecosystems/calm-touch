@@ -1,12 +1,57 @@
 "use client";
 
 import { Component, Fragment } from "react";
+import { PRIVACY_URL } from "../config";
+import {
+  pulseLive, readOccasionSlug, loadOccasion, submitSnapshot, monthlyDone, rememberParticipant,
+} from "@/lib/pulse-client";
+
+const ERR = "Most nem sikerült elmenteni. Ellenőrizd a kapcsolatot, és próbáld újra.";
 
 export default class Pillanatkep extends Component {
   constructor(props) {
     super(props);
-    this.state = { step: 'kod', code: '', pre: [5, 5, 5, 5, 5, 5], post: [5, 5, 5, 5, 5, 5], u1: 0, u2: 5, u3: '', skipped: false };
+    this.state = { step: 'kod', code: '', pre: [5, 5, 5, 5, 5, 5], post: [5, 5, 5, 5, 5, 5], u1: 0, u2: 5, u3: '', skipped: false,
+      mode: pulseLive ? 'loading' : 'demo', slug: null, occasion: null, team: '', consent: false, busy: false, error: '', monthly: null };
   }
+
+  async componentDidMount() {
+    if (!pulseLive) return;
+    const slug = readOccasionSlug();
+    if (!slug) { this.setState({ mode: 'demo' }); return; }
+    try {
+      const occasion = await loadOccasion(slug);
+      this.setState(occasion ? { mode: 'live', slug, occasion } : { mode: 'invalid', slug });
+    } catch {
+      this.setState({ mode: 'invalid', slug });
+    }
+  }
+
+  async save(phase) {
+    const s = this.state;
+    if (s.mode !== 'live') return 'ok';
+    this.setState({ busy: true, error: '' });
+    try {
+      const res = await submitSnapshot({
+        slug: s.slug, code: s.code, phase, team: s.team || null,
+        answers: phase === 'pre' ? s.pre : s.post,
+        comfort: phase === 'post' ? (s.u1 || null) : null,
+        recommend: phase === 'post' ? s.u2 : null,
+        word: phase === 'post' ? s.u3 : null,
+      });
+      this.setState({ busy: false });
+      if (res === 'duplicate') {
+        this.setState({ error: phase === 'pre'
+          ? 'Ezzel a kóddal erre az alkalomra már küldtek be előtte-pillanatképet. Ha nem te voltál, lépj vissza, és válassz másik kódot.'
+          : 'Ezzel a kóddal erre az alkalomra már beküldték az utána-pillanatképet.' });
+      }
+      return res;
+    } catch {
+      this.setState({ busy: false, error: ERR });
+      return 'error';
+    }
+  }
+
   renderVals() {
     const s = this.state;
     const Q = [
@@ -32,7 +77,8 @@ export default class Pillanatkep extends Component {
         this.setState({ [key]: next });
       }
     }));
-    const first = this.props.elsoAlkalom ?? true;
+    const live = s.mode === 'live';
+    const first = live ? s.monthly === false : (this.props.elsoAlkalom ?? true);
     const labels = { kod: 'Kezdés', elotte: '1 / 2 · Előtte', alkalom: 'Calm-Touch', utana: '2 / 2 · Utána', eredmeny: 'Eredmény' };
     const tPre = tension(s.pre), tPost = tension(s.post), rPre = recharge(s.pre), rPost = recharge(s.post);
     return {
@@ -43,13 +89,20 @@ export default class Pillanatkep extends Component {
       isUtana: s.step === 'utana',
       isEredmeny: s.step === 'eredmeny',
       code: s.code,
-      codeInvalid: s.code.length !== 4,
+      codeInvalid: s.code.length !== 4 || (live && !s.consent) || s.mode === 'loading' || s.mode === 'invalid',
       setCode: (e) => this.setState({ code: e.target.value.replace(/\D/g, '').slice(0, 4) }),
-      toElotte: () => this.setState({ step: 'elotte' }),
-      toAlkalom: () => this.setState({ step: 'alkalom' }),
+      toElotte: () => { rememberParticipant(s.code, s.team || null); this.setState({ step: 'elotte', error: '' }); },
+      toAlkalom: async () => { if ((await this.save('pre')) === 'ok') this.setState({ step: 'alkalom' }); },
       toUtana: () => this.setState({ step: 'utana' }),
-      toEredmeny: () => this.setState({ step: 'eredmeny' }),
-      restart: () => this.setState({ step: 'kod', pre: [5, 5, 5, 5, 5, 5], post: [5, 5, 5, 5, 5, 5], u1: 0, u2: 5, u3: '', skipped: false }),
+      toEredmeny: async () => {
+        const res = await this.save('post');
+        if (res === 'error') return;
+        let monthly = null;
+        if (live) { try { monthly = await monthlyDone(s.slug, s.code); } catch { monthly = true; } }
+        this.setState({ step: 'eredmeny', monthly, error: res === 'duplicate' ? '' : this.state.error });
+      },
+      backToKod: () => this.setState({ step: 'kod', error: '' }),
+      restart: () => this.setState({ step: 'kod', error: '', monthly: null, consent: false, pre: [5, 5, 5, 5, 5, 5], post: [5, 5, 5, 5, 5, 5], u1: 0, u2: 5, u3: '', skipped: false }),
       preItems: items('pre'),
       postItems: items('post'),
       u1Options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({ n, selected: s.u1 === n, notSelected: s.u1 !== n, pick: () => this.setState({ u1: n }) })),
@@ -63,7 +116,21 @@ export default class Pillanatkep extends Component {
       offerHavi: first && !s.skipped,
       skipped: first && s.skipped,
       alreadyDone: !first,
-      skipHavi: () => this.setState({ skipped: true })
+      skipHavi: () => this.setState({ skipped: true }),
+      isDemo: s.mode === 'demo',
+      isInvalid: s.mode === 'invalid',
+      live,
+      busy: s.busy,
+      error: s.error,
+      company: s.occasion ? [s.occasion.company, s.occasion.label].filter(Boolean).join(' · ') : '',
+      teams: s.occasion ? s.occasion.teams : [],
+      hasTeams: Boolean(s.occasion && s.occasion.teams.length),
+      team: s.team,
+      setTeam: (e) => this.setState({ team: e.target.value }),
+      consent: s.consent,
+      setConsent: (e) => this.setState({ consent: e.target.checked }),
+      privacyUrl: PRIVACY_URL,
+      haviHref: s.slug ? `/calm-touch/havi-kerdoiv?a=${encodeURIComponent(s.slug)}` : '/calm-touch/havi-kerdoiv'
     };
   }
 
@@ -76,6 +143,10 @@ export default class Pillanatkep extends Component {
 <img src="/calm-touch/brand/logo-fekvo.webp" alt="Calm Touch – Stresszoldás érintéssel" style={{"display": "block", "height": "38px", "width": "auto"}} />
 <span style={{"fontSize": "13px", "fontWeight": "700", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "4px 12px"}}>Pulse · {v.stepLabel}</span>
 </div>
+{v.isDemo && (<p style={{"margin": "0", "background": "#F4E3E4", "color": "#5A4248", "borderRadius": "12px", "padding": "10px 14px", "fontSize": "14px"}}>Demó: a válaszok nem kerülnek mentésre. Az éles kitöltés az alkalom QR-kódjával indul.</p>)}
+{v.isInvalid && (<p role="alert" style={{"margin": "0", "background": "#F4E3E4", "color": "#5A4248", "borderRadius": "12px", "padding": "10px 14px", "fontSize": "14px"}}>Ez a link nem érvényes vagy lejárt. Kérd az alkalom aktuális QR-kódját.</p>)}
+{v.company && (<p style={{"margin": "0", "fontSize": "14px", "color": "#2C5069", "fontWeight": "600"}}>{v.company}</p>)}
+{v.error && (<p role="alert" style={{"margin": "0", "background": "#FBEFF0", "border": "1px solid #A65D6B", "color": "#5A4248", "borderRadius": "12px", "padding": "10px 14px", "fontSize": "14px"}}>{v.error}</p>)}
 {v.isKod && (<>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "18px"}}>
 <h1 style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontSize": "38px", "fontWeight": "600", "lineHeight": "1.05"}}>Pillanatkép</h1>
@@ -85,6 +156,17 @@ export default class Pillanatkep extends Component {
 <input id="kod" type="text" inputMode="numeric" maxLength="4" autoComplete="off" value={v.code} onChange={v.setCode} style={{"minHeight": "52px", "font": "inherit", "fontSize": "24px", "letterSpacing": "0.4em", "textAlign": "center", "border": "1px solid #CDB8A3", "borderRadius": "12px", "background": "#FFFFFF"}} />
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Ugyanezt a kódot add meg utána és a havi kérdőívnél is. Nevet nem kérünk; a cég csak legalább 5 fős csoportok összesítését látja.</span>
 </div>
+{v.hasTeams && (<div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}>
+<label htmlFor="csapat" style={{"fontWeight": "500"}}>Csapatod <span style={{"fontWeight": "400", "color": "#5E6A62"}}>(nem kötelező)</span></label>
+<select id="csapat" value={v.team} onChange={v.setTeam} style={{"minHeight": "48px", "font": "inherit", "border": "1px solid #CDB8A3", "borderRadius": "12px", "background": "#FFFFFF", "padding": "0 12px"}}>
+<option value="">Nem adom meg</option>
+{v.teams.map((t) => (<option key={t.id} value={t.id}>{t.name}</option>))}
+</select>
+</div>)}
+{v.live && (<label style={{"display": "flex", "gap": "10px", "alignItems": "flex-start", "fontSize": "14px", "color": "#3B443E"}}>
+<input type="checkbox" checked={v.consent} onChange={v.setConsent} style={{"width": "22px", "height": "22px", "marginTop": "1px", "accentColor": "#3F6E8C", "flex": "none"}} />
+<span>Hozzájárulok, hogy a válaszaimat a saját kódommal, név nélkül rögzítsék és összesítve felhasználják. <a href={v.privacyUrl} target="_blank" rel="noopener noreferrer">Adatkezelési tájékoztató</a></span>
+</label>)}
 <button type="button" onClick={v.toElotte} disabled={v.codeInvalid} style={{"minHeight": "52px", "border": "none", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "font": "inherit", "fontWeight": "500", "cursor": "pointer"}}>Tovább</button>
 <span style={{"fontSize": "13px", "color": "#5E6A62"}}>A kitöltés önkéntes. A Calm-Touch wellbeing-szolgáltatás, nem egészségügyi mérés.</span>
 </div>
@@ -105,7 +187,8 @@ export default class Pillanatkep extends Component {
 <div style={{"display": "flex", "justifyContent": "space-between", "fontSize": "13px", "color": "#2C5069"}}><span>1 = nem jellemző</span><span>10 = teljes mértékben</span></div>
 </div>
 </Fragment>))}
-<button type="button" onClick={v.toAlkalom} style={{"minHeight": "52px", "border": "none", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "font": "inherit", "fontWeight": "500", "cursor": "pointer"}}>Kész, kezdhetjük</button>
+<button type="button" onClick={v.toAlkalom} disabled={v.busy} style={{"minHeight": "52px", "border": "none", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "font": "inherit", "fontWeight": "500", "cursor": "pointer"}}>Kész, kezdhetjük</button>
+{v.error && (<button type="button" onClick={v.backToKod} style={{"minHeight": "44px", "border": "1px solid #A9C1D1", "borderRadius": "999px", "background": "transparent", "color": "#2C5069", "font": "inherit", "cursor": "pointer"}}>Másik kódot választok</button>)}
 </div>
 </>)}
 {v.isAlkalom && (<>
@@ -153,7 +236,7 @@ export default class Pillanatkep extends Component {
 <label htmlFor="u3" style={{"fontWeight": "500"}}>Egy szó, ami most eszedbe jut <span style={{"fontWeight": "400", "color": "#5E6A62"}}>(nem kötelező)</span></label>
 <input id="u3" type="text" value={v.u3} onChange={v.setU3} style={{"minHeight": "48px", "font": "inherit", "padding": "0 14px", "border": "1px solid #CDB8A3", "borderRadius": "12px", "background": "#FFFFFF"}} />
 </div>
-<button type="button" onClick={v.toEredmeny} style={{"minHeight": "52px", "border": "none", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "font": "inherit", "fontWeight": "500", "cursor": "pointer"}}>Megnézem a változást</button>
+<button type="button" onClick={v.toEredmeny} disabled={v.busy} style={{"minHeight": "52px", "border": "none", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "font": "inherit", "fontWeight": "500", "cursor": "pointer"}}>Megnézem a változást</button>
 </div>
 </>)}
 {v.isEredmeny && (<>
@@ -185,7 +268,7 @@ export default class Pillanatkep extends Component {
 <div style={{"background": "#F4E3E4", "borderRadius": "14px", "padding": "18px", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <b>Ez a hónap első alkalma.</b>
 <span style={{"color": "#5A4248"}}>Van 2 perced a havi kérdőívre? 11 állítás – havonta csak egyszer kérjük.</span>
-<a href="/calm-touch/havi-kerdoiv" style={{"textDecoration": "none", "minHeight": "48px", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "fontWeight": "500", "display": "flex", "alignItems": "center", "justifyContent": "center"}}>Kitöltöm most</a>
+<a href={v.haviHref} style={{"textDecoration": "none", "minHeight": "48px", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "fontWeight": "500", "display": "flex", "alignItems": "center", "justifyContent": "center"}}>Kitöltöm most</a>
 <button type="button" onClick={v.skipHavi} style={{"minHeight": "44px", "border": "none", "background": "transparent", "color": "#5A4248", "font": "inherit", "textDecoration": "underline", "cursor": "pointer"}}>Most nem</button>
 </div>
 </>)}

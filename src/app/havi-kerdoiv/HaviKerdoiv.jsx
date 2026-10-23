@@ -1,11 +1,32 @@
 "use client";
 
 import { Component, Fragment } from "react";
+import { PRIVACY_URL } from "../config";
+import {
+  pulseLive, readOccasionSlug, loadOccasion, monthlyDone, submitMonthly, recallParticipant, rememberParticipant,
+} from "@/lib/pulse-client";
+
+const ERR = "Most nem sikerült elmenteni. Ellenőrizd a kapcsolatot, és próbáld újra.";
 
 export default class HaviKerdoiv extends Component {
   constructor(props) {
     super(props);
-    this.state = { step: 'kod', code: '', answers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], open: '' };
+    this.state = { step: 'kod', code: '', answers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], open: '',
+      mode: pulseLive ? 'loading' : 'demo', slug: null, occasion: null, team: '', consent: false, busy: false, error: '' };
+  }
+
+  async componentDidMount() {
+    const remembered = recallParticipant();
+    if (remembered.code) this.setState({ code: remembered.code, team: remembered.team ?? '' });
+    if (!pulseLive) return;
+    const slug = readOccasionSlug();
+    if (!slug) { this.setState({ mode: 'demo' }); return; }
+    try {
+      const occasion = await loadOccasion(slug);
+      this.setState(occasion ? { mode: 'live', slug, occasion } : { mode: 'invalid', slug });
+    } catch {
+      this.setState({ mode: 'invalid', slug });
+    }
   }
   renderVals() {
     const s = this.state;
@@ -23,6 +44,7 @@ export default class HaviKerdoiv extends Component {
       ['Fenntarthatóság', 'A jelenlegi munkaterhelésemet hosszú távon is fenntarthatónak érzem.']
     ];
     const answered = s.answers.filter((a) => a > 0).length;
+    const live = s.mode === 'live';
     const already = this.props.marKitoltotte ?? false;
     return {
       isKod: s.step === 'kod',
@@ -30,16 +52,47 @@ export default class HaviKerdoiv extends Component {
       isKerdoiv: s.step === 'kerdoiv',
       isKesz: s.step === 'kesz',
       code: s.code,
-      codeInvalid: s.code.length !== 4,
+      codeInvalid: s.code.length !== 4 || (live && !s.consent) || s.mode === 'loading' || s.mode === 'invalid' || s.busy,
       setCode: (e) => this.setState({ code: e.target.value.replace(/\D/g, '').slice(0, 4) }),
-      start: () => this.setState({ step: already ? 'mar' : 'kerdoiv' }),
-      restart: () => this.setState({ step: 'kod', code: '', answers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], open: '' }),
+      start: async () => {
+        rememberParticipant(s.code, s.team || null);
+        if (!live) { this.setState({ step: already ? 'mar' : 'kerdoiv' }); return; }
+        this.setState({ busy: true, error: '' });
+        try {
+          const done = await monthlyDone(s.slug, s.code);
+          this.setState({ busy: false, step: done ? 'mar' : 'kerdoiv' });
+        } catch {
+          this.setState({ busy: false, error: ERR });
+        }
+      },
+      restart: () => this.setState({ step: 'kod', error: '', consent: false, code: '', answers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], open: '' }),
       answered,
       progressPct: Math.round((answered / 11) * 100),
-      incomplete: answered < 11,
+      incomplete: answered < 11 || s.busy,
       open: s.open,
       setOpen: (e) => this.setState({ open: e.target.value }),
-      submit: () => this.setState({ step: 'kesz' }),
+      submit: async () => {
+        if (!live) { this.setState({ step: 'kesz' }); return; }
+        this.setState({ busy: true, error: '' });
+        try {
+          const res = await submitMonthly({ slug: s.slug, code: s.code, answers: s.answers, team: s.team || null, open: s.open });
+          this.setState({ busy: false, step: res === 'already' ? 'mar' : 'kesz' });
+        } catch {
+          this.setState({ busy: false, error: ERR });
+        }
+      },
+      isDemo: s.mode === 'demo',
+      isInvalid: s.mode === 'invalid',
+      live,
+      error: s.error,
+      company: s.occasion ? s.occasion.company : '',
+      teams: s.occasion ? s.occasion.teams : [],
+      hasTeams: Boolean(s.occasion && s.occasion.teams.length),
+      team: s.team,
+      setTeam: (e) => this.setState({ team: e.target.value }),
+      consent: s.consent,
+      setConsent: (e) => this.setState({ consent: e.target.checked }),
+      privacyUrl: PRIVACY_URL,
       items: ITEMS.map((pair, i) => ({
         no: String(i + 1).padStart(2, '0'),
         area: pair[0].toUpperCase(),
@@ -66,8 +119,12 @@ export default class HaviKerdoiv extends Component {
 <div style={{"padding": "28px 24px 40px", "display": "flex", "flexDirection": "column", "gap": "20px"}}>
 <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "center"}}>
 <img src="/calm-touch/brand/logo-fekvo.webp" alt="Calm Touch – Stresszoldás érintéssel" style={{"display": "block", "height": "38px", "width": "auto"}} />
-<span style={{"fontSize": "13px", "color": "#5E6A62"}}>Havi kérdőív</span>
+<span style={{"fontSize": "13px", "fontWeight": "700", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "4px 12px"}}>Pulse · Havi kérdőív</span>
 </div>
+{v.isDemo && (<p style={{"margin": "0", "background": "#F4E3E4", "color": "#5A4248", "borderRadius": "12px", "padding": "10px 14px", "fontSize": "14px"}}>Demó: a válaszok nem kerülnek mentésre. Az éles kitöltés az alkalom QR-kódjával indul.</p>)}
+{v.isInvalid && (<p role="alert" style={{"margin": "0", "background": "#F4E3E4", "color": "#5A4248", "borderRadius": "12px", "padding": "10px 14px", "fontSize": "14px"}}>Ez a link nem érvényes vagy lejárt. Kérd az alkalom aktuális QR-kódját.</p>)}
+{v.company && (<p style={{"margin": "0", "fontSize": "14px", "color": "#2C5069", "fontWeight": "600"}}>{v.company}</p>)}
+{v.error && (<p role="alert" style={{"margin": "0", "background": "#FBEFF0", "border": "1px solid #A65D6B", "color": "#5A4248", "borderRadius": "12px", "padding": "10px 14px", "fontSize": "14px"}}>{v.error}</p>)}
 {v.isKod && (<>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "18px"}}>
 <h1 style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontSize": "36px", "fontWeight": "600", "lineHeight": "1.05"}}>Hogy telt ez a hónap?</h1>
@@ -77,6 +134,17 @@ export default class HaviKerdoiv extends Component {
 <input id="hkod" type="text" inputMode="numeric" maxLength="4" autoComplete="off" value={v.code} onChange={v.setCode} style={{"minHeight": "52px", "font": "inherit", "fontSize": "24px", "letterSpacing": "0.4em", "textAlign": "center", "border": "1px solid #CDB8A3", "borderRadius": "12px", "background": "#FFFFFF"}} />
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Ugyanaz a kód, mint a pillanatképnél. Ezzel ellenőrizzük, hogy ebben a hónapban ne kelljen kétszer kitöltened.</span>
 </div>
+{v.hasTeams && (<div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}>
+<label htmlFor="hcsapat" style={{"fontWeight": "500"}}>Csapatod <span style={{"fontWeight": "400", "color": "#5E6A62"}}>(nem kötelező)</span></label>
+<select id="hcsapat" value={v.team} onChange={v.setTeam} style={{"minHeight": "48px", "font": "inherit", "border": "1px solid #CDB8A3", "borderRadius": "12px", "background": "#FFFFFF", "padding": "0 12px"}}>
+<option value="">Nem adom meg</option>
+{v.teams.map((t) => (<option key={t.id} value={t.id}>{t.name}</option>))}
+</select>
+</div>)}
+{v.live && (<label style={{"display": "flex", "gap": "10px", "alignItems": "flex-start", "fontSize": "14px", "color": "#3B443E"}}>
+<input type="checkbox" checked={v.consent} onChange={v.setConsent} style={{"width": "22px", "height": "22px", "marginTop": "1px", "accentColor": "#3F6E8C", "flex": "none"}} />
+<span>Hozzájárulok, hogy a válaszaimat a saját kódommal, név nélkül rögzítsék és összesítve felhasználják. <a href={v.privacyUrl} target="_blank" rel="noopener noreferrer">Adatkezelési tájékoztató</a></span>
+</label>)}
 <button type="button" onClick={v.start} disabled={v.codeInvalid} style={{"minHeight": "52px", "border": "none", "borderRadius": "999px", "background": "#7E3A4A", "color": "#FFFFFF", "font": "inherit", "fontWeight": "500", "cursor": "pointer"}}>Kezdhetjük</button>
 </div>
 </>)}
