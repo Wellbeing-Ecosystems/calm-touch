@@ -62,10 +62,13 @@ export default class Pillanatkep extends Component {
       'Mennyire érzed magad most frissnek, energikusnak?',
       'Mennyire érzel most feszülést a fejed, vállad vagy karod körül?'
     ];
-    const SHORT = ['Feszültség', 'Nyugalom', 'Pörgő gondolatok', 'Mentális fáradtság', 'Energia', 'Testi feszülés'];
+    // Eredmény: minden sor 10 = legjobb; a negatív kérdéseknél fordított pontozás (11 − válasz).
+    const SHORT = ['Feszültségmentesség', 'Nyugalom', 'Gondolati nyugalom', 'Mentális frissesség', 'Energia', 'Testi ellazultság'];
+    const REVERSED = [0, 2, 3, 5];
+    const score = (a) => a.map((x, i) => (REVERSED.includes(i) ? 11 - x : x));
     const fmt = (v) => v.toFixed(1).replace('.', ',');
     const delta = (d) => (d < 0 ? '−' + fmt(-d) : '+' + fmt(d));
-    const tension = (a) => (a[0] + a[2] + a[5] + (11 - a[1])) / 4;
+    const tension = (a) => score(a).reduce((x, y) => x + y, 0) / 6;
     const recharge = (a) => (a[4] + (11 - a[3])) / 2;
     const items = (key) => Q.map((label, i) => ({
       label,
@@ -112,7 +115,7 @@ export default class Pillanatkep extends Component {
       setU3: (e) => this.setState({ u3: e.target.value }),
       tPre: fmt(tPre), tPost: fmt(tPost), tDelta: delta(tPost - tPre) + ' pont',
       rPre: fmt(rPre), rPost: fmt(rPost), rDelta: delta(rPost - rPre) + ' pont',
-      rows: SHORT.map((short, i) => ({ short, pre: s.pre[i], post: s.post[i], prePct: s.pre[i] * 10, postPct: s.post[i] * 10 })),
+      rows: SHORT.map((short, i) => { const a = score(s.pre)[i], b = score(s.post)[i]; return { short, pre: a, post: b, prePct: a * 10, postPct: b * 10 }; }),
       offerHavi: first && !s.skipped,
       skipped: first && s.skipped,
       alreadyDone: !first,
@@ -244,7 +247,7 @@ export default class Pillanatkep extends Component {
 <h2 style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "600", "lineHeight": "1.1"}}>Ez változott 20 perc alatt</h2>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(2, minmax(0, 1fr))", "gap": "12px"}}>
 <div style={{"background": "#2C5069", "color": "#FFFFFF", "borderRadius": "14px", "padding": "16px", "display": "flex", "flexDirection": "column", "gap": "4px"}}>
-<span style={{"fontSize": "13px", "color": "#DDE8EF"}}>Feszültségindex</span>
+<span style={{"fontSize": "13px", "color": "#DDE8EF"}}>Jóllét-index</span>
 <span style={{"fontSize": "22px", "fontWeight": "600"}}>{v.tPre} <span className="ct-arrow">→</span> {v.tPost}</span>
 <span style={{"fontSize": "14px", "color": "#DDE8EF"}}>{v.tDelta}</span>
 </div>
@@ -262,7 +265,7 @@ export default class Pillanatkep extends Component {
 <div style={{"height": "6px", "background": "#EEF3F6", "borderRadius": "3px"}}><div style={{"height": "6px", "background": "#3F6E8C", "borderRadius": "3px", "width": `${r.postPct}%`}}></div></div>
 </div>
 </Fragment>))}
-<div style={{"display": "flex", "gap": "16px", "fontSize": "12px", "color": "#5E6A62"}}><span style={{"display": "inline-flex", "alignItems": "center", "gap": "6px"}}><span style={{"width": "14px", "height": "6px", "background": "#A9C1D1", "borderRadius": "3px"}}></span>előtte</span><span style={{"display": "inline-flex", "alignItems": "center", "gap": "6px"}}><span style={{"width": "14px", "height": "6px", "background": "#3F6E8C", "borderRadius": "3px"}}></span>utána</span><span>· 1–10 skála</span></div>
+<div style={{"display": "flex", "gap": "16px", "fontSize": "12px", "color": "#5E6A62"}}><span style={{"display": "inline-flex", "alignItems": "center", "gap": "6px"}}><span style={{"width": "14px", "height": "6px", "background": "#A9C1D1", "borderRadius": "3px"}}></span>előtte</span><span style={{"display": "inline-flex", "alignItems": "center", "gap": "6px"}}><span style={{"width": "14px", "height": "6px", "background": "#3F6E8C", "borderRadius": "3px"}}></span>utána</span><span>· 10 = a legjobb állapot</span></div>
 </div>
 {v.offerHavi && (<>
 <div style={{"background": "#F4E3E4", "borderRadius": "14px", "padding": "18px", "display": "flex", "flexDirection": "column", "gap": "12px"}}>

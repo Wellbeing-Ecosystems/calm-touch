@@ -65,28 +65,28 @@ export default function CegeknekPage() {
 </thead>
 <tbody>
 <tr style={{"borderBottom": "1px solid #EADFD2"}}>
-<th scope="row" style={{"padding": "16px 20px", "textAlign": "left"}}>1. Terhelés-pulzus</th>
+<th scope="row" style={{"padding": "16px 20px", "textAlign": "left"}}>1. Állapot-pulzus</th>
 <td style={{"padding": "16px 20px"}}>Milyen állapotban érkeznek az emberek</td>
-<td style={{"padding": "16px 20px"}}>Előtte-pillanatkép, feszültségindex 1–10 · minden alkalom</td>
-<td style={{"padding": "16px 20px"}}>5 alatt</td>
-<td style={{"padding": "16px 20px"}}>5–6,9</td>
-<td style={{"padding": "16px 20px"}}>7 vagy felette</td>
+<td style={{"padding": "16px 20px"}}>Előtte-pillanatkép, jóllét-index 1–10 · minden alkalom</td>
+<td style={{"padding": "16px 20px"}}>6 felett</td>
+<td style={{"padding": "16px 20px"}}>4,1–6</td>
+<td style={{"padding": "16px 20px"}}>4 vagy alatta</td>
 </tr>
 <tr style={{"borderBottom": "1px solid #EADFD2"}}>
 <th scope="row" style={{"padding": "16px 20px", "textAlign": "left"}}>2. Hatás</th>
 <td style={{"padding": "16px 20px"}}>Mennyit változtatott az érintés</td>
-<td style={{"padding": "16px 20px"}}>Utána − előtte · minden alkalom</td>
-<td style={{"padding": "16px 20px"}}>legalább 2 pont javulás</td>
-<td style={{"padding": "16px 20px"}}>1–1,9 pont</td>
-<td style={{"padding": "16px 20px"}}>1 pont alatt</td>
+<td style={{"padding": "16px 20px"}}>A jóllét-index változása (utána − előtte) · minden alkalom</td>
+<td style={{"padding": "16px 20px"}}>legalább +2 pont</td>
+<td style={{"padding": "16px 20px"}}>+1 – +1,9 pont</td>
+<td style={{"padding": "16px 20px"}}>+1 pont alatt</td>
 </tr>
 <tr>
 <th scope="row" style={{"padding": "16px 20px", "textAlign": "left"}}>3. Havi trend</th>
 <td style={{"padding": "16px 20px"}}>Tartós-e a javulás, fenntartható-e a terhelés</td>
-<td style={{"padding": "16px 20px"}}>11 állításos kérdőív, terhelési állítások átlaga 1–10 · havonta, résztvevőnként egyszer</td>
-<td style={{"padding": "16px 20px"}}>4,5 alatt</td>
-<td style={{"padding": "16px 20px"}}>4,5–6,4</td>
-<td style={{"padding": "16px 20px"}}>6,5 vagy felette</td>
+<td style={{"padding": "16px 20px"}}>11 állításos kérdőív, havi jóllét-index 1–10 · havonta, résztvevőnként egyszer</td>
+<td style={{"padding": "16px 20px"}}>6,5 felett</td>
+<td style={{"padding": "16px 20px"}}>4,6–6,5</td>
+<td style={{"padding": "16px 20px"}}>4,5 vagy alatta</td>
 </tr>
 </tbody>
 </table>
@@ -108,7 +108,7 @@ export default function CegeknekPage() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Bizonyított hatás</b><span style={{"color": "#EEF0EA"}}>A wellbeing-költség mellé mért eredmény kerül, nem csak elégedettségi visszajelzés.</span></div>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Megelőzés</b><span style={{"color": "#EEF0EA"}}>A tartósan piros jelzés korai figyelmeztetés: workshop, kockázatfelmérés vagy munkaszervezési lépés indítható, mielőtt kiégés lenne belőle.</span></div>
 </div>
-<span style={{"fontSize": "14px", "color": "#E6EAE4"}}>A küszöbértékek kiinduló javaslatok; az első három hónap adatai alapján finomítjuk őket. A riport kimondja korlátait is: az önkéntes résztvevők állapotát mutatja, nem az egész szervezetét.</span>
+<span style={{"fontSize": "14px", "color": "#E6EAE4"}}>Minden mutató 1–10 skálán szerepel, ahol 10 = a legjobb állapot; a negatív tartalmú kérdéseknél (pl. feszültség, kimerülés) a pontozás fordított. A küszöbértékek kiinduló javaslatok; az első három hónap adatai alapján finomítjuk őket. A riport kimondja korlátait is: az önkéntes résztvevők állapotát mutatja, nem az egész szervezetét.</span>
 </div>
 </section>
 <section style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>

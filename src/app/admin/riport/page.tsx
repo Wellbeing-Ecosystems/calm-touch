@@ -1,5 +1,5 @@
 import { adminDb, adminDbConfigured } from "@/lib/pulse-server";
-import { buildReport, fmt1, loadStatus, MIN_GROUP, tensionIndex, type Monthly, type Snapshot } from "@/lib/pulse-metrics";
+import { buildReport, fmt1, MIN_GROUP, stateStatus, wellbeingIndex, type Monthly, type Snapshot } from "@/lib/pulse-metrics";
 import { H1, H2, Notice, SetupNotice, StatusPill, button, card, input, label } from "../ui";
 import { PrintButton } from "./PrintButton";
 
@@ -54,7 +54,7 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
     const history = [-3, -2, -1, 0].map((d) => {
       const m = shiftMonth(month, d);
       const pres = all.filter((s) => s.phase === "pre" && monthOf(s.created_at) === m);
-      const v = pres.length ? pres.reduce((a, s) => a + tensionIndex(s.answers), 0) / pres.length : null;
+      const v = pres.length ? pres.reduce((a, s) => a + wellbeingIndex(s.answers), 0) / pres.length : null;
       return { m, v, n: pres.length };
     });
 
@@ -80,14 +80,14 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", gap: "14px" }}>
           {kpi("Részvétel", `${report.participants} fő`, `${report.occasions} alkalom · ${report.completionPct ?? "–"}% kitöltötte az utána-kérdéseket is`)}
-          {kpi("1. Terhelés-pulzus", fmt1(report.load), "feszültségindex érkezéskor, 1–10", report.loadStatus)}
-          {kpi("2. Hatás", fmt1(report.effect, true), `utána − előtte, pont · ${report.improvedPct ?? "–"}% javult`, report.effectStatus)}
-          {kpi("3. Havi trend", fmt1(report.trend), `terhelési állítások átlaga, 1–10 · ${report.monthlyCount} kitöltés`, report.trendStatus)}
+          {kpi("1. Állapot-pulzus", fmt1(report.state), "jóllét-index érkezéskor, 1–10 (10 = legjobb)", report.stateStatus)}
+          {kpi("2. Hatás", fmt1(report.effect, true), `jóllét-index változása, pont · ${report.improvedPct ?? "–"}% javult`, report.effectStatus)}
+          {kpi("3. Havi trend", fmt1(report.trend), `havi jóllét-index, 1–10 · ${report.monthlyCount} kitöltés`, report.trendStatus)}
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", gap: "14px" }}>
           <div style={card}>
-            <H2>Előtte → utána, csoportátlag</H2>
+            <H2>Előtte → utána, csoportátlag (10 = legjobb)</H2>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "15px" }}>
               <thead>
                 <tr style={{ textAlign: "left", color: "#2C5069", borderBottom: "2px solid #DDE8EF" }}>
@@ -108,11 +108,11 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
             </table>
             <span style={{ fontSize: "14px", color: "#5E6A62" }}>
               Biztonság / komfort: {fmt1(report.comfort)} / 10 · ajánlási mutató: {report.nps == null ? "–" : `${report.nps > 0 ? "+" : ""}${report.nps}`} ·
-              fenntarthatóság (11. állítás): {fmt1(report.sustainability)} / 10
+              fenntarthatóság: {fmt1(report.sustainability)} / 10 · alkalmak értékelése: {fmt1(report.value)} / 10
             </span>
           </div>
           <div style={card}>
-            <H2>Terhelés-pulzus, 4 hónap</H2>
+            <H2>Állapot-pulzus, 4 hónap</H2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "16px", alignItems: "end", height: "200px", borderBottom: "1px solid #A9C1D1", padding: "0 6px" }}>
               {history.map((h, i) => (
                 <div key={h.m} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
@@ -122,7 +122,7 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
               ))}
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "16px", fontSize: "13px", color: "#5E6A62", textAlign: "center" }}>
-              {history.map((h) => <span key={h.m}>{monthLabel(h.m)}<br />{h.n} kitöltés · {loadStatus(h.v)}</span>)}
+              {history.map((h) => <span key={h.m}>{monthLabel(h.m)}<br />{h.n} kitöltés · {stateStatus(h.v)}</span>)}
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
               <table style={{ width: "100%", minWidth: "680px", borderCollapse: "collapse", fontSize: "15px" }}>
                 <thead>
                   <tr style={{ textAlign: "left", color: "#2C5069", borderBottom: "2px solid #DDE8EF" }}>
-                    {["Csapat", "Fő", "Terhelés-pulzus", "Hatás", "Havi trend", "Fenntarthatóság"].map((h) => <th key={h} scope="col" style={{ padding: "10px 8px" }}>{h}</th>)}
+                    {["Csapat", "Fő", "Állapot-pulzus", "Hatás", "Havi trend", "Fenntarthatóság"].map((h) => <th key={h} scope="col" style={{ padding: "10px 8px" }}>{h}</th>)}
                   </tr>
                 </thead>
                 <tbody>
@@ -144,8 +144,8 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
                     <tr key={t.id} style={{ borderBottom: "1px solid #EEF3F6" }}>
                       <th scope="row" style={{ padding: "10px 8px", textAlign: "left" }}>{t.name}</th>
                       <td style={{ padding: "10px 8px" }}>{t.participants}</td>
-                      <td style={{ padding: "10px 8px" }}>{fmt1(t.load)} <StatusPill status={t.loadStatus} /></td>
-                      <td style={{ padding: "10px 8px" }}>{fmt1(t.effect, true)}</td>
+                      <td style={{ padding: "10px 8px" }}>{fmt1(t.state)} <StatusPill status={t.stateStatus} /></td>
+                      <td style={{ padding: "10px 8px" }}>{fmt1(t.effect, true)} <StatusPill status={t.effectStatus} /></td>
                       <td style={{ padding: "10px 8px" }}>{fmt1(t.trend)} <StatusPill status={t.trendStatus} /></td>
                       <td style={{ padding: "10px 8px" }}>{fmt1(t.sustainability)} / 10</td>
                     </tr>
@@ -161,7 +161,8 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
 
         <Notice>
           A riport az önkéntes résztvevők állapotát mutatja, nem az egész szervezetét. A pillanatkép önbevallás, nem egészségügyi mérés.
-          Küszöbök – terhelés-pulzus: 5 alatt zöld, 7-től piros; hatás: legalább 2 pont javulás zöld; havi trend: 4,5 alatt zöld, 6,5-től piros.
+          Minden érték 1–10 skálán, 10 = a legjobb állapot; a negatív tartalmú kérdéseknél (pl. feszültség, kimerülés) a pontozás fordított: 11 − válasz.
+          Küszöbök – állapot-pulzus: 6 felett zöld, 4 vagy alatta piros; hatás: legalább +2 pont zöld, +1 sárga; havi trend: 6,5 felett zöld, 4,5 vagy alatta piros.
         </Notice>
       </>
     );

@@ -175,7 +175,7 @@ export default function CalmTouchPage() {
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "18px"}}>
 <div style={{"background": "#3F6E8C", "borderRadius": "32px 32px 32px 10px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "46px", "lineHeight": "1", "color": "#DDE8EF"}}>01</span>
-<b style={{"fontSize": "21px"}}>Terhelés-pulzus</b>
+<b style={{"fontSize": "21px"}}>Állapot-pulzus</b>
 <span style={{"color": "#F2F6F9"}}>Milyen állapotban érkeznek ma az emberek?</span>
 <span style={{"fontSize": "14px", "color": "#DDE8EF", "borderTop": "1px solid #A9C1D1", "paddingTop": "12px"}}>Az alkalom előtti 6 kérdésből · minden alkalommal</span>
 </div>

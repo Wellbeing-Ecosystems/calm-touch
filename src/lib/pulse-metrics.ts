@@ -28,28 +28,46 @@ export type Status = "zöld" | "sárga" | "piros" | "nincs adat";
 /** Minimális csoportméret, amely alatt a cég felé nem adható ki adat. */
 export const MIN_GROUP = 5;
 
-export const SNAPSHOT_ITEMS = ["Feszültség", "Nyugalom", "Pörgő gondolatok", "Mentális fáradtság", "Energia", "Testi feszülés"];
+/**
+ * Fordított pontozás: a kérdőíven a válaszskála mindenhol 1 = nem jellemző, 10 = teljes mértékben.
+ * A negatív tartalmú kérdéseknél a pont = 11 − válasz, így a riportban MINDEN érték úgy olvasható,
+ * hogy 10 = a legjobb állapot.
+ */
+export const SNAPSHOT_REVERSED = [0, 2, 3, 5]; // feszültség, pörgő gondolatok, mentális fáradtság, testi feszülés
+export const MONTHLY_REVERSED = [0, 1, 2]; // mentális terhelés, készenléti állapot, kimerülés
+/** A havi jóllét-index tételei: terhelés, készenlét, kimerülés, regeneráció, fenntarthatóság. */
+export const MONTHLY_STATE_ITEMS = [0, 1, 2, 3, 10];
+/** Az alkalmak értékelése a havi kérdőívben: közvetlen hatás … folytatási igény. */
+export const MONTHLY_VALUE_ITEMS = [4, 5, 6, 7, 8, 9];
+
+/** A riportban pozitív irányú elnevezések (10 = legjobb). */
+export const SNAPSHOT_ITEMS = ["Feszültségmentesség", "Nyugalom", "Gondolati nyugalom", "Mentális frissesség", "Energia", "Testi ellazultság"];
+
+export const scoreSnapshot = (a: number[]) => a.map((v, i) => (SNAPSHOT_REVERSED.includes(i) ? 11 - v : v));
+export const scoreMonthly = (a: number[]) => a.map((v, i) => (MONTHLY_REVERSED.includes(i) ? 11 - v : v));
 
 const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
 
-/** Feszültségindex (1–10): feszültség, pörgés, testi feszülés és a megfordított nyugalom átlaga. */
-export const tensionIndex = (a: number[]) => (a[0] + a[2] + a[5] + (11 - a[1])) / 4;
+/** Jóllét-index (1–10, 10 = legjobb): a 6 pillanatkép-kérdés pontjainak átlaga, fordított pontozással. */
+export const wellbeingIndex = (a: number[]) => avg(scoreSnapshot(a))!;
 
-/** Havi terhelési index (1–10): az első három, terhelést mérő állítás átlaga. */
-export const monthlyLoadIndex = (a: number[]) => (a[0] + a[1] + a[2]) / 3;
+/** Havi jóllét-index (1–10, 10 = legjobb): terhelés, készenlét, kimerülés (fordítva), regeneráció, fenntarthatóság. */
+export const monthlyIndex = (a: number[]) => avg(MONTHLY_STATE_ITEMS.map((i) => scoreMonthly(a)[i]))!;
 
-export function loadStatus(v: number | null): Status {
+/** Állapot-pulzus (érkezéskori jóllét-index): 6 felett zöld, 4 felett sárga, 4 vagy alatta piros. */
+export function stateStatus(v: number | null): Status {
   if (v == null) return "nincs adat";
-  return v < 5 ? "zöld" : v < 7 ? "sárga" : "piros";
+  return v > 6 ? "zöld" : v > 4 ? "sárga" : "piros";
 }
-/** Hatás: az utána − előtte feszültség-különbség (negatív = javulás). */
+/** Hatás: utána − előtte jóllét-index (pozitív = javulás): legalább 2 pont zöld, legalább 1 sárga. */
 export function effectStatus(v: number | null): Status {
   if (v == null) return "nincs adat";
-  return v <= -2 ? "zöld" : v <= -1 ? "sárga" : "piros";
+  return v >= 2 ? "zöld" : v >= 1 ? "sárga" : "piros";
 }
+/** Havi trend (havi jóllét-index): 6,5 felett zöld, 4,5 felett sárga, 4,5 vagy alatta piros. */
 export function trendStatus(v: number | null): Status {
   if (v == null) return "nincs adat";
-  return v < 4.5 ? "zöld" : v < 6.5 ? "sárga" : "piros";
+  return v > 6.5 ? "zöld" : v > 4.5 ? "sárga" : "piros";
 }
 
 type Pair = { pre: Snapshot; post: Snapshot };
@@ -68,35 +86,38 @@ function pairUp(snaps: Snapshot[]): Pair[] {
 
 export type GroupMetrics = {
   participants: number;
-  load: number | null;
-  loadStatus: Status;
+  state: number | null;
+  stateStatus: Status;
   effect: number | null;
   effectStatus: Status;
   improvedPct: number | null;
   trend: number | null;
   trendStatus: Status;
   sustainability: number | null;
+  /** A havi kérdőív 5–10. állításának átlaga: mennyire értékelik az alkalmakat (10 = legjobb). */
+  value: number | null;
   monthlyCount: number;
 };
 
 function groupMetrics(snaps: Snapshot[], monthly: Monthly[]): GroupMetrics {
   const pres = snaps.filter((s) => s.phase === "pre");
   const pairs = pairUp(snaps);
-  const deltas = pairs.map((p) => tensionIndex(p.post.answers) - tensionIndex(p.pre.answers));
-  const load = avg(pres.map((s) => tensionIndex(s.answers)));
+  const deltas = pairs.map((p) => wellbeingIndex(p.post.answers) - wellbeingIndex(p.pre.answers));
+  const state = avg(pres.map((s) => wellbeingIndex(s.answers)));
   const effect = avg(deltas);
-  const trend = avg(monthly.map((m) => monthlyLoadIndex(m.answers)));
+  const trend = avg(monthly.map((m) => monthlyIndex(m.answers)));
   const participants = new Set([...snaps, ...monthly].map((x) => x.participant_code)).size;
   return {
     participants,
-    load,
-    loadStatus: loadStatus(load),
+    state,
+    stateStatus: stateStatus(state),
     effect,
     effectStatus: effectStatus(effect),
-    improvedPct: deltas.length ? Math.round((100 * deltas.filter((d) => d < 0).length) / deltas.length) : null,
+    improvedPct: deltas.length ? Math.round((100 * deltas.filter((d) => d > 0).length) / deltas.length) : null,
     trend,
     trendStatus: trendStatus(trend),
     sustainability: avg(monthly.map((m) => m.answers[10])),
+    value: avg(monthly.map((m) => avg(MONTHLY_VALUE_ITEMS.map((i) => m.answers[i]))!)),
     monthlyCount: monthly.length,
   };
 }
@@ -144,8 +165,8 @@ export function buildReport(snaps: Snapshot[], monthly: Monthly[], teamNames: Ma
     completionPct: preCount ? Math.round((100 * pairs.length) / preCount) : null,
     items: SNAPSHOT_ITEMS.map((label, i) => ({
       label,
-      pre: avg(pairs.map((p) => p.pre.answers[i])),
-      post: avg(pairs.map((p) => p.post.answers[i])),
+      pre: avg(pairs.map((p) => scoreSnapshot(p.pre.answers)[i])),
+      post: avg(pairs.map((p) => scoreSnapshot(p.post.answers)[i])),
     })),
     comfort: avg(posts.map((s) => s.comfort).filter((x): x is number => x != null)),
     nps,
