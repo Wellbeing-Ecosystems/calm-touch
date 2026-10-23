@@ -99,8 +99,8 @@ export default function CegeknekPage() {
 </div>
 <div style={{"background": "#3F6E8C", "color": "#FFFFFF", "borderRadius": "18px", "padding": "26px", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "18px", "fontWeight": "800", "color": "#2C5069", "background": "#FFFFFF", "borderRadius": "999px", "padding": "3px 16px"}}>Pulse+</span>
-<b style={{"fontSize": "19px"}}>Kiegészítés műszeres méréssel</b>
-<span style={{"color": "#F2F6F9"}}>A kérdőív mellé szívritmus-variabilitás (HRV) és EEG mérés az alkalom előtt és után, így az élmény mellett a test válasza is látható. Ára egyedi ajánlat alapján: [PULSE+ ÁR].</span>
+<b style={{"fontSize": "19px"}}>Kiegészítő műszeres állapotfelmérés</b>
+<span style={{"color": "#F2F6F9"}}>Egyszeri élettani állapotfelmérés a kérdőívek mellé: szívritmus-variabilitás (HRV) és EEG mérés, így a megélt állapot mellett a szervezet stresszterhelése is látható. Ára egyedi ajánlat alapján: [PULSE+ ÁR].</span>
 </div>
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "20px"}}>

@@ -123,7 +123,7 @@ export default function PulseRiportPage() {
 </div>
 <div style={{"border": "1px solid #A9C1D1", "borderRadius": "16px", "padding": "24px", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <b style={{"fontSize": "18px", "color": "#2C5069"}}>Hogyan olvassa?</b>
-<span style={{"color": "#3B443E"}}>A riport az önkéntes résztvevők állapotát mutatja, nem az egész szervezetét. A Pulse pillanatkép önbevallás, nem egészségügyi mérés. A hatás rövid távú élményt mér, a tartós változásról a havi trend ad képet. Pulse+ csomagnál a riport HRV- és EEG-adatokkal egészül ki.</span>
+<span style={{"color": "#3B443E"}}>A riport az önkéntes résztvevők állapotát mutatja, nem az egész szervezetét. A Pulse pillanatkép önbevallás, nem egészségügyi mérés. A hatás rövid távú élményt mér, a tartós változásról a havi trend ad képet. Pulse+ csomagnál a riport egy egyszeri HRV- és EEG-állapotfelmérés eredményeivel egészül ki.</span>
 </div>
 </div>
 <a href="/calm-touch" style={{"alignSelf": "flex-start", "fontWeight": "600"}}><span className="ct-arrow">←</span> Vissza a főoldalra</a>

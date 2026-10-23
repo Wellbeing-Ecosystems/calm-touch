@@ -206,12 +206,12 @@ export default function CalmTouchPage() {
 </div>
 <div style={{"background": "#3F6E8C", "color": "#FFFFFF", "borderRadius": "32px 32px 10px 32px", "padding": "clamp(20px, 3vw, 30px)", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "20px", "fontWeight": "800", "color": "#2C5069", "background": "#FFFFFF", "borderRadius": "999px", "padding": "4px 18px"}}>Pulse+</span>
-<b style={{"fontSize": "22px", "fontFamily": "var(--ct-display)"}}>Kiegészítés műszeres méréssel</b>
-<span style={{"color": "#F2F6F9"}}>A kérdőív mellé élettani mérés kerül: a szívritmus-variabilitás (HRV) és az agyi aktivitás (EEG) az alkalom előtt és után. Így az élmény mellett a test válasza is látható.</span>
+<b style={{"fontSize": "22px", "fontFamily": "var(--ct-display)"}}>Kiegészítő műszeres állapotfelmérés</b>
+<span style={{"color": "#F2F6F9"}}>Egyszeri élettani állapotfelmérés a kérdőívek mellé: szívritmus-variabilitás (HRV) és agyi aktivitás (EEG). Így a megélt állapot mellett a szervezet stresszterhelése is látható.</span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "8px"}}>
 <span style={{"fontSize": "14px", "fontWeight": "700", "color": "#FFFFFF", "border": "1px solid #A9C1D1", "borderRadius": "999px", "padding": "4px 14px"}}>HRV</span>
 <span style={{"fontSize": "14px", "fontWeight": "700", "color": "#FFFFFF", "border": "1px solid #A9C1D1", "borderRadius": "999px", "padding": "4px 14px"}}>EEG</span>
-<span style={{"fontSize": "14px", "fontWeight": "700", "color": "#FFFFFF", "border": "1px solid #A9C1D1", "borderRadius": "999px", "padding": "4px 14px"}}>előtte–utána</span>
+<span style={{"fontSize": "14px", "fontWeight": "700", "color": "#FFFFFF", "border": "1px solid #A9C1D1", "borderRadius": "999px", "padding": "4px 14px"}}>egyszeri felmérés</span>
 </div>
 </div>
 </div>
