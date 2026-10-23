@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MobileMenu } from "./MobileMenu";
 
 export const metadata: Metadata = {
   title: "Calm Touch – Stresszoldás érintéssel",
@@ -19,6 +20,7 @@ export default function CalmTouchPage() {
 <a href="#pulse" style={{"textDecoration": "none", "color": "#3F6E8C"}}>Calm-Touch Pulse</a>
 <a href="/calm-touch/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>Cégeknek</a>
 <a href="/calm-touch/cegeknek" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 22px", "borderRadius": "999px", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
+<MobileMenu items={[{ href: "#hogyan", label: "Hogyan működik?" }, { href: "#pulse", label: "Calm-Touch Pulse" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "/calm-touch/cegeknek", label: "Pilot alkalmat kérek", primary: true }]} />
 </nav>
 </div>
 </header>

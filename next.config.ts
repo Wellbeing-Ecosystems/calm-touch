@@ -7,6 +7,12 @@ import type { NextConfig } from "next";
  */
 const nextConfig: NextConfig = {
   basePath: "/calm-touch",
+  // Az admin űrlapok (server actions) a pszichoszoc.hu-n keresztüli rewrite mögött is működjenek.
+  experimental: {
+    serverActions: {
+      allowedOrigins: ["pszichoszoc.hu", "www.pszichoszoc.hu", "calm-touch.vercel.app"],
+    },
+  },
   async redirects() {
     return [{ source: "/", destination: "/calm-touch", basePath: false, permanent: false }];
   },

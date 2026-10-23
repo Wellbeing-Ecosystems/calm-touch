@@ -18,10 +18,8 @@ export function proxy(request: NextRequest) {
   }
   const path = request.nextUrl.pathname;
   if (role === "admin2" && !(path === ONSITE_PATH || path.startsWith(`${ONSITE_PATH}/`))) {
-    const url = request.nextUrl.clone();
-    url.pathname = ONSITE_PATH;
-    url.search = "";
-    return NextResponse.redirect(url);
+    // Relatív átirányítás: a pszichoszoc.hu rewrite mögött is ugyanazon a domainen marad.
+    return new NextResponse(null, { status: 307, headers: { Location: `/calm-touch${ONSITE_PATH}` } });
   }
   return NextResponse.next();
 }
