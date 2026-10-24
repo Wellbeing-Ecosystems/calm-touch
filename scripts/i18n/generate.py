@@ -59,7 +59,7 @@ def translate(src, lang, rel):
         if key in TR:
             lead = raw[: len(raw) - len(raw.lstrip())]
             trail = raw[len(raw.rstrip()):]
-            return ">" + lead + TR[key][i] + trail + "<"
+            return ">" + lead + TR[key][i].replace("'", "’") + trail + "<"
         missing.add(key)
         return m.group(0)
     out = re.sub(r">([^<>{}]+)<", node, src)
@@ -74,6 +74,7 @@ def translate(src, lang, rel):
     out = re.sub(r'"((?:[^"\\\n]|\\.)*)"', lit, out)
     # nyelvi jelölők a forrásban
     out = out.replace('current="hu"', f'current="{lang}"').replace('current: "hu"', f'current: "{lang}"')
+    out = out.replace('("hu", ', f'("{lang}", ').replace('inLanguage: "hu"', f'inLanguage: "{lang}"')
     # relatív importok → @/app/...
     src_dir = posixpath.dirname(rel)
     def imp(m):

@@ -1,19 +1,45 @@
 // GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: src/app/page.tsx, fordítás: scripts/i18n/site.json, futtatás: python3 scripts/i18n/generate.py
 import type { Metadata } from "next";
 import { HtmlLang } from "@/app/HtmlLang";
+import { abs, pageMeta } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
+import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "@/app/SiteLang";
 import { MobileMenu } from "@/app/MobileMenu";
 
-export const metadata: Metadata = {
-  title: "Calm Touch – Stressabbau durch Berührung",
-  description: "15–20 Minuten mentale Erfrischung im Büro durch sanfte Berührung über der Kleidung, mit Calm-Touch-Pulse-Vorher–nachher-Messung und monatlichem HR-Bericht.",
-  alternates: { canonical: "/calm-touch/de" },
+export const metadata: Metadata = pageMeta("de", "", "Calm Touch – Stressabbau am Arbeitsplatz durch Berührung | Budapest", "15–20 Minuten Stressabbau im Büro durch sanfte Berührung über der Kleidung, in Budapest und Umgebung. Kurze Zustandsrückmeldung vor und nach jeder Sitzung, anonymer monatlicher HR-Bericht.", { absolute: true });
+
+const ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${abs("de", "")}#szervezet`,
+      name: "Calm Touch",
+      url: abs("de", ""),
+      logo: `${siteUrl}/calm-touch/brand/logo-negyzetes.webp`,
+      description: "15–20 Minuten Stressabbau im Büro durch sanfte Berührung über der Kleidung, in Budapest und Umgebung. Kurze Zustandsrückmeldung vor und nach jeder Sitzung, anonymer monatlicher HR-Bericht.",
+      parentOrganization: { "@type": "Organization", name: "Alternatíva Tanácsadó Csoport Kft." },
+    },
+    {
+      "@type": "Service",
+      name: "Calm-Touch",
+      serviceType: "Betriebliches Stressabbau-Programm mit sanfter Berührung",
+      description: "Kurze, sanfte Berührung im Sitzen, durch die Kleidung, an Kopf, Schultern und Armen. Kein Ausziehen, kein Öl, kein Verlassen des Büros.",
+      provider: { "@id": `${abs("de", "")}#szervezet` },
+      areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: 47.4979, longitude: 19.0402 }, geoRadius: 20000 },
+      audience: { "@type": "BusinessAudience" },
+      url: abs("de", ""),
+    },
+    { "@type": "WebSite", name: "Calm Touch", url: abs("de", ""), inLanguage: "de" },
+  ],
 };
 
 export default function CalmTouchPage() {
   return (
 <div style={{"fontFamily": "var(--ct-text)", "color": "#2E3631", "background": "#FAF6F1", "fontSize": "17px", "lineHeight": "1.65"}}>
 <HtmlLang lang="de" />
+<JsonLd data={ld} />
 <header style={{"background": "#FAF6F1"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "padding": "14px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="#kezdo" style={{"textDecoration": "none", "display": "flex", "alignItems": "center", "gap": "12px"}}>
@@ -177,7 +203,7 @@ export default function CalmTouchPage() {
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.2em", "color": "#2C5069", "fontWeight": "700", "background": "#DDE8EF", "padding": "8px 16px", "borderRadius": "999px"}}>CALM-TOUCH PULSE</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.3vw, 56px)", "lineHeight": "1.04", "color": "#FAF6F1", "textWrap": "balance"}}>Du setzt dich ruhiger wieder hin. <span style={{"fontStyle": "italic", "fontWeight": "600", "color": "#F1D3D7"}}>Und das meldest du selbst zurück.</span></h2>
 </div>
-<p style={{"margin": "0", "fontSize": "18px", "color": "#E6EEF3", "textWrap": "pretty"}}>Jede Sitzung löst Anspannung und misst sie zugleich: mit welcher Belastung du ankommst, was die 15–20 Minuten verändert haben und monatlich, ob die Verbesserung anhält. Das Unternehmen erhält monatlich ein Pulsbild des tatsächlichen Teamzustands – anonym, in Gruppen ab 5 Personen.</p>
+<p style={{"margin": "0", "fontSize": "18px", "color": "#E6EEF3", "textWrap": "pretty"}}>Jede Sitzung löst Anspannung und bittet zugleich um eine kurze Rückmeldung: mit welcher Belastung du ankommst, was die 15–20 Minuten verändert haben und monatlich, ob die Verbesserung anhält. Das Unternehmen erhält monatlich ein zusammengefasstes Bild davon, wie es den Teilnehmenden geht – anonym, in Gruppen ab 5 Personen.</p>
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "18px"}}>
 <div style={{"background": "#3F6E8C", "borderRadius": "32px 32px 32px 10px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
@@ -214,7 +240,7 @@ export default function CalmTouchPage() {
 <div style={{"background": "#3F6E8C", "color": "#FFFFFF", "borderRadius": "32px 32px 10px 32px", "padding": "clamp(20px, 3vw, 30px)", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "20px", "fontWeight": "800", "color": "#2C5069", "background": "#FFFFFF", "borderRadius": "999px", "padding": "4px 18px"}}>Pulse+</span>
 <b style={{"fontSize": "22px", "fontFamily": "var(--ct-display)"}}>Ergänzende apparative Zustandserhebung</b>
-<span style={{"color": "#F2F6F9"}}>Eine einmalige apparative Zustandserhebung ergänzend zu den Fragebögen: Hirnaktivität (qEEG), Herzratenvariabilität (HRV) und ein kognitiver Test. So wird neben dem Erleben auch die Belastung des Nervensystems sichtbar.</span>
+<span style={{"color": "#F2F6F9"}}>Eine einmalige apparative Zustandserhebung ergänzend zu den Fragebögen: Hirnaktivität (qEEG), Herzratenvariabilität (HRV) und ein kognitiver Test. So kommen zum Erleben objektive physiologische und kognitive Daten hinzu.</span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "8px"}}>
 <span style={{"fontSize": "14px", "fontWeight": "700", "color": "#FFFFFF", "border": "1px solid #A9C1D1", "borderRadius": "999px", "padding": "4px 14px"}}>HRV</span>
 <span style={{"fontSize": "14px", "fontWeight": "700", "color": "#FFFFFF", "border": "1px solid #A9C1D1", "borderRadius": "999px", "padding": "4px 14px"}}>qEEG</span>
@@ -242,7 +268,7 @@ export default function CalmTouchPage() {
 <div style={{"borderTop": "3px solid #6E7B3C", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Kein Druck, sondern Präsenz</b><span style={{"color": "#5E6A62"}}>Büromassage bearbeitet die Muskeln; Calm-Touch beruhigt das Nervensystem.</span></div>
 <div style={{"borderTop": "3px solid #A65D6B", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Langsame Berührung mit wissenschaftlicher Grundlage</b><span style={{"color": "#5E6A62"}}>Eigene Nervenfasern reagieren auf langsames, sanftes Streicheln – sie sind mit Entspannung und einem Gefühl von Sicherheit verbunden.</span></div>
 <div style={{"borderTop": "3px solid #A17856", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Ayurvedisch inspiriert, ASMR-Erlebnis</b><span style={{"color": "#5E6A62"}}>Traditioneller Entspannungsansatz und beruhigende, wiederkehrende Sinnesreize.</span></div>
-<div style={{"borderTop": "3px solid #3F6E8C", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Messbar, nicht nur angenehm</b><span style={{"color": "#5E6A62"}}>Jede Sitzung endet mit einer Vorher–nachher-Momentaufnahme, dazu monatlich ein Trendbericht.</span></div>
+<div style={{"borderTop": "3px solid #3F6E8C", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Nachvollziehbar, nicht nur angenehm</b><span style={{"color": "#5E6A62"}}>Jede Sitzung endet mit einer Vorher–nachher-Momentaufnahme, dazu monatlich ein Trendbericht.</span></div>
 </div>
 </div>
 </section>
@@ -252,14 +278,14 @@ export default function CalmTouchPage() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#86603F", "fontWeight": "700"}}>FÜR UNTERNEHMEN</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.0vw, 52px)", "lineHeight": "1.06", "color": "#55665A"}}>Starten Sie mit einem Pilot.</h2>
-<p style={{"margin": "0", "fontSize": "18px", "color": "#3B443E", "textWrap": "pretty"}}>Nach einer kurzen Abstimmung können Sie es mit einem Team ausprobieren und erhalten am Ende des Pilots einen Messbericht.</p>
+<p style={{"margin": "0", "fontSize": "18px", "color": "#3B443E", "textWrap": "pretty"}}>Nach einer kurzen Abstimmung können Sie es mit einem Team ausprobieren und erhalten am Ende des Pilots einen zusammengefassten Rückmeldebericht.</p>
 </div>
 <img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="Eine HR-Leiterin und eine Wellbeing-Expertin unterhalten sich zwanglos in einem Besprechungsraum, mit Laptop und Tassen." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "40px 40px 10px 40px"}} />
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "18px"}}>
 <div style={{"background": "#E9EBD6", "borderRadius": "32px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <span style={{"fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "600", "color": "#3E4720"}}>Pilot</span>
-<span style={{"color": "#3B443E"}}>Mit einem Team ausprobieren. 3 Stunden, 9–12 Personen, mit Messbericht am Ende.</span>
+<span style={{"color": "#3B443E"}}>Mit einem Team ausprobieren. 3 Stunden, bis zu 8 Personen, mit zusammengefasster Rückmeldung am Ende.</span>
 <span style={{"marginTop": "6px", "fontWeight": "700", "color": "#3E4720"}}>Einführungspreis netto: 50.000 HUF</span>
 </div>
 <div style={{"background": "#7E3A4A", "color": "#FFFFFF", "borderRadius": "32px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
@@ -269,10 +295,11 @@ export default function CalmTouchPage() {
 </div>
 <div style={{"background": "#F4E3E4", "borderRadius": "32px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <span style={{"fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "600", "color": "#4E2530"}}>Wellbeing Day</span>
-<span style={{"color": "#3B443E"}}>2 × 3 Stunden, 18–24 Personen. Ein Highlight für Gesundheitstage, Events und Führungskräftetage.</span>
+<span style={{"color": "#3B443E"}}>2 × 3 Stunden, bis zu 16 Personen. Ein Highlight für Gesundheitstage, Events und Führungskräftetage.</span>
 <span style={{"marginTop": "6px", "fontWeight": "700", "color": "#4E2530"}}>Einführungspreis netto: 75.000 HUF</span>
 </div>
 </div>
+<span style={{"fontSize": "14px", "color": "#5E6A62"}}>Die angegebenen Einführungspreise (netto) gelten in Budapest und im Umkreis von 20 km; bei weiter entfernten Orten kommen Fahrtkosten hinzu.</span>
 <a href="/calm-touch/de/cegeknek" style={{"alignSelf": "flex-start", "color": "#7E3A4A", "fontWeight": "700"}}>Details für Unternehmen <span className="ct-arrow">→</span></a>
 </div>
 </section>
@@ -293,16 +320,14 @@ export default function CalmTouchPage() {
 <img src="/calm-touch/brand/logo-negyzetes.webp" alt="Calm Touch – Stressabbau durch Berührung" style={{"width": "220px", "maxWidth": "60%", "height": "auto"}} />
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.5vw, 46px)", "lineHeight": "1.1", "color": "#4E2530", "textWrap": "balance"}}>Schenken Sie Ihrem Team 15 Minuten, in denen es nichts leisten muss.</h2>
 <a href="/calm-touch/de/cegeknek" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot-Termin anfragen</a>
-<span style={{"color": "#5A4248", "fontSize": "15px"}}>[NAME] · [E-MAIL] · [TELEFON]</span>
 </div>
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px"}}>
 <span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos.webp" alt="Calm Touch – Stressabbau durch Berührung" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Betreiber: Alternatíva Tanácsadó Csoport Kft.</span></span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
-<a href="#kezdo" style={{"color": "#E9EBD6"}}>Datenschutzhinweis</a>
-<a href="#kezdo" style={{"color": "#E9EBD6"}}>Teilnahme- und Einverständniserklärung</a>
-<a href="#kezdo" style={{"color": "#E9EBD6"}}>Impressum</a>
+<a href="/calm-touch/de/modszertan" style={{"color": "#E9EBD6"}}>Messmethodik</a>
+<a href="https://pszichoszoc.hu/adatkezelesi-tajekoztato" style={{"color": "#E9EBD6"}}>Datenschutzhinweis</a>
 </div>
 </div>
 </footer>

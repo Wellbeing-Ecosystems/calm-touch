@@ -1,23 +1,32 @@
 // GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: src/app/modszertan/page.tsx, fordítás: scripts/i18n/site.json, futtatás: python3 scripts/i18n/generate.py
 import type { Metadata } from "next";
 import { HtmlLang } from "@/app/HtmlLang";
+import { abs, pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "@/app/SiteLang";
 import { MobileMenu } from "@/app/MobileMenu";
 import { methodHtml } from "./content_de";
 
-export const metadata: Metadata = {
-  title: "Calm-Touch Pulse – Messmethodik",
-  description:
-    "Wie Calm-Touch Pulse die Wirkung der Sitzungen misst: Fragen und ihr fachlicher Hintergrund, Kennzahlen und Ampelfarben, Datenschutz, Grenzen und Literatur.",
-  alternates: { canonical: "/calm-touch/de/modszertan" },
-};
+export const metadata: Metadata = pageMeta("de", "/modszertan", "Calm-Touch Pulse – Messmethodik", "Wie Calm-Touch Pulse die Wirkung der Sitzungen misst: Fragen und ihr fachlicher Hintergrund, Kennzahlen und Ampelfarben, Datenschutz, Grenzen und Literatur.");
 
 const PDF = "/calm-touch/docs/calm-touch-pulse-messmethodik-de.pdf";
+
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: "Calm-Touch Pulse – Messmethodik",
+  description: "Wie Calm-Touch Pulse die Wirkung der Sitzungen misst: Fragen und ihr fachlicher Hintergrund, Kennzahlen und Ampelfarben, Datenschutz, Grenzen und Literatur.",
+  url: abs("de", "/modszertan"),
+  inLanguage: "de",
+  datePublished: "2026-10-23",
+  publisher: { "@type": "Organization", name: "Calm Touch", url: abs("de", "") },
+};
 
 export default function ModszertanPage() {
   return (
 <div style={{"fontFamily": "var(--ct-text)", "color": "#2E3631", "background": "#FAF6F1", "lineHeight": "1.6", "fontSize": "17px"}}>
 <HtmlLang lang="de" />
+<JsonLd data={ld} />
 <header style={{"borderBottom": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "padding": "18px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="/calm-touch/de" style={{"textDecoration": "none", "display": "flex", "flexDirection": "column"}}>

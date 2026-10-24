@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { OFFER_EMAIL } from "../config";
+import { OFFER_EMAIL, OFFER_URL, PRIVACY_URL } from "../config";
 
 const FIELDS: [string, string][] = [
   ["f-ceg", "Cégnév"],
@@ -14,7 +14,7 @@ const FIELDS: [string, string][] = [
   ["f-megj", "Megjegyzés"],
 ];
 
-/** Builds a pre-filled e-mail from the offer form; disabled until OFFER_EMAIL is set. */
+/** Ajánlatkérés: OFFER_URL (bevetel.hu) → link; különben OFFER_EMAIL → előre kitöltött e-mail; egyik sincs → rövid tájékoztatás. */
 export function OfferForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -25,6 +25,19 @@ export function OfferForm() {
     window.location.href = `mailto:${OFFER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
+  if (OFFER_URL) {
+    return (
+<div style={{"display": "flex", "flexDirection": "column", "alignItems": "flex-start", "gap": "14px"}}>
+<p style={{"margin": "0", "color": "#3B443E"}}>Az ajánlatkérő űrlap egy új lapon nyílik meg.</p>
+<a href={OFFER_URL} target="_blank" rel="noopener" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 28px", "borderRadius": "999px", "fontWeight": "600", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
+</div>
+    );
+  }
+  if (!OFFER_EMAIL) {
+    return (
+<p style={{"margin": "0", "background": "#FFFFFF", "borderRadius": "14px", "padding": "18px 22px", "color": "#3B443E"}}>Az online ajánlatkérés néhány napon belül indul.</p>
+    );
+  }
   return (
 <form onSubmit={handleSubmit} style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "18px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "6px"}}><label htmlFor="f-ceg" style={{"fontWeight": "500"}}>Cégnév</label><input id="f-ceg" name="f-ceg" type="text" style={{"minHeight": "48px", "border": "1px solid #CDB8A3", "borderRadius": "10px", "padding": "0 14px", "font": "inherit", "background": "#FFFFFF"}} /></div>
@@ -36,10 +49,9 @@ export function OfferForm() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "6px", "gridColumn": "1 / -1"}}><label htmlFor="f-hely" style={{"fontWeight": "500"}}>Helyszín</label><input id="f-hely" name="f-hely" type="text" style={{"minHeight": "48px", "border": "1px solid #CDB8A3", "borderRadius": "10px", "padding": "0 14px", "font": "inherit", "background": "#FFFFFF"}} /></div>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "6px", "gridColumn": "1 / -1"}}><label htmlFor="f-megj" style={{"fontWeight": "500"}}>Megjegyzés</label><textarea id="f-megj" name="f-megj" rows={4} style={{"border": "1px solid #CDB8A3", "borderRadius": "10px", "padding": "12px 14px", "font": "inherit", "background": "#FFFFFF", "resize": "vertical"}}></textarea></div>
 <div style={{"gridColumn": "1 / -1", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "16px"}}>
-<button type="submit" disabled={!OFFER_EMAIL} aria-describedby={OFFER_EMAIL ? undefined : "ajanlat-allapot"} style={{"background": "#7E3A4A", "color": "#FFFFFF", "border": "none", "padding": "14px 28px", "borderRadius": "999px", "font": "inherit", "fontWeight": "500", "minHeight": "48px", "cursor": "pointer"}}>Ajánlatot kérek</button>
-<span style={{"fontSize": "14px", "color": "#5A4248"}}>Az elküldéssel elfogadja az <a href="#ajanlat">adatkezelési tájékoztatót</a>.</span>
+<button type="submit" style={{"background": "#7E3A4A", "color": "#FFFFFF", "border": "none", "padding": "14px 28px", "borderRadius": "999px", "font": "inherit", "fontWeight": "500", "minHeight": "48px", "cursor": "pointer"}}>Ajánlatot kérek</button>
+<span style={{"fontSize": "14px", "color": "#5A4248"}}>Az elküldéssel elfogadja az <a href={PRIVACY_URL}>adatkezelési tájékoztatót</a>.</span>
 </div>
-{!OFFER_EMAIL && (<p id="ajanlat-allapot" style={{ gridColumn: "1 / -1", margin: 0, fontSize: "14px", color: "#5A4248" }}>Az ajánlatkérés hamarosan elérhető. A fogadó e-mail-címet a config.ts fájlban kell megadni.</p>)}
 </form>
   );
 }

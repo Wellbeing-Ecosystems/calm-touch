@@ -1,23 +1,20 @@
 // GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: src/app/pulse-plus/page.tsx, fordítás: scripts/i18n/site.json, futtatás: python3 scripts/i18n/generate.py
 import type { Metadata } from "next";
 import { HtmlLang } from "@/app/HtmlLang";
+import { abs, pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "@/app/SiteLang";
 import { MobileMenu } from "@/app/MobileMenu";
 
-export const metadata: Metadata = {
-  title: "Calm-Touch Pulse+ – instrument-based mental state assessment",
-  description:
-    "A one-off, integrated instrument-based assessment: qEEG, HRV and a cognitive test in one session. It shows the state of the nervous system and what is worth working on in the coming weeks.",
-  alternates: { canonical: "/calm-touch/en/pulse-plus" },
-};
+export const metadata: Metadata = pageMeta("en", "/pulse-plus", "Calm-Touch Pulse+ – instrument-based mental state assessment", "A one-off, integrated instrument-based assessment: qEEG, HRV and a cognitive test in one session, with a personal feedback session and a six-week development plan.");
 
 const blue = "#2C5069";
 const mid = "#3F6E8C";
 const pale = "#DDE8EF";
 
 const measures = [
-  { n: "1", t: "qEEG", d: "Recording of the brain's electrical activity with eyes open and closed. It shows the quality of the resting state." },
-  { n: "2", t: "HRV", d: "Analysis of the variation between heartbeats. It gives a picture of autonomic balance and recovery reserves." },
+  { n: "1", t: "qEEG", d: "Recording of the brain's electrical activity at rest, with eyes open and closed; it shows the distribution across frequency bands." },
+  { n: "2", t: "HRV", d: "Measurement of the variation in the intervals between heartbeats, which provides information on autonomic nervous system regulation." },
   { n: "3", t: "Cognitive test", d: "Four computer tasks: attention, reaction time, information processing, decision-making." },
 ];
 
@@ -25,10 +22,23 @@ const card = { background: "#FFFFFF", borderRadius: "20px", padding: "clamp(20px
 const h2 = { overflowWrap: "break-word" as const, margin: "0", fontFamily: "var(--ct-display)", fontWeight: 700, fontSize: "clamp(28px, 3vw, 38px)", lineHeight: 1.1, color: blue };
 const eyebrow = { fontSize: "13px", letterSpacing: "0.18em", color: mid, fontWeight: 700 };
 
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Calm-Touch Pulse+",
+  serviceType: "Integrated mental state assessment",
+  description: "A one-off, integrated instrument-based assessment: qEEG, HRV and a cognitive test in one session, with a personal feedback session and a six-week development plan.",
+  url: abs("en", "/pulse-plus"),
+  provider: { "@type": "Organization", name: "Calm Touch", url: abs("en", "") },
+  areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: 47.4979, longitude: 19.0402 }, geoRadius: 20000 },
+  audience: { "@type": "BusinessAudience" },
+};
+
 export default function PulsePlusPage() {
   return (
 <div style={{"fontFamily": "var(--ct-text)", "color": "#2E3631", "background": "#FAF6F1", "lineHeight": "1.55", "fontSize": "17px"}}>
 <HtmlLang lang="en" />
+<JsonLd data={ld} />
 <header style={{"borderBottom": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "padding": "18px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="/calm-touch/en" style={{"textDecoration": "none", "display": "flex", "flexDirection": "column"}}>
@@ -49,7 +59,7 @@ export default function PulsePlusPage() {
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "20px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "20px", "fontWeight": 800, "color": "#FFFFFF", "background": mid, "borderRadius": "999px", "padding": "4px 18px"}}>Pulse+</span>
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": 700, "fontSize": "clamp(34px, 4.6vw, 56px)", "lineHeight": "1.05", "color": blue, "textWrap": "balance"}}>Integrated mental state assessment</h1>
-<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "20px", "color": "#3B443E", "textWrap": "pretty"}}>Three instrument-based measurements in one assessment that show the state of the nervous system and what is worth working on in the coming weeks. It complements the Calm-Touch Pulse questionnaires: the body's own data are added to how people feel.</p>
+<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "20px", "color": "#3B443E", "textWrap": "pretty"}}>Three instrument-based measurements in one assessment: brain activity, heart rate variability and cognitive performance. The personal feedback session shows what is worth focusing on in the coming weeks. It complements the Calm-Touch Pulse questionnaire feedback with objective data.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "8px"}}>
 <span style={{"fontSize": "14px", "fontWeight": 700, "color": blue, "background": pale, "borderRadius": "999px", "padding": "5px 14px"}}>one-off assessment</span>
 <span style={{"fontSize": "14px", "fontWeight": 700, "color": blue, "background": pale, "borderRadius": "999px", "padding": "5px 14px"}}>3 instrument-based measurements</span>
@@ -117,8 +127,8 @@ export default function PulsePlusPage() {
 <div style={{...card, "background": "#FAF6F1"}}>
 <b style={{"fontSize": "19px"}}>For the employer</b>
 <ul style={{"margin": "0", "paddingLeft": "20px", "display": "flex", "flexDirection": "column", "gap": "6px", "color": "#3B443E"}}>
-<li>The effect of the wellbeing programme can be shown in numbers</li>
-<li>A group-level, anonymised picture of the organisation's load</li>
+<li>Objective, quantitative data accompany the wellbeing programme</li>
+<li>A group-level, anonymised picture of the organisation’s load</li>
 <li>Individual results belong to the person measured; the company only sees aggregates</li>
 </ul>
 </div>
@@ -128,9 +138,9 @@ export default function PulsePlusPage() {
 
 <section style={{"padding": "clamp(40px, 5vw, 64px) 20px"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "16px"}}>
-<span style={eyebrow}>WHO IT'S FOR</span>
+<span style={eyebrow}>WHO IT’S FOR</span>
 <p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>For ongoing stress, attention difficulties or mood swings, or for anyone who wants to improve their performance at work. In a company setting we recommend it for managers and high-pressure teams, as a complement to the Calm-Touch programme.</p>
-<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>We prepare individual quotes for company packages, group assessments and on-site measurement.</p>
+<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>We prepare individual quotes for company packages, group assessments and on-site measurement; we send the price based on your request.</p>
 <a href="/calm-touch/en/cegeknek#ajanlat" style={{"alignSelf": "flex-start", "textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": 600, "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a Pulse+ quote</a>
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>The integrated mental state assessment is an assessment and development service; it does not provide a medical diagnosis and does not replace treatment.</span>
 </div>

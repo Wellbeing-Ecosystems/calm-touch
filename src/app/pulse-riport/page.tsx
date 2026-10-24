@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Calm-Touch Pulse – havi HR riport (példa)",
-  description: "Példa a havi Calm-Touch Pulse riportra: állapot-pulzus, hatás és havi trend 1–10 skálán (10 = legjobb), csapatonként, legalább 5 fős csoportokban.",
-  alternates: { canonical: "/calm-touch/pulse-riport" },
-};
+export const metadata: Metadata = pageMeta("hu", "/pulse-riport", "Calm-Touch Pulse – havi HR riport (példa)", "Példa a havi Calm-Touch Pulse riportra: állapot-pulzus, hatás és havi trend 1–10 skálán (10 = legjobb), csapatonként, legalább 5 fős csoportokban.");
 
 export default function PulseRiportPage() {
   return (
@@ -12,8 +9,8 @@ export default function PulseRiportPage() {
 <div style={{"maxWidth": "1180px", "margin": "0 auto", "padding": "clamp(28px, 4vw, 40px) 20px clamp(48px, 6vw, 64px)", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
 <div style={{"display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "alignItems": "flex-end", "gap": "16px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}>
-<span style={{"alignSelf": "flex-start", "fontSize": "12px", "letterSpacing": "0.2em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE · HAVI RIPORT</span>
-<h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.4vw, 44px)", "lineHeight": "1.05", "color": "#2C5069"}}>[CÉGNÉV] · [HÓNAP]</h1>
+<h1 style={{"margin": "0", "alignSelf": "flex-start", "fontSize": "12px", "letterSpacing": "0.2em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE · HAVI RIPORT (PÉLDA)</h1>
+<p style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.4vw, 44px)", "lineHeight": "1.05", "color": "#2C5069"}}>[CÉGNÉV] · [HÓNAP]</p>
 </div>
 <span style={{"background": "#F4E3E4", "color": "#5A4248", "borderRadius": "999px", "padding": "8px 16px", "fontSize": "14px", "fontWeight": "500"}}>Példa – illusztráció, nem mért adatok</span>
 </div>

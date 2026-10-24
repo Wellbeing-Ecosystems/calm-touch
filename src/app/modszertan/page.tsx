@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
+import { abs, pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "../SiteLang";
 import { MobileMenu } from "../MobileMenu";
 import { methodHtml } from "./content";
 
-export const metadata: Metadata = {
-  title: "Calm-Touch Pulse – mérési módszertan",
-  description:
-    "Hogyan méri a Calm-Touch Pulse az alkalmak hatását: kérdések és szakmai hátterük, mutatók és színjelzések, adatvédelem, korlátok és szakmai hivatkozások.",
-  alternates: { canonical: "/calm-touch/modszertan" },
-};
+export const metadata: Metadata = pageMeta("hu", "/modszertan", "Calm-Touch Pulse – mérési módszertan", "Hogyan méri a Calm-Touch Pulse az alkalmak hatását: kérdések és szakmai hátterük, mutatók és színjelzések, adatvédelem, korlátok és szakmai hivatkozások.");
 
 const PDF = "/calm-touch/docs/calm-touch-pulse-meresi-modszertan.pdf";
+
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: "Calm-Touch Pulse – mérési módszertan",
+  description: "Hogyan méri a Calm-Touch Pulse az alkalmak hatását: kérdések és szakmai hátterük, mutatók és színjelzések, adatvédelem, korlátok és szakmai hivatkozások.",
+  url: abs("hu", "/modszertan"),
+  inLanguage: "hu",
+  datePublished: "2026-10-23",
+  publisher: { "@type": "Organization", name: "Calm Touch", url: abs("hu", "") },
+};
 
 export default function ModszertanPage() {
   return (
 <div style={{"fontFamily": "var(--ct-text)", "color": "#2E3631", "background": "#FAF6F1", "lineHeight": "1.6", "fontSize": "17px"}}>
+<JsonLd data={ld} />
 <header style={{"borderBottom": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "padding": "18px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="/calm-touch" style={{"textDecoration": "none", "display": "flex", "flexDirection": "column"}}>

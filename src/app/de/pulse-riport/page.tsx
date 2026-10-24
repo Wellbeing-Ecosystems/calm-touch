@@ -1,12 +1,9 @@
 // GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: src/app/pulse-riport/page.tsx, fordítás: scripts/i18n/site.json, futtatás: python3 scripts/i18n/generate.py
 import type { Metadata } from "next";
 import { HtmlLang } from "@/app/HtmlLang";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Calm-Touch Pulse – monatlicher HR-Bericht (Beispiel)",
-  description: "Beispiel für den monatlichen Calm-Touch-Pulse-Bericht: Zustandspuls, Wirkung und Monatstrend auf einer Skala von 1–10 (10 = am besten), nach Teams, in Gruppen ab 5 Personen.",
-  alternates: { canonical: "/calm-touch/de/pulse-riport" },
-};
+export const metadata: Metadata = pageMeta("de", "/pulse-riport", "Calm-Touch Pulse – monatlicher HR-Bericht (Beispiel)", "Beispiel für den monatlichen Calm-Touch-Pulse-Bericht: Zustandspuls, Wirkung und Monatstrend auf einer Skala von 1–10 (10 = am besten), nach Teams, in Gruppen ab 5 Personen.");
 
 export default function PulseRiportPage() {
   return (
@@ -15,8 +12,8 @@ export default function PulseRiportPage() {
 <div style={{"maxWidth": "1180px", "margin": "0 auto", "padding": "clamp(28px, 4vw, 40px) 20px clamp(48px, 6vw, 64px)", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
 <div style={{"display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "alignItems": "flex-end", "gap": "16px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}>
-<span style={{"alignSelf": "flex-start", "fontSize": "12px", "letterSpacing": "0.2em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE · MONATSBERICHT</span>
-<h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.4vw, 44px)", "lineHeight": "1.05", "color": "#2C5069"}}>[UNTERNEHMEN] · [MONAT]</h1>
+<h1 style={{"margin": "0", "alignSelf": "flex-start", "fontSize": "12px", "letterSpacing": "0.2em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE · MONATSBERICHT (BEISPIEL)</h1>
+<p style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.4vw, 44px)", "lineHeight": "1.05", "color": "#2C5069"}}>[UNTERNEHMEN] · [MONAT]</p>
 </div>
 <span style={{"background": "#F4E3E4", "color": "#5A4248", "borderRadius": "999px", "padding": "8px 16px", "fontSize": "14px", "fontWeight": "500"}}>Beispiel – Illustration, keine gemessenen Daten</span>
 </div>

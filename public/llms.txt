@@ -1,0 +1,23 @@
+# Calm Touch
+
+> Calm Touch is a workplace stress-relief programme in Budapest, Hungary: 15–20-minute sessions of slow, gentle touch through clothing (head, shoulders, arms), seated, in the office. Every session includes a short before–after self-report ("Calm-Touch Pulse"); companies receive an anonymous monthly report for groups of at least 5 people. Operated by Alternatíva Tanácsadó Csoport Kft.
+
+A Calm Touch munkahelyi stresszoldó program Budapesten: 15–20 perces, ülő helyzetben, ruhán keresztül végzett, gyengéd érintés (fej, váll, kar) az irodában. Minden alkalom előtt és után rövid állapot-visszajelzés (Calm-Touch Pulse), a cég havi névtelen, legalább 5 fős csoportokra összesített riportot kap.
+
+Key facts:
+- Session: 15–20 minutes per person; a booking is at least 3 hours for up to 8 people (2 × 3 hours for up to 16 people).
+- Introductory net prices (HUF): pilot 3 hours 50,000; regular 3 hours from 55,000 (weekly) to 65,000 (monthly); Wellbeing Day 2 × 3 hours 75,000. Prices apply within Budapest and a 20 km radius; travel costs are added beyond that.
+- Calm-Touch Pulse: 6-question snapshot before and after each session (1–10 scale) and an 11-statement monthly questionnaire; items are based on constructs of validated instruments (Thayer AD ACL, PSS, REQ, CBI, MAIA, POS) but form a programme-specific, non-diagnostic set.
+- Pulse+: optional one-off instrument-based assessment (qEEG, HRV, cognitive test) with a personal feedback session; price on request.
+- Not a medical service; participation is voluntary; touch only through clothing, can be stopped at any time.
+- Languages: Hungarian, English, German.
+
+## Pages
+- [Főoldal (HU)](https://pszichoszoc.hu/calm-touch): what Calm Touch is, how a session works
+- [Cégeknek (HU)](https://pszichoszoc.hu/calm-touch/cegeknek): packages, prices, FAQ, quote request
+- [For companies (EN)](https://pszichoszoc.hu/calm-touch/en/cegeknek)
+- [Für Unternehmen (DE)](https://pszichoszoc.hu/calm-touch/de/cegeknek)
+- [Pulse+ (HU)](https://pszichoszoc.hu/calm-touch/pulse-plus): instrument-based assessment
+- [Mérési módszertan (HU)](https://pszichoszoc.hu/calm-touch/modszertan): questions, scoring, thresholds, limitations, references
+- [Measurement method (EN)](https://pszichoszoc.hu/calm-touch/en/modszertan)
+- [Example HR report (EN)](https://pszichoszoc.hu/calm-touch/en/pulse-riport)

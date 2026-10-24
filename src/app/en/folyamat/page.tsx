@@ -1,12 +1,9 @@
 // GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: src/app/folyamat/page.tsx, fordítás: scripts/i18n/site.json, futtatás: python3 scripts/i18n/generate.py
 import type { Metadata } from "next";
 import { HtmlLang } from "@/app/HtmlLang";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Process: session and monthly Pulse cycle",
-  description: "The steps of a Calm-Touch session and the monthly Pulse measurement cycle.",
-  alternates: { canonical: "/calm-touch/en/folyamat" },
-};
+export const metadata: Metadata = pageMeta("en", "/folyamat", "Process: session and monthly Pulse cycle", "The steps of a Calm-Touch session and the monthly Pulse measurement cycle.");
 
 export default function FolyamatPage() {
   return (
@@ -26,7 +23,7 @@ export default function FolyamatPage() {
 <svg width="63" height="8" viewBox="0 0 63 8" preserveAspectRatio="none" style={{"position": "absolute", "left": "853px", "top": "496px", "width": "63px", "height": "8px", "overflow": "visible", "fill": "none", "stroke": "#7D8A80", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round"}}><defs><marker id="dc-arrow-head-filled-8" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#7D8A80" stroke="none" style={{"stroke": "none", "fill": "context-stroke"}} /></marker></defs><path d="M 63 4 L 4 4" markerEnd="url(#dc-arrow-head-filled-8)" /></svg>
 <svg width="458" height="8" viewBox="0 0 458 8" preserveAspectRatio="none" style={{"position": "absolute", "left": "174px", "top": "496px", "width": "458px", "height": "8px", "overflow": "visible", "fill": "none", "stroke": "#7D8A80", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round", "strokeDasharray": "6 6"}}><path d="M 0 4 L 458 4" /></svg>
 <svg width="8" height="191" viewBox="0 0 8 191" preserveAspectRatio="none" style={{"position": "absolute", "left": "170px", "top": "309px", "width": "8px", "height": "191px", "overflow": "visible", "fill": "none", "stroke": "#7D8A80", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round", "strokeDasharray": "6 6"}}><defs><marker id="dc-arrow-head-filled-9" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#7D8A80" stroke="none" style={{"stroke": "none", "fill": "context-stroke"}} /></marker></defs><path d="M 4 191 L 4 4" markerEnd="url(#dc-arrow-head-filled-9)" /></svg>
-<div style={{"position": "absolute", "left": "64px", "top": "52px", "fontFamily": "var(--ct-display)", "fontSize": "38px", "fontWeight": "600", "lineHeight": "1.1"}}>One session and the monthly Pulse cycle</div>
+<h1 style={{"margin": "0", "position": "absolute", "left": "64px", "top": "52px", "fontFamily": "var(--ct-display)", "fontSize": "38px", "fontWeight": "600", "lineHeight": "1.1"}}>One session and the monthly Pulse cycle</h1>
 <div style={{"position": "absolute", "left": "64px", "top": "108px", "width": "1200px", "fontSize": "16px", "lineHeight": "22px", "color": "#3B443E"}}>The snapshot runs at every session; the 11-statement questionnaire at most once a month per code. All data feed into the monthly HR Pulse report.</div>
 <div style={{"position": "absolute", "left": "64px", "top": "212px", "width": "220px", "height": "96px", "boxSizing": "border-box", "padding": "8px", "display": "flex", "alignItems": "center", "justifyContent": "center", "textAlign": "center", "background": "#FFFFFF", "border": "1px solid #D6DCC8", "borderRadius": "12px", "fontSize": "15px", "lineHeight": "20px"}}><span><b>Sign-up</b><br />internal list, voluntary</span></div>
 <div style={{"position": "absolute", "left": "348px", "top": "212px", "width": "220px", "height": "96px", "boxSizing": "border-box", "padding": "8px", "display": "flex", "alignItems": "center", "justifyContent": "center", "textAlign": "center", "background": "#FFFFFF", "border": "1px solid #D6DCC8", "borderRadius": "12px", "fontSize": "15px", "lineHeight": "20px"}}><span><b>Before-snapshot</b><br />own code + 6 questions · 30 sec</span></div>

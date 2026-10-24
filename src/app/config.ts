@@ -6,6 +6,13 @@
 export const OFFER_EMAIL: string | null = null;
 
 /**
+ * Az ajánlatkérés / jelentkezés oldala a bevetel.hu-n. Ha meg van adva, a Cégeknek oldal
+ * ajánlatkérő része erre a címre visz (új lapon); ez elsőbbséget élvez az e-mailes űrlappal szemben.
+ * Példa: export const OFFER_URL: string | null = "https://bevetel.hu/...";
+ */
+export const OFFER_URL: string | null = null;
+
+/**
  * Az adatkezelési tájékoztató címe – a pillanatkép és a havi kérdőív hozzájárulás-pipája
  * erre hivatkozik. Az éles honlap tájékoztatójának címét kell ide beírni.
  */

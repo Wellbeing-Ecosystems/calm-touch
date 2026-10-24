@@ -1,12 +1,9 @@
 // GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: src/app/pulse-riport/page.tsx, fordítás: scripts/i18n/site.json, futtatás: python3 scripts/i18n/generate.py
 import type { Metadata } from "next";
 import { HtmlLang } from "@/app/HtmlLang";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Calm-Touch Pulse – monthly HR report (example)",
-  description: "Example of the monthly Calm-Touch Pulse report: state pulse, effect and monthly trend on a 1–10 scale (10 = best), by team, in groups of at least 5.",
-  alternates: { canonical: "/calm-touch/en/pulse-riport" },
-};
+export const metadata: Metadata = pageMeta("en", "/pulse-riport", "Calm-Touch Pulse – monthly HR report (example)", "Example of the monthly Calm-Touch Pulse report: state pulse, effect and monthly trend on a 1–10 scale (10 = best), by team, in groups of at least 5.");
 
 export default function PulseRiportPage() {
   return (
@@ -15,8 +12,8 @@ export default function PulseRiportPage() {
 <div style={{"maxWidth": "1180px", "margin": "0 auto", "padding": "clamp(28px, 4vw, 40px) 20px clamp(48px, 6vw, 64px)", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
 <div style={{"display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "alignItems": "flex-end", "gap": "16px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}>
-<span style={{"alignSelf": "flex-start", "fontSize": "12px", "letterSpacing": "0.2em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE · MONTHLY REPORT</span>
-<h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.4vw, 44px)", "lineHeight": "1.05", "color": "#2C5069"}}>[COMPANY] · [MONTH]</h1>
+<h1 style={{"margin": "0", "alignSelf": "flex-start", "fontSize": "12px", "letterSpacing": "0.2em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE · MONTHLY REPORT (EXAMPLE)</h1>
+<p style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.4vw, 44px)", "lineHeight": "1.05", "color": "#2C5069"}}>[COMPANY] · [MONTH]</p>
 </div>
 <span style={{"background": "#F4E3E4", "color": "#5A4248", "borderRadius": "999px", "padding": "8px 16px", "fontSize": "14px", "fontWeight": "500"}}>Example – illustration, not measured data</span>
 </div>

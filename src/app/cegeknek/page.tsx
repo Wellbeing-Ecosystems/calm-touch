@@ -1,17 +1,57 @@
 import type { Metadata } from "next";
+import { abs, pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "../SiteLang";
 import { MobileMenu } from "../MobileMenu";
 import { OfferForm } from "./OfferForm";
 
-export const metadata: Metadata = {
-  title: "Cégeknek – pilot, csomagok és Pulse riport",
-  description: "Calm Touch céges csomagok: pilot, rendszeres alkalmak és Wellbeing Day, havi névtelen Calm-Touch Pulse riporttal.",
-  alternates: { canonical: "/calm-touch/cegeknek" },
+export const metadata: Metadata = pageMeta("hu", "/cegeknek", "Cégeknek – irodai stresszoldó program, csomagok és árak", "Calm Touch céges csomagok Budapesten és 20 km-es körzetében: pilot (3 óra, legfeljebb 8 fő), rendszeres alkalmak és Wellbeing Day, havi névtelen Calm-Touch Pulse riporttal.");
+
+const ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": `${abs("hu", "/cegeknek")}#gyik`,
+      mainEntity: [
+    { "@type": "Question", name: "Ez masszázs?", acceptedAnswer: { "@type": "Answer", text: "Nem klasszikus masszázs: nincs erős nyomás és olaj. Lassú, gyengéd érintés ruhán keresztül, mentális felfrissülés céljából." } },
+    { "@type": "Question", name: "Mi van, ha valaki nem szereti, ha megérintik?", acceptedAnswer: { "@type": "Answer", text: "A részvétel önkéntes. Az érintési területeket előre egyeztetjük, az alkalom bármikor leállítható." } },
+    { "@type": "Question", name: "Mennyi időt vesz el a munkától?", acceptedAnswer: { "@type": "Answer", text: "Összesen kb. 20 perc, a pillanatképekkel együtt. A havi kérdőív havonta egyszer további kb. 2 perc." } },
+    { "@type": "Question", name: "Ki látja a válaszokat?", acceptedAnswer: { "@type": "Answer", text: "A cég csak összesített eredményt kap, legalább 5 fős csoportokban. Egyéni adatot nem adunk ki; a válaszokat saját kód párosítja, név nem." } },
+    { "@type": "Question", name: "Miért csak havonta egyszer a hosszabb kérdőív?", acceptedAnswer: { "@type": "Answer", text: "Hogy ne terhelje a résztvevőket, és a trend tiszta maradjon: egy fő egy hónapban egy választ ad, így a havi adatok összevethetők." } },
+    { "@type": "Question", name: "Ez egészségügyi szolgáltatás?", acceptedAnswer: { "@type": "Answer", text: "Nem. Wellbeing-szolgáltatás, nem diagnosztizál és nem kezel. A pillanatkép önbevallás, nem egészségügyi mérés." } },
+    { "@type": "Question", name: "Hogyan adózik a juttatás?", acceptedAnswer: { "@type": "Answer", text: "Az adózási besorolást javasoljuk a cég könyvelőjével egyeztetni." } },
+    { "@type": "Question", name: "Hol érhető el a szolgáltatás?", acceptedAnswer: { "@type": "Answer", text: "A honlapon szereplő árak Budapesten és 20 km-es vonzáskörzetében érvényesek. Távolabbi helyszínre is megyünk; ilyenkor az árak az útiköltséggel nőnek." } }
+      ],
+    },
+    {
+      "@type": "Service",
+      name: "Calm-Touch",
+      serviceType: "Munkahelyi stresszoldó, gyengéd érintéses program",
+      url: abs("hu", "/cegeknek"),
+      provider: { "@type": "Organization", name: "Calm Touch", url: abs("hu", "") },
+      areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: 47.4979, longitude: 19.0402 }, geoRadius: 20000 },
+      audience: { "@type": "BusinessAudience" },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Rendszeres csomag · bevezető nettó árak alkalmanként",
+        itemListElement: [
+          { "@type": "Offer", name: "Első alkalom (pilot)", description: "3 óra · legfeljebb 8 fő", price: 50000, priceCurrency: "HUF" },
+          { "@type": "Offer", name: "Rendszeres – hetente", description: "3 óra / alkalom", price: 55000, priceCurrency: "HUF" },
+          { "@type": "Offer", name: "Rendszeres – 2 hetente", description: "3 óra / alkalom", price: 59000, priceCurrency: "HUF" },
+          { "@type": "Offer", name: "Rendszeres – 3 hetente", description: "3 óra / alkalom", price: 62000, priceCurrency: "HUF" },
+          { "@type": "Offer", name: "Rendszeres – havonta", description: "3 óra / alkalom", price: 65000, priceCurrency: "HUF" },
+          { "@type": "Offer", name: "Wellbeing Day", description: "2 × 3 óra · legfeljebb 16 fő", price: 75000, priceCurrency: "HUF" },
+        ],
+      },
+    },
+  ],
 };
 
 export default function CegeknekPage() {
   return (
 <div style={{"fontFamily": "var(--ct-text)", "color": "#2E3631", "background": "#FAF6F1", "lineHeight": "1.55", "fontSize": "17px"}}>
+<JsonLd data={ld} />
 <header style={{"borderBottom": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "padding": "18px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="/calm-touch" style={{"textDecoration": "none", "display": "flex", "flexDirection": "column"}}>
@@ -32,7 +72,7 @@ export default function CegeknekPage() {
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "22px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#55665A", "fontWeight": "500"}}>HR-NEK ÉS VEZETŐKNEK</span>
-<h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 4.5vw, 58px)", "lineHeight": "1.04", "textWrap": "balance"}}>Mérhető mentális felfrissülés a munkanapon belül.</h1>
+<h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 4.5vw, 58px)", "lineHeight": "1.04", "textWrap": "balance"}}>Mentális felfrissülés a munkanapon belül – követhető visszajelzéssel.</h1>
 <p style={{"margin": "0", "fontSize": "19px", "color": "#3B443E", "textWrap": "pretty"}}>Munkatársai nem a feladatok mennyiségébe fáradnak bele, hanem abba, hogy nincs megállás. A Calm-Touch 15–20 perces irodai alkalmai ezt a megállást adják vissza – és havonta névtelen, összesített Pulse riportot kap arról, hogyan bírja a csapat, és mit változtattak az alkalmak.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "12px"}}>
 <a href="#ajanlat" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot ajánlatot kérek</a>
@@ -52,7 +92,7 @@ export default function CegeknekPage() {
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px", "maxWidth": "50rem"}}>
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.18em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE</span>
-<h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08", "color": "#FFFFFF"}}>Stresszoldás és pulzusmérés egyben.</h2>
+<h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08", "color": "#FFFFFF"}}>Stresszoldás és rövid állapot-visszajelzés egyben.</h2>
 <p style={{"margin": "0", "fontSize": "18px", "color": "#E6EEF3", "textWrap": "pretty"}}>A csapat állapotát nem egy éves kérdőívből látja, hanem havi, valós helyzetképből. Minden alkalom három jelet ad, mindhármat zöld–sárga–piros jelzéssel.</p>
 </div>
 <div style={{"overflowX": "auto", "background": "#FAF6F1", "borderRadius": "18px"}}>
@@ -104,16 +144,16 @@ export default function CegeknekPage() {
 <div style={{"background": "#3F6E8C", "color": "#FFFFFF", "borderRadius": "18px", "padding": "26px", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "18px", "fontWeight": "800", "color": "#2C5069", "background": "#FFFFFF", "borderRadius": "999px", "padding": "3px 16px"}}>Pulse+</span>
 <b style={{"fontSize": "19px"}}>Kiegészítő műszeres állapotfelmérés</b>
-<span style={{"color": "#F2F6F9"}}>Egyszeri műszeres állapotfelmérés a kérdőívek mellé: agyi aktivitás (qEEG), szívritmus-variabilitás (HRV) és kognitív teszt, így a megélt állapot mellett az idegrendszer terhelése is látható. Ára egyedi ajánlat alapján: [PULSE+ ÁR].</span>
+<span style={{"color": "#F2F6F9"}}>Egyszeri műszeres állapotfelmérés a kérdőívek mellé: agyi aktivitás (qEEG), szívritmus-variabilitás (HRV) és kognitív teszt, így a megélt állapot mellé objektív élettani és kognitív adatok is kerülnek. Ára egyedi ajánlat alapján.</span>
 <a href="/calm-touch/pulse-plus" style={{"alignSelf": "flex-start", "color": "#FFFFFF", "fontWeight": "700"}}>A Pulse+ részletei <span className="ct-arrow">→</span></a>
 </div>
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "20px"}}>
-<div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Valós idejű terhelésjelzés</b><span style={{"color": "#EEF0EA"}}>Látja, melyik csapatnál és mikor nő a feszültség – zárási időszakban, projektcsúcsban.</span></div>
-<div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Bizonyított hatás</b><span style={{"color": "#EEF0EA"}}>A wellbeing-költség mellé mért eredmény kerül, nem csak elégedettségi visszajelzés.</span></div>
-<div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Megelőzés</b><span style={{"color": "#EEF0EA"}}>A tartósan piros jelzés korai figyelmeztetés: workshop, kockázatfelmérés vagy munkaszervezési lépés indítható, mielőtt kiégés lenne belőle.</span></div>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Rendszeres terhelésjelzés</b><span style={{"color": "#EEF0EA"}}>Havonta látja, melyik csapatnál nő a feszültség – például zárási időszakban vagy projektcsúcsban.</span></div>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Követhető változás</b><span style={{"color": "#EEF0EA"}}>A wellbeing-költség mellé a résztvevők visszajelzéséből számolt mutatók kerülnek, nem csak benyomások.</span></div>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Megelőzés</b><span style={{"color": "#EEF0EA"}}>A tartósan piros jelzés korai figyelmeztetés: célzott felmérés, workshop vagy munkaszervezési lépés indítható időben.</span></div>
 </div>
-<span style={{"fontSize": "14px", "color": "#E6EAE4"}}>Minden mutató 1–10 skálán szerepel, ahol 10 = a legjobb állapot; a negatív tartalmú kérdéseknél (pl. feszültség, kimerülés) a pontozás fordított. A küszöbértékek kiinduló javaslatok; az első három hónap adatai alapján finomítjuk őket. A riport kimondja korlátait is: az önkéntes résztvevők állapotát mutatja, nem az egész szervezetét.</span>
+<span style={{"fontSize": "14px", "color": "#E6EAE4"}}>Minden mutató 1–10 skálán szerepel, ahol 10 = a legjobb állapot; a negatív tartalmú kérdéseknél (pl. feszültség, kimerülés) a pontozás fordított. A küszöbértékek kiinduló javaslatok; az első három hónap adatai alapján finomítjuk őket. A riport kimondja korlátait is: az önkéntes résztvevők önbevallását mutatja, nem az egész szervezetét. A kérdéssor szakirodalmi alapokra épülő saját összeállítás, nem validált diagnosztikai mérőeszköz.</span>
 </div>
 </section>
 <section style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
@@ -151,7 +191,7 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>CSOMAGOK</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>A pilottól a rendszeres jelenlétig.</h2>
 </div>
-<p style={{"margin": "0", "color": "#3B443E", "maxWidth": "46rem"}}>Egy alkalom legalább 3 óra (9–12 fő); nagyobb csapatnak 2 × 3 óra (18–24 fő). A rendszeres jelenlét hetente, 2 vagy 3 hetente, illetve havonta kérhető – minél sűrűbb, annál kedvezőbb az alkalom ára.</p>
+<p style={{"margin": "0", "color": "#3B443E", "maxWidth": "46rem"}}>Egy alkalom legalább 3 óra (legfeljebb 8 fő); nagyobb csapatnak 2 × 3 óra (legfeljebb 16 fő). A rendszeres jelenlét hetente, 2 vagy 3 hetente, illetve havonta kérhető – minél sűrűbb, annál kedvezőbb az alkalom ára.</p>
 <div style={{"overflowX": "auto", "border": "2px solid #55665A", "borderRadius": "18px"}}>
 <table style={{"width": "100%", "minWidth": "560px", "borderCollapse": "collapse", "fontSize": "16px"}}>
 <caption style={{"textAlign": "left", "padding": "18px 22px 0", "fontWeight": "600", "fontSize": "18px"}}>Rendszeres csomag · bevezető nettó árak alkalmanként</caption>
@@ -190,18 +230,18 @@ export default function CegeknekPage() {
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "20px"}}>
 <div style={{"border": "1px solid #EADFD2", "borderRadius": "18px", "padding": "26px", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <b style={{"fontSize": "20px"}}>Első alkalom (pilot)</b>
-<span style={{"color": "#5E6A62", "fontSize": "15px"}}>3 óra · 9–12 fő</span>
-<span style={{"color": "#3B443E"}}>Egy csapat kipróbálja; összesített pillanatkép-riport a végén.</span>
+<span style={{"color": "#5E6A62", "fontSize": "15px"}}>3 óra · legfeljebb 8 fő</span>
+<span style={{"color": "#3B443E"}}>Egy csapat kipróbálja; összesített visszajelzés-riport a végén.</span>
 <span style={{"marginTop": "auto", "fontWeight": "600"}}>50 000 Ft</span>
 </div>
 <div style={{"border": "1px solid #EADFD2", "borderRadius": "18px", "padding": "26px", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <b style={{"fontSize": "20px"}}>Wellbeing Day</b>
-<span style={{"color": "#5E6A62", "fontSize": "15px"}}>2 × 3 óra · 18–24 fő</span>
+<span style={{"color": "#5E6A62", "fontSize": "15px"}}>2 × 3 óra · legfeljebb 16 fő</span>
 <span style={{"color": "#3B443E"}}>Egészségnap, rendezvény, vezetői nap.</span>
 <span style={{"marginTop": "auto", "fontWeight": "600"}}>75 000 Ft</span>
 </div>
 </div>
-<span style={{"fontSize": "14px", "color": "#5E6A62"}}>Bevezető nettó árak. Résztvevőszám 15–20 perces alkalmakkal, egy szakemberrel. Számlázás cégre, alkalmanként.</span>
+<span style={{"fontSize": "14px", "color": "#5E6A62"}}>Bevezető nettó árak, Budapesten és 20 km-es vonzáskörzetében; távolabbi helyszín esetén az árak az útiköltséggel nőnek. A létszám 15–20 perces egyéni alkalmakkal, egy szakemberrel, az érkezéshez és a váltáshoz szükséges idővel számol. Számlázás cégre, alkalmanként.</span>
 </div>
 </section>
 <section id="gyik" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
@@ -215,6 +255,7 @@ export default function CegeknekPage() {
 <details style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "18px 22px"}}><summary style={{"fontWeight": "600", "cursor": "pointer", "minHeight": "28px"}}>Miért csak havonta egyszer a hosszabb kérdőív?</summary><p style={{"margin": "10px 0 0", "color": "#3B443E"}}>Hogy ne terhelje a résztvevőket, és a trend tiszta maradjon: egy fő egy hónapban egy választ ad, így a havi adatok összevethetők.</p></details>
 <details style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "18px 22px"}}><summary style={{"fontWeight": "600", "cursor": "pointer", "minHeight": "28px"}}>Ez egészségügyi szolgáltatás?</summary><p style={{"margin": "10px 0 0", "color": "#3B443E"}}>Nem. Wellbeing-szolgáltatás, nem diagnosztizál és nem kezel. A pillanatkép önbevallás, nem egészségügyi mérés.</p></details>
 <details style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "18px 22px"}}><summary style={{"fontWeight": "600", "cursor": "pointer", "minHeight": "28px"}}>Hogyan adózik a juttatás?</summary><p style={{"margin": "10px 0 0", "color": "#3B443E"}}>Az adózási besorolást javasoljuk a cég könyvelőjével egyeztetni.</p></details>
+<details style={{"background": "#FFFFFF", "borderRadius": "14px", "padding": "18px 22px"}}><summary style={{"fontWeight": "600", "cursor": "pointer", "minHeight": "28px"}}>Hol érhető el a szolgáltatás?</summary><p style={{"margin": "10px 0 0", "color": "#3B443E"}}>A honlapon szereplő árak Budapesten és 20 km-es vonzáskörzetében érvényesek. Távolabbi helyszínre is megyünk; ilyenkor az árak az útiköltséggel nőnek.</p></details>
 </div>
 </div>
 </section>
@@ -229,11 +270,10 @@ export default function CegeknekPage() {
 </section>
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
-<span>Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft. · [NÉV] · [E-MAIL] · [TELEFONSZÁM]</span>
+<span>Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
 <a href="/calm-touch/modszertan">Mérési módszertan</a>
-<a href="#ajanlat">Adatkezelési tájékoztató</a>
-<a href="#ajanlat">Impresszum</a>
+<a href="https://pszichoszoc.hu/adatkezelesi-tajekoztato">Adatkezelési tájékoztató</a>
 </div>
 </div>
 </footer>

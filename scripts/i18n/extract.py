@@ -6,7 +6,7 @@ HU = re.compile(r"[áéíóöőúüűÁÉÍÓÖŐÚÜŰ]")
 CSSY = re.compile(r"(px|%|var\(|#[0-9A-Fa-f]{3,6}|rgba?\(|repeat\(|minmax|clamp\(|^\d|solid|auto|flex|grid|center|nowrap|inline|absolute|relative|uppercase|italic|break-word|pretty|balance|ease|translate|cover|contain|none|block)")
 def is_text_literal(v):
     if not v.strip(): return False
-    if v.startswith(("/", "#", "http", "mailto:", "tel:", "data:")): return False
+    if v.startswith(("/", "#", "http", "mailto:", "tel:", "data:", "@/", "./", "../")): return False
     if HU.search(v): return True
     words = re.findall(r"[A-Za-z]{3,}", v)
     if len(words) >= 2 and not CSSY.search(v): return True
@@ -19,7 +19,7 @@ def candidates(src):
     for m in re.finditer(r'"((?:[^"\\\n]|\\.)*)"', src):
         v = m.group(1)
         if is_text_literal(v): out.append(v)
-    for m in re.finditer(r"`([^`$]*)`", src):
+    for m in re.finditer(r"`([^`$\n]*)`", src):
         v = m.group(1)
         if is_text_literal(v): out.append(v)
     return out

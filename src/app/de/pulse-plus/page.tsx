@@ -1,23 +1,20 @@
 // GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: src/app/pulse-plus/page.tsx, fordítás: scripts/i18n/site.json, futtatás: python3 scripts/i18n/generate.py
 import type { Metadata } from "next";
 import { HtmlLang } from "@/app/HtmlLang";
+import { abs, pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "@/app/SiteLang";
 import { MobileMenu } from "@/app/MobileMenu";
 
-export const metadata: Metadata = {
-  title: "Calm-Touch Pulse+ – apparative mentale Zustandserhebung",
-  description:
-    "Eine einmalige, integrierte apparative Zustandserhebung: qEEG, HRV und kognitiver Test in einer Untersuchung. Sie zeigt den Zustand des Nervensystems und woran es sich in den nächsten Wochen zu arbeiten lohnt.",
-  alternates: { canonical: "/calm-touch/de/pulse-plus" },
-};
+export const metadata: Metadata = pageMeta("de", "/pulse-plus", "Calm-Touch Pulse+ – apparative mentale Zustandserhebung", "Eine einmalige, integrierte apparative Zustandserhebung: qEEG, HRV und kognitiver Test in einer Untersuchung, mit persönlicher Auswertung und Sechs-Wochen-Entwicklungsplan.");
 
 const blue = "#2C5069";
 const mid = "#3F6E8C";
 const pale = "#DDE8EF";
 
 const measures = [
-  { n: "1", t: "qEEG", d: "Aufzeichnung der elektrischen Hirnaktivität mit offenen und geschlossenen Augen. Sie zeigt die Qualität des Ruhezustands." },
-  { n: "2", t: "HRV", d: "Analyse der Schwankung zwischen den Herzschlägen. Sie gibt ein Bild vom vegetativen Gleichgewicht und den Erholungsreserven." },
+  { n: "1", t: "qEEG", d: "Aufzeichnung der elektrischen Hirnaktivität in Ruhe, mit offenen und geschlossenen Augen; sie zeigt die Verteilung auf die Frequenzbänder." },
+  { n: "2", t: "HRV", d: "Messung der Schwankung der Abstände zwischen den Herzschlägen; sie gibt Aufschluss über die Regulation des vegetativen Nervensystems." },
   { n: "3", t: "Kognitiver Test", d: "Vier Computeraufgaben: Aufmerksamkeit, Reaktionszeit, Informationsverarbeitung, Entscheidung." },
 ];
 
@@ -25,10 +22,23 @@ const card = { background: "#FFFFFF", borderRadius: "20px", padding: "clamp(20px
 const h2 = { overflowWrap: "break-word" as const, margin: "0", fontFamily: "var(--ct-display)", fontWeight: 700, fontSize: "clamp(28px, 3vw, 38px)", lineHeight: 1.1, color: blue };
 const eyebrow = { fontSize: "13px", letterSpacing: "0.18em", color: mid, fontWeight: 700 };
 
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Calm-Touch Pulse+",
+  serviceType: "Integrierte mentale Zustandserhebung",
+  description: "Eine einmalige, integrierte apparative Zustandserhebung: qEEG, HRV und kognitiver Test in einer Untersuchung, mit persönlicher Auswertung und Sechs-Wochen-Entwicklungsplan.",
+  url: abs("de", "/pulse-plus"),
+  provider: { "@type": "Organization", name: "Calm Touch", url: abs("de", "") },
+  areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: 47.4979, longitude: 19.0402 }, geoRadius: 20000 },
+  audience: { "@type": "BusinessAudience" },
+};
+
 export default function PulsePlusPage() {
   return (
 <div style={{"fontFamily": "var(--ct-text)", "color": "#2E3631", "background": "#FAF6F1", "lineHeight": "1.55", "fontSize": "17px"}}>
 <HtmlLang lang="de" />
+<JsonLd data={ld} />
 <header style={{"borderBottom": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "padding": "18px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="/calm-touch/de" style={{"textDecoration": "none", "display": "flex", "flexDirection": "column"}}>
@@ -49,7 +59,7 @@ export default function PulsePlusPage() {
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "20px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "20px", "fontWeight": 800, "color": "#FFFFFF", "background": mid, "borderRadius": "999px", "padding": "4px 18px"}}>Pulse+</span>
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": 700, "fontSize": "clamp(34px, 4.6vw, 56px)", "lineHeight": "1.05", "color": blue, "textWrap": "balance"}}>Integrierte mentale Zustandserhebung</h1>
-<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "20px", "color": "#3B443E", "textWrap": "pretty"}}>Drei apparative Messungen in einer Untersuchung, die zeigen, in welchem Zustand das Nervensystem ist und woran es sich in den nächsten Wochen zu arbeiten lohnt. Sie ergänzt die Calm-Touch-Pulse-Fragebögen: Zum Erleben kommen die eigenen Daten des Körpers hinzu.</p>
+<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "20px", "color": "#3B443E", "textWrap": "pretty"}}>Drei apparative Messungen in einer Untersuchung: Hirnaktivität, Herzratenvariabilität und kognitive Leistung. Die persönliche Auswertung zeigt, worauf es sich in den nächsten Wochen zu achten lohnt. Sie ergänzt die Fragebogen-Rückmeldung von Calm-Touch Pulse um objektive Daten.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "8px"}}>
 <span style={{"fontSize": "14px", "fontWeight": 700, "color": blue, "background": pale, "borderRadius": "999px", "padding": "5px 14px"}}>einmalige Erhebung</span>
 <span style={{"fontSize": "14px", "fontWeight": 700, "color": blue, "background": pale, "borderRadius": "999px", "padding": "5px 14px"}}>3 apparative Messungen</span>
@@ -117,7 +127,7 @@ export default function PulsePlusPage() {
 <div style={{...card, "background": "#FAF6F1"}}>
 <b style={{"fontSize": "19px"}}>Für Arbeitgeber</b>
 <ul style={{"margin": "0", "paddingLeft": "20px", "display": "flex", "flexDirection": "column", "gap": "6px", "color": "#3B443E"}}>
-<li>Die Wirkung des Wellbeing-Programms lässt sich in Zahlen zeigen</li>
+<li>Zum Wellbeing-Programm kommen objektive, quantitative Daten hinzu</li>
 <li>Ein anonymisiertes Bild der Belastung der Organisation auf Gruppenebene</li>
 <li>Einzelergebnisse gehören der gemessenen Person; das Unternehmen sieht nur Zusammenfassungen</li>
 </ul>
@@ -130,7 +140,7 @@ export default function PulsePlusPage() {
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={eyebrow}>FÜR WEN</span>
 <p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>Bei anhaltendem Stress, Konzentrationsproblemen oder Stimmungsschwankungen oder wenn jemand seine Leistung im Beruf verbessern möchte. Im Unternehmen empfehlen wir es für Führungskräfte und stark belastete Teams, als Ergänzung zum Calm-Touch-Programm.</p>
-<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>Für Unternehmenspakete, Gruppenerhebungen und Messungen vor Ort erstellen wir individuelle Angebote.</p>
+<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>Für Unternehmenspakete, Gruppenerhebungen und Messungen vor Ort erstellen wir individuelle Angebote; den Preis senden wir auf Anfrage.</p>
 <a href="/calm-touch/de/cegeknek#ajanlat" style={{"alignSelf": "flex-start", "textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": 600, "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pulse+-Angebot anfragen</a>
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Die integrierte mentale Zustandserhebung ist ein Erhebungs- und Entwicklungsangebot; sie stellt keine medizinische Diagnose und ersetzt keine Behandlung.</span>
 </div>

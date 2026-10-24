@@ -1,16 +1,42 @@
 import type { Metadata } from "next";
+import { abs, pageMeta } from "@/lib/seo";
+import { siteUrl } from "@/lib/site";
+import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "./SiteLang";
 import { MobileMenu } from "./MobileMenu";
 
-export const metadata: Metadata = {
-  title: "Calm Touch – Stresszoldás érintéssel",
-  description: "15–20 perces, ruhán keresztüli, gyengéd érintéses mentális felfrissülés az irodában, Calm-Touch Pulse előtte–utána méréssel és havi HR riporttal.",
-  alternates: { canonical: "/calm-touch" },
+export const metadata: Metadata = pageMeta("hu", "", "Calm Touch – munkahelyi stresszoldás érintéssel | Budapest", "15–20 perces, ruhán keresztüli, gyengéd érintéses stresszoldás az irodában, Budapesten és környékén. Rövid állapot-visszajelzés minden alkalom előtt és után, havi névtelen HR riport.", { absolute: true });
+
+const ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${abs("hu", "")}#szervezet`,
+      name: "Calm Touch",
+      url: abs("hu", ""),
+      logo: `${siteUrl}/calm-touch/brand/logo-negyzetes.webp`,
+      description: "15–20 perces, ruhán keresztüli, gyengéd érintéses stresszoldás az irodában, Budapesten és környékén. Rövid állapot-visszajelzés minden alkalom előtt és után, havi névtelen HR riport.",
+      parentOrganization: { "@type": "Organization", name: "Alternatíva Tanácsadó Csoport Kft." },
+    },
+    {
+      "@type": "Service",
+      name: "Calm-Touch",
+      serviceType: "Munkahelyi stresszoldó, gyengéd érintéses program",
+      description: "Rövid, ülő helyzetben, ruhán keresztül végzett, gyengéd érintés a fej, a vállak és a karok területén. Nem kell levetkőzni, nem kell olaj, nem kell elhagyni az irodát.",
+      provider: { "@id": `${abs("hu", "")}#szervezet` },
+      areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: 47.4979, longitude: 19.0402 }, geoRadius: 20000 },
+      audience: { "@type": "BusinessAudience" },
+      url: abs("hu", ""),
+    },
+    { "@type": "WebSite", name: "Calm Touch", url: abs("hu", ""), inLanguage: "hu" },
+  ],
 };
 
 export default function CalmTouchPage() {
   return (
 <div style={{"fontFamily": "var(--ct-text)", "color": "#2E3631", "background": "#FAF6F1", "fontSize": "17px", "lineHeight": "1.65"}}>
+<JsonLd data={ld} />
 <header style={{"background": "#FAF6F1"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "padding": "14px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="#kezdo" style={{"textDecoration": "none", "display": "flex", "alignItems": "center", "gap": "12px"}}>
@@ -174,7 +200,7 @@ export default function CalmTouchPage() {
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.2em", "color": "#2C5069", "fontWeight": "700", "background": "#DDE8EF", "padding": "8px 16px", "borderRadius": "999px"}}>CALM-TOUCH PULSE</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.3vw, 56px)", "lineHeight": "1.04", "color": "#FAF6F1", "textWrap": "balance"}}>Nyugodtabban ülsz vissza. <span style={{"fontStyle": "italic", "fontWeight": "600", "color": "#F1D3D7"}}>És ezt te jelzed vissza.</span></h2>
 </div>
-<p style={{"margin": "0", "fontSize": "18px", "color": "#E6EEF3", "textWrap": "pretty"}}>Minden alkalom egyszerre oldja a feszültséget és méri is: milyen terheléssel érkezel, mit változtatott a 15–20 perc, és havonta azt is, tartós-e a javulás. A cég havi pulzusképet kap a csapat valós állapotáról – névtelenül, legalább 5 fős csoportokban.</p>
+<p style={{"margin": "0", "fontSize": "18px", "color": "#E6EEF3", "textWrap": "pretty"}}>Minden alkalom egyszerre oldja a feszültséget, és rövid visszajelzést is kér: milyen terheléssel érkezel, mit változtatott a 15–20 perc, és havonta azt is, tartós-e a javulás. A cég havi összesített képet kap arról, hogyan vannak a résztvevők – névtelenül, legalább 5 fős csoportokban.</p>
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "18px"}}>
 <div style={{"background": "#3F6E8C", "borderRadius": "32px 32px 32px 10px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
@@ -211,7 +237,7 @@ export default function CalmTouchPage() {
 <div style={{"background": "#3F6E8C", "color": "#FFFFFF", "borderRadius": "32px 32px 10px 32px", "padding": "clamp(20px, 3vw, 30px)", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "20px", "fontWeight": "800", "color": "#2C5069", "background": "#FFFFFF", "borderRadius": "999px", "padding": "4px 18px"}}>Pulse+</span>
 <b style={{"fontSize": "22px", "fontFamily": "var(--ct-display)"}}>Kiegészítő műszeres állapotfelmérés</b>
-<span style={{"color": "#F2F6F9"}}>Egyszeri műszeres állapotfelmérés a kérdőívek mellé: agyi aktivitás (qEEG), szívritmus-variabilitás (HRV) és kognitív teszt. Így a megélt állapot mellett az idegrendszer terhelése is látható.</span>
+<span style={{"color": "#F2F6F9"}}>Egyszeri műszeres állapotfelmérés a kérdőívek mellé: agyi aktivitás (qEEG), szívritmus-variabilitás (HRV) és kognitív teszt. Így a megélt állapot mellé objektív élettani és kognitív adatok is kerülnek.</span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "8px"}}>
 <span style={{"fontSize": "14px", "fontWeight": "700", "color": "#FFFFFF", "border": "1px solid #A9C1D1", "borderRadius": "999px", "padding": "4px 14px"}}>HRV</span>
 <span style={{"fontSize": "14px", "fontWeight": "700", "color": "#FFFFFF", "border": "1px solid #A9C1D1", "borderRadius": "999px", "padding": "4px 14px"}}>qEEG</span>
@@ -239,7 +265,7 @@ export default function CalmTouchPage() {
 <div style={{"borderTop": "3px solid #6E7B3C", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Nem nyomás, hanem jelenlét</b><span style={{"color": "#5E6A62"}}>Az irodai masszázs az izmokat dolgozza meg; a Calm-Touch az idegrendszert csendesíti.</span></div>
 <div style={{"borderTop": "3px solid #A65D6B", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Lassú érintés, tudományos alappal</b><span style={{"color": "#5E6A62"}}>Külön idegrostok reagálnak a lassú, gyengéd simogatásra – ezek az ellazuláshoz és a biztonság érzéséhez kötődnek.</span></div>
 <div style={{"borderTop": "3px solid #A17856", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Ajurvedikus ihlet, ASMR-élmény</b><span style={{"color": "#5E6A62"}}>Hagyományos relaxációs szemlélet és nyugtató, ismétlődő érzékszervi ingerek.</span></div>
-<div style={{"borderTop": "3px solid #3F6E8C", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Mérhető, nem csak kellemes</b><span style={{"color": "#5E6A62"}}>Minden alkalom előtte–utána pillanatképpel zárul, havonta trendriporttal.</span></div>
+<div style={{"borderTop": "3px solid #3F6E8C", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Követhető, nem csak kellemes</b><span style={{"color": "#5E6A62"}}>Minden alkalom előtte–utána pillanatképpel zárul, havonta trendriporttal.</span></div>
 </div>
 </div>
 </section>
@@ -249,14 +275,14 @@ export default function CalmTouchPage() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#86603F", "fontWeight": "700"}}>CÉGEKNEK</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.0vw, 52px)", "lineHeight": "1.06", "color": "#55665A"}}>Kezdje egy pilottal.</h2>
-<p style={{"margin": "0", "fontSize": "18px", "color": "#3B443E", "textWrap": "pretty"}}>Egy rövid egyeztetés után egy csapattal kipróbálhatják, és a pilot végén mérési riportot kapnak.</p>
+<p style={{"margin": "0", "fontSize": "18px", "color": "#3B443E", "textWrap": "pretty"}}>Egy rövid egyeztetés után egy csapattal kipróbálhatják, és a pilot végén összesített visszajelzés-riportot kapnak.</p>
 </div>
 <img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="HR-vezető és wellbeing szakember kötetlenül beszélget egy tárgyalóban, laptop és bögrék mellett." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "40px 40px 10px 40px"}} />
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "18px"}}>
 <div style={{"background": "#E9EBD6", "borderRadius": "32px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <span style={{"fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "600", "color": "#3E4720"}}>Pilot</span>
-<span style={{"color": "#3B443E"}}>Próbálják ki egy csapattal. 3 óra, 9–12 fő, mérési riporttal a végén.</span>
+<span style={{"color": "#3B443E"}}>Próbálják ki egy csapattal. 3 óra, legfeljebb 8 fő, összesített visszajelzéssel a végén.</span>
 <span style={{"marginTop": "6px", "fontWeight": "700", "color": "#3E4720"}}>Bevezető nettó ár: 50 000 Ft</span>
 </div>
 <div style={{"background": "#7E3A4A", "color": "#FFFFFF", "borderRadius": "32px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
@@ -266,10 +292,11 @@ export default function CalmTouchPage() {
 </div>
 <div style={{"background": "#F4E3E4", "borderRadius": "32px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <span style={{"fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "600", "color": "#4E2530"}}>Wellbeing Day</span>
-<span style={{"color": "#3B443E"}}>2 × 3 óra, 18–24 fő. Kiemelt program egészségnapra, rendezvényre, vezetői napra.</span>
+<span style={{"color": "#3B443E"}}>2 × 3 óra, legfeljebb 16 fő. Kiemelt program egészségnapra, rendezvényre, vezetői napra.</span>
 <span style={{"marginTop": "6px", "fontWeight": "700", "color": "#4E2530"}}>Bevezető nettó ár: 75 000 Ft</span>
 </div>
 </div>
+<span style={{"fontSize": "14px", "color": "#5E6A62"}}>A feltüntetett nettó bevezető árak Budapesten és 20 km-es vonzáskörzetében érvényesek; távolabbi helyszín esetén az árak az útiköltséggel nőnek.</span>
 <a href="/calm-touch/cegeknek" style={{"alignSelf": "flex-start", "color": "#7E3A4A", "fontWeight": "700"}}>Megnézem a céges részleteket <span className="ct-arrow">→</span></a>
 </div>
 </section>
@@ -290,16 +317,14 @@ export default function CalmTouchPage() {
 <img src="/calm-touch/brand/logo-negyzetes.webp" alt="Calm Touch – Stresszoldás érintéssel" style={{"width": "220px", "maxWidth": "60%", "height": "auto"}} />
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.5vw, 46px)", "lineHeight": "1.1", "color": "#4E2530", "textWrap": "balance"}}>Adjon a csapatának 15 percet, amikor nem kell teljesíteni.</h2>
 <a href="/calm-touch/cegeknek" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
-<span style={{"color": "#5A4248", "fontSize": "15px"}}>[NÉV] · [E-MAIL] · [TELEFONSZÁM]</span>
 </div>
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px"}}>
 <span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos.webp" alt="Calm Touch – Stresszoldás érintéssel" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span></span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
-<a href="#kezdo" style={{"color": "#E9EBD6"}}>Adatkezelési tájékoztató</a>
-<a href="#kezdo" style={{"color": "#E9EBD6"}}>Részvételi és beleegyezési nyilatkozat</a>
-<a href="#kezdo" style={{"color": "#E9EBD6"}}>Impresszum</a>
+<a href="/calm-touch/modszertan" style={{"color": "#E9EBD6"}}>Mérési módszertan</a>
+<a href="https://pszichoszoc.hu/adatkezelesi-tajekoztato" style={{"color": "#E9EBD6"}}>Adatkezelési tájékoztató</a>
 </div>
 </div>
 </footer>
