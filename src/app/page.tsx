@@ -3,6 +3,7 @@ import { abs, pageMeta } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
 import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "./SiteLang";
+import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "./MobileMenu";
 
 export const metadata: Metadata = pageMeta("hu", "", "Calm Touch – munkahelyi stresszoldás érintéssel | Budapest", "15–20 perces, ruhán keresztüli, gyengéd érintéses stresszoldás az irodában, Budapesten és környékén. Rövid állapot-visszajelzés minden alkalom előtt és után, havi névtelen HR riport.", { absolute: true });
@@ -322,10 +323,7 @@ export default function CalmTouchPage() {
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px"}}>
 <span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos.webp" alt="Calm Touch – Stresszoldás érintéssel" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span></span>
-<div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
-<a href="/calm-touch/modszertan" style={{"color": "#E9EBD6"}}>Mérési módszertan</a>
-<a href="https://pszichoszoc.hu/adatkezelesi-tajekoztato" style={{"color": "#E9EBD6"}}>Adatkezelési tájékoztató</a>
-</div>
+<LegalLinks current="hu" method color="#E9EBD6" />
 </div>
 </footer>
 </div>

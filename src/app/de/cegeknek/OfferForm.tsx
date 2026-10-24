@@ -1,7 +1,7 @@
 "use client";
 // GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: src/app/cegeknek/OfferForm.tsx, fordítás: scripts/i18n/site.json, futtatás: python3 scripts/i18n/generate.py
 import type { FormEvent } from "react";
-import { OFFER_EMAIL, OFFER_URL, PRIVACY_URL } from "@/app/config";
+import { OFFER_EMAIL, OFFER_URL } from "@/app/config";
 
 const FIELDS: [string, string][] = [
   ["f-ceg", "Unternehmen"],
@@ -50,7 +50,7 @@ export function OfferForm() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "6px", "gridColumn": "1 / -1"}}><label htmlFor="f-megj" style={{"fontWeight": "500"}}>Anmerkungen</label><textarea id="f-megj" name="f-megj" rows={4} style={{"border": "1px solid #CDB8A3", "borderRadius": "10px", "padding": "12px 14px", "font": "inherit", "background": "#FFFFFF", "resize": "vertical"}}></textarea></div>
 <div style={{"gridColumn": "1 / -1", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "16px"}}>
 <button type="submit" style={{"background": "#7E3A4A", "color": "#FFFFFF", "border": "none", "padding": "14px 28px", "borderRadius": "999px", "font": "inherit", "fontWeight": "500", "minHeight": "48px", "cursor": "pointer"}}>Angebot anfragen</button>
-<span style={{"fontSize": "14px", "color": "#5A4248"}}>Mit dem Absenden akzeptieren Sie den <a href={PRIVACY_URL}>Datenschutzhinweis</a>.</span>
+<span style={{"fontSize": "14px", "color": "#5A4248"}}>Mit dem Absenden akzeptieren Sie den <a href="/calm-touch/de/adatkezeles">Datenschutzhinweis</a>.</span>
 </div>
 </form>
   );

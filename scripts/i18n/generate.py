@@ -13,7 +13,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 APP = ROOT / "src/app"
 TR = json.loads((ROOT / "scripts/i18n/site.json").read_text())
 LANGS = {"en": 0, "de": 1}
-PUBLIC = ["cegeknek", "pulse-plus", "modszertan", "folyamat", "pulse-riport"]
+PUBLIC = ["cegeknek", "pulse-plus", "modszertan", "folyamat", "pulse-riport", "aszf", "impresszum", "adatkezeles"]
 FILES = [  # (forrás, cél a nyelvi mappán belül)
     ("page.tsx", "page.tsx"),
     ("cegeknek/page.tsx", "cegeknek/page.tsx"),

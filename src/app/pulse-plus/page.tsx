@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { abs, pageMeta } from "@/lib/seo";
 import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "../SiteLang";
+import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "../MobileMenu";
 
 export const metadata: Metadata = pageMeta("hu", "/pulse-plus", "Calm-Touch Pulse+ – műszeres mentális állapotfelmérés", "Egyszeri, integrált műszeres állapotfelmérés: qEEG, HRV és kognitív teszt egy vizsgálat alatt, személyes kiértékeléssel és hathetes fejlesztési javaslattal.");
@@ -126,7 +127,8 @@ export default function PulsePlusPage() {
 <ul style={{"margin": "0", "paddingLeft": "20px", "display": "flex", "flexDirection": "column", "gap": "6px", "color": "#3B443E"}}>
 <li>A wellbeing program mellé objektív, számszerű adatok is kerülnek</li>
 <li>Csoportszintű, anonimizált kép a szervezet terheléséről</li>
-<li>Az egyéni eredmény a mért személyé; a cég csak összesítést lát</li>
+<li>Az egyéni eredmény a mért személyé; a cég csak legalább 10 fő összesített eredményét látja</li>
+<li>A felmérés csak a résztvevő személyes, írásos hozzájárulásával történik</li>
 </ul>
 </div>
 </div>
@@ -146,10 +148,7 @@ export default function PulsePlusPage() {
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
 <span>Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span>
-<div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
-<a href="/calm-touch/cegeknek">Cégeknek</a>
-<a href="/calm-touch/modszertan">Mérési módszertan</a>
-</div>
+<LegalLinks current="hu" method />
 </div>
 </footer>
 </div>

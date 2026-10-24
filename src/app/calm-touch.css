@@ -57,3 +57,10 @@ img[src*="/brand/logo-fekvo-vilagos-en"], img[src*="/brand/logo-fekvo-vilagos-de
   transform: scale(1.3);
   transform-origin: left center;
 }
+.ct-legal .ct-pending { background: #F4E3E4; color: #7E3A4A; border-radius: 6px; padding: 0 6px; font-weight: 600; }
+.ct-legal td:first-child { color: #5E6A62; white-space: nowrap; }
+@media (max-width: 560px) { .ct-legal td:first-child { white-space: normal; } }
+.ct-legal table { display: table; table-layout: auto; }
+.ct-legal td { overflow-wrap: anywhere; vertical-align: top; }
+.ct-legal ul { list-style: disc; }
+.ct-legal ul ul { list-style: circle; margin-top: 4px; }

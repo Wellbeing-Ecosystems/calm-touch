@@ -4,6 +4,7 @@ import { HtmlLang } from "@/app/HtmlLang";
 import { abs, pageMeta } from "@/lib/seo";
 import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "@/app/SiteLang";
+import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
 
 export const metadata: Metadata = pageMeta("de", "/pulse-plus", "Calm-Touch Pulse+ – apparative mentale Zustandserhebung", "Eine einmalige, integrierte apparative Zustandserhebung: qEEG, HRV und kognitiver Test in einer Untersuchung, mit persönlicher Auswertung und Sechs-Wochen-Entwicklungsplan.");
@@ -129,7 +130,8 @@ export default function PulsePlusPage() {
 <ul style={{"margin": "0", "paddingLeft": "20px", "display": "flex", "flexDirection": "column", "gap": "6px", "color": "#3B443E"}}>
 <li>Zum Wellbeing-Programm kommen objektive, quantitative Daten hinzu</li>
 <li>Ein anonymisiertes Bild der Belastung der Organisation auf Gruppenebene</li>
-<li>Einzelergebnisse gehören der gemessenen Person; das Unternehmen sieht nur Zusammenfassungen</li>
+<li>Das Einzelergebnis gehört der gemessenen Person; das Unternehmen sieht nur zusammengefasste Ergebnisse von mindestens 10 Personen</li>
+<li>Die Erhebung erfolgt nur mit persönlicher, schriftlicher Einwilligung der teilnehmenden Person</li>
 </ul>
 </div>
 </div>
@@ -149,10 +151,7 @@ export default function PulsePlusPage() {
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
 <span>Calm Touch · Betreiber: Alternatíva Tanácsadó Csoport Kft.</span>
-<div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
-<a href="/calm-touch/de/cegeknek">Für Unternehmen</a>
-<a href="/calm-touch/de/modszertan">Messmethodik</a>
-</div>
+<LegalLinks current="de" method />
 </div>
 </footer>
 </div>

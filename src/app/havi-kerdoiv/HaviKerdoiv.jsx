@@ -1,7 +1,7 @@
 "use client";
 
 import { Component, Fragment } from "react";
-import { PRIVACY_URL } from "../config";
+import { privacyUrl } from "../config";
 import { HAVI } from "./strings";
 import { LangSwitch } from "../LangSwitch";
 import { detectLang, storeLang } from "@/lib/i18n";
@@ -84,7 +84,7 @@ export default class HaviKerdoiv extends Component {
       setTeam: (e) => this.setState({ team: e.target.value }),
       consent: s.consent,
       setConsent: (e) => this.setState({ consent: e.target.checked }),
-      privacyUrl: PRIVACY_URL,
+      privacyUrl: privacyUrl(s.lang),
       t,
       lang: s.lang,
       setLang: (l) => { storeLang(l); this.setState({ lang: l }); },

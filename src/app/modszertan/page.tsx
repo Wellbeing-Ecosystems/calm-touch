@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { abs, pageMeta } from "@/lib/seo";
 import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "../SiteLang";
+import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "../MobileMenu";
 import { methodHtml } from "./content";
 
@@ -50,7 +51,7 @@ export default function ModszertanPage() {
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
 <span>Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span>
-<a href="/calm-touch/cegeknek">Cégeknek</a>
+<LegalLinks current="hu" />
 </div>
 </footer>
 </div>

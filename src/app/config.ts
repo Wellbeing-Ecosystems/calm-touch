@@ -13,7 +13,8 @@ export const OFFER_EMAIL: string | null = null;
 export const OFFER_URL: string | null = null;
 
 /**
- * Az adatkezelési tájékoztató címe – a pillanatkép és a havi kérdőív hozzájárulás-pipája
- * erre hivatkozik. Az éles honlap tájékoztatójának címét kell ide beírni.
+ * Az Adatfelhasználási nyilatkozat (adatkezelési tájékoztató) címe – a pillanatkép és a havi kérdőív
+ * hozzájárulás-pipája erre hivatkozik, a kitöltés nyelvén. Forrás: scripts/legal/ (build.py).
  */
-export const PRIVACY_URL = "https://pszichoszoc.hu/adatkezelesi-tajekoztato";
+export const PRIVACY_URL = "/calm-touch/adatkezeles";
+export const privacyUrl = (lang: string) => (lang === "en" || lang === "de" ? `/calm-touch/${lang}/adatkezeles` : PRIVACY_URL);
