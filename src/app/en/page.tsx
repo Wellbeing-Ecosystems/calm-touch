@@ -187,8 +187,8 @@ export default function CalmTouchPage() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "20px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#86603F", "fontWeight": "700"}}>WHO WILL TOUCH YOU?</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.8vw, 50px)", "lineHeight": "1.06", "color": "#55665A"}}>Andrea Mester</h2>
-<span style={{"fontFamily": "var(--ct-display)", "fontStyle": "italic", "fontWeight": "600", "fontSize": "22px", "color": "#7E3A4A"}}>Qualified ASMR and Ayurvedic massage specialist</span>
-<p style={{"margin": "0", "fontSize": "18px", "textWrap": "pretty"}}>In Calm-Touch sessions Andrea combines the approaches of ASMR and Ayurvedic massage: with slow, rhythmic touch through clothing she helps attention return from work to the body for a few minutes.</p>
+<span style={{"fontFamily": "var(--ct-display)", "fontStyle": "italic", "fontWeight": "600", "fontSize": "22px", "color": "#7E3A4A"}}>Ayurvedic and ASMR massage specialist</span>
+<p style={{"margin": "0", "fontSize": "18px", "textWrap": "pretty"}}>In Calm-Touch sessions Andrea combines the approaches of Ayurvedic massage and ASMR: with slow, rhythmic touch through clothing she helps attention return from work to the body for a few minutes. ASMR (autonomous sensory meridian response) is the pleasant, tingling and calming sensation – for many people starting on the scalp – triggered by slow, gentle touch and soft, repetitive stimuli; studies show that heart rate can also slow down during it.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "10px"}}>
 <span style={{"fontSize": "14px", "fontWeight": "600", "color": "#4A5426", "background": "#E9EBD6", "borderRadius": "999px", "padding": "6px 14px"}}>ASMR</span>
 <span style={{"fontSize": "14px", "fontWeight": "600", "color": "#4A5426", "background": "#E9EBD6", "borderRadius": "999px", "padding": "6px 14px"}}>Ayurvedic massage</span>

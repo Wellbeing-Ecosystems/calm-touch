@@ -184,8 +184,8 @@ export default function CalmTouchPage() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "20px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#86603F", "fontWeight": "700"}}>KI ÉRINT MEG?</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.8vw, 50px)", "lineHeight": "1.06", "color": "#55665A"}}>Mester Andrea</h2>
-<span style={{"fontFamily": "var(--ct-display)", "fontStyle": "italic", "fontWeight": "600", "fontSize": "22px", "color": "#7E3A4A"}}>Végzett ASMR és ajurvedikus masszázs szakértő</span>
-<p style={{"margin": "0", "fontSize": "18px", "textWrap": "pretty"}}>Andrea a Calm-Touch alkalmakon az ASMR és az ajurvedikus masszázs szemléletét ötvözi: lassú, ritmikus, ruhán keresztüli érintéssel segít, hogy a figyelem néhány percre a munkáról visszatérjen a testbe.</p>
+<span style={{"fontFamily": "var(--ct-display)", "fontStyle": "italic", "fontWeight": "600", "fontSize": "22px", "color": "#7E3A4A"}}>Ajurvédikus és ASMR masszázs szakértő</span>
+<p style={{"margin": "0", "fontSize": "18px", "textWrap": "pretty"}}>Andrea a Calm-Touch alkalmakon az ajurvédikus masszázs és az ASMR szemléletét ötvözi: lassú, ritmikus, ruhán keresztüli érintéssel segít, hogy a figyelem néhány percre a munkáról visszatérjen a testbe. Az ASMR (autonóm szenzoros meridián válasz) az a kellemes, sokaknál a fejbőrön induló, bizsergő és megnyugtató érzés, amelyet lassú, finom érintések és halk, ismétlődő ingerek váltanak ki; vizsgálatok szerint közben a szívverés is lassulhat.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "10px"}}>
 <span style={{"fontSize": "14px", "fontWeight": "600", "color": "#4A5426", "background": "#E9EBD6", "borderRadius": "999px", "padding": "6px 14px"}}>ASMR</span>
 <span style={{"fontSize": "14px", "fontWeight": "600", "color": "#4A5426", "background": "#E9EBD6", "borderRadius": "999px", "padding": "6px 14px"}}>Ajurvedikus masszázs</span>
