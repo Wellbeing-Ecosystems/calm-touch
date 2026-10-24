@@ -176,8 +176,9 @@ export const ADMIN = {
       details: "Cégadatok", edit: "Cégadatok szerkesztése", save: "Mentés",
       industry: "Iparág", region: "Terület (vármegye)", headcount: "Foglalkoztatotti létszám", headcountHint: "(általános, fő)",
       contact: "Kapcsolattartó", contactHint: "(a riportok kiküldéséhez)", contactName: "Név", contactPhone: "Telefon", contactEmail: "E-mail",
+      pm: "Projektvezetés", pmHint: "(megvalósítói oldal)", pm1: "Projektmenedzser 1", pm2: "Projektmenedzser 2",
       none: "— nincs megadva —", people: (n: number) => `${n.toLocaleString("hu-HU")} fő`, noContact: "nincs kapcsolattartó megadva",
-      migrate: "A cégadatok (iparág, létszám, terület, kapcsolattartó) mentéséhez egyszer le kell futtatni a supabase/migrations/0002_company_details.sql fájlt: Supabase → SQL Editor → beillesztés → Run. Addig ezek a mezők nem jelennek meg.",
+      migrate: "A cégadatok (iparág, létszám, terület, kapcsolattartó, projektmenedzserek) mentéséhez egyszer le kell futtatni a supabase/migrations/0002_company_details.sql fájlt: Supabase → SQL Editor → beillesztés → Run. Addig ezek a mezők nem jelennek meg.",
     },
     agg: {
       title: "Összesített riport", chip: "CALM-TOUCH PULSE · TÖBB CÉG", groupBy: "Csoportosítás", byIndustry: "iparág szerint", bySize: "létszám szerint", byRegion: "terület szerint",
@@ -236,8 +237,9 @@ export const ADMIN = {
       details: "Company details", edit: "Edit company details", save: "Save",
       industry: "Industry", region: "Region (county)", headcount: "Number of employees", headcountHint: "(total)",
       contact: "Contact person", contactHint: "(for sending reports)", contactName: "Name", contactPhone: "Phone", contactEmail: "E-mail",
+      pm: "Project management", pmHint: "(delivery side)", pm1: "Project manager 1", pm2: "Project manager 2",
       none: "— not set —", people: (n: number) => `${n.toLocaleString("en-GB")} employees`, noContact: "no contact person set",
-      migrate: "To save company details (industry, headcount, region, contact person), run supabase/migrations/0002_company_details.sql once: Supabase → SQL Editor → paste → Run. Until then these fields are hidden.",
+      migrate: "To save company details (industry, headcount, region, contact person, project managers), run supabase/migrations/0002_company_details.sql once: Supabase → SQL Editor → paste → Run. Until then these fields are hidden.",
     },
     agg: {
       title: "Combined report", chip: "CALM-TOUCH PULSE · MULTI-COMPANY", groupBy: "Group by", byIndustry: "by industry", bySize: "by company size", byRegion: "by region",
@@ -296,8 +298,9 @@ export const ADMIN = {
       details: "Unternehmensdaten", edit: "Unternehmensdaten bearbeiten", save: "Speichern",
       industry: "Branche", region: "Region (Komitat)", headcount: "Mitarbeiterzahl", headcountHint: "(gesamt)",
       contact: "Ansprechperson", contactHint: "(für den Berichtsversand)", contactName: "Name", contactPhone: "Telefon", contactEmail: "E-Mail",
+      pm: "Projektleitung", pmHint: "(Umsetzungsseite)", pm1: "Projektmanager:in 1", pm2: "Projektmanager:in 2",
       none: "— keine Angabe —", people: (n: number) => `${n.toLocaleString("de-DE")} Mitarbeitende`, noContact: "keine Ansprechperson angegeben",
-      migrate: "Zum Speichern der Unternehmensdaten (Branche, Mitarbeiterzahl, Region, Ansprechperson) einmalig supabase/migrations/0002_company_details.sql ausführen: Supabase → SQL Editor → einfügen → Run. Bis dahin sind diese Felder ausgeblendet.",
+      migrate: "Zum Speichern der Unternehmensdaten (Branche, Mitarbeiterzahl, Region, Ansprechperson, Projektmanager) einmalig supabase/migrations/0002_company_details.sql ausführen: Supabase → SQL Editor → einfügen → Run. Bis dahin sind diese Felder ausgeblendet.",
     },
     agg: {
       title: "Gesamtbericht", chip: "CALM-TOUCH PULSE · MEHRERE UNTERNEHMEN", groupBy: "Gruppieren", byIndustry: "nach Branche", bySize: "nach Unternehmensgröße", byRegion: "nach Region",

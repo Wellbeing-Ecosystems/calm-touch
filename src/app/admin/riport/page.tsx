@@ -3,7 +3,7 @@ import { buildReport, fmt1, MIN_GROUP, stateStatus, wellbeingIndex, type Monthly
 import { H1, H2, Notice, SetupNotice, StatusPill, button, card, input, label } from "../ui";
 import { PrintButton } from "./PrintButton";
 import { adminLang } from "../lang";
-import { LOCALE, REPORT, STATUS_LABEL, num } from "../strings";
+import { ADMIN, LOCALE, REPORT, STATUS_LABEL, num } from "../strings";
 import { isLang, LANGS, LANG_NAME, type Lang } from "@/lib/i18n";
 import { missingColumn } from "@/lib/company";
 
@@ -31,8 +31,8 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
   }
   const month = /^\d{4}-\d{2}$/.test(sp.m ?? "") ? sp.m! : monthOf(new Date().toISOString());
   const db = adminDb();
-  type Co = { id: string; name: string; contact_name?: string | null; contact_email?: string | null; contact_phone?: string | null };
-  const full = await db.from("ct_companies").select("id, name, contact_name, contact_email, contact_phone").order("name");
+  type Co = { id: string; name: string; contact_name?: string | null; contact_email?: string | null; contact_phone?: string | null; pm1_name?: string | null; pm2_name?: string | null };
+  const full = await db.from("ct_companies").select("id, name, contact_name, contact_email, contact_phone, pm1_name, pm2_name").order("name");
   const cRes = missingColumn(full.error) ? await db.from("ct_companies").select("id, name").order("name") : full;
   if (cRes.error) throw cRes.error;
   const companies = cRes.data as Co[] | null;
@@ -208,6 +208,7 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
                 {t.contact}: <b>{company.contact_name ?? company.contact_email}</b>
                 {" · "}<a href={`mailto:${company.contact_email}`}>{company.contact_email}</a>
                 {company.contact_phone && <> · {company.contact_phone}</>}
+                {(company.pm1_name || company.pm2_name) && <><br />{ADMIN[ui].co.pm}: <b>{[company.pm1_name, company.pm2_name].filter(Boolean).join(", ")}</b></>}
                 <br /><span style={{ fontSize: "13px", color: "#5E6A62" }}>{t.sendHint}</span>
               </span>
               <a
@@ -216,7 +217,10 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
               >{t.send}</a>
             </>
           ) : (
-            <span style={{ fontSize: "14px", color: "#5E6A62" }}>{t.noEmail}</span>
+            <span style={{ fontSize: "14px", color: "#5E6A62" }}>
+              {t.noEmail}
+              {(company.pm1_name || company.pm2_name) && <><br />{ADMIN[ui].co.pm}: <b>{[company.pm1_name, company.pm2_name].filter(Boolean).join(", ")}</b></>}
+            </span>
           )}
         </div>
       )}

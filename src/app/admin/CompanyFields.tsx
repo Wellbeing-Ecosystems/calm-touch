@@ -7,8 +7,8 @@ const hint = { fontWeight: 400, color: "#5E6A62" } as const;
 const sorted = (rec: Record<string, Record<Lang, string>>, lang: Lang, last: string) =>
   Object.entries(rec).sort(([a, x], [b, y]) => (a === last ? 1 : b === last ? -1 : x[lang].localeCompare(y[lang], lang)));
 
-/** Cégadat-mezők (új cég és szerkesztés): iparág, létszám, vármegye, kapcsolattartó. */
-export function CompanyFields({ lang, value }: { lang: Lang; value?: Partial<CompanyDetails> }) {
+/** Cégadat-mezők (új cég és szerkesztés): iparág, létszám, vármegye, kapcsolattartó, projektmenedzserek (a korábban megadott nevek felajánlva). */
+export function CompanyFields({ lang, value, pmNames = [], idSuffix = "new" }: { lang: Lang; value?: Partial<CompanyDetails>; pmNames?: string[]; idSuffix?: string }) {
   const t = ADMIN[lang].co;
   const v = value ?? {};
   return (
@@ -38,6 +38,12 @@ export function CompanyFields({ lang, value }: { lang: Lang; value?: Partial<Com
         <label style={label}>{t.contactName}<input name="contact_name" autoComplete="off" maxLength={120} defaultValue={v.contact_name ?? ""} style={input} /></label>
         <label style={label}>{t.contactPhone}<input type="tel" name="contact_phone" autoComplete="off" maxLength={40} defaultValue={v.contact_phone ?? ""} style={input} /></label>
         <label style={label}>{t.contactEmail}<input type="email" name="contact_email" autoComplete="off" maxLength={200} defaultValue={v.contact_email ?? ""} style={input} /></label>
+      </fieldset>
+      <fieldset style={{ border: "1px solid #DDE8EF", borderRadius: "12px", padding: "12px 14px 14px", margin: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))", gap: "12px" }}>
+        <legend style={{ fontWeight: 700, fontSize: "14px", padding: "0 6px" }}>{t.pm} <span style={hint}>{t.pmHint}</span></legend>
+        <datalist id={`pm-names-${idSuffix}`}>{pmNames.map((n) => <option key={n} value={n} />)}</datalist>
+        <label style={label}>{t.pm1}<input name="pm1_name" list={`pm-names-${idSuffix}`} autoComplete="off" maxLength={120} defaultValue={v.pm1_name ?? ""} style={input} /></label>
+        <label style={label}>{t.pm2}<input name="pm2_name" list={`pm-names-${idSuffix}`} autoComplete="off" maxLength={120} defaultValue={v.pm2_name ?? ""} style={input} /></label>
       </fieldset>
     </>
   );

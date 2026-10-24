@@ -9,7 +9,11 @@ This statement explains what data Calm Touch uses and for what purpose. The most
 - **The company never sees individual answers.** The client company only receives combined results for groups of at least 5 people.
 - **No tracking on the website.** There is no analytics, no advertising cookie and no social media plug-in. We do not ask for cookie consent because there is nothing to consent to.
 - **Pulse+ instrumental assessment is the exception.** It requires personal data, so it only takes place with the participant's separate, personal consent. Here too, the company receives no individual results, only combined results for at least 10 people.
-- **Beyond this, we only process personal data for business contact:** quote requests, contracts and invoicing, and the names of the practitioners providing the service.
+- **Beyond this, we only process personal data for business contact:**
+  - quote requests and registrations;
+  - the contact details of the client company's contact person (for sending reports);
+  - contracts and invoicing;
+  - the names of our own practitioners and project managers.
 
 ## 2. Data controller
 
@@ -101,16 +105,32 @@ Pulse+ is a one-off, individual assessment. It requires personal data, which is 
 - **Withdrawal:** consent can be withdrawn at any time at {{EMAIL}}. We then delete the individual data.
 - Pulse+ data are not added to the website or to the Pulse questionnaire database.
 
-### 4.2 Quote requests and business contact
+### 4.2 Quote requests, registration and the client company's contact person
 
-If you request a quote or contact us on behalf of your company, we process the following data:
+If you request a quote or register on behalf of your company, or if your company names a contact person as a client, we process the following data:
 
-- **Data:** the contact person's name, job title, company name, e-mail address, phone number and the content of the message.
-- **Quote request form:** the form is operated by bevetel.hu. The bevetel.hu privacy notice also applies to the data entered there. We receive the data needed to prepare the quote.
-- **Legal basis:** steps taken prior to entering into a contract (Article 6(1)(b) GDPR) and our legitimate interest in keeping in contact with companies (Article 6(1)(f)).
+- **Contact person's data:** name, job title, e-mail address, phone number and the content of messages.
+- **Company data:** company name, industry, total number of employees and region (county). These are not personal data.
+- **Where we get them from:**
+  - the quote request or registration form operated by bevetel.hu (the bevetel.hu privacy notice also applies to the data entered there);
+  - e-mail or phone;
+  - the Client when the contract is concluded.
+- **If the company names another employee as contact person,** the company must inform them. We also inform them when we first contact them, and they can ask for their data to be corrected or deleted at any time.
+- **What we use them for:**
+  - preparing the quote;
+  - organising sessions;
+  - sending the monthly Pulse report;
+  - communication about the contract.
+
+  We do not send newsletters or advertising, and we do not pass the data on to third parties.
+- **Where we store them:** in the password-protected Calm Touch admin area, in a database located in the European Union (Ireland). Only Calm Touch administrators have access.
+- **Legal basis:** steps prior to entering into a contract and performance of the contract (Article 6(1)(b) GDPR), and our legitimate interest in keeping in contact with companies (Article 6(1)(f)).
 - **Retention:**
   - if no contract is concluded, 1 year from the last contact;
   - if a contract is concluded, for its duration and for 5 years afterwards, which is the limitation period for civil-law claims.
+
+  If the company names a new contact person, we delete the previous contact person's data.
+- **Anonymous combined statistics:** we use the company's industry, size category and region, together with Pulse results, only when combined with data from other companies in anonymous statistics. These only show combined results of at least 3 companies, so no single company can be identified. Contact person data are never included.
 
 ### 4.3 Contract and invoicing
 
@@ -118,11 +138,13 @@ If you request a quote or contact us on behalf of your company, we process the f
 - **Legal basis:** performance of the contract (Article 6(1)(b)) and, for invoices, a legal obligation (Article 6(1)(c)).
 - **Retention:** accounting documents are kept for 8 years under Section 169 of Hungarian Act C of 2000 on accounting.
 
-### 4.4 Practitioners providing the service
+### 4.4 Our practitioners and project managers
 
-- **Data:** we record practitioners' names so that sessions and their combined evaluations can be assigned to them. This is for internal quality assurance.
+- **Data:**
+  - the names of practitioners, so that sessions and their combined evaluations can be assigned to them (internal quality assurance);
+  - the names of the project manager(s) who lead a company's project on the delivery side.
 - **Legal basis:** performance of our cooperation agreement with them and our legitimate interest in the quality of the service.
-- **Who sees it:** Calm Touch administrators only.
+- **Who sees it:** Calm Touch administrators only. The client company may also learn the project manager's name.
 - **Retention:** for the duration of the cooperation and for up to 12 months afterwards.
 
 ## 5. Processors and data transfers
@@ -132,7 +154,7 @@ We do not sell data, use it for advertising, or make automated decisions or prof
 | Provider | Task | Data location |
 |---|---|---|
 | Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA – vercel.com | website hosting | global network |
-| Supabase Inc., 970 Toa Payoh North #07-04, Singapore 318992 – supabase.com | Pulse questionnaire database | European Union (Ireland) |
+| Supabase Inc., 970 Toa Payoh North #07-04, Singapore 318992 – supabase.com | database for the Pulse questionnaires and the admin area (company details, contact persons) | European Union (Ireland) |
 | the operator of bevetel.hu | quote request form | as stated in the bevetel.hu notice |
 | our accounting provider | invoicing, bookkeeping | Hungary |
 

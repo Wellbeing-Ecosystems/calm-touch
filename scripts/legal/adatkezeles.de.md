@@ -9,7 +9,11 @@ Diese Erklärung beschreibt, welche Daten Calm Touch verwendet und wofür. Das W
 - **Das Unternehmen sieht keine Einzelantworten.** Das auftraggebende Unternehmen erhält nur zusammengefasste Ergebnisse von Gruppen mit mindestens 5 Personen.
 - **Auf der Website gibt es kein Tracking.** Es gibt keine Reichweitenmessung, keine Werbe-Cookies und keine Social-Media-Plug-ins. Wir fragen keine Cookie-Einwilligung ab, weil es nichts gibt, wozu Sie einwilligen müssten.
 - **Die Ausnahme ist die apparative Pulse+-Zustandserhebung.** Sie erfordert personenbezogene Daten und erfolgt daher nur mit gesonderter, persönlicher Einwilligung der teilnehmenden Person. Auch hier erhält das Unternehmen keine Einzelergebnisse, sondern nur zusammengefasste Ergebnisse von mindestens 10 Personen.
-- **Darüber hinaus verarbeiten wir personenbezogene Daten nur für geschäftliche Kontakte:** bei Angebotsanfragen, Verträgen und Rechnungen sowie die Namen der Fachkräfte, die die Leistung erbringen.
+- **Darüber hinaus verarbeiten wir personenbezogene Daten nur für geschäftliche Kontakte:**
+  - bei Angebotsanfragen und Anmeldungen;
+  - die Daten der Ansprechperson des auftraggebenden Unternehmens (für den Berichtsversand);
+  - bei Verträgen und Rechnungen;
+  - die Namen unserer eigenen Fachkräfte und Projektmanager:innen.
 
 ## 2. Verantwortlicher
 
@@ -104,19 +108,35 @@ Pulse+ ist eine einmalige, individuelle Erhebung. Sie erfordert personenbezogene
 - **Widerruf:** Die Einwilligung kann jederzeit unter {{EMAIL}} widerrufen werden. Die individuellen Daten werden dann gelöscht.
 - Pulse+-Daten gelangen weder auf die Website noch in die Pulse-Fragebogen-Datenbank.
 
-### 4.2 Angebotsanfragen und geschäftlicher Kontakt
+### 4.2 Angebotsanfragen, Anmeldung und Ansprechperson des auftraggebenden Unternehmens
 
-Wenn Sie im Namen Ihres Unternehmens ein Angebot anfordern oder uns kontaktieren, verarbeiten wir folgende Daten:
+Wenn Sie im Namen Ihres Unternehmens ein Angebot anfordern oder sich anmelden oder wenn Ihr Unternehmen als Auftraggeber eine Ansprechperson benennt, verarbeiten wir folgende Daten:
 
-- **Daten:** Name, Position der Kontaktperson, Name des Unternehmens, E-Mail-Adresse, Telefonnummer und den Inhalt der Nachricht.
-- **Anfrageformular:**
-  - Das Formular wird von bevetel.hu betrieben.
-  - Für die dort eingegebenen Daten gilt auch die Datenschutzerklärung von bevetel.hu.
-  - Uns erreichen die Daten, die für die Erstellung des Angebots erforderlich sind.
-- **Rechtsgrundlage:** vorvertragliche Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO) bzw. unser berechtigtes Interesse am Kontakt mit Unternehmen (Art. 6 Abs. 1 lit. f).
+- **Daten der Ansprechperson:** Name, Position, E-Mail-Adresse, Telefonnummer und der Inhalt von Nachrichten.
+- **Unternehmensdaten:** Name, Branche, Gesamtzahl der Mitarbeitenden und Region (Komitat) des Unternehmens. Dies sind keine personenbezogenen Daten.
+- **Woher wir die Daten erhalten:**
+  - über das von bevetel.hu betriebene Anfrage- bzw. Anmeldeformular (für die dort eingegebenen Daten gilt auch die Datenschutzerklärung von bevetel.hu);
+  - per E-Mail oder Telefon;
+  - beim Vertragsschluss vom Auftraggeber.
+- **Wenn das Unternehmen eine andere mitarbeitende Person als Ansprechperson benennt,** muss es diese darüber informieren. Wir informieren sie ebenfalls bei der ersten Kontaktaufnahme; sie kann jederzeit die Berichtigung oder Löschung ihrer Daten verlangen.
+- **Wofür wir sie verwenden:**
+  - zur Erstellung des Angebots;
+  - zur Organisation der Sitzungen;
+  - zum Versand des monatlichen Pulse-Berichts;
+  - zur Kommunikation im Zusammenhang mit dem Vertrag.
+
+  Wir versenden keine Newsletter oder Werbung und geben die Daten nicht an Dritte weiter.
+- **Wo wir sie speichern:** im passwortgeschützten Admin-Bereich von Calm Touch, in einer Datenbank in der Europäischen Union (Irland). Zugriff haben nur die Administratoren von Calm Touch.
+- **Rechtsgrundlage:** vorvertragliche Maßnahmen und Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) bzw. unser berechtigtes Interesse am Kontakt mit Unternehmen (Art. 6 Abs. 1 lit. f).
 - **Speicherdauer:**
   - Kommt kein Vertrag zustande: 1 Jahr ab dem letzten Kontakt.
   - Kommt ein Vertrag zustande: während seiner Laufzeit und 5 Jahre danach. Das ist die Verjährungsfrist für zivilrechtliche Ansprüche.
+
+  Benennt das Unternehmen eine neue Ansprechperson, löschen wir die Daten der bisherigen.
+- **Anonyme Gesamtstatistiken:**
+  - Branche, Größenklasse und Region des Unternehmens verwenden wir zusammen mit den Pulse-Ergebnissen nur zusammengefasst mit Daten anderer Unternehmen für anonyme Statistiken.
+  - Darin erscheinen nur gemeinsame Ergebnisse von mindestens 3 Unternehmen, sodass kein einzelnes Unternehmen erkennbar ist.
+  - Daten der Ansprechperson fließen nicht ein.
 
 ### 4.3 Vertrag und Rechnungsstellung
 
@@ -124,11 +144,13 @@ Wenn Sie im Namen Ihres Unternehmens ein Angebot anfordern oder uns kontaktieren
 - **Rechtsgrundlage:** Vertragserfüllung (Art. 6 Abs. 1 lit. b), bei Rechnungen eine rechtliche Verpflichtung (Art. 6 Abs. 1 lit. c).
 - **Speicherdauer:** Buchhaltungsbelege bewahren wir gemäß § 169 des ungarischen Rechnungslegungsgesetzes (Gesetz C von 2000) 8 Jahre lang auf.
 
-### 4.4 Fachkräfte, die die Leistung erbringen
+### 4.4 Unsere Fachkräfte und Projektmanager:innen
 
-- **Daten:** Wir speichern die Namen der Fachkräfte, damit Sitzungen und die zugehörigen zusammengefassten Auswertungen ihnen zugeordnet werden können. Das dient der internen Qualitätssicherung.
-- **Rechtsgrundlage:** Erfüllung der mit ihnen geschlossenen Zusammenarbeit und unser berechtigtes Interesse an der Qualität der Leistung.
-- **Wer sieht die Daten:** nur die Administratoren von Calm Touch.
+- **Daten:**
+  - die Namen der Fachkräfte, damit Sitzungen und die zugehörigen zusammengefassten Auswertungen ihnen zugeordnet werden können (interne Qualitätssicherung);
+  - die Namen der Projektmanager:innen, die das Projekt eines Unternehmens auf der Umsetzungsseite leiten.
+- **Rechtsgrundlage:** Erfüllung der Zusammenarbeit und unser berechtigtes Interesse an der Qualität der Leistung.
+- **Wer sieht die Daten:** nur die Administratoren von Calm Touch. Den Namen der Projektmanagerin bzw. des Projektmanagers kann auch das auftraggebende Unternehmen erfahren.
 - **Speicherdauer:** während der Zusammenarbeit und danach höchstens 12 Monate.
 
 ## 5. Auftragsverarbeiter und Datenübermittlung
@@ -138,7 +160,7 @@ Wir verkaufen keine Daten, nutzen sie nicht für Werbung und treffen keine autom
 | Anbieter | Aufgabe | Speicherort |
 |---|---|---|
 | Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA – vercel.com | Hosting der Website | globales Netzwerk |
-| Supabase Inc., 970 Toa Payoh North #07-04, Singapore 318992 – supabase.com | Datenbank der Pulse-Fragebögen | Europäische Union (Irland) |
+| Supabase Inc., 970 Toa Payoh North #07-04, Singapore 318992 – supabase.com | Datenbank der Pulse-Fragebögen und des Admin-Bereichs (Unternehmensdaten, Ansprechpersonen) | Europäische Union (Irland) |
 | Betreiber von bevetel.hu | Anfrageformular | gemäß der Datenschutzerklärung von bevetel.hu |
 | unser Buchhaltungsdienstleister | Rechnungsstellung, Buchhaltung | Ungarn |
 

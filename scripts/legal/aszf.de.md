@@ -76,6 +76,15 @@ Die Leistung trägt den Namen Calm Touch. Im Folgenden „Anbieter“.
 
 4.3. Der Vertrag kommt zustande, wenn der Auftraggeber das Angebot schriftlich (auch per E-Mail) annimmt. Ab diesem Zeitpunkt sind diese AGB Bestandteil des Vertrags.
 
+4.4. **Ansprechperson.** Der Auftraggeber benennt bei der Angebotsanfrage, der Anmeldung oder dem Vertragsschluss eine Ansprechperson (Name, E-Mail-Adresse, Telefonnummer).
+
+- Der Anbieter sendet den monatlichen Pulse-Bericht an diese Person.
+- Der Auftraggeber ist dafür verantwortlich, die Ansprechperson über die Weitergabe ihrer Daten zu informieren.
+- Einen Wechsel der Ansprechperson teilt der Auftraggeber schriftlich mit.
+- Der Anbieter verarbeitet die Daten der Ansprechperson gemäß der Datennutzungserklärung.
+
+4.5. **Unternehmensdaten.** Zur Organisation der Leistung und zur Einordnung der Berichte gibt der Auftraggeber seine Branche, die Gesamtzahl der Mitarbeitenden und das Komitat seines Standorts an. Der Anbieter benennt für die Leitung des Projekts auf der Umsetzungsseite bis zu zwei Projektmanager:innen und teilt dem Auftraggeber deren Namen mit.
+
 ## 5. Preise
 
 5.1. Die auf der Website angegebenen Preise sind Einführungspreise. Sie verstehen sich netto, zuzüglich Mehrwertsteuer.
@@ -149,6 +158,8 @@ Die Fachkraft lässt diesen Bereich dann aus oder führt die Sitzung nicht durch
 
 10.4. Bei der Pulse+-Erhebung erhält der Auftraggeber nur zusammengefasste Ergebnisse von mindestens 10 Teilnehmenden.
 
+10.5. **Anonyme Gesamtstatistiken.** Der Anbieter darf Branche, Größenklasse und Region des Auftraggebers zusammen mit den Pulse-Ergebnissen, zusammengefasst mit Daten anderer Unternehmen, für anonyme Statistiken und fachliche Zusammenfassungen verwenden. Darin dürfen nur gemeinsame Ergebnisse von mindestens 3 Unternehmen erscheinen; Name und eigene Ergebnisse des Auftraggebers sind nicht erkennbar.
+
 ## 11. Haftung
 
 11.1. Der Anbieter erbringt die Leistung fachgerecht und mit ausgebildeten Fachkräften.
@@ -191,7 +202,7 @@ Auftraggeber und Teilnehmende können Beschwerden schriftlich an {{EMAIL}} oder 
 
 ## 16. Datenschutz
 
-Die Verarbeitung personenbezogener Daten ist in der Datennutzungserklärung (Datenschutzhinweis) beschrieben. Für Calm-Touch-Sitzungen und den Pulse-Fragebogen erheben wir keine personenbezogenen Daten. Nur die Pulse+-Erhebung erfordert eine persönliche Einwilligung.
+Die Verarbeitung personenbezogener Daten ist in der Datennutzungserklärung (Datenschutzhinweis) beschrieben. Für Calm-Touch-Sitzungen und den Pulse-Fragebogen erheben wir von den Teilnehmenden keine personenbezogenen Daten. Personenbezogene Daten verarbeiten wir zur Ansprechperson des Auftraggebers (Name, E-Mail-Adresse, Telefonnummer), bei Angebotsanfragen und Anmeldungen sowie bei der Pulse+-Erhebung; Letztere erfordert eine persönliche Einwilligung.
 
 ## 17. Anwendbares Recht und Streitbeilegung
 

@@ -9,7 +9,7 @@ Ez a nyilatkozat leírja, milyen adatokat használ a Calm Touch, és mire. A leg
 - **A cég nem lát egyéni választ.** A megrendelő cég csak legalább 5 fős csoportok összesített eredményét kapja meg.
 - **A honlapon nincs követés.** Nincs látogatottságmérő, hirdetési süti vagy közösségimédia-beépülő, és nem kérünk süti-hozzájárulást, mert nincs mihez.
 - **Kivétel a Pulse+ műszeres felmérés.** Ehhez személyes adat kell, ezért csak a résztvevő külön, személyes hozzájárulásával történik. A cég itt sem kap egyéni eredményt, csak legalább 10 fő összesített eredményét.
-- **Ezen felül személyes adatot csak üzleti kapcsolattartáshoz kezelünk:** ajánlatkérésnél, szerződésnél, számlázásnál, valamint a szolgáltatást nyújtó szakemberek nevénél.
+- **Ezen felül személyes adatot csak üzleti kapcsolattartáshoz kezelünk:** ajánlatkérésnél és jelentkezésnél, a megrendelő cég kapcsolattartójának adatainál (a riportok kiküldéséhez), szerződésnél és számlázásnál, valamint a saját szakembereink és projektmenedzsereink nevénél.
 
 ## 2. Az adatkezelő
 
@@ -101,16 +101,32 @@ A Pulse+ egyszeri, egyéni felmérés. Ehhez személyes adat kell, ezért ez a k
 - **Visszavonás:** a hozzájárulás bármikor visszavonható a {{EMAIL}} címen. Ilyenkor az egyéni adatokat töröljük.
 - A Pulse+ adatai nem kerülnek a honlapra és a Pulse kérdőív-adatbázisba.
 
-### 4.2 Ajánlatkérés és kapcsolattartás
+### 4.2 Ajánlatkérés, jelentkezés és a megrendelő cég kapcsolattartója
 
-Ha cége nevében ajánlatot kér vagy kapcsolatba lép velünk, a következő adatokat kezeljük:
+Ha cége nevében ajánlatot kér, jelentkezik, vagy cége megrendelőként kapcsolattartót jelöl ki, a következő adatokat kezeljük:
 
-- **Adatok:** a kapcsolattartó neve, beosztása, a cég neve, e-mail-cím, telefonszám és az üzenet tartalma.
-- **Ajánlatkérő űrlap:** az űrlapot a bevetel.hu üzemelteti. Az ott megadott adatokra a bevetel.hu adatkezelési tájékoztatója is vonatkozik. Hozzánk az ajánlat elkészítéséhez szükséges adatok jutnak el.
-- **Jogalap:** a szerződés megkötését megelőző lépések (GDPR 6. cikk (1) b) pont), illetve a cégekkel való kapcsolattartáshoz fűződő jogos érdekünk (6. cikk (1) f) pont).
+- **A kapcsolattartó adatai:** név, beosztás, e-mail-cím, telefonszám, valamint az üzenet tartalma.
+- **A cég adatai:** a cég neve, iparága, általános foglalkoztatotti létszáma és területe (vármegye). Ezek nem személyes adatok.
+- **Honnan kapjuk:**
+  - az ajánlatkérő, illetve jelentkezési űrlapról, amelyet a bevetel.hu üzemeltet (az ott megadott adatokra a bevetel.hu adatkezelési tájékoztatója is vonatkozik);
+  - e-mailből vagy telefonon;
+  - a szerződéskötés során a megrendelőtől.
+- **Ha a cég más munkatársát jelöli meg kapcsolattartóként:** a cég feladata, hogy erről őt tájékoztassa. Mi az első megkereséskor szintén tájékoztatjuk, és ő bármikor kérheti adatai helyesbítését vagy törlését.
+- **Mire használjuk:**
+  - az ajánlat elkészítésére;
+  - az alkalmak szervezésére;
+  - a havi Pulse riport kiküldésére;
+  - a szerződéssel kapcsolatos kapcsolattartásra.
+
+  Hírlevelet vagy reklámot nem küldünk, és az adatokat nem adjuk át harmadik félnek.
+- **Hol tároljuk:** a Calm Touch jelszóval védett adminfelületén, az Európai Unióban (Írország) elhelyezett adatbázisban. Csak a Calm Touch adminisztrátorai férnek hozzá.
+- **Jogalap:** a szerződés megkötését megelőző lépések és a szerződés teljesítése (GDPR 6. cikk (1) b) pont), illetve a cégekkel való kapcsolattartáshoz fűződő jogos érdekünk (6. cikk (1) f) pont).
 - **Megőrzés:**
   - ha nem jön létre szerződés, a legutolsó kapcsolatfelvételtől számított 1 évig;
   - ha létrejön, a szerződés időtartama alatt és azt követően 5 évig, ami a polgári jogi igények elévülési ideje.
+
+  Ha a cég új kapcsolattartót jelöl ki, a korábbi kapcsolattartó adatait töröljük.
+- **Névtelen összesítések:** a cég iparágát, létszámkategóriáját és területét a Pulse eredményekkel együtt csak több cég adataival összevontan, névtelen statisztikákhoz használjuk. Ezekben csak legalább 3 cég közös eredménye jelenik meg, így egyetlen cég sem azonosítható. A kapcsolattartó adatai ezekbe nem kerülnek bele.
 
 ### 4.3 Szerződés és számlázás
 
@@ -118,11 +134,13 @@ Ha cége nevében ajánlatot kér vagy kapcsolatba lép velünk, a következő a
 - **Jogalap:** szerződés teljesítése (6. cikk (1) b) pont), a számlák esetében jogi kötelezettség (6. cikk (1) c) pont).
 - **Megőrzés:** a számviteli bizonylatokat a számvitelről szóló 2000. évi C. törvény 169. §-a szerint 8 évig őrizzük meg.
 
-### 4.4 A szolgáltatást nyújtó szakemberek
+### 4.4 Szakembereink és projektmenedzsereink
 
-- **Adatok:** a szakemberek nevét rögzítjük, hogy az alkalmak és a hozzájuk tartozó, összesített értékelések hozzájuk köthetők legyenek. Ez belső minőségbiztosításra szolgál.
+- **Adatok:**
+  - a szolgáltatást nyújtó szakemberek neve, hogy az alkalmak és a hozzájuk tartozó, összesített értékelések hozzájuk köthetők legyenek (belső minőségbiztosítás);
+  - a megvalósítói oldalon az adott cég projektjét vezető projektmenedzser(ek) neve.
 - **Jogalap:** a velük kötött együttműködés teljesítése és a szolgáltatás minőségéhez fűződő jogos érdekünk.
-- **Ki látja:** csak a Calm Touch adminisztrátorai.
+- **Ki látja:** csak a Calm Touch adminisztrátorai. A projektmenedzser nevét a megrendelő cég is megismerheti.
 - **Megőrzés:** az együttműködés ideje alatt, és utána legfeljebb 12 hónapig.
 
 ## 5. Adatfeldolgozók és adattovábbítás
@@ -132,7 +150,7 @@ Adatot nem adunk el, nem használunk reklámcélra, és nem hozunk automatizált
 | Szolgáltató | Feladat | Adatok helye |
 |---|---|---|
 | Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA – vercel.com | a honlap tárhelye és futtatása | globális hálózat |
-| Supabase Inc., 970 Toa Payoh North #07-04, Singapore 318992 – supabase.com | a Pulse kérdőívek adatbázisa | Európai Unió (Írország) |
+| Supabase Inc., 970 Toa Payoh North #07-04, Singapore 318992 – supabase.com | a Pulse kérdőívek és az adminfelület (cégadatok, kapcsolattartók) adatbázisa | Európai Unió (Írország) |
 | a bevetel.hu üzemeltetője | ajánlatkérő űrlap | a bevetel.hu tájékoztatója szerint |
 | könyvelési szolgáltatónk | számlázás, könyvelés | Magyarország |
 

@@ -1,5 +1,6 @@
 -- Calm Touch – cégadatok az adminban (2026.10.24.)
--- Iparág, általános foglalkoztatotti létszám, megye (terület) és a kapcsolattartó (a riportok kiküldéséhez).
+-- Iparág, általános foglalkoztatotti létszám, megye (terület), a cég kapcsolattartója (a riportok kiküldéséhez),
+-- valamint a megvalósítói oldal projektmenedzsere 1 és 2 (ki vezeti az adott cég projektjét).
 -- Az iparág, a létszám és a megye az összesített (több céges) riportok csoportosításához is kell.
 -- Újrafuttatható. Futtatás: Supabase → SQL Editor → beillesztés → Run.
 
@@ -9,6 +10,8 @@ alter table public.ct_companies add column if not exists region         text che
 alter table public.ct_companies add column if not exists contact_name   text check (char_length(contact_name) <= 120);
 alter table public.ct_companies add column if not exists contact_phone  text check (char_length(contact_phone) <= 40);
 alter table public.ct_companies add column if not exists contact_email  text check (char_length(contact_email) <= 200);
+alter table public.ct_companies add column if not exists pm1_name       text check (char_length(pm1_name) <= 120);
+alter table public.ct_companies add column if not exists pm2_name       text check (char_length(pm2_name) <= 120);
 
 -- A kapcsolattartó adatait csak a szerveroldali admin éri el (a böngésző a táblát nem látja);
 -- a ct_occasion_info függvény továbbra is csak a cég nevét adja ki a kérdőívnek.

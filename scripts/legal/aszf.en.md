@@ -70,6 +70,10 @@ The service is called Calm Touch. Hereinafter the "Provider".
 
 4.3. The contract is concluded when the Client accepts the quote in writing (including by e-mail). From then on, these GTC form part of the contract.
 
+4.4. **Contact person.** When requesting a quote, registering or concluding the contract, the Client names a contact person (name, e-mail address, phone number). The Provider sends the monthly Pulse report to this person. The Client is responsible for informing the contact person that their data have been passed on, and notifies any change in writing. The Provider processes the contact person's data as described in the Data Use Statement.
+
+4.5. **Company details.** To organise the service and interpret the reports, the Client provides its industry, total number of employees and the county of its site. The Provider appoints up to two project managers to lead the Client's project on the delivery side and informs the Client of their names.
+
 ## 5. Fees
 
 5.1. The fees shown on the website are introductory net fees, to which VAT must be added.
@@ -140,6 +144,8 @@ The practitioner will then leave out that area or not carry out the session. We 
 
 10.4. For the Pulse+ assessment, the Client only receives combined results for at least 10 participants.
 
+10.5. **Anonymous combined statistics.** The Provider may use the Client's industry, size category and region, together with Pulse results, combined with data from other companies in anonymous statistics and professional summaries. These may only show combined results of at least 3 companies; the Client's name and own results cannot be identified.
+
 ## 11. Liability
 
 11.1. The Provider delivers the service professionally, with trained practitioners.
@@ -173,7 +179,7 @@ Clients and participants may submit complaints in writing to {{EMAIL}} or at the
 
 ## 16. Data protection
 
-The processing of personal data is described in the Data Use Statement (privacy notice). We do not ask for personal data for Calm Touch sessions or the Pulse questionnaire. Only the Pulse+ assessment requires personal consent.
+The processing of personal data is described in the Data Use Statement (privacy notice). We do not ask participants for personal data for Calm Touch sessions or the Pulse questionnaire. We process personal data about the Client's contact person (name, e-mail address, phone number), during quote requests and registration, and in the Pulse+ assessment; the latter requires personal consent.
 
 ## 17. Governing law and disputes
 

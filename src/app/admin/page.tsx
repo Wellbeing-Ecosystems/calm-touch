@@ -37,6 +37,7 @@ export default async function AdminPage() {
   const companies = (cRes.data ?? []) as unknown as Company[];
   const practitioners = (pRes.data ?? []) as Practitioner[];
   const activePractitioners = practitioners.filter((p) => p.active);
+  const pmNames = [...new Set(companies.flatMap((c) => [c.pm1_name, c.pm2_name]).filter((n): n is string => Boolean(n)))].sort((a, b) => a.localeCompare(b, "hu"));
   const pName = new Map(practitioners.map((p) => [p.id, p.name]));
   const base = await linkBase();
 
@@ -78,7 +79,7 @@ export default async function AdminPage() {
             {t.teams} <span style={{ fontWeight: 400, color: "#5E6A62" }}>{t.teamsHint}</span>
             <textarea name="teams" rows={2} style={{ ...input, padding: "10px 12px" }} />
           </label>
-          {detailsReady && <CompanyFields lang={lang} />}
+          {detailsReady && <CompanyFields lang={lang} pmNames={pmNames} />}
           <button type="submit" style={{ ...button, alignSelf: "flex-start" }}>{t.addCompany}</button>
         </form>
 
@@ -141,6 +142,7 @@ export default async function AdminPage() {
                 <span>{co.industry}: <b>{industryLabel(c.industry ?? null, lang) ?? co.none}</b></span>
                 <span>{co.region}: <b>{regionLabel(c.region ?? null, lang) ?? co.none}</b></span>
                 <span>{co.headcount}: <b>{c.headcount ? co.people(c.headcount) : co.none}</b></span>
+                <span>{co.pm}: <b>{[c.pm1_name, c.pm2_name].filter(Boolean).join(", ") || co.none}</b></span>
                 <span>{co.contact}: <b>{[c.contact_name, c.contact_phone].filter(Boolean).join(" · ") || co.noContact}</b>{c.contact_email && <> · <a href={`mailto:${c.contact_email}`}>{c.contact_email}</a></>}</span>
               </div>
               <details>
@@ -148,7 +150,7 @@ export default async function AdminPage() {
                 <form action={updateCompany} style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "12px" }}>
                   <input type="hidden" name="company_id" value={c.id} />
                   <label style={label}>{t.companyName}<input name="name" required defaultValue={c.name} style={input} /></label>
-                  <CompanyFields lang={lang} value={c} />
+                  <CompanyFields lang={lang} value={c} pmNames={pmNames} idSuffix={c.id} />
                   <button type="submit" style={{ ...button, alignSelf: "flex-start" }}>{co.save}</button>
                 </form>
               </details>

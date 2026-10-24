@@ -8,9 +8,12 @@ export type CompanyDetails = {
   contact_name: string | null;
   contact_phone: string | null;
   contact_email: string | null;
+  /** A megvalósítói (Calm Touch) oldal projektmenedzserei. */
+  pm1_name: string | null;
+  pm2_name: string | null;
 };
 
-export const DETAIL_COLUMNS = "industry, headcount, region, contact_name, contact_phone, contact_email";
+export const DETAIL_COLUMNS = "industry, headcount, region, contact_name, contact_phone, contact_email, pm1_name, pm2_name";
 
 /** Iparágak – az adatbázisban a kulcs tárolódik, a felirat nyelvfüggő. */
 export const INDUSTRIES: Record<string, Record<Lang, string>> = {
@@ -76,6 +79,8 @@ export function detailsFromForm(fd: FormData): CompanyDetails {
     contact_name: clean(fd.get("contact_name"), 120),
     contact_phone: clean(fd.get("contact_phone"), 40),
     contact_email: email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : null,
+    pm1_name: clean(fd.get("pm1_name"), 120),
+    pm2_name: clean(fd.get("pm2_name"), 120),
   };
 }
 

@@ -37,6 +37,8 @@ alter table public.ct_companies add column if not exists region         text che
 alter table public.ct_companies add column if not exists contact_name   text check (char_length(contact_name) <= 120);
 alter table public.ct_companies add column if not exists contact_phone  text check (char_length(contact_phone) <= 40);
 alter table public.ct_companies add column if not exists contact_email  text check (char_length(contact_email) <= 200);
+alter table public.ct_companies add column if not exists pm1_name       text check (char_length(pm1_name) <= 120);
+alter table public.ct_companies add column if not exists pm2_name       text check (char_length(pm2_name) <= 120);
 
 create table if not exists public.ct_teams (
   id          uuid primary key default gen_random_uuid(),

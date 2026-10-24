@@ -70,6 +70,10 @@ A szolgáltatás neve Calm Touch. A továbbiakban: „Szolgáltató”.
 
 4.3. A szerződés akkor jön létre, amikor a megrendelő az ajánlatot írásban (e-mailben is) elfogadja. Ettől kezdve ez az ÁSZF a szerződés része.
 
+4.4. **Kapcsolattartó.** A megrendelő az ajánlatkéréskor, a jelentkezéskor vagy a szerződéskötéskor kapcsolattartót jelöl meg (név, e-mail-cím, telefonszám). A Szolgáltató ennek a személynek küldi a havi Pulse riportot. A megrendelő felel azért, hogy a kapcsolattartó tudjon adatai átadásáról, és ha személye változik, ezt írásban jelzi. A Szolgáltató a kapcsolattartó adatait az Adatfelhasználási nyilatkozat szerint kezeli.
+
+4.5. **Cégadatok.** A megrendelő a szolgáltatás szervezéséhez és a riportok értelmezéséhez megadja iparágát, általános foglalkoztatotti létszámát és telephelye vármegyéjét. A Szolgáltató a saját, megvalósítói oldalán legfeljebb két projektmenedzsert jelöl ki az adott projekt vezetésére, és nevüket közli a megrendelővel.
+
 ## 5. Díjak
 
 5.1. A honlapon közölt díjak bevezető, nettó díjak, és ÁFA-t kell hozzájuk számítani.
@@ -140,6 +144,8 @@ A szakember ilyenkor elhagyja az érintett területet, vagy az alkalmat nem vég
 
 10.4. A Pulse+ felmérésnél a megrendelő csak legalább 10 résztvevő összesített eredményét kapja meg.
 
+10.5. **Névtelen összesítések.** A Szolgáltató a megrendelő iparágát, létszámkategóriáját és területét a Pulse eredményekkel együtt más cégek adataival összevonva, névtelen statisztikákhoz és szakmai összefoglalókhoz felhasználhatja. Ezekben csak legalább 3 cég közös eredménye jelenhet meg; a megrendelő neve és saját eredménye nem azonosítható.
+
 ## 11. Felelősség
 
 11.1. A Szolgáltató a szolgáltatást szakszerűen, képzett szakemberekkel nyújtja.
@@ -173,7 +179,7 @@ A megrendelő és a résztvevő panaszát a {{EMAIL}} címen vagy a Szolgáltat�
 
 ## 16. Adatvédelem
 
-A személyes adatok kezelését az Adatfelhasználási nyilatkozat (adatkezelési tájékoztató) írja le. A Calm Touch alkalmakhoz és a Pulse kérdőívhez nem kérünk személyes adatot. Személyes hozzájáruláshoz csak a Pulse+ felmérés kötött.
+A személyes adatok kezelését az Adatfelhasználási nyilatkozat (adatkezelési tájékoztató) írja le. A Calm Touch alkalmakhoz és a Pulse kérdőívhez nem kérünk személyes adatot a résztvevőktől. Személyes adatot a megrendelő kapcsolattartójáról (név, e-mail-cím, telefonszám), az ajánlatkérés és a jelentkezés során, valamint a Pulse+ felmérésnél kezelünk; utóbbi személyes hozzájáruláshoz kötött.
 
 ## 17. Irányadó jog és vitarendezés
 
