@@ -14,9 +14,21 @@ const mid = "#3F6E8C";
 const pale = "#DDE8EF";
 
 const measures = [
-  { n: "1", t: "qEEG", d: "Aufzeichnung der elektrischen Hirnaktivität in Ruhe, mit offenen und geschlossenen Augen; sie zeigt die Verteilung auf die Frequenzbänder." },
-  { n: "2", t: "HRV", d: "Messung der Schwankung der Abstände zwischen den Herzschlägen; sie gibt Aufschluss über die Regulation des vegetativen Nervensystems." },
-  { n: "3", t: "Kognitiver Test", d: "Vier Computeraufgaben: Aufmerksamkeit, Reaktionszeit, Informationsverarbeitung, Entscheidung." },
+  { n: "1", t: "qEEG", sub: "das elektrische Bild des Gehirns", d: "Aufzeichnung der elektrischen Hirnaktivität mit offenen und geschlossenen Augen und Analyse der Verteilung der Hirnrhythmen.", w: "Die Qualität des Ruhezustands: Bei manchen arbeitet das Nervensystem selbst mit geschlossenen Augen, als hätte es eine Aufgabe – es kann nicht abschalten." },
+  { n: "2", t: "HRV", sub: "der Betriebsmodus des Nervensystems", d: "Eine wenige Minuten lange Aufzeichnung der feinen zeitlichen Schwankungen zwischen den Herzschlägen.", w: "Das autonome Gleichgewicht und die Erholungsreserve: wie flexibel der Körper zwischen Belastung und Ruhe wechselt." },
+  { n: "3", t: "Kognitiver Test", sub: "vier Computeraufgaben", d: "Aufmerksamkeit, Reaktionszeit, Informationsverarbeitung und Entscheidungen unter Druck.", w: "Harte Zahlen zur Leistung: Bei Erschöpfung verlängert sich die Reaktionszeit, die Aufmerksamkeit schwankt stärker, die Fehlerzahl steigt." },
+];
+
+const timeline = [
+  { t: "Messbare Veränderung", d: "HRV, qEEG, Leistung", c: "#3F6E8C" },
+  { t: "Subjektive Beschwerde", d: "„So kann ich nicht weitermachen“", c: "#B07D18" },
+  { t: "Ausfall", d: "Krankschreibung, Kündigung, Ersatz", c: "#A63D32" },
+];
+
+const limits = [
+  { t: "Keine Diagnose", d: "Aus dem qEEG wird kein Depressionstest, aus der HRV kein Burnout-Index." },
+  { t: "Es gibt Störfaktoren", d: "Elektrodenkontakt, Alkohol am Vorabend, Kaffee vor der Messung – das muss bei der Messung berücksichtigt werden." },
+  { t: "Allein zu wenig", d: "Aussagekraft entsteht dort, wo mehrere unabhängige Signale in dieselbe Richtung zeigen. Deshalb messen wir auf drei Arten am selben Tag." },
 ];
 
 const card = { background: "#FFFFFF", borderRadius: "20px", padding: "clamp(20px, 3vw, 28px)", display: "flex", flexDirection: "column" as const, gap: "10px" };
@@ -69,6 +81,24 @@ export default function PulsePlusPage() {
 </div>
 </section>
 
+<section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": "#FFFFFF"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
+<span style={eyebrow}>WARUM WIR MESSEN</span>
+<h2 style={h2}>Die Signale kommen vor der Beschwerde</h2>
+<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>„Mir geht es gut“, sagt die Mitarbeiterin; laut Fragebogen ist alles in Ordnung, und die Führungskraft sieht es genauso. Doch der mentale Zustand hat auch einen Körper: Bis jemand ausspricht, dass er nicht mehr kann, ist es in seinem Körper oft schon seit Wochen oder Monaten sichtbar.</p>
+<ol aria-label="Zeitleiste" style={{"listStyle": "none", "margin": "0", "padding": "0", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", "gap": "12px"}}>
+{timeline.map((s, i) => (
+<li key={s.t} style={{...card, "background": "#FAF6F1", "borderTop": `5px solid ${s.c}`}}>
+<span style={{"fontSize": "13px", "fontWeight": 700, "color": s.c}}>{i + 1}.</span>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "20px", "color": "#2E3631"}}>{s.t}</b>
+<span style={{"color": "#3B443E"}}>{s.d}</span>
+</li>
+))}
+</ol>
+<p style={{"margin": "0", "color": blue, "fontWeight": 600}}>Das Zeitfenster liegt zwischen dem ersten und dem zweiten Schritt. Vorbeugung ist deutlich günstiger als Wiederherstellung.</p>
+</div>
+</section>
+
 <section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": pale}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <span style={eyebrow}>WAS DIE ERHEBUNG UMFASST</span>
@@ -77,8 +107,9 @@ export default function PulsePlusPage() {
 {measures.map((m) => (
 <div key={m.n} style={card}>
 <span style={{"width": "40px", "height": "40px", "borderRadius": "20px", "background": mid, "color": "#FFFFFF", "display": "inline-flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontWeight": 800, "fontSize": "18px"}}>{m.n}</span>
-<b style={{"fontFamily": "var(--ct-display)", "fontSize": "22px", "color": blue}}>{m.t}</b>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "22px", "color": blue}}>{m.t} <span style={{"fontSize": "16px", "fontWeight": 600, "color": mid}}>· {m.sub}</span></b>
 <span style={{"color": "#3B443E"}}>{m.d}</span>
+<span style={{"color": "#2E3631"}}><b>Was sie zeigt:</b> {m.w}</span>
 </div>
 ))}
 </div>
@@ -108,6 +139,22 @@ export default function PulsePlusPage() {
 </ul>
 </div>
 </div>
+<p style={{"margin": "0", "maxWidth": "860px", "color": "#3B443E"}}>Die Erhebung ist für sich vollständig. Folgt die teilnehmende Person dem Sechs-Wochen-Plan, lässt sich die Messung mit demselben Protokoll wiederholen – im Unternehmen passt dieser Zyklus gut zum Quartalsrhythmus, und die zweite Messung zeigt die Veränderung.</p>
+</div>
+</section>
+
+<section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": "#F4E3E4"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
+<span style={{...eyebrow, "color": "#7E3A4A"}}>EHRLICH GESAGT</span>
+<h2 style={{...h2, "color": "#7E3A4A"}}>Was eine Messung nicht kann</h2>
+<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", "gap": "16px"}}>
+{limits.map((l) => (
+<div key={l.t} style={card}>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "20px", "color": "#7E3A4A"}}>{l.t}</b>
+<span style={{"color": "#3B443E"}}>{l.d}</span>
+</div>
+))}
+</div>
 </div>
 </section>
 
@@ -128,11 +175,41 @@ export default function PulsePlusPage() {
 <div style={{...card, "background": "#FAF6F1"}}>
 <b style={{"fontSize": "19px"}}>Für Arbeitgeber</b>
 <ul style={{"margin": "0", "paddingLeft": "20px", "display": "flex", "flexDirection": "column", "gap": "6px", "color": "#3B443E"}}>
+<li>Nachweisbare Wirkung: Die Zufriedenheitsumfrage misst, wie gut es gefallen hat – die Physiologie, ob sich tatsächlich etwas verändert hat</li>
 <li>Zum Wellbeing-Programm kommen objektive, quantitative Daten hinzu</li>
 <li>Ein anonymisiertes Bild der Belastung der Organisation auf Gruppenebene</li>
 <li>Das Einzelergebnis gehört der gemessenen Person; das Unternehmen sieht nur zusammengefasste Ergebnisse von mindestens 10 Personen</li>
 <li>Die Erhebung erfolgt nur mit persönlicher, schriftlicher Einwilligung der teilnehmenden Person</li>
 </ul>
+</div>
+</div>
+</div>
+</section>
+
+<section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": pale}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "24px", "alignItems": "start"}}>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
+<span style={eyebrow}>VERTRAUEN</span>
+<h2 style={h2}>Ohne Vertrauen keine Messung</h2>
+<div style={card}>
+<b style={{"fontSize": "19px", "color": blue}}>Die gemessene Person</b>
+<span style={{"color": "#3B443E"}}>Sieht das vollständige Einzelergebnis. Das Profil gehört ihr und niemandem sonst.</span>
+</div>
+<div style={card}>
+<b style={{"fontSize": "19px", "color": blue}}>Das Unternehmen</b>
+<span style={{"color": "#3B443E"}}>Sieht nur ein zusammengefasstes, anonymisiertes Bild aus den Daten von mindestens 10 Personen – nie mit Namen.</span>
+</div>
+<p style={{"margin": "0", "color": "#3B443E"}}>Wird diese Grenze auch nur einmal durchlässig, ist bei der nächsten Messung niemand mehr ehrlich.</p>
+</div>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
+<span style={eyebrow}>DIE MESSUNG LEITET</span>
+<div style={{...card, "flexDirection": "row", "flexWrap": "wrap", "alignItems": "center", "gap": "20px"}}>
+<img src="/calm-touch/images/szaloki-laszlo.webp" alt="László Szalóki" width={300} height={280} loading="lazy" style={{"width": "140px", "height": "140px", "objectFit": "cover", "objectPosition": "50% 20%", "borderRadius": "70px", "flex": "0 0 auto"}} />
+<div style={{"display": "flex", "flexDirection": "column", "gap": "6px", "flex": "1 1 200px"}}>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "24px", "color": blue}}>László Szalóki</b>
+<span style={{"color": "#3B443E"}}>Kognitionsforscher · Neurotrainer</span>
+<span style={{"color": "#5E6A62", "fontSize": "15px"}}>Bioptima Gehirntrainer-Zentrum</span>
+</div>
 </div>
 </div>
 </div>

@@ -12,9 +12,21 @@ const mid = "#3F6E8C";
 const pale = "#DDE8EF";
 
 const measures = [
-  { n: "1", t: "qEEG", d: "Az agyi elektromos aktivitás felvétele nyugalmi helyzetben, nyitott és csukott szemmel; a frekvenciasávok eloszlását mutatja." },
-  { n: "2", t: "HRV", d: "A szívverések közötti időközök ingadozásának mérése, amely az autonóm idegrendszer szabályozásáról ad információt." },
-  { n: "3", t: "Kognitív teszt", d: "Négy számítógépes feladat: figyelem, reakcióidő, információfeldolgozás, döntés." },
+  { n: "1", t: "qEEG", sub: "az agy elektromos képe", d: "Az agyi elektromos aktivitás felvétele nyitott és csukott szemmel, majd az agyi ritmusok eloszlásának elemzése.", w: "A nyugalmi állapot minőségét: van, akinek csukott szemmel is úgy dolgozik az idegrendszere, mintha feladata lenne – nem tud leállni." },
+  { n: "2", t: "HRV", sub: "az idegrendszer üzemmódja", d: "Néhány perces felvétel a szívverések közötti apró időbeli ingadozásokról.", w: "Az autonóm egyensúlyt és a regenerációs tartalékot: mennyire rugalmasan vált a szervezet terhelés és pihenés között." },
+  { n: "3", t: "Kognitív teszt", sub: "négy számítógépes feladat", d: "Figyelem, reakcióidő, információfeldolgozás és döntés nyomás alatt.", w: "Kemény számokat a teljesítményről: kimerültségnél megnyúlik a reakcióidő, ingadozóbb a figyelem, nő a hibaszám." },
+];
+
+const timeline = [
+  { t: "Mérhető változás", d: "HRV, qEEG, teljesítmény", c: "#3F6E8C" },
+  { t: "Szubjektív panasz", d: "„Nem bírom így tovább”", c: "#B07D18" },
+  { t: "Kiesés", d: "táppénz, kilépés, pótlás", c: "#A63D32" },
+];
+
+const limits = [
+  { t: "Nem diagnózis", d: "A qEEG-ből nem lesz depresszióteszt, a HRV-ből nem lesz kiégésindex." },
+  { t: "Van zaja", d: "Elektródakontaktus, előző esti alkohol, mérés előtti kávé – ezeket a mérés során kezelni kell." },
+  { t: "Egyedül kevés", d: "Az érték ott keletkezik, ahol több független jel ugyanabba az irányba mutat. Ezért mérünk háromféleképpen, ugyanazon a napon." },
 ];
 
 const card = { background: "#FFFFFF", borderRadius: "20px", padding: "clamp(20px, 3vw, 28px)", display: "flex", flexDirection: "column" as const, gap: "10px" };
@@ -66,6 +78,24 @@ export default function PulsePlusPage() {
 </div>
 </section>
 
+<section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": "#FFFFFF"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
+<span style={eyebrow}>MIÉRT MÉRÜNK</span>
+<h2 style={h2}>A jelek korábban jönnek, mint a panasz</h2>
+<p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>„Jól vagyok” – mondja a munkatárs, a kérdőív szerint rendben van, a vezető is így látja. A mentális állapotnak azonban teste is van: mire valaki kimondja, hogy nem bírja, a szervezetében ez már hetek vagy hónapok óta látszik.</p>
+<ol aria-label="Idővonal" style={{"listStyle": "none", "margin": "0", "padding": "0", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", "gap": "12px"}}>
+{timeline.map((s, i) => (
+<li key={s.t} style={{...card, "background": "#FAF6F1", "borderTop": `5px solid ${s.c}`}}>
+<span style={{"fontSize": "13px", "fontWeight": 700, "color": s.c}}>{i + 1}.</span>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "20px", "color": "#2E3631"}}>{s.t}</b>
+<span style={{"color": "#3B443E"}}>{s.d}</span>
+</li>
+))}
+</ol>
+<p style={{"margin": "0", "color": blue, "fontWeight": 600}}>Az időablak az első és a második lépés között van. A megelőzés lényegesen olcsóbb, mint a helyreállítás.</p>
+</div>
+</section>
+
 <section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": pale}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <span style={eyebrow}>MIBŐL ÁLL A FELMÉRÉS</span>
@@ -74,8 +104,9 @@ export default function PulsePlusPage() {
 {measures.map((m) => (
 <div key={m.n} style={card}>
 <span style={{"width": "40px", "height": "40px", "borderRadius": "20px", "background": mid, "color": "#FFFFFF", "display": "inline-flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontWeight": 800, "fontSize": "18px"}}>{m.n}</span>
-<b style={{"fontFamily": "var(--ct-display)", "fontSize": "22px", "color": blue}}>{m.t}</b>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "22px", "color": blue}}>{m.t} <span style={{"fontSize": "16px", "fontWeight": 600, "color": mid}}>· {m.sub}</span></b>
 <span style={{"color": "#3B443E"}}>{m.d}</span>
+<span style={{"color": "#2E3631"}}><b>Mit mutat meg:</b> {m.w}</span>
 </div>
 ))}
 </div>
@@ -105,6 +136,22 @@ export default function PulsePlusPage() {
 </ul>
 </div>
 </div>
+<p style={{"margin": "0", "maxWidth": "860px", "color": "#3B443E"}}>A felmérés önmagában is teljes. Ha a résztvevő a hathetes tervet követi, a mérés ugyanazzal a protokollal megismételhető – cégnél ez a ciklus jól illeszkedik a negyedéves ritmushoz, és a második mérés mutatja meg a változást.</p>
+</div>
+</section>
+
+<section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": "#F4E3E4"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
+<span style={{...eyebrow, "color": "#7E3A4A"}}>ŐSZINTÉN</span>
+<h2 style={{...h2, "color": "#7E3A4A"}}>Amit egy mérés nem tud</h2>
+<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", "gap": "16px"}}>
+{limits.map((l) => (
+<div key={l.t} style={card}>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "20px", "color": "#7E3A4A"}}>{l.t}</b>
+<span style={{"color": "#3B443E"}}>{l.d}</span>
+</div>
+))}
+</div>
 </div>
 </section>
 
@@ -125,11 +172,41 @@ export default function PulsePlusPage() {
 <div style={{...card, "background": "#FAF6F1"}}>
 <b style={{"fontSize": "19px"}}>A munkáltatónak</b>
 <ul style={{"margin": "0", "paddingLeft": "20px", "display": "flex", "flexDirection": "column", "gap": "6px", "color": "#3B443E"}}>
+<li>Kimutatható hatás: az elégedettségi kérdőív azt méri, mennyire tetszett – a fiziológia azt, hogy történt-e valami</li>
 <li>A wellbeing program mellé objektív, számszerű adatok is kerülnek</li>
 <li>Csoportszintű, anonimizált kép a szervezet terheléséről</li>
 <li>Az egyéni eredmény a mért személyé; a cég csak legalább 10 fő összesített eredményét látja</li>
 <li>A felmérés csak a résztvevő személyes, írásos hozzájárulásával történik</li>
 </ul>
+</div>
+</div>
+</div>
+</section>
+
+<section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": pale}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "24px", "alignItems": "start"}}>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
+<span style={eyebrow}>BIZALOM</span>
+<h2 style={h2}>Bizalom nélkül nincs mérés</h2>
+<div style={card}>
+<b style={{"fontSize": "19px", "color": blue}}>A mért személy</b>
+<span style={{"color": "#3B443E"}}>Látja a teljes egyéni eredményét. A profil az övé, és senki másé.</span>
+</div>
+<div style={card}>
+<b style={{"fontSize": "19px", "color": blue}}>A cég</b>
+<span style={{"color": "#3B443E"}}>Csak összesített, anonimizált képet lát, legalább 10 fő adatából – névvel soha.</span>
+</div>
+<p style={{"margin": "0", "color": "#3B443E"}}>Ha ez a határ egyszer is átjárhatóvá válik, a következő mérésnél már senki nem lesz őszinte.</p>
+</div>
+<div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
+<span style={eyebrow}>A MÉRÉST VEZETI</span>
+<div style={{...card, "flexDirection": "row", "flexWrap": "wrap", "alignItems": "center", "gap": "20px"}}>
+<img src="/calm-touch/images/szaloki-laszlo.webp" alt="Szalóki László" width={300} height={280} loading="lazy" style={{"width": "140px", "height": "140px", "objectFit": "cover", "objectPosition": "50% 20%", "borderRadius": "70px", "flex": "0 0 auto"}} />
+<div style={{"display": "flex", "flexDirection": "column", "gap": "6px", "flex": "1 1 200px"}}>
+<b style={{"fontFamily": "var(--ct-display)", "fontSize": "24px", "color": blue}}>Szalóki László</b>
+<span style={{"color": "#3B443E"}}>Kognitív kutató · Neurotrainer</span>
+<span style={{"color": "#5E6A62", "fontSize": "15px"}}>Bioptima Agytréner Központ</span>
+</div>
 </div>
 </div>
 </div>

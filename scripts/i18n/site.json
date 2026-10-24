@@ -1686,5 +1686,173 @@
  "A felmérés csak a résztvevő személyes, írásos hozzájárulásával történik": [
   "The assessment only takes place with the participant’s personal, written consent",
   "Die Erhebung erfolgt nur mit persönlicher, schriftlicher Einwilligung der teilnehmenden Person"
+ ],
+ "A MÉRÉST VEZETI": [
+  "LED BY",
+  "DIE MESSUNG LEITET"
+ ],
+ "A cég": [
+  "The company",
+  "Das Unternehmen"
+ ],
+ "A felmérés önmagában is teljes. Ha a résztvevő a hathetes tervet követi, a mérés ugyanazzal a protokollal megismételhető – cégnél ez a ciklus jól illeszkedik a negyedéves ritmushoz, és a második mérés mutatja meg a változást.": [
+  "The assessment is complete in itself. If the participant follows the six-week plan, the measurement can be repeated with the same protocol – in a company this cycle fits a quarterly rhythm well, and the second measurement shows the change.",
+  "Die Erhebung ist für sich vollständig. Folgt die teilnehmende Person dem Sechs-Wochen-Plan, lässt sich die Messung mit demselben Protokoll wiederholen – im Unternehmen passt dieser Zyklus gut zum Quartalsrhythmus, und die zweite Messung zeigt die Veränderung."
+ ],
+ "A jelek korábban jönnek, mint a panasz": [
+  "The signs come before the complaint",
+  "Die Signale kommen vor der Beschwerde"
+ ],
+ "A mért személy": [
+  "The person measured",
+  "Die gemessene Person"
+ ],
+ "A nyugalmi állapot minőségét: van, akinek csukott szemmel is úgy dolgozik az idegrendszere, mintha feladata lenne – nem tud leállni.": [
+  "The quality of the resting state: for some people the nervous system works even with eyes closed as if it had a task – it cannot switch off.",
+  "Die Qualität des Ruhezustands: Bei manchen arbeitet das Nervensystem selbst mit geschlossenen Augen, als hätte es eine Aufgabe – es kann nicht abschalten."
+ ],
+ "A qEEG-ből nem lesz depresszióteszt, a HRV-ből nem lesz kiégésindex.": [
+  "qEEG does not become a depression test, and HRV does not become a burnout index.",
+  "Aus dem qEEG wird kein Depressionstest, aus der HRV kein Burnout-Index."
+ ],
+ "Amit egy mérés nem tud": [
+  "What a measurement cannot do",
+  "Was eine Messung nicht kann"
+ ],
+ "Az agyi elektromos aktivitás felvétele nyitott és csukott szemmel, majd az agyi ritmusok eloszlásának elemzése.": [
+  "Recording the brain’s electrical activity with eyes open and closed, then analysing the distribution of brain rhythms.",
+  "Aufzeichnung der elektrischen Hirnaktivität mit offenen und geschlossenen Augen und Analyse der Verteilung der Hirnrhythmen."
+ ],
+ "Az autonóm egyensúlyt és a regenerációs tartalékot: mennyire rugalmasan vált a szervezet terhelés és pihenés között.": [
+  "Autonomic balance and recovery reserve: how flexibly the body switches between load and rest.",
+  "Das autonome Gleichgewicht und die Erholungsreserve: wie flexibel der Körper zwischen Belastung und Ruhe wechselt."
+ ],
+ "Az időablak az első és a második lépés között van. A megelőzés lényegesen olcsóbb, mint a helyreállítás.": [
+  "The window of opportunity lies between the first and second step. Prevention costs far less than recovery.",
+  "Das Zeitfenster liegt zwischen dem ersten und dem zweiten Schritt. Vorbeugung ist deutlich günstiger als Wiederherstellung."
+ ],
+ "Az érték ott keletkezik, ahol több független jel ugyanabba az irányba mutat. Ezért mérünk háromféleképpen, ugyanazon a napon.": [
+  "The value lies where several independent signals point in the same direction. That is why we measure in three ways on the same day.",
+  "Aussagekraft entsteht dort, wo mehrere unabhängige Signale in dieselbe Richtung zeigen. Deshalb messen wir auf drei Arten am selben Tag."
+ ],
+ "BIZALOM": [
+  "TRUST",
+  "VERTRAUEN"
+ ],
+ "Bioptima Agytréner Központ": [
+  "Bioptima Brain Trainer Centre",
+  "Bioptima Gehirntrainer-Zentrum"
+ ],
+ "Bizalom nélkül nincs mérés": [
+  "No measurement without trust",
+  "Ohne Vertrauen keine Messung"
+ ],
+ "Csak összesített, anonimizált képet lát, legalább 10 fő adatából – névvel soha.": [
+  "Only sees a combined, anonymised picture from at least 10 people – never with names.",
+  "Sieht nur ein zusammengefasstes, anonymisiertes Bild aus den Daten von mindestens 10 Personen – nie mit Namen."
+ ],
+ "Egyedül kevés": [
+  "Not enough on its own",
+  "Allein zu wenig"
+ ],
+ "Elektródakontaktus, előző esti alkohol, mérés előtti kávé – ezeket a mérés során kezelni kell.": [
+  "Electrode contact, alcohol the night before, coffee before the measurement – these must be handled during measurement.",
+  "Elektrodenkontakt, Alkohol am Vorabend, Kaffee vor der Messung – das muss bei der Messung berücksichtigt werden."
+ ],
+ "Figyelem, reakcióidő, információfeldolgozás és döntés nyomás alatt.": [
+  "Attention, reaction time, information processing and decisions under pressure.",
+  "Aufmerksamkeit, Reaktionszeit, Informationsverarbeitung und Entscheidungen unter Druck."
+ ],
+ "HRV, qEEG, teljesítmény": [
+  "HRV, qEEG, performance",
+  "HRV, qEEG, Leistung"
+ ],
+ "Ha ez a határ egyszer is átjárhatóvá válik, a következő mérésnél már senki nem lesz őszinte.": [
+  "If this boundary is crossed even once, no one will be honest at the next measurement.",
+  "Wird diese Grenze auch nur einmal durchlässig, ist bei der nächsten Messung niemand mehr ehrlich."
+ ],
+ "Idővonal": [
+  "Timeline",
+  "Zeitleiste"
+ ],
+ "Kemény számokat a teljesítményről: kimerültségnél megnyúlik a reakcióidő, ingadozóbb a figyelem, nő a hibaszám.": [
+  "Hard numbers on performance: with exhaustion, reaction time gets longer, attention fluctuates more and errors increase.",
+  "Harte Zahlen zur Leistung: Bei Erschöpfung verlängert sich die Reaktionszeit, die Aufmerksamkeit schwankt stärker, die Fehlerzahl steigt."
+ ],
+ "Kiesés": [
+  "Absence",
+  "Ausfall"
+ ],
+ "Kimutatható hatás: az elégedettségi kérdőív azt méri, mennyire tetszett – a fiziológia azt, hogy történt-e valami": [
+  "Demonstrable effect: a satisfaction survey measures how much people liked it – physiology shows whether something actually happened",
+  "Nachweisbare Wirkung: Die Zufriedenheitsumfrage misst, wie gut es gefallen hat – die Physiologie, ob sich tatsächlich etwas verändert hat"
+ ],
+ "Kognitív kutató · Neurotrainer": [
+  "Cognitive researcher · Neurotrainer",
+  "Kognitionsforscher · Neurotrainer"
+ ],
+ "Látja a teljes egyéni eredményét. A profil az övé, és senki másé.": [
+  "Sees their full individual result. The profile is theirs and no one else’s.",
+  "Sieht das vollständige Einzelergebnis. Das Profil gehört ihr und niemandem sonst."
+ ],
+ "MIÉRT MÉRÜNK": [
+  "WHY WE MEASURE",
+  "WARUM WIR MESSEN"
+ ],
+ "Mit mutat meg:": [
+  "What it shows:",
+  "Was sie zeigt:"
+ ],
+ "Mérhető változás": [
+  "Measurable change",
+  "Messbare Veränderung"
+ ],
+ "Nem diagnózis": [
+  "Not a diagnosis",
+  "Keine Diagnose"
+ ],
+ "Néhány perces felvétel a szívverések közötti apró időbeli ingadozásokról.": [
+  "A few minutes’ recording of the tiny time variations between heartbeats.",
+  "Eine wenige Minuten lange Aufzeichnung der feinen zeitlichen Schwankungen zwischen den Herzschlägen."
+ ],
+ "Szalóki László": [
+  "László Szalóki",
+  "László Szalóki"
+ ],
+ "Szubjektív panasz": [
+  "Subjective complaint",
+  "Subjektive Beschwerde"
+ ],
+ "Van zaja": [
+  "It has noise",
+  "Es gibt Störfaktoren"
+ ],
+ "az agy elektromos képe": [
+  "the brain’s electrical picture",
+  "das elektrische Bild des Gehirns"
+ ],
+ "az idegrendszer üzemmódja": [
+  "the nervous system’s operating mode",
+  "der Betriebsmodus des Nervensystems"
+ ],
+ "négy számítógépes feladat": [
+  "four computer tasks",
+  "vier Computeraufgaben"
+ ],
+ "táppénz, kilépés, pótlás": [
+  "sick leave, resignation, replacement",
+  "Krankschreibung, Kündigung, Ersatz"
+ ],
+ "ŐSZINTÉN": [
+  "HONESTLY",
+  "EHRLICH GESAGT"
+ ],
+ "„Jól vagyok” – mondja a munkatárs, a kérdőív szerint rendben van, a vezető is így látja. A mentális állapotnak azonban teste is van: mire valaki kimondja, hogy nem bírja, a szervezetében ez már hetek vagy hónapok óta látszik.": [
+  "“I’m fine,” says the employee; the survey says all is well, and the manager sees it the same way. But mental state has a body too: by the time someone says they can’t cope, it has been visible in their body for weeks or months.",
+  "„Mir geht es gut“, sagt die Mitarbeiterin; laut Fragebogen ist alles in Ordnung, und die Führungskraft sieht es genauso. Doch der mentale Zustand hat auch einen Körper: Bis jemand ausspricht, dass er nicht mehr kann, ist es in seinem Körper oft schon seit Wochen oder Monaten sichtbar."
+ ],
+ "„Nem bírom így tovább”": [
+  "“I can’t go on like this”",
+  "„So kann ich nicht weitermachen“"
  ]
 }
