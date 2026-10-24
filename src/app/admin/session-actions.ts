@@ -22,3 +22,13 @@ export async function logout() {
   (await cookies()).set(SESSION_COOKIE, "", { ...cookieOpts, maxAge: 0 });
   redirect(`${LOGIN_PATH}?kilepett=1`);
 }
+
+/** Az admin felület nyelvének váltása (HU / EN / DE). */
+export async function setAdminLang(formData: FormData) {
+  const lang = String(formData.get("lang") ?? "");
+  const back = String(formData.get("vissza") ?? "");
+  if (lang === "hu" || lang === "en" || lang === "de") {
+    (await cookies()).set("ct_admin_lang", lang, { ...cookieOpts, maxAge: 365 * 24 * 3600 });
+  }
+  redirect(back.startsWith("/admin") ? back : "/admin");
+}

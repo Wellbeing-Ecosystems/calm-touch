@@ -2,6 +2,9 @@ import { adminDb, adminDbConfigured } from "@/lib/pulse-server";
 import { buildPractitionerStats, fmt1, MIN_GROUP, type Monthly, type Snapshot } from "@/lib/pulse-metrics";
 import { H1, H2, Notice, SetupNotice, StatusPill, button, card, input, label } from "../ui";
 import { PrintButton } from "../riport/PrintButton";
+import { adminLang } from "../lang";
+import { ADMIN, LOCALE, REPORT, num } from "../strings";
+import type { Lang } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -11,12 +14,15 @@ const shiftMonth = (m: string, d: number) => {
   const [y, mo] = m.split("-").map(Number);
   return new Date(Date.UTC(y, mo - 1 + d, 1)).toISOString().slice(0, 7);
 };
-const monthLabel = (m: string) =>
-  new Intl.DateTimeFormat("hu-HU", { year: "numeric", month: "long", timeZone: "UTC" }).format(new Date(`${m}-01T00:00:00Z`));
+const monthLabel = (m: string, lang: Lang) =>
+  new Intl.DateTimeFormat(LOCALE[lang], { year: "numeric", month: "long", timeZone: "UTC" }).format(new Date(`${m}-01T00:00:00Z`));
 
 export default async function SzakemberekPage({ searchParams }: { searchParams: Promise<{ m?: string; h?: string }> }) {
+  const lang = await adminLang();
+  const t = ADMIN[lang].prac;
+  const f = (v: number | null, signed = false) => num(lang, fmt1(v, signed));
   if (!adminDbConfigured) {
-    return (<><H1>Szakemberek értékelése</H1><SetupNotice /></>);
+    return (<><H1>{t.title}</H1><SetupNotice /></>);
   }
   const sp = await searchParams;
   const month = /^\d{4}-\d{2}$/.test(sp.m ?? "") ? sp.m! : monthOf(new Date().toISOString());
@@ -44,49 +50,48 @@ export default async function SzakemberekPage({ searchParams }: { searchParams: 
   const snaps = ((snapRes.data ?? []) as (Snapshot & { created_at: string })[]).filter((s) => months.includes(monthOf(s.created_at)));
   const stats = buildPractitionerStats(snaps, (monRes.data ?? []) as Monthly[], names);
   const unassigned = snaps.filter((s) => !s.practitioner_id).length;
-  const period = span === 1 ? monthLabel(month) : `${monthLabel(fromMonth)} – ${monthLabel(month)}`;
+  const period = span === 1 ? monthLabel(month, lang) : `${monthLabel(fromMonth, lang)} – ${monthLabel(month, lang)}`;
 
   return (
     <>
       <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "16px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-          <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "#2C5069", fontWeight: 700 }}>CALM-TOUCH PULSE · BELSŐ</span>
-          <H1>Szakemberek értékelése · {period}</H1>
+          <span style={{ fontSize: "12px", letterSpacing: "0.2em", color: "#2C5069", fontWeight: 700 }}>{t.chip}</span>
+          <H1>{t.title} · {period}</H1>
         </div>
-        <PrintButton />
+        <PrintButton label={REPORT[lang].print} />
       </div>
 
       <form className="ct-noprint" style={{ ...card, flexDirection: "row", flexWrap: "wrap", alignItems: "flex-end" }}>
-        <label style={{ ...label, flex: "0 1 200px" }}>Hónap<input type="month" name="m" defaultValue={month} style={input} /></label>
+        <label style={{ ...label, flex: "0 1 200px" }}>{t.month}<input type="month" name="m" defaultValue={month} style={input} /></label>
         <label style={{ ...label, flex: "0 1 220px" }}>
-          Időszak
+          {t.period}
           <select name="h" defaultValue={String(span)} style={input}>
-            <option value="1">csak ez a hónap</option>
-            <option value="3">utolsó 3 hónap</option>
-            <option value="12">utolsó 12 hónap</option>
+            <option value="1">{t.p1}</option>
+            <option value="3">{t.p3}</option>
+            <option value="12">{t.p12}</option>
           </select>
         </label>
-        <button type="submit" style={button}>Megjelenítés</button>
+        <button type="submit" style={button}>{t.show}</button>
       </form>
 
       <Notice>
-        Belső értékelés, az összes cég alkalmaiból. Az értékelést a szakember saját QR-kódja köti hozzá, a résztvevőnek ezt nem kell megadnia.
-        Minden érték 10 = legjobb; a hatás a jóllét-index változása (utána − előtte). {MIN_GROUP} kitöltés alatt az átlagok még bizonytalanok.
+        {t.notice(MIN_GROUP)}
       </Notice>
       {unassigned > 0 && (
-        <Notice tone="warn">{unassigned} pillanatkép az általános (szakember nélküli) QR-kódon érkezett – ezek itt nem szerepelnek. A helyszínen mindig a szakember saját QR-kódját érdemes használni.</Notice>
+        <Notice tone="warn">{t.unassigned(unassigned)}</Notice>
       )}
 
       {stats.length === 0 ? (
-        <p style={{ color: "#5E6A62" }}>Ebben az időszakban nincs szakemberhez köthető kitöltés.</p>
+        <p style={{ color: "#5E6A62" }}>{t.empty}</p>
       ) : (
         <div style={card}>
-          <H2>Szakemberenként</H2>
+          <H2>{t.byPrac}</H2>
           <div style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", minWidth: "820px", borderCollapse: "collapse", fontSize: "15px" }}>
               <thead>
                 <tr style={{ textAlign: "left", color: "#2C5069", borderBottom: "2px solid #DDE8EF" }}>
-                  {["Szakember", "Alkalom", "Előtte–utána párok", "Hatás", "Javult", "Komfort", "Ajánlási mutató", "Alkalmak értékelése (havi)"].map((h) => (
+                  {t.cols.map((h) => (
                     <th key={h} scope="col" style={{ padding: "10px 8px" }}>{h}</th>
                   ))}
                 </tr>
@@ -98,21 +103,20 @@ export default async function SzakemberekPage({ searchParams }: { searchParams: 
                     <td style={{ padding: "10px 8px" }}>{p.occasions}</td>
                     <td style={{ padding: "10px 8px" }}>
                       {p.responses}
-                      {p.responses < MIN_GROUP && <span style={{ color: "#B07D18", fontSize: "13px" }}> · kevés adat</span>}
+                      {p.responses < MIN_GROUP && <span style={{ color: "#B07D18", fontSize: "13px" }}> · {t.few}</span>}
                     </td>
-                    <td style={{ padding: "10px 8px" }}>{fmt1(p.effect, true)} <StatusPill status={p.effectStatus} /></td>
+                    <td style={{ padding: "10px 8px" }}>{f(p.effect, true)} <StatusPill status={p.effectStatus} lang={lang} /></td>
                     <td style={{ padding: "10px 8px" }}>{p.improvedPct == null ? "–" : `${p.improvedPct}%`}</td>
-                    <td style={{ padding: "10px 8px" }}>{fmt1(p.comfort)} / 10</td>
+                    <td style={{ padding: "10px 8px" }}>{f(p.comfort)} / 10</td>
                     <td style={{ padding: "10px 8px" }}>{p.nps == null ? "–" : `${p.nps > 0 ? "+" : ""}${p.nps}`}</td>
-                    <td style={{ padding: "10px 8px" }}>{fmt1(p.value)} / 10 <span style={{ color: "#5E6A62", fontSize: "13px" }}>({p.monthlyCount})</span></td>
+                    <td style={{ padding: "10px 8px" }}>{f(p.value)} / 10 <span style={{ color: "#5E6A62", fontSize: "13px" }}>({p.monthlyCount})</span></td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <span style={{ fontSize: "14px", color: "#5E6A62" }}>
-            Komfort: „Mennyire érezted magad biztonságban és komfortosan?” · Ajánlási mutató: ajánlók (9–10) − kritikusok (0–6) aránya ·
-            Alkalmak értékelése: a havi kérdőív 5., 6., 7. és 10. állításának átlaga (közvetlen hatás, fókusz, testtudatosság, folytatási igény) azoktól, akik az adott szakember alkalma után töltötték ki. A gondoskodó kultúra és a szervezés a céget minősíti, ezért itt nem számít bele.
+            {t.foot}
           </span>
         </div>
       )}
