@@ -111,10 +111,7 @@ Die Leistung trägt den Namen Calm Touch. Im Folgenden „Anbieter“.
 
 8.1. Der Auftraggeber kann eine Sitzung kostenfrei stornieren oder verschieben, wenn er dies mindestens 5 Arbeitstage vorher schriftlich mitteilt.
 
-8.2. Bei späterer Stornierung gilt:
-
-- weniger als 5, aber mindestens 2 Arbeitstage vor der Sitzung: 50 % des Preises;
-- weniger als 2 Arbeitstage vorher oder bei Ausfall aus Gründen, die im Verantwortungsbereich des Auftraggebers liegen: der volle Preis.
+8.2. Erfolgt die Stornierung oder Verschiebung innerhalb von 5 Arbeitstagen vor der Sitzung oder fällt die Sitzung aus Gründen aus, die im Verantwortungsbereich des Auftraggebers liegen, sind 50 % des Preises zu zahlen.
 
 8.3. Kann die Fachkraft wegen Krankheit oder aus einem anderen unabwendbaren Grund nicht teilnehmen, stellt der Anbieter eine Ersatzfachkraft oder vereinbart einen neuen Termin. Ist beides nicht möglich, wird für die ausgefallene Sitzung kein Preis berechnet.
 

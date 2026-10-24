@@ -105,10 +105,7 @@ The service is called Calm Touch. Hereinafter the "Provider".
 
 8.1. The Client may cancel or reschedule a session free of charge if it gives written notice at least 5 working days before the session.
 
-8.2. For later cancellation:
-
-- within 5 working days but at least 2 working days before the session: 50% of the fee is payable;
-- within 2 working days, or if the session does not take place for reasons within the Client's control: the full fee is payable.
+8.2. If the session is cancelled or rescheduled within 5 working days of the session, or does not take place for reasons within the Client's control, 50% of the fee is payable.
 
 8.3. If the practitioner cannot attend because of illness or another unavoidable reason, the Provider supplies a replacement practitioner or arranges a new date. If neither is possible, no fee is charged for the missed session.
 

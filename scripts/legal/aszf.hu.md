@@ -105,10 +105,7 @@ A szolgáltatás neve Calm Touch. A továbbiakban: „Szolgáltató”.
 
 8.1. Az alkalom időpontját a megrendelő díjmentesen lemondhatja vagy áthelyezheti, ha ezt legalább 5 munkanappal az alkalom előtt írásban jelzi.
 
-8.2. Későbbi lemondás esetén:
-
-- 5 munkanapon belül, de legalább 2 munkanappal az alkalom előtt: a díj 50%-a fizetendő;
-- 2 munkanapon belül, illetve ha az alkalom a megrendelő érdekkörébe tartozó okból marad el: a teljes díj fizetendő.
+8.2. Ha a lemondás vagy az áthelyezés 5 munkanapon belül történik, illetve ha az alkalom a megrendelő érdekkörébe tartozó okból marad el, a díj 50%-a fizetendő.
 
 8.3. Ha a szakember betegség vagy más elháríthatatlan ok miatt nem tud részt venni, a Szolgáltató helyettesítő szakembert biztosít, vagy új időpontot egyeztet. Ha egyik sem lehetséges, az elmaradt alkalomért díj nem jár.
 
