@@ -1,10 +1,10 @@
 import "server-only";
-import { headers } from "next/headers";
-import { roleFromAuthorization, type AdminRole } from "./admin-auth";
+import { cookies } from "next/headers";
+import { roleFromSession, SESSION_COOKIE, type AdminRole } from "./admin-auth";
 
 /** A bejelentkezett admin szerepköre (szerverkomponensben és server actionben). */
 export async function currentRole(): Promise<AdminRole | null> {
-  return roleFromAuthorization((await headers()).get("authorization"));
+  return roleFromSession((await cookies()).get(SESSION_COOKIE)?.value);
 }
 
 /** Server actionök védelme: a proxy mellett itt is ellenőrzünk. */

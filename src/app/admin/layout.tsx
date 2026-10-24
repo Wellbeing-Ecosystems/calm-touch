@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { currentRole } from "@/lib/admin-session";
+import { logout } from "./session-actions";
 
 export const metadata: Metadata = {
   title: "Pulse admin",
@@ -18,10 +19,10 @@ export default async function AdminLayout({ children }: Readonly<{ children: Rea
           <Link href={role === "admin" ? "/admin" : "/admin/helyszin"} style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}>
             <img src="/calm-touch/brand/logo-fekvo.webp" alt="Calm Touch" style={{ height: "36px", width: "auto" }} />
             <span style={{ fontSize: "13px", fontWeight: 700, color: "#2C5069", background: "#DDE8EF", borderRadius: "999px", padding: "4px 12px" }}>
-              {role === "admin" ? "Pulse admin" : "Pulse helyszín"}
+              {role === "admin" ? "Pulse admin" : role === "admin2" ? "Pulse helyszín" : "Pulse"}
             </span>
           </Link>
-          <nav aria-label="Admin navigáció" style={{ display: "flex", gap: "18px 22px", flexWrap: "wrap" }}>
+          {role && <nav aria-label="Admin navigáció" style={{ display: "flex", gap: "18px 22px", flexWrap: "wrap", alignItems: "center" }}>
             <Link href="/admin/helyszin" style={nav}>Helyszíni beállítás</Link>
             {role === "admin" && (
               <>
@@ -30,7 +31,10 @@ export default async function AdminLayout({ children }: Readonly<{ children: Rea
                 <Link href="/admin/szakemberek" style={nav}>Szakemberek</Link>
               </>
             )}
-          </nav>
+            <form action={logout} style={{ margin: 0 }}>
+              <button type="submit" style={{ minHeight: "40px", padding: "0 16px", border: "1px solid #A65D6B", borderRadius: "999px", background: "transparent", color: "#7E3A4A", font: "inherit", fontWeight: 700, fontSize: "15px", cursor: "pointer" }}>Kilépés</button>
+            </form>
+          </nav>}
         </div>
       </header>
       <main style={{ maxWidth: "1180px", margin: "0 auto", padding: "32px 20px 64px", display: "flex", flexDirection: "column", gap: "28px" }}>
