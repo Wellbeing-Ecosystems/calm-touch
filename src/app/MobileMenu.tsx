@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { LANGS, LANG_LABEL, type Lang } from "@/lib/i18n";
+import { sitePath } from "./SiteLang";
 
 type Item = { href: string; label: string; primary?: boolean };
 
 /** Telefonos menü (hamburger): 760 px alatt látszik, a fejléc többi linkje ilyenkor rejtett. */
-export function MobileMenu({ items }: { items: Item[] }) {
+export function MobileMenu({ items, lang }: { items: Item[]; lang?: { current: Lang; path: string } }) {
   const [open, setOpen] = useState(false);
   const [top, setTop] = useState(72);
   const ref = useRef<HTMLDivElement>(null);
@@ -44,6 +46,16 @@ export function MobileMenu({ items }: { items: Item[] }) {
           role="menu"
           style={{ position: "fixed", left: "12px", right: "12px", top: `${top}px`, zIndex: 50, maxHeight: `calc(100vh - ${top + 12}px)`, overflowY: "auto", background: "#FFFFFF", border: "1px solid #EADFD2", borderRadius: "16px", boxShadow: "0 12px 32px rgba(46,54,49,0.14)", padding: "8px", display: "flex", flexDirection: "column" }}
         >
+          {lang && (
+            <div style={{ display: "flex", gap: "6px", padding: "6px 8px 10px", borderBottom: "1px solid #EADFD2", marginBottom: "6px" }}>
+              {LANGS.map((l) => (
+                <a key={l} href={sitePath(l, lang.path)} hrefLang={l} aria-current={l === lang.current ? "page" : undefined}
+                  style={{ flex: 1, minHeight: "40px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "999px", fontWeight: 700, fontSize: "14px", textDecoration: "none", border: "1px solid #DDE8EF", background: l === lang.current ? "#2C5069" : "#FFFFFF", color: l === lang.current ? "#FFFFFF" : "#2C5069" }}>
+                  {LANG_LABEL[l]}
+                </a>
+              ))}
+            </div>
+          )}
           {items.map((it) => (
             <a
               key={it.href + it.label}

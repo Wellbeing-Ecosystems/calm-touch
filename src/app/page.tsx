@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteLang } from "./SiteLang";
 import { MobileMenu } from "./MobileMenu";
 
 export const metadata: Metadata = {
@@ -20,7 +21,8 @@ export default function CalmTouchPage() {
 <a href="#pulse" style={{"textDecoration": "none", "color": "#3F6E8C"}}>Calm-Touch Pulse</a>
 <a href="/calm-touch/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>Cégeknek</a>
 <a href="/calm-touch/cegeknek" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 22px", "borderRadius": "999px", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
-<MobileMenu items={[{ href: "#hogyan", label: "Hogyan működik?" }, { href: "#pulse", label: "Calm-Touch Pulse" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "/calm-touch/cegeknek", label: "Pilot alkalmat kérek", primary: true }]} />
+<SiteLang current="hu" path="" />
+<MobileMenu lang={{ current: "hu", path: "" }} items={[{ href: "#hogyan", label: "Hogyan működik?" }, { href: "#pulse", label: "Calm-Touch Pulse" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "/calm-touch/cegeknek", label: "Pilot alkalmat kérek", primary: true }]} />
 </nav>
 </div>
 </header>
@@ -195,7 +197,7 @@ export default function CalmTouchPage() {
 </div>
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(400px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
-<img src="/calm-touch/images/07-pulse-telefon.webp" alt="Kézben tartott telefon a Calm-Touch Pulse Hogy érzem magam? felületével, 1–10-es skálán, Előtte és Utána sávokkal: feszültség 7-ről 3-ra, nyugalom 3-ról 7-re, koncentráció 4-ről 8-ra; Illusztráció jelöléssel." style={{"display": "block", "justifySelf": "center", "width": "100%", "maxWidth": "440px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
+<img src="/calm-touch/images/07-pulse-telefon.webp" alt="Kézben tartott telefon a Calm-Touch Pulse Hogy érzem magam? felületével, 1–10-es skálán, Előtte és Utána sávokkal: feszültség 7-ről 3-ra, nyugalom 3-ról 7-re, energia 4-ről 8-ra; Illusztráció jelöléssel." style={{"display": "block", "justifySelf": "center", "width": "100%", "maxWidth": "440px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
 <div style={{"display": "flex", "flexDirection": "column", "gap": "18px"}}>
 <div style={{"background": "#FAF6F1", "color": "#2E3631", "borderRadius": "32px 32px 32px 10px", "padding": "clamp(20px, 3vw, 30px)", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "20px", "fontWeight": "800", "color": "#2C5069", "background": "#DDE8EF", "border": "2px solid #3F6E8C", "borderRadius": "999px", "padding": "4px 18px"}}>Pulse</span>

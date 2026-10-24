@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteLang } from "../SiteLang";
 import { MobileMenu } from "../MobileMenu";
 
 export const metadata: Metadata = {
@@ -35,7 +36,8 @@ export default function PulsePlusPage() {
 <a href="/calm-touch/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>Cégeknek</a>
 <a href="/calm-touch/modszertan" style={{"textDecoration": "none", "color": mid}}>Pulse módszertan</a>
 <a href="/calm-touch/cegeknek#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
-<MobileMenu items={[{ href: "/calm-touch", label: "Főoldal" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "/calm-touch/pulse-riport", label: "Példa riport" }, { href: "/calm-touch/cegeknek#ajanlat", label: "Ajánlatot kérek", primary: true }]} />
+<SiteLang current="hu" path="/pulse-plus" />
+<MobileMenu lang={{ current: "hu", path: "/pulse-plus" }} items={[{ href: "/calm-touch", label: "Főoldal" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "/calm-touch/pulse-riport", label: "Példa riport" }, { href: "/calm-touch/cegeknek#ajanlat", label: "Ajánlatot kérek", primary: true }]} />
 </nav>
 </div>
 </header>

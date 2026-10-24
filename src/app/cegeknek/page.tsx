@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteLang } from "../SiteLang";
 import { MobileMenu } from "../MobileMenu";
 import { OfferForm } from "./OfferForm";
 
@@ -22,7 +23,8 @@ export default function CegeknekPage() {
 <a href="#csomagok" style={{"textDecoration": "none", "color": "#2E3631"}}>Csomagok</a>
 <a href="#gyik" style={{"textDecoration": "none", "color": "#2E3631"}}>GYIK</a>
 <a href="#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
-<MobileMenu items={[{ href: "/calm-touch", label: "Főoldal" }, { href: "#pulse", label: "Pulse riport" }, { href: "#csomagok", label: "Csomagok" }, { href: "#gyik", label: "GYIK" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "#ajanlat", label: "Ajánlatot kérek", primary: true }]} />
+<SiteLang current="hu" path="/cegeknek" />
+<MobileMenu lang={{ current: "hu", path: "/cegeknek" }} items={[{ href: "/calm-touch", label: "Főoldal" }, { href: "#pulse", label: "Pulse riport" }, { href: "#csomagok", label: "Csomagok" }, { href: "#gyik", label: "GYIK" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "#ajanlat", label: "Ajánlatot kérek", primary: true }]} />
 </nav>
 </div>
 </header>
