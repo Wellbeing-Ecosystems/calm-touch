@@ -22,7 +22,7 @@ export default async function AdminLayout({ children }: Readonly<{ children: Rea
       <header className="ct-noprint" style={{ borderBottom: "1px solid #EADFD2", background: "#FFFFFF" }}>
         <div style={{ maxWidth: "1180px", margin: "0 auto", padding: "12px 20px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "12px" }}>
           <Link href={role === "admin" ? "/admin" : "/admin/helyszin"} style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}>
-            <img src="/calm-touch/brand/logo-fekvo.webp" alt="Calm Touch" style={{ height: "36px", width: "auto" }} />
+            <img src={`/calm-touch/brand/logo-fekvo${lang === "hu" ? "" : `-${lang}`}.webp`} alt="Calm Touch" style={{ height: "36px", width: "auto" }} />
             <span style={{ fontSize: "13px", fontWeight: 700, color: "#2C5069", background: "#DDE8EF", borderRadius: "999px", padding: "4px 12px" }}>
               {role === "admin" ? t.chipAdmin : role === "admin2" ? t.chipOnsite : "Pulse"}
             </span>

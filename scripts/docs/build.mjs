@@ -11,6 +11,7 @@ ${fonts}
 body{font-family:'Nunito Sans',sans-serif;color:#2E3631;font-size:10.5pt;line-height:1.5;margin:0;}
 .cover{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #DDE8EF;padding-bottom:12px;margin-bottom:18px}
 .cover img{height:46px}
+.cover img[src$=".png"]{height:58px}
 .tag{font-size:8pt;letter-spacing:.18em;font-weight:700;color:#2C5069;background:#DDE8EF;border-radius:999px;padding:4px 12px}
 h1{font-family:'Nunito',sans-serif;font-weight:700;color:#2C5069;font-size:24pt;line-height:1.1;margin:0 0 4px}
 .sub{color:#5E6A62;font-size:9.5pt;margin-bottom:16px}
@@ -40,7 +41,7 @@ const docs = [
 for (const d of docs) {
   const body = marked.parse(fs.readFileSync(d.md,'utf8'));
   const html = `<!doctype html><html lang="${d.md.includes('_en') ? 'en' : d.md.includes('_de') ? 'de' : 'hu'}"><head><meta charset="utf-8"><title>${d.title}</title><style>${css}</style></head><body>
-<div class="cover"><img src="logo-fekvo.webp" alt="Calm Touch"><span class="tag">${d.tag}</span></div>
+<div class="cover"><img src="${d.md.includes('_en') ? 'logo-fekvo-en.png' : d.md.includes('_de') ? 'logo-fekvo-de.png' : 'logo-fekvo.webp'}" alt="Calm Touch"><span class="tag">${d.tag}</span></div>
 <h1>${d.title}</h1><div class="sub">${d.sub}</div>${body}
 <div class="foot">${d.foot ?? 'Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft. · A Calm-Touch munkahelyi jóllétet támogató szolgáltatás, nem egészségügyi kezelés.'}</div></body></html>`;
   fs.writeFileSync(d.out, html);

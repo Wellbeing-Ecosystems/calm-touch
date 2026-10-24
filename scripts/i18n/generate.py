@@ -43,6 +43,9 @@ def link(href, lang):
     if seg in ("pillanatkep", "havi-kerdoiv"):
         sep = "&" if "?" in rest else "?"
         return f"/calm-touch{path}{rest}{sep}lang={lang}" if "lang=" not in rest else href
+    m2 = re.match(r"^/brand/(logo-(?:fekvo-vilagos|fekvo|negyzetes))\.webp$", path)
+    if m2:
+        return f"/calm-touch/brand/{m2.group(1)}-{lang}.webp"
     if path.startswith("/docs/calm-touch-pulse-meresi-modszertan.pdf"):
         return f"/calm-touch/docs/{PDF[lang]}"
     return href

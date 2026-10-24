@@ -49,3 +49,11 @@
 }
 /* Nyelvváltó: asztalon a fejlécben, telefonon a menüben */
 @media (max-width: 760px){ .ct-nav .ct-lang{display:none!important} }
+
+/* Az angol és német fekvő logó arányaiban magasabb (nagyobb embléma), ezért azonos magasság mellett
+   kisebbnek hat – a térkitöltést nem változtató nagyítással igazítjuk a magyarhoz. */
+img[src*="/brand/logo-fekvo-en"], img[src*="/brand/logo-fekvo-de"],
+img[src*="/brand/logo-fekvo-vilagos-en"], img[src*="/brand/logo-fekvo-vilagos-de"] {
+  transform: scale(1.3);
+  transform-origin: left center;
+}

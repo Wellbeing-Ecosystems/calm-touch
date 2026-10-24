@@ -58,7 +58,7 @@ export default function CegeknekPage() {
 <header style={{"borderBottom": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "padding": "18px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="/calm-touch/de" style={{"textDecoration": "none", "display": "flex", "flexDirection": "column"}}>
-<img className="ct-logo" src="/calm-touch/brand/logo-fekvo.webp" alt="Calm Touch – Stressabbau durch Berührung" style={{"display": "block", "height": "56px", "width": "auto", "maxWidth": "100%"}} />
+<img className="ct-logo" src="/calm-touch/brand/logo-fekvo-de.webp" alt="Calm Touch – Stressabbau durch Berührung" style={{"display": "block", "height": "56px", "width": "auto", "maxWidth": "100%"}} />
 </a>
 <nav aria-label="Hauptnavigation" className="ct-nav" style={{"display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "24px", "fontSize": "15px"}}>
 <a href="/calm-touch/de" style={{"textDecoration": "none", "color": "#2E3631"}}>Startseite</a>

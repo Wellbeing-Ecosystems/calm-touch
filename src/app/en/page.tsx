@@ -43,7 +43,7 @@ export default function CalmTouchPage() {
 <header style={{"background": "#FAF6F1"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "padding": "14px 24px", "display": "flex", "flexWrap": "wrap", "alignItems": "center", "justifyContent": "space-between", "gap": "16px"}}>
 <a href="#kezdo" style={{"textDecoration": "none", "display": "flex", "alignItems": "center", "gap": "12px"}}>
-<img className="ct-logo" src="/calm-touch/brand/logo-fekvo.webp" alt="Calm Touch – stress relief through touch" style={{"display": "block", "height": "60px", "width": "auto", "maxWidth": "100%"}} />
+<img className="ct-logo" src="/calm-touch/brand/logo-fekvo-en.webp" alt="Calm Touch – stress relief through touch" style={{"display": "block", "height": "60px", "width": "auto", "maxWidth": "100%"}} />
 </a>
 <nav aria-label="Main navigation" className="ct-nav" style={{"display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "26px", "fontSize": "15px", "fontWeight": "600"}}>
 <a href="#hogyan" style={{"textDecoration": "none", "color": "#2E3631"}}>How does it work?</a>
@@ -317,14 +317,14 @@ export default function CalmTouchPage() {
 </section>
 <section style={{"padding": "clamp(58px, 6.7vw, 96px) 20px clamp(62px, 7.2vw, 104px)", "background": "#F4E3E4"}}>
 <div style={{"maxWidth": "760px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "26px", "textAlign": "center"}}>
-<img src="/calm-touch/brand/logo-negyzetes.webp" alt="Calm Touch – stress relief through touch" style={{"width": "220px", "maxWidth": "60%", "height": "auto"}} />
+<img src="/calm-touch/brand/logo-negyzetes-en.webp" alt="Calm Touch – stress relief through touch" style={{"width": "220px", "maxWidth": "60%", "height": "auto"}} />
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.5vw, 46px)", "lineHeight": "1.1", "color": "#4E2530", "textWrap": "balance"}}>Give your team 15 minutes when they don’t have to perform.</h2>
 <a href="/calm-touch/en/cegeknek" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot session</a>
 </div>
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px"}}>
-<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos.webp" alt="Calm Touch – stress relief through touch" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Operated by: Alternatíva Tanácsadó Csoport Kft.</span></span>
+<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos-en.webp" alt="Calm Touch – stress relief through touch" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Operated by: Alternatíva Tanácsadó Csoport Kft.</span></span>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "20px"}}>
 <a href="/calm-touch/en/modszertan" style={{"color": "#E9EBD6"}}>Measurement method</a>
 <a href="https://pszichoszoc.hu/adatkezelesi-tajekoztato" style={{"color": "#E9EBD6"}}>Privacy notice</a>

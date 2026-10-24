@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/calm-touch/brand/favicon.ico", sizes: "any" },
+      { url: "/calm-touch/brand/favicon-16.png", type: "image/png", sizes: "16x16" },
       { url: "/calm-touch/brand/favicon-32.png", type: "image/png", sizes: "32x32" },
       { url: "/calm-touch/brand/favicon-192.png", type: "image/png", sizes: "192x192" },
     ],

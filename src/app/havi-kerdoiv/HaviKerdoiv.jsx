@@ -113,7 +113,7 @@ export default class HaviKerdoiv extends Component {
 <div style={{"maxWidth": "480px", "margin": "0 auto", "minHeight": "100vh", "boxSizing": "border-box", "background": "#FAF6F1", "color": "#2E3631", "fontFamily": "var(--ct-text)", "fontSize": "16px", "lineHeight": "1.45"}}>
 <div style={{"padding": "28px 24px 40px", "display": "flex", "flexDirection": "column", "gap": "20px"}}>
 <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "center"}}>
-<img src="/calm-touch/brand/logo-fekvo.webp" alt={v.t.logoAlt} style={{"display": "block", "height": "34px", "width": "auto", "maxWidth": "48%"}} />
+<img src={`/calm-touch/brand/logo-fekvo${v.lang === "hu" ? "" : `-${v.lang}`}.webp`} alt={v.t.logoAlt} style={{"display": "block", "height": "34px", "width": "auto", "maxWidth": "48%"}} />
 <LangSwitch lang={v.lang} onChange={v.setLang} />
 </div>
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "fontWeight": "700", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "4px 12px", "marginTop": "-8px"}}>{v.t.chip}</span>
