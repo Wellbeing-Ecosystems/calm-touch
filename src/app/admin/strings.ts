@@ -52,6 +52,12 @@ export const REPORT = {
     reportLang: "Riport nyelve",
     show: "Megjelenítés",
     print: "Nyomtatás / PDF",
+    contact: "Kapcsolattartó",
+    send: "Riport küldése e-mailben",
+    sendHint: "Előbb mentsd a riportot PDF-be (Nyomtatás / PDF), majd csatold a megnyíló levélhez.",
+    noEmail: "Ennél a cégnél nincs kapcsolattartói e-mail – a Cégek és alkalmak oldalon, a Cégadatok szerkesztése alatt pótolható.",
+    mailSubject: (company: string, month: string) => `Calm-Touch Pulse havi riport – ${company}, ${month}`,
+    mailBody: (name: string | null, company: string, month: string) => `${name ? `Kedves ${name}!` : "Tisztelt Kolléga!"}\n\nCsatolva küldöm a Calm-Touch Pulse havi riportot (${company}, ${month}). A riport csak összesített, csoportszintű eredményeket tartalmaz.\n\nHa kérdése van, szívesen átbeszéljük.\n\nÜdvözlettel:\nCalm Touch`,
   },
   en: {
     chip: "CALM-TOUCH PULSE · MONTHLY REPORT",
@@ -91,6 +97,12 @@ export const REPORT = {
     reportLang: "Report language",
     show: "Show",
     print: "Print / PDF",
+    contact: "Contact person",
+    send: "Send report by e-mail",
+    sendHint: "First save the report as a PDF (Print / PDF), then attach it to the e-mail that opens.",
+    noEmail: "No contact e-mail is set for this company – add it on the Companies & sessions page under Edit company details.",
+    mailSubject: (company: string, month: string) => `Calm-Touch Pulse monthly report – ${company}, ${month}`,
+    mailBody: (name: string | null, company: string, month: string) => `${name ? `Dear ${name},` : "Dear colleague,"}\n\nPlease find attached the Calm-Touch Pulse monthly report for ${company} (${month}). The report contains combined, group-level results only.\n\nWe are happy to talk it through if you have any questions.\n\nKind regards,\nCalm Touch`,
   },
   de: {
     chip: "CALM-TOUCH PULSE · MONATSBERICHT",
@@ -130,12 +142,18 @@ export const REPORT = {
     reportLang: "Berichtssprache",
     show: "Anzeigen",
     print: "Drucken / PDF",
+    contact: "Ansprechperson",
+    send: "Bericht per E-Mail senden",
+    sendHint: "Speichern Sie den Bericht zuerst als PDF (Drucken / PDF) und hängen Sie ihn dann an die sich öffnende E-Mail an.",
+    noEmail: "Für dieses Unternehmen ist keine Kontakt-E-Mail hinterlegt – sie kann auf der Seite Unternehmen & Sitzungen unter Unternehmensdaten bearbeiten ergänzt werden.",
+    mailSubject: (company: string, month: string) => `Calm-Touch Pulse Monatsbericht – ${company}, ${month}`,
+    mailBody: (name: string | null, company: string, month: string) => `${name ? `Guten Tag ${name},` : "Sehr geehrte Damen und Herren,"}\n\nanbei erhalten Sie den Calm-Touch-Pulse-Monatsbericht für ${company} (${month}). Der Bericht enthält ausschließlich zusammengefasste Ergebnisse auf Gruppenebene.\n\nBei Fragen besprechen wir ihn gerne mit Ihnen.\n\nMit freundlichen Grüßen\nCalm Touch`,
   },
 } satisfies Record<Lang, unknown>;
 
 export const ADMIN = {
   hu: {
-    navOnsite: "Helyszíni beállítás", navMain: "Cégek és alkalmak", navReport: "Havi riport", navPrac: "Szakemberek", logout: "Kilépés",
+    navOnsite: "Helyszíni beállítás", navMain: "Cégek és alkalmak", navReport: "Havi riport", navPrac: "Szakemberek", navAgg: "Összesítő", logout: "Kilépés",
     chipAdmin: "Pulse admin", chipOnsite: "Pulse helyszín",
     login: { title: "Belépés", loggedOut: "Sikeresen kiléptél.", wrong: "Hibás felhasználónév vagy jelszó.", user: "Felhasználónév", pass: "Jelszó", submit: "Belépés", note: "A belépés 12 óráig érvényes ezen az eszközön, vagy amíg a Kilépés gombra nem kattintasz." },
     setup: "A Supabase még nincs bekötve. A Vercel projekt Settings → Environment Variables oldalán add meg a NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY és SUPABASE_SECRET_KEY értékét, majd készíts új deployt. Lépések: docs/supabase-beallitas.md.",
@@ -153,6 +171,20 @@ export const ADMIN = {
       noStation: "Ehhez az alkalomhoz még nincs szakember rendelve. Az általános QR-kódon érkező válaszok nem köthetők szakemberhez.",
       qrAlt: "QR-kód", downloadQr: "QR-kód letöltése", general: "Általános (szakember nélkül)", generalAlt: "Általános QR-kód",
       addPracAria: "Szakember hozzáadása", addPracOpt: "Szakember hozzáadása…", addBtn: "Hozzáadás",
+    },
+    co: {
+      details: "Cégadatok", edit: "Cégadatok szerkesztése", save: "Mentés",
+      industry: "Iparág", region: "Terület (vármegye)", headcount: "Foglalkoztatotti létszám", headcountHint: "(általános, fő)",
+      contact: "Kapcsolattartó", contactHint: "(a riportok kiküldéséhez)", contactName: "Név", contactPhone: "Telefon", contactEmail: "E-mail",
+      none: "— nincs megadva —", people: (n: number) => `${n.toLocaleString("hu-HU")} fő`, noContact: "nincs kapcsolattartó megadva",
+      migrate: "A cégadatok (iparág, létszám, terület, kapcsolattartó) mentéséhez egyszer le kell futtatni a supabase/migrations/0002_company_details.sql fájlt: Supabase → SQL Editor → beillesztés → Run. Addig ezek a mezők nem jelennek meg.",
+    },
+    agg: {
+      title: "Összesített riport", chip: "CALM-TOUCH PULSE · TÖBB CÉG", groupBy: "Csoportosítás", byIndustry: "iparág szerint", bySize: "létszám szerint", byRegion: "terület szerint",
+      notice: (minC: number, minP: number) => `Több cég adataiból képzett összesítés, belső használatra. Egy csoport csak akkor jelenik meg, ha legalább ${minC} cég és legalább ${minP} résztvevő adata áll mögötte – így egyetlen cég eredménye sem azonosítható. Minden érték 10 = legjobb.`,
+      cols: ["Csoport", "Cég", "Résztvevő", "Állapot-pulzus", "Hatás", "Javult", "Havi trend", "Fenntarthatóság"],
+      all: "Összesen", unknown: "nincs megadva", hidden: (n: number) => `${n} csoport túl kevés cég vagy résztvevő miatt nem jelenik meg.`,
+      empty: "Ebben az időszakban nincs adat.", missing: (n: number) => `${n} cégnél hiányzik ez az adat – a Cégek és alkalmak oldalon pótolható.`,
     },
     onsite: {
       title: "Helyszíni beállítás",
@@ -181,7 +213,7 @@ export const ADMIN = {
     },
   },
   en: {
-    navOnsite: "On-site setup", navMain: "Companies & sessions", navReport: "Monthly report", navPrac: "Practitioners", logout: "Log out",
+    navOnsite: "On-site setup", navMain: "Companies & sessions", navReport: "Monthly report", navPrac: "Practitioners", navAgg: "Benchmark", logout: "Log out",
     chipAdmin: "Pulse admin", chipOnsite: "Pulse on-site",
     login: { title: "Log in", loggedOut: "You have been logged out.", wrong: "Wrong username or password.", user: "Username", pass: "Password", submit: "Log in", note: "Your login stays valid on this device for 12 hours, or until you click Log out." },
     setup: "Supabase is not connected yet. In the Vercel project under Settings → Environment Variables, add NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY and SUPABASE_SECRET_KEY, then redeploy. Steps: docs/supabase-beallitas.md.",
@@ -199,6 +231,20 @@ export const ADMIN = {
       noStation: "No practitioner is assigned to this session yet. Answers from the general QR code cannot be linked to a practitioner.",
       qrAlt: "QR code", downloadQr: "Download QR code", general: "General (no practitioner)", generalAlt: "General QR code",
       addPracAria: "Add practitioner", addPracOpt: "Add practitioner…", addBtn: "Add",
+    },
+    co: {
+      details: "Company details", edit: "Edit company details", save: "Save",
+      industry: "Industry", region: "Region (county)", headcount: "Number of employees", headcountHint: "(total)",
+      contact: "Contact person", contactHint: "(for sending reports)", contactName: "Name", contactPhone: "Phone", contactEmail: "E-mail",
+      none: "— not set —", people: (n: number) => `${n.toLocaleString("en-GB")} employees`, noContact: "no contact person set",
+      migrate: "To save company details (industry, headcount, region, contact person), run supabase/migrations/0002_company_details.sql once: Supabase → SQL Editor → paste → Run. Until then these fields are hidden.",
+    },
+    agg: {
+      title: "Combined report", chip: "CALM-TOUCH PULSE · MULTI-COMPANY", groupBy: "Group by", byIndustry: "by industry", bySize: "by company size", byRegion: "by region",
+      notice: (minC: number, minP: number) => `Combined data from several companies, for internal use. A group is only shown if data from at least ${minC} companies and at least ${minP} participants are behind it, so no single company's results can be identified. All values: 10 = best.`,
+      cols: ["Group", "Companies", "Participants", "State pulse", "Effect", "Improved", "Monthly trend", "Sustainability"],
+      all: "All", unknown: "not set", hidden: (n: number) => `${n} group(s) are not shown because of too few companies or participants.`,
+      empty: "No data in this period.", missing: (n: number) => `${n} compan(ies) have no value for this – add it on the Companies & sessions page.`,
     },
     onsite: {
       title: "On-site setup",
@@ -227,7 +273,7 @@ export const ADMIN = {
     },
   },
   de: {
-    navOnsite: "Vor-Ort-Einrichtung", navMain: "Unternehmen & Sitzungen", navReport: "Monatsbericht", navPrac: "Fachkräfte", logout: "Abmelden",
+    navOnsite: "Vor-Ort-Einrichtung", navMain: "Unternehmen & Sitzungen", navReport: "Monatsbericht", navPrac: "Fachkräfte", navAgg: "Benchmark", logout: "Abmelden",
     chipAdmin: "Pulse Admin", chipOnsite: "Pulse vor Ort",
     login: { title: "Anmelden", loggedOut: "Du wurdest abgemeldet.", wrong: "Falscher Benutzername oder falsches Passwort.", user: "Benutzername", pass: "Passwort", submit: "Anmelden", note: "Die Anmeldung gilt auf diesem Gerät 12 Stunden lang oder bis du auf Abmelden klickst." },
     setup: "Supabase ist noch nicht verbunden. Im Vercel-Projekt unter Settings → Environment Variables NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY und SUPABASE_SECRET_KEY eintragen und neu deployen. Schritte: docs/supabase-beallitas.md.",
@@ -245,6 +291,20 @@ export const ADMIN = {
       noStation: "Dieser Sitzung ist noch keine Fachkraft zugeordnet. Antworten über den allgemeinen QR-Code lassen sich keiner Fachkraft zuordnen.",
       qrAlt: "QR-Code", downloadQr: "QR-Code herunterladen", general: "Allgemein (ohne Fachkraft)", generalAlt: "Allgemeiner QR-Code",
       addPracAria: "Fachkraft hinzufügen", addPracOpt: "Fachkraft hinzufügen…", addBtn: "Hinzufügen",
+    },
+    co: {
+      details: "Unternehmensdaten", edit: "Unternehmensdaten bearbeiten", save: "Speichern",
+      industry: "Branche", region: "Region (Komitat)", headcount: "Mitarbeiterzahl", headcountHint: "(gesamt)",
+      contact: "Ansprechperson", contactHint: "(für den Berichtsversand)", contactName: "Name", contactPhone: "Telefon", contactEmail: "E-Mail",
+      none: "— keine Angabe —", people: (n: number) => `${n.toLocaleString("de-DE")} Mitarbeitende`, noContact: "keine Ansprechperson angegeben",
+      migrate: "Zum Speichern der Unternehmensdaten (Branche, Mitarbeiterzahl, Region, Ansprechperson) einmalig supabase/migrations/0002_company_details.sql ausführen: Supabase → SQL Editor → einfügen → Run. Bis dahin sind diese Felder ausgeblendet.",
+    },
+    agg: {
+      title: "Gesamtbericht", chip: "CALM-TOUCH PULSE · MEHRERE UNTERNEHMEN", groupBy: "Gruppieren", byIndustry: "nach Branche", bySize: "nach Unternehmensgröße", byRegion: "nach Region",
+      notice: (minC: number, minP: number) => `Zusammengefasste Daten mehrerer Unternehmen, für den internen Gebrauch. Eine Gruppe wird nur angezeigt, wenn Daten von mindestens ${minC} Unternehmen und mindestens ${minP} Teilnehmenden zugrunde liegen – so ist kein einzelnes Unternehmen erkennbar. Alle Werte: 10 = am besten.`,
+      cols: ["Gruppe", "Unternehmen", "Teilnehmende", "Zustandspuls", "Wirkung", "Verbessert", "Monatstrend", "Nachhaltigkeit"],
+      all: "Gesamt", unknown: "keine Angabe", hidden: (n: number) => `${n} Gruppe(n) werden wegen zu weniger Unternehmen oder Teilnehmender nicht angezeigt.`,
+      empty: "In diesem Zeitraum liegen keine Daten vor.", missing: (n: number) => `Bei ${n} Unternehmen fehlt diese Angabe – sie kann auf der Seite Unternehmen & Sitzungen ergänzt werden.`,
     },
     onsite: {
       title: "Vor-Ort-Einrichtung",

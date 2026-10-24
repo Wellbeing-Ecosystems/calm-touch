@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { adminDb, adminDbConfigured } from "@/lib/pulse-server";
-import { addStation, addTeams, createCompany, createOccasion, createPractitioner, setOccasionActive, setPractitionerActive } from "./actions";
+import { addStation, addTeams, createCompany, createOccasion, createPractitioner, setOccasionActive, setPractitionerActive, updateCompany } from "./actions";
+import { CompanyFields } from "./CompanyFields";
+import { DETAIL_COLUMNS, industryLabel, missingColumn, regionLabel, type CompanyDetails } from "@/lib/company";
 import { codeLinks, linkBase } from "./qr";
 import { H1, H2, Notice, SetupNotice, button, card, ghost, input, label } from "./ui";
 import { adminLang } from "./lang";
@@ -10,25 +12,29 @@ export const dynamic = "force-dynamic";
 
 type Station = { id: string; slug: string; practitioner_id: string };
 type Occasion = { id: string; slug: string; label: string | null; occasion_date: string; active: boolean; ct_stations: Station[] };
-type Company = { id: string; name: string; ct_teams: { id: string; name: string }[]; ct_occasions: Occasion[] };
+type Company = Partial<CompanyDetails> & { id: string; name: string; ct_teams: { id: string; name: string }[]; ct_occasions: Occasion[] };
 type Practitioner = { id: string; name: string; active: boolean };
 
 export default async function AdminPage() {
-  const A = ADMIN[await adminLang()];
+  const lang = await adminLang();
+  const A = ADMIN[lang];
+  const co = A.co;
   const t = A.main;
   if (!adminDbConfigured) {
     return (<><H1>{t.title}</H1><SetupNotice /></>);
   }
   const db = adminDb();
-  const [cRes, pRes] = await Promise.all([
-    db.from("ct_companies")
-      .select("id, name, ct_teams(id, name), ct_occasions(id, slug, label, occasion_date, active, ct_stations(id, slug, practitioner_id))")
-      .order("name"),
+  const rel = "ct_teams(id, name), ct_occasions(id, slug, label, occasion_date, active, ct_stations(id, slug, practitioner_id))";
+  const [cFull, pRes] = await Promise.all([
+    db.from("ct_companies").select(`id, name, ${DETAIL_COLUMNS}, ${rel}`).order("name"),
     db.from("ct_practitioners").select("id, name, active").order("name"),
   ]);
+  // ha a 0002-es SQL még nem futott, a cégadatok nélkül töltünk
+  const detailsReady = !missingColumn(cFull.error);
+  const cRes = detailsReady ? cFull : await db.from("ct_companies").select(`id, name, ${rel}`).order("name");
   if (cRes.error) throw cRes.error;
   if (pRes.error) throw pRes.error;
-  const companies = (cRes.data ?? []) as Company[];
+  const companies = (cRes.data ?? []) as unknown as Company[];
   const practitioners = (pRes.data ?? []) as Practitioner[];
   const activePractitioners = practitioners.filter((p) => p.active);
   const pName = new Map(practitioners.map((p) => [p.id, p.name]));
@@ -62,14 +68,17 @@ export default async function AdminPage() {
         </p>
       </div>
 
+      {!detailsReady && <Notice tone="warn">{co.migrate}</Notice>}
+
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", gap: "16px" }}>
-        <form action={createCompany} style={card}>
+        <form action={createCompany} style={{ ...card, gridColumn: "1 / -1" }}>
           <H2>{t.newCompany}</H2>
           <label style={label}>{t.companyName}<input name="name" required style={input} /></label>
           <label style={label}>
             {t.teams} <span style={{ fontWeight: 400, color: "#5E6A62" }}>{t.teamsHint}</span>
-            <textarea name="teams" rows={3} style={{ ...input, padding: "10px 12px" }} />
+            <textarea name="teams" rows={2} style={{ ...input, padding: "10px 12px" }} />
           </label>
+          {detailsReady && <CompanyFields lang={lang} />}
           <button type="submit" style={{ ...button, alignSelf: "flex-start" }}>{t.addCompany}</button>
         </form>
 
@@ -126,6 +135,25 @@ export default async function AdminPage() {
               {t.teamsOf}: {c.ct_teams.length ? c.ct_teams.map((tm) => tm.name).sort((a, b) => a.localeCompare(b, "hu")).join(", ") : t.none}
             </span>
           </div>
+          {detailsReady && (
+            <>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 18px", fontSize: "14px", color: "#3B443E" }}>
+                <span>{co.industry}: <b>{industryLabel(c.industry ?? null, lang) ?? co.none}</b></span>
+                <span>{co.region}: <b>{regionLabel(c.region ?? null, lang) ?? co.none}</b></span>
+                <span>{co.headcount}: <b>{c.headcount ? co.people(c.headcount) : co.none}</b></span>
+                <span>{co.contact}: <b>{[c.contact_name, c.contact_phone].filter(Boolean).join(" · ") || co.noContact}</b>{c.contact_email && <> · <a href={`mailto:${c.contact_email}`}>{c.contact_email}</a></>}</span>
+              </div>
+              <details>
+                <summary style={{ cursor: "pointer", color: "#2C5069", fontWeight: 700, fontSize: "14px" }}>{co.edit}</summary>
+                <form action={updateCompany} style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "12px" }}>
+                  <input type="hidden" name="company_id" value={c.id} />
+                  <label style={label}>{t.companyName}<input name="name" required defaultValue={c.name} style={input} /></label>
+                  <CompanyFields lang={lang} value={c} />
+                  <button type="submit" style={{ ...button, alignSelf: "flex-start" }}>{co.save}</button>
+                </form>
+              </details>
+            </>
+          )}
           <form action={addTeams} style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
             <input type="hidden" name="company_id" value={c.id} />
             <input name="teams" placeholder={t.newTeams} aria-label={`${t.newTeamAria}: ${c.name}`} style={{ ...input, flex: "1 1 220px" }} />

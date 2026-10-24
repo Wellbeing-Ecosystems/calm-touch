@@ -30,6 +30,14 @@ create table if not exists public.ct_companies (
 );
 
 -- Csapatok (opcionális; a riport csapatonként csak legalább 5 főnél jelenik meg)
+-- cégadatok (a 0002_company_details.sql is tartalmazza; itt, hogy az új telepítés egy lépésben meglegyen)
+alter table public.ct_companies add column if not exists industry       text check (char_length(industry) <= 60);
+alter table public.ct_companies add column if not exists headcount      integer check (headcount between 1 and 1000000);
+alter table public.ct_companies add column if not exists region         text check (char_length(region) <= 40);
+alter table public.ct_companies add column if not exists contact_name   text check (char_length(contact_name) <= 120);
+alter table public.ct_companies add column if not exists contact_phone  text check (char_length(contact_phone) <= 40);
+alter table public.ct_companies add column if not exists contact_email  text check (char_length(contact_email) <= 200);
+
 create table if not exists public.ct_teams (
   id          uuid primary key default gen_random_uuid(),
   company_id  uuid not null references public.ct_companies(id) on delete cascade,

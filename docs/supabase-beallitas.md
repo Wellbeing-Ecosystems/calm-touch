@@ -20,6 +20,7 @@ admin felületen elkészül a havi riport. Amíg nincs beállítva, a kérdőív
 1. A projektben bal oldalt **SQL Editor** → **New query**.
 2. Másold be a teljes `supabase/migrations/0001_calm_touch_pulse.sql` fájlt.
 3. **Run**. A végén „Success. No rows returned” üzenetnek kell megjelennie.
+4. Ha az adatbázis 2026.10.24. előtt készült: futtasd le a `supabase/migrations/0002_company_details.sql` fájlt is (cégadatok: iparág, létszám, vármegye, kapcsolattartó). Új adatbázisnál a 0001 már tartalmazza.
 
 ## 3. A kulcsok kimásolása
 

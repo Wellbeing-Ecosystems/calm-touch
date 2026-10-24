@@ -34,6 +34,7 @@ export default async function AdminLayout({ children }: Readonly<{ children: Rea
                 <Link href="/admin" style={nav}>{t.navMain}</Link>
                 <Link href="/admin/riport" style={nav}>{t.navReport}</Link>
                 <Link href="/admin/szakemberek" style={nav}>{t.navPrac}</Link>
+                <Link href="/admin/osszesito" style={nav}>{t.navAgg}</Link>
               </>
             )}
             <form action={logout} style={{ margin: 0 }}>

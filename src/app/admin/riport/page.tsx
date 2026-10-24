@@ -5,6 +5,7 @@ import { PrintButton } from "./PrintButton";
 import { adminLang } from "../lang";
 import { LOCALE, REPORT, STATUS_LABEL, num } from "../strings";
 import { isLang, LANGS, LANG_NAME, type Lang } from "@/lib/i18n";
+import { missingColumn } from "@/lib/company";
 
 export const dynamic = "force-dynamic";
 
@@ -30,8 +31,11 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
   }
   const month = /^\d{4}-\d{2}$/.test(sp.m ?? "") ? sp.m! : monthOf(new Date().toISOString());
   const db = adminDb();
-  const { data: companies, error: cErr } = await db.from("ct_companies").select("id, name").order("name");
-  if (cErr) throw cErr;
+  type Co = { id: string; name: string; contact_name?: string | null; contact_email?: string | null; contact_phone?: string | null };
+  const full = await db.from("ct_companies").select("id, name, contact_name, contact_email, contact_phone").order("name");
+  const cRes = missingColumn(full.error) ? await db.from("ct_companies").select("id, name").order("name") : full;
+  if (cRes.error) throw cRes.error;
+  const companies = cRes.data as Co[] | null;
   const companyId = sp.c && companies?.some((c) => c.id === sp.c) ? sp.c : companies?.[0]?.id;
   const company = companies?.find((c) => c.id === companyId);
 
@@ -196,6 +200,26 @@ export default async function RiportPage({ searchParams }: { searchParams: Promi
         </label>
         <button type="submit" style={button}>{t.show}</button>
       </form>
+      {company && (
+        <div className="ct-noprint" style={{ ...card, flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between" }}>
+          {company.contact_email ? (
+            <>
+              <span style={{ fontSize: "15px" }}>
+                {t.contact}: <b>{company.contact_name ?? company.contact_email}</b>
+                {" · "}<a href={`mailto:${company.contact_email}`}>{company.contact_email}</a>
+                {company.contact_phone && <> · {company.contact_phone}</>}
+                <br /><span style={{ fontSize: "13px", color: "#5E6A62" }}>{t.sendHint}</span>
+              </span>
+              <a
+                href={`mailto:${company.contact_email}?subject=${encodeURIComponent(t.mailSubject(company.name, monthLabel(month, lang)))}&body=${encodeURIComponent(t.mailBody(company.contact_name ?? null, company.name, monthLabel(month, lang)))}`}
+                style={{ ...button, display: "inline-flex", alignItems: "center", textDecoration: "none", background: "#7E3A4A" }}
+              >{t.send}</a>
+            </>
+          ) : (
+            <span style={{ fontSize: "14px", color: "#5E6A62" }}>{t.noEmail}</span>
+          )}
+        </div>
+      )}
       {content}
     </>
   );

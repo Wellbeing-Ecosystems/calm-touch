@@ -107,7 +107,7 @@ export type GroupMetrics = {
   monthlyCount: number;
 };
 
-function groupMetrics(snaps: Snapshot[], monthly: Monthly[]): GroupMetrics {
+export function groupMetrics(snaps: Snapshot[], monthly: Monthly[]): GroupMetrics {
   const pres = snaps.filter((s) => s.phase === "pre");
   const pairs = pairUp(snaps);
   const deltas = pairs.map((p) => wellbeingIndex(p.post.answers) - wellbeingIndex(p.pre.answers));

@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { adminDb } from "@/lib/pulse-server";
 import { requireRole } from "@/lib/admin-session";
+import { detailsFromForm, missingColumn } from "@/lib/company";
 
 const text = (fd: FormData, key: string) => String(fd.get(key) ?? "").trim();
 const todayBudapest = () =>
@@ -15,10 +16,27 @@ export async function createCompany(fd: FormData) {
   await requireRole("admin");
   const name = text(fd, "name");
   if (!name) return;
-  const { data, error } = await adminDb().from("ct_companies").insert({ name }).select("id").single();
-  if (error) throw error;
-  await insertTeams(data.id, text(fd, "teams"));
+  const db = adminDb();
+  let res = await db.from("ct_companies").insert({ name, ...detailsFromForm(fd) }).select("id").single();
+  // ha a cégadat-oszlopok még hiányoznak (0002-es SQL nem futott), legalább a cég jöjjön létre
+  if (missingColumn(res.error)) res = await db.from("ct_companies").insert({ name }).select("id").single();
+  if (res.error) throw res.error;
+  await insertTeams(res.data.id, text(fd, "teams"));
   revalidatePath("/admin");
+}
+
+export async function updateCompany(fd: FormData) {
+  await requireRole("admin");
+  const id = text(fd, "company_id");
+  const name = text(fd, "name");
+  if (!id) return;
+  const { error } = await adminDb()
+    .from("ct_companies")
+    .update({ ...(name ? { name } : {}), ...detailsFromForm(fd) })
+    .eq("id", id);
+  if (error) throw error;
+  revalidatePath("/admin");
+  revalidatePath("/admin/riport");
 }
 
 export async function addTeams(fd: FormData) {
