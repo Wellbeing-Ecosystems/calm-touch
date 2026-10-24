@@ -207,6 +207,7 @@ export default function PulsePlusPage() {
 <span style={{"color": "#3B443E"}}>Kognitív kutató · Neurotrainer</span>
 <span style={{"color": "#5E6A62", "fontSize": "15px"}}>Bioptima Agytréner Központ</span>
 </div>
+<p style={{"margin": "0", "flex": "1 1 100%", "fontSize": "16px", "color": "#3B443E"}}>Villamosmérnök, kognitív és neurotechnológiai szakember, agytréner. Egyetemi kutatásaiban a nyelvi megértés elektrofiziológiai jeleit vizsgálta. Több mint tíz évig az Országos Sportegészségügyi Intézet Teljesítménydiagnosztikai Kutató Osztályán a kognitív modul szakmai vezetőjeként a sportolói teljesítmény mentális és idegrendszeri tényezőit vizsgálta. A Magyar Teljesítménydiagnosztikai Társaság alapító tagja, a Magyar Sporttudományi Társaság rendszeres előadója.</p>
 </div>
 </div>
 </div>

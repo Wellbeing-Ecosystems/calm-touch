@@ -210,6 +210,7 @@ export default function PulsePlusPage() {
 <span style={{"color": "#3B443E"}}>Cognitive researcher · Neurotrainer</span>
 <span style={{"color": "#5E6A62", "fontSize": "15px"}}>Bioptima Brain Trainer Centre</span>
 </div>
+<p style={{"margin": "0", "flex": "1 1 100%", "fontSize": "16px", "color": "#3B443E"}}>Electrical engineer, cognitive and neurotechnology specialist and brain trainer. His university research examined the electrophysiological correlates of language comprehension. For more than ten years he worked at the Performance Diagnostics Research Department of the Hungarian National Institute for Sports Medicine, where, as professional head of the cognitive module, he studied the mental and neural factors of athletic performance. He is a founding member of the Hungarian Society of Performance Diagnostics and a regular speaker at the Hungarian Society of Sport Science.</p>
 </div>
 </div>
 </div>

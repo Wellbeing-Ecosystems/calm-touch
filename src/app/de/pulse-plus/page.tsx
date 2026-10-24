@@ -210,6 +210,7 @@ export default function PulsePlusPage() {
 <span style={{"color": "#3B443E"}}>Kognitionsforscher · Neurotrainer</span>
 <span style={{"color": "#5E6A62", "fontSize": "15px"}}>Bioptima Gehirntrainer-Zentrum</span>
 </div>
+<p style={{"margin": "0", "flex": "1 1 100%", "fontSize": "16px", "color": "#3B443E"}}>Elektroingenieur, Spezialist für Kognition und Neurotechnologie sowie Gehirntrainer. In seiner universitären Forschung untersuchte er die elektrophysiologischen Korrelate des Sprachverstehens. Mehr als zehn Jahre arbeitete er in der Forschungsabteilung für Leistungsdiagnostik des Ungarischen Nationalen Instituts für Sportmedizin, wo er als fachlicher Leiter des kognitiven Moduls die mentalen und neuronalen Faktoren sportlicher Leistung untersuchte. Er ist Gründungsmitglied der Ungarischen Gesellschaft für Leistungsdiagnostik und regelmäßiger Referent der Ungarischen Gesellschaft für Sportwissenschaft.</p>
 </div>
 </div>
 </div>
