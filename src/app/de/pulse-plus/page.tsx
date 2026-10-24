@@ -208,9 +208,9 @@ export default function PulsePlusPage() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "6px", "flex": "1 1 200px"}}>
 <b style={{"fontFamily": "var(--ct-display)", "fontSize": "24px", "color": blue}}>László Szalóki</b>
 <span style={{"color": "#3B443E"}}>Kognitionsforscher · Neurotrainer</span>
-<span style={{"color": "#5E6A62", "fontSize": "15px"}}>Bioptima Gehirntrainer-Zentrum</span>
+<span style={{"color": "#5E6A62", "fontSize": "15px"}}>Bioptima Agytréner Központ</span>
 </div>
-<p style={{"margin": "0", "flex": "1 1 100%", "fontSize": "16px", "color": "#3B443E"}}>Elektroingenieur, Spezialist für Kognition und Neurotechnologie sowie Gehirntrainer. In seiner universitären Forschung untersuchte er die elektrophysiologischen Korrelate des Sprachverstehens. Mehr als zehn Jahre arbeitete er in der Forschungsabteilung für Leistungsdiagnostik des Ungarischen Nationalen Instituts für Sportmedizin, wo er als fachlicher Leiter des kognitiven Moduls die mentalen und neuronalen Faktoren sportlicher Leistung untersuchte. Er ist Gründungsmitglied der Ungarischen Gesellschaft für Leistungsdiagnostik und regelmäßiger Referent der Ungarischen Gesellschaft für Sportwissenschaft.</p>
+<p style={{"margin": "0", "flex": "1 1 100%", "fontSize": "16px", "color": "#3B443E"}}>Elektroingenieur, Spezialist für Kognition und Neurotechnologie sowie Gehirntrainer. In seiner universitären Forschung untersuchte er die elektrophysiologischen Korrelate des Sprachverstehens. Mehr als zehn Jahre arbeitete er in der Forschungsabteilung für Leistungsdiagnostik des Országos Sportegészségügyi Intézet (ungarisches Landesinstitut für Sportmedizin), wo er als fachlicher Leiter des kognitiven Moduls die mentalen und neuronalen Faktoren sportlicher Leistung untersuchte. Er ist Gründungsmitglied der Magyar Teljesítménydiagnosztikai Társaság (ungarische Gesellschaft für Leistungsdiagnostik) und regelmäßiger Referent der Magyar Sporttudományi Társaság (ungarische Gesellschaft für Sportwissenschaft).</p>
 </div>
 </div>
 </div>
