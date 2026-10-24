@@ -201,7 +201,7 @@ export default function PulsePlusPage() {
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={eyebrow}>A MÉRÉST VEZETI</span>
 <div style={{...card, "flexDirection": "row", "flexWrap": "wrap", "alignItems": "center", "gap": "20px"}}>
-<img src="/calm-touch/images/szaloki-laszlo.webp" alt="Szalóki László" width={300} height={280} loading="lazy" style={{"width": "140px", "height": "140px", "objectFit": "cover", "objectPosition": "50% 20%", "borderRadius": "70px", "flex": "0 0 auto"}} />
+<img src="/calm-touch/images/szaloki-laszlo.webp" alt="Szalóki László" width={480} height={480} loading="lazy" style={{"width": "140px", "height": "140px", "objectFit": "cover", "borderRadius": "70px", "flex": "0 0 auto"}} />
 <div style={{"display": "flex", "flexDirection": "column", "gap": "6px", "flex": "1 1 200px"}}>
 <b style={{"fontFamily": "var(--ct-display)", "fontSize": "24px", "color": blue}}>Szalóki László</b>
 <span style={{"color": "#3B443E"}}>Kognitív kutató · Neurotrainer</span>
