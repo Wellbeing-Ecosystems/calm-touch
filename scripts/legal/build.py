@@ -16,6 +16,9 @@ DOCS = ["aszf", "impresszum", "adatkezeles"]
 
 def render(doc, lang):
     md = (SRC / f"{doc}.{lang}.md").read_text()
+    # a képviselő sora csak akkor jelenik meg, ha meg van adva
+    if not OP.get("REP"):
+        md = "\n".join(l for l in md.split("\n") if "{{REP}}" not in l)
     def sub(m):
         v = OP.get(m.group(1))
         if v:
@@ -31,7 +34,7 @@ def render(doc, lang):
     return html
 
 out = {d: {l: render(d, l) for l in ("hu", "en", "de")} for d in DOCS}
-missing = [k for k, v in OP.items() if not v]
+missing = [k for k, v in OP.items() if not v and k != "REP"]
 (ROOT / "src/app/jogi/content.ts").write_text(
     "// GENERÁLT FÁJL – ne szerkeszd kézzel. Forrás: scripts/legal/*.md, operator.json; futtatás: python3 scripts/legal/build.py\n"
     f"export const LEGAL_HTML = {json.dumps(out, ensure_ascii=False, indent=1)} as const;\n"
