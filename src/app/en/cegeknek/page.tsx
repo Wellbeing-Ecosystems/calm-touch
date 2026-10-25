@@ -8,6 +8,7 @@ import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
 import { OfferForm } from "./OfferForm";
 import { FooterContact } from "@/app/FooterContact";
+import { RiskOfferBox } from "@/app/RiskOfferBox";
 
 export const metadata: Metadata = pageMeta("en", "/cegeknek", "For companies – office stress-relief programme, packages and prices", "Calm Touch packages for companies in Budapest and within 20 km: pilot (3 hours, up to 8 people), regular sessions and Wellbeing Day, with an anonymous monthly Calm-Touch Pulse report.");
 
@@ -249,6 +250,11 @@ export default function CegeknekPage() {
 </div>
 </div>
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Introductory net prices, in Budapest and within a 20 km radius; for locations further away, travel costs are added. Participant numbers are based on individual 15–20-minute sessions with one practitioner, including time for arrival and changeover. Invoiced to the company per session.</span>
+</div>
+</section>
+<section id="kockazatfelmeres" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#2C5069"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto"}}>
+<RiskOfferBox lang="en" />
 </div>
 </section>
 <section id="gyik" style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>

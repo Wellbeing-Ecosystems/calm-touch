@@ -8,6 +8,7 @@ import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
 import { OfferForm } from "./OfferForm";
 import { FooterContact } from "@/app/FooterContact";
+import { RiskOfferBox } from "@/app/RiskOfferBox";
 
 export const metadata: Metadata = pageMeta("de", "/cegeknek", "Für Unternehmen – Stressabbau-Programm im Büro, Pakete und Preise", "Calm-Touch-Pakete für Unternehmen in Budapest und im Umkreis von 20 km: Pilot (3 Stunden, bis zu 8 Personen), regelmäßige Termine und Wellbeing Day, mit anonymem monatlichem Calm-Touch-Pulse-Bericht.");
 
@@ -249,6 +250,11 @@ export default function CegeknekPage() {
 </div>
 </div>
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Einführungspreise netto, in Budapest und im Umkreis von 20 km; bei weiter entfernten Orten kommen Fahrtkosten hinzu. Die Teilnehmerzahl beruht auf 15–20-minütigen Einzelsitzungen mit einer Fachkraft, inklusive Zeit für Ankommen und Wechsel. Rechnung an das Unternehmen, pro Termin.</span>
+</div>
+</section>
+<section id="kockazatfelmeres" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#2C5069"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto"}}>
+<RiskOfferBox lang="de" />
 </div>
 </section>
 <section id="gyik" style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>
