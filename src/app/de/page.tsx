@@ -152,13 +152,13 @@ export default function CalmTouchPage() {
 </div>
 <ol style={{"margin": "0", "padding": "0", "listStyle": "none", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(160px, 100%), 1fr))", "gap": "clamp(20px, 2.5vw, 28px)"}}>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/04-egyeztetes.webp" alt="Fachkraft und Mitarbeiter sprechen neben einem Stuhl; die Fachkraft zeigt den Berührungsbereich an ihrer eigenen Schulter." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 32px 32px 8px"}} />
+<img src="/calm-touch/images/04-egyeztetes.webp" alt="Fachkraft und Mitarbeiter sprechen neben einem Stuhl; die Fachkraft zeigt den Berührungsbereich an ihrer eigenen Schulter." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "objectPosition": "center top", "borderRadius": "32px 32px 32px 8px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "52% 48% 46% 54% / 50% 54% 46% 50%", "background": "#E9EBD6", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#5C6830"}}>1</span>
 <b style={{"fontSize": "19px"}}>Ankommen · 1 Minute</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>Kurze Absprache: wo Berührung guttut und wo nicht.</span>
 </li>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/05-qr-beolvasas.webp" alt="Ein Mitarbeiter scannt mit dem Handy den QR-Code auf einem Tischaufsteller." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 32px 8px 32px"}} />
+<img src="/calm-touch/images/05-qr-beolvasas.webp" alt="Ein Mitarbeiter scannt mit dem Handy den QR-Code auf einem Tischaufsteller." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "objectPosition": "center 30%", "borderRadius": "32px 32px 8px 32px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "48% 52% 54% 46% / 54% 46% 54% 46%", "background": "#DDE8EF", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#2C5069"}}>2</span>
 <b style={{"fontSize": "19px"}}>Vorher-Momentaufnahme · 30 Sek.</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>6 kurze Fragen auf deinem Handy, Skala 1–10, mit eigenem Code, ohne Namen.</span>
@@ -171,7 +171,7 @@ export default function CalmTouchPage() {
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>Langsame Berührung an Kopf, Schultern und Armen.</span>
 </li>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/06-alkalom-utan.webp" alt="Eine entspannte Mitarbeiterin sitzt auf einem Bürostuhl und schaut leicht lächelnd auf ihr Handy." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 8px 32px 32px"}} />
+<img src="/calm-touch/images/06-alkalom-utan.webp" alt="Eine entspannte Mitarbeiterin sitzt auf einem Bürostuhl und schaut leicht lächelnd auf ihr Handy." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "objectPosition": "center top", "borderRadius": "32px 8px 32px 32px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "46% 54% 52% 48% / 52% 48% 52% 48%", "background": "#DDE8EF", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#2C5069"}}>4</span>
 <b style={{"fontSize": "19px"}}>Nachher-Momentaufnahme · 30 Sek.</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>Dieselben 6 Fragen – du siehst den Unterschied sofort.</span>

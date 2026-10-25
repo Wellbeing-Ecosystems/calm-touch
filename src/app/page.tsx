@@ -150,13 +150,13 @@ export default function CalmTouchPage() {
 </div>
 <ol style={{"margin": "0", "padding": "0", "listStyle": "none", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(160px, 100%), 1fr))", "gap": "clamp(20px, 2.5vw, 28px)"}}>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/04-egyeztetes.webp" alt="Szakember és munkatárs egyeztet egy szék mellett; a szakember a saját vállán mutatja az érintési területet." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 32px 32px 8px"}} />
+<img src="/calm-touch/images/04-egyeztetes.webp" alt="Szakember és munkatárs egyeztet egy szék mellett; a szakember a saját vállán mutatja az érintési területet." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "objectPosition": "center top", "borderRadius": "32px 32px 32px 8px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "52% 48% 46% 54% / 50% 54% 46% 50%", "background": "#E9EBD6", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#5C6830"}}>1</span>
 <b style={{"fontSize": "19px"}}>Érkezés · 1 perc</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>Rövid egyeztetés: hol esik jól az érintés, hol nem.</span>
 </li>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/05-qr-beolvasas.webp" alt="Munkatárs telefonnal olvassa be az asztali táblán látható QR-kódot." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 32px 8px 32px"}} />
+<img src="/calm-touch/images/05-qr-beolvasas.webp" alt="Munkatárs telefonnal olvassa be az asztali táblán látható QR-kódot." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "objectPosition": "center 30%", "borderRadius": "32px 32px 8px 32px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "48% 52% 54% 46% / 54% 46% 54% 46%", "background": "#DDE8EF", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#2C5069"}}>2</span>
 <b style={{"fontSize": "19px"}}>Előtte-pillanatkép · 30 mp</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>6 gyors kérdés a telefonodon, 1–10-es skálán, saját kóddal, név nélkül.</span>
@@ -169,7 +169,7 @@ export default function CalmTouchPage() {
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>Lassú érintés a fejen, a vállakon, a karokon.</span>
 </li>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/06-alkalom-utan.webp" alt="Ellazult munkatárs egy irodai székben ülve, enyhén mosolyogva nézi a telefonját." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 8px 32px 32px"}} />
+<img src="/calm-touch/images/06-alkalom-utan.webp" alt="Ellazult munkatárs egy irodai székben ülve, enyhén mosolyogva nézi a telefonját." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "objectPosition": "center top", "borderRadius": "32px 8px 32px 32px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "46% 54% 52% 48% / 52% 48% 52% 48%", "background": "#DDE8EF", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#2C5069"}}>4</span>
 <b style={{"fontSize": "19px"}}>Utána-pillanatkép · 30 mp</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>Ugyanaz a 6 kérdés – rögtön látod a különbséget.</span>
