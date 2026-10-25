@@ -6,6 +6,7 @@ import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "../MobileMenu";
 import { OfferForm } from "./OfferForm";
 import { FooterContact } from "@/app/FooterContact";
+import { RiskOfferBox } from "@/app/RiskOfferBox";
 
 export const metadata: Metadata = pageMeta("hu", "/cegeknek", "Cégeknek – irodai stresszoldó program, csomagok és árak", "Calm Touch céges csomagok Budapesten és 20 km-es körzetében: pilot (3 óra, legfeljebb 8 fő), rendszeres alkalmak és Wellbeing Day, havi névtelen Calm-Touch Pulse riporttal.");
 
@@ -246,6 +247,11 @@ export default function CegeknekPage() {
 </div>
 </div>
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Bevezető nettó árak, Budapesten és 20 km-es vonzáskörzetében; távolabbi helyszín esetén az árak az útiköltséggel nőnek. A létszám 15–20 perces egyéni alkalmakkal, egy szakemberrel, az érkezéshez és a váltáshoz szükséges idővel számol. Számlázás cégre, alkalmanként.</span>
+</div>
+</section>
+<section id="kockazatfelmeres" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#2C5069"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto"}}>
+<RiskOfferBox />
 </div>
 </section>
 <section id="gyik" style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>
