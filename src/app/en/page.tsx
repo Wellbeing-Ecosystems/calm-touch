@@ -57,8 +57,8 @@ export default function CalmTouchPage() {
 </nav>
 </div>
 </header>
-<section id="kezdo" style={{"padding": "48px 20px clamp(58px, 6.7vw, 96px)", "overflow": "hidden"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(460px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
+<section id="kezdo" style={{"padding": "28px 20px clamp(36px, 4.2vw, 60px)", "overflow": "hidden"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(460px, 100%), 1fr))", "gap": "32px", "alignItems": "center"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "26px"}}>
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.2em", "color": "#5C6830", "fontWeight": "700", "background": "#E9EBD6", "padding": "8px 16px", "borderRadius": "999px"}}>15–20 MINUTES OF MENTAL REFRESHMENT</span>
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(41px, 5.7vw, 74px)", "lineHeight": "1.02", "color": "#55665A", "letterSpacing": "-0.015em"}}>A short pause.<br /><span style={{"color": "#7E3A4A", "fontStyle": "italic", "fontWeight": "600"}}>Real recharge.</span></h1>
@@ -68,11 +68,11 @@ export default function CalmTouchPage() {
 <a href="#hogyan" style={{"textDecoration": "none", "background": "#E9EBD6", "color": "#4A5426", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>How does it work?</a>
 </div>
 </div>
-<div style={{"position": "relative", "display": "flex", "justifyContent": "center", "alignItems": "center", "minHeight": "clamp(440px, 48vw, 600px)"}}>
+<div style={{"position": "relative", "display": "flex", "justifyContent": "center", "alignItems": "center", "minHeight": "clamp(340px, 38vw, 480px)"}}>
 <div style={{"position": "absolute", "width": "470px", "height": "450px", "maxWidth": "92%", "top": "30px", "right": "0", "borderRadius": "58% 42% 52% 48% / 46% 56% 44% 54%", "background": "#F4E3E4"}}></div>
 <div style={{"position": "absolute", "width": "260px", "height": "240px", "left": "10px", "top": "0", "borderRadius": "52% 48% 40% 60% / 55% 45% 55% 45%", "background": "#E9EBD6"}}></div>
 <div style={{"position": "absolute", "width": "150px", "height": "140px", "right": "0", "bottom": "30px", "borderRadius": "45% 55% 60% 40% / 50% 40% 60% 50%", "background": "#E2C7AE"}}></div>
-<img src="/calm-touch/images/01-kezdo-vallerintes.webp" alt="An employee resting with eyes closed; the practitioner's hands rest gently on her clothed shoulders." style={{"position": "relative", "display": "block", "width": "100%", "maxWidth": "440px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
+<img src="/calm-touch/images/01-kezdo-vallerintes.webp" alt="An employee resting with eyes closed; the practitioner's hands rest gently on her clothed shoulders." style={{"position": "relative", "display": "block", "width": "100%", "maxWidth": "340px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
 <div style={{"position": "absolute", "left": "0", "bottom": "4px", "background": "#FFFFFF", "borderRadius": "24px", "padding": "18px 20px", "boxShadow": "0 12px 32px rgba(44, 80, 105, 0.16)", "width": "256px", "boxSizing": "border-box", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <div style={{"display": "flex", "justifyContent": "space-between", "alignItems": "baseline"}}><b style={{"fontSize": "15px", "color": "#2C5069"}}>Calm-Touch Pulse</b><span style={{"fontSize": "12px", "color": "#5E6A62"}}>example · 1–10</span></div>
 <div style={{"display": "flex", "justifyContent": "space-between", "fontSize": "14px"}}><span>Tension</span><b style={{"color": "#7E3A4A"}}>7 <span className="ct-arrow">→</span> 3</b></div>
@@ -83,14 +83,14 @@ export default function CalmTouchPage() {
 </div>
 </div>
 </section>
-<section style={{"padding": "clamp(58px, 6.7vw, 96px) 20px", "background": "#F4E3E4"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "44px"}}>
-<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
+<section style={{"padding": "clamp(36px, 4.2vw, 60px) 20px", "background": "#F4E3E4"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
+<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "32px", "alignItems": "center"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#7E3A4A", "fontWeight": "700"}}>A DAY IN YOUR HEAD</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.2vw, 54px)", "lineHeight": "1.06", "color": "#4E2530", "textWrap": "balance"}}>It’s not that there’s too much work. It’s that it never ends.</h2>
 </div>
-<img src="/calm-touch/images/03-egy-nap-a-fejedben.webp" alt="A tired employee at a laptop with one hand on his forehead; a phone and notes on the desk." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "40px 40px 40px 10px"}} />
+<img src="/calm-touch/images/03-egy-nap-a-fejedben.webp" alt="A tired employee at a laptop with one hand on his forehead; a phone and notes on the desk." style={{"display": "block", "width": "100%", "aspectRatio": "16 / 10", "objectFit": "cover", "borderRadius": "40px 40px 40px 10px"}} />
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(250px, 100%), 1fr))", "gap": "18px"}}>
 <div style={{"background": "#FAF6F1", "borderRadius": "32px 32px 32px 8px", "padding": "clamp(22px, 3vw, 30px) clamp(20px, 3vw, 26px)", "fontSize": "18px", "lineHeight": "1.55"}}>No coffee yet, and you’ve already answered three messages.</div>
@@ -101,7 +101,7 @@ export default function CalmTouchPage() {
 <p style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontStyle": "italic", "fontSize": "32px", "lineHeight": "1.3", "color": "#7E3A4A", "maxWidth": "44rem"}}>This isn’t weakness. It’s a nervous system that has been on standby for days.</p>
 </div>
 </section>
-<section style={{"padding": "clamp(50px, 5.8vw, 84px) 20px"}}>
+<section style={{"padding": "clamp(32px, 3.8vw, 52px) 20px"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "24px"}}>
 <div style={{"background": "#E9EBD6", "borderRadius": "32px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
@@ -120,9 +120,9 @@ export default function CalmTouchPage() {
 <span style={{"fontSize": "13px", "color": "#5E6A62"}}>Source: EU-OSHA, OSH Pulse 2025</span>
 </div>
 </section>
-<section style={{"padding": "clamp(58px, 6.7vw, 96px) 20px", "background": "#E9EBD6"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(460px, 100%), 1fr))", "gap": "56px", "alignItems": "center"}}>
-<img src="/calm-touch/images/02-megoldas-fejerintes.webp" alt="Close-up of a hand resting through the hair near the temple of a man with closed eyes." style={{"display": "block", "justifySelf": "center", "width": "100%", "maxWidth": "460px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
+<section style={{"padding": "clamp(36px, 4.2vw, 60px) 20px", "background": "#E9EBD6"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(460px, 100%), 1fr))", "gap": "36px", "alignItems": "center"}}>
+<img src="/calm-touch/images/02-megoldas-fejerintes.webp" alt="Close-up of a hand resting through the hair near the temple of a man with closed eyes." style={{"display": "block", "justifySelf": "center", "width": "100%", "maxWidth": "350px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
 <div style={{"display": "flex", "flexDirection": "column", "gap": "22px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#5C6830", "fontWeight": "700"}}>THE SOLUTION</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.0vw, 52px)", "lineHeight": "1.06", "color": "#3E4720"}}>Ten to twenty minutes when nobody expects anything of you.</h2>
@@ -144,34 +144,34 @@ export default function CalmTouchPage() {
 </div>
 </div>
 </section>
-<section id="hogyan" style={{"padding": "clamp(58px, 6.7vw, 96px) 20px"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "48px"}}>
+<section id="hogyan" style={{"padding": "clamp(36px, 4.2vw, 60px) 20px"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "32px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px", "alignItems": "center", "textAlign": "center"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#86603F", "fontWeight": "700"}}>HOW DOES IT WORK?</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.0vw, 52px)", "lineHeight": "1.06", "color": "#55665A"}}>Four steps, about 20 minutes.</h2>
 </div>
 <ol style={{"margin": "0", "padding": "0", "listStyle": "none", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(160px, 100%), 1fr))", "gap": "clamp(20px, 2.5vw, 28px)"}}>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/04-egyeztetes.webp" alt="Practitioner and employee talk next to a chair; the practitioner shows the touch area on her own shoulder." style={{"display": "block", "width": "100%", "aspectRatio": "1 / 1", "objectFit": "cover", "borderRadius": "32px 32px 32px 8px"}} />
+<img src="/calm-touch/images/04-egyeztetes.webp" alt="Practitioner and employee talk next to a chair; the practitioner shows the touch area on her own shoulder." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 32px 32px 8px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "52% 48% 46% 54% / 50% 54% 46% 50%", "background": "#E9EBD6", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#5C6830"}}>1</span>
 <b style={{"fontSize": "19px"}}>Arrival · 1 minute</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>A short check-in: where touch feels good and where it doesn’t.</span>
 </li>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/05-qr-beolvasas.webp" alt="An employee scans the QR code on a table sign with a phone." style={{"display": "block", "width": "100%", "aspectRatio": "1 / 1", "objectFit": "cover", "borderRadius": "32px 32px 8px 32px"}} />
+<img src="/calm-touch/images/05-qr-beolvasas.webp" alt="An employee scans the QR code on a table sign with a phone." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 32px 8px 32px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "48% 52% 54% 46% / 54% 46% 54% 46%", "background": "#DDE8EF", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#2C5069"}}>2</span>
 <b style={{"fontSize": "19px"}}>Before-snapshot · 30 sec</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>6 quick questions on your phone, on a 1–10 scale, with your own code, no name.</span>
 <span style={{"fontSize": "12px", "letterSpacing": "0.16em", "fontWeight": "700", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "4px 12px"}}>PULSE</span>
 </li>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/10-wellbeing-nap.webp" alt="Office wellbeing day: hands resting gently on the shoulders of a seated employee in the foreground, colleagues talking in the background." style={{"display": "block", "width": "100%", "aspectRatio": "1 / 1", "objectFit": "cover", "objectPosition": "72% center", "borderRadius": "8px 32px 32px 32px"}} />
+<img src="/calm-touch/images/10-wellbeing-nap.webp" alt="Office wellbeing day: hands resting gently on the shoulders of a seated employee in the foreground, colleagues talking in the background." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "objectPosition": "72% center", "borderRadius": "8px 32px 32px 32px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "54% 46% 50% 50% / 46% 54% 46% 54%", "background": "#7E3A4A", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#FFFFFF"}}>3</span>
 <b style={{"fontSize": "19px"}}>Calm-Touch · 15–20 minutes</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>Slow touch on the head, shoulders and arms.</span>
 </li>
 <li style={{"display": "flex", "flexDirection": "column", "alignItems": "center", "textAlign": "center", "gap": "12px"}}>
-<img src="/calm-touch/images/06-alkalom-utan.webp" alt="A relaxed employee sitting in an office chair, smiling slightly at her phone." style={{"display": "block", "width": "100%", "aspectRatio": "1 / 1", "objectFit": "cover", "borderRadius": "32px 8px 32px 32px"}} />
+<img src="/calm-touch/images/06-alkalom-utan.webp" alt="A relaxed employee sitting in an office chair, smiling slightly at her phone." style={{"display": "block", "width": "100%", "aspectRatio": "4 / 3", "objectFit": "cover", "borderRadius": "32px 8px 32px 32px"}} />
 <span style={{"position": "relative", "marginTop": "-52px", "width": "80px", "height": "76px", "border": "5px solid #FAF6F1", "borderRadius": "46% 54% 52% 48% / 52% 48% 52% 48%", "background": "#DDE8EF", "display": "flex", "alignItems": "center", "justifyContent": "center", "fontFamily": "var(--ct-display)", "fontSize": "32px", "fontWeight": "700", "color": "#2C5069"}}>4</span>
 <b style={{"fontSize": "19px"}}>After-snapshot · 30 sec</b>
 <span style={{"color": "#5E6A62", "maxWidth": "16rem"}}>The same 6 questions – you see the difference right away.</span>
@@ -180,11 +180,11 @@ export default function CalmTouchPage() {
 </ol>
 </div>
 </section>
-<section id="szakember" style={{"padding": "clamp(58px, 6.7vw, 96px) 20px", "background": "#F5EEE3"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "56px", "alignItems": "center"}}>
+<section id="szakember" style={{"padding": "clamp(36px, 4.2vw, 60px) 20px", "background": "#F5EEE3"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "36px", "alignItems": "center"}}>
 <div style={{"position": "relative", "display": "flex", "justifyContent": "center"}}>
 <div style={{"position": "absolute", "width": "300px", "height": "280px", "left": "0", "bottom": "10px", "borderRadius": "52% 48% 40% 60% / 55% 45% 55% 45%", "background": "#E9EBD6"}}></div>
-<img src="/calm-touch/images/11-szakember-portre.webp" alt="Andrea Mester, Calm-Touch practitioner, smiling at the camera." style={{"position": "relative", "display": "block", "width": "100%", "maxWidth": "420px", "aspectRatio": "4 / 5", "objectFit": "cover", "objectPosition": "center 20%", "borderRadius": "999px"}} />
+<img src="/calm-touch/images/11-szakember-portre.webp" alt="Andrea Mester, Calm-Touch practitioner, smiling at the camera." style={{"position": "relative", "display": "block", "width": "100%", "maxWidth": "330px", "aspectRatio": "4 / 5", "objectFit": "cover", "objectPosition": "center 20%", "borderRadius": "999px"}} />
 </div>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "20px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#86603F", "fontWeight": "700"}}>WHO WILL TOUCH YOU?</span>
@@ -198,9 +198,9 @@ export default function CalmTouchPage() {
 </div>
 </div>
 </section>
-<section id="pulse" style={{"padding": "clamp(62px, 7.2vw, 104px) 20px", "background": "#2C5069", "color": "#FAF6F1"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "52px"}}>
-<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(460px, 100%), 1fr))", "gap": "40px", "alignItems": "end"}}>
+<section id="pulse" style={{"padding": "clamp(40px, 4.6vw, 64px) 20px", "background": "#2C5069", "color": "#FAF6F1"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "32px"}}>
+<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(460px, 100%), 1fr))", "gap": "28px", "alignItems": "end"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.2em", "color": "#2C5069", "fontWeight": "700", "background": "#DDE8EF", "padding": "8px 16px", "borderRadius": "999px"}}>CALM-TOUCH PULSE</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.3vw, 56px)", "lineHeight": "1.04", "color": "#FAF6F1", "textWrap": "balance"}}>You sit back down calmer. <span style={{"fontStyle": "italic", "fontWeight": "600", "color": "#F1D3D7"}}>And you’re the one who reports it.</span></h2>
@@ -227,8 +227,8 @@ export default function CalmTouchPage() {
 <span style={{"fontSize": "14px", "color": "#F5EEE3", "borderTop": "1px solid #B08A68", "paddingTop": "12px"}}>11-statement monthly questionnaire · once a month per participant</span>
 </div>
 </div>
-<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(400px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
-<img src="/calm-touch/images/07-pulse-telefon.webp" alt="A hand-held phone showing the Calm-Touch Pulse “How do I feel?” screen on a 1–10 scale with before and after bars: tension from 7 to 3, calm from 3 to 7, energy from 4 to 8; marked as an illustration." style={{"display": "block", "justifySelf": "center", "width": "100%", "maxWidth": "440px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
+<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(400px, 100%), 1fr))", "gap": "32px", "alignItems": "center"}}>
+<img src="/calm-touch/images/07-pulse-telefon.webp" alt="A hand-held phone showing the Calm-Touch Pulse “How do I feel?” screen on a 1–10 scale with before and after bars: tension from 7 to 3, calm from 3 to 7, energy from 4 to 8; marked as an illustration." style={{"display": "block", "justifySelf": "center", "width": "100%", "maxWidth": "340px", "aspectRatio": "4 / 5", "objectFit": "cover", "borderRadius": "999px"}} />
 <div style={{"display": "flex", "flexDirection": "column", "gap": "18px"}}>
 <div style={{"background": "#FAF6F1", "color": "#2E3631", "borderRadius": "32px 32px 32px 10px", "padding": "clamp(20px, 3vw, 30px)", "display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"alignSelf": "flex-start", "fontFamily": "var(--ct-display)", "fontSize": "20px", "fontWeight": "800", "color": "#2C5069", "background": "#DDE8EF", "border": "2px solid #3F6E8C", "borderRadius": "999px", "padding": "4px 18px"}}>Pulse</span>
@@ -260,8 +260,8 @@ export default function CalmTouchPage() {
 </div>
 </div>
 </section>
-<section style={{"padding": "clamp(58px, 6.7vw, 96px) 20px"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px"}}>
+<section style={{"padding": "clamp(36px, 4.2vw, 60px) 20px"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#7E3A4A", "fontWeight": "700"}}>WHAT MAKES IT DIFFERENT?</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.0vw, 52px)", "lineHeight": "1.06", "color": "#55665A"}}>Not an office massage. <span style={{"fontStyle": "italic", "fontWeight": "600", "color": "#7E3A4A"}}>Mental refreshment.</span></h2>
@@ -274,15 +274,15 @@ export default function CalmTouchPage() {
 </div>
 </div>
 </section>
-<section style={{"padding": "clamp(58px, 6.7vw, 96px) 20px", "background": "#F5EEE3"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px"}}>
-<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
+<section style={{"padding": "clamp(36px, 4.2vw, 60px) 20px", "background": "#F5EEE3"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
+<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "32px", "alignItems": "center"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#86603F", "fontWeight": "700"}}>FOR COMPANIES</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 4.0vw, 52px)", "lineHeight": "1.06", "color": "#55665A"}}>Start with a pilot.</h2>
 <p style={{"margin": "0", "fontSize": "18px", "color": "#3B443E", "textWrap": "pretty"}}>After a short consultation you can try it with one team and receive an aggregated feedback report at the end of the pilot.</p>
 </div>
-<img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="An HR manager and a wellbeing specialist chat informally in a meeting room, with a laptop and mugs." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "40px 40px 10px 40px"}} />
+<img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="An HR manager and a wellbeing specialist chat informally in a meeting room, with a laptop and mugs." style={{"display": "block", "width": "100%", "aspectRatio": "16 / 10", "objectFit": "cover", "borderRadius": "40px 40px 10px 40px"}} />
 </div>
 <div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "18px"}}>
 <div style={{"background": "#E9EBD6", "borderRadius": "32px", "padding": "clamp(20px, 3vw, 32px)", "display": "flex", "flexDirection": "column", "gap": "10px"}}>
@@ -305,9 +305,9 @@ export default function CalmTouchPage() {
 <a href="/calm-touch/en/cegeknek" style={{"alignSelf": "flex-start", "color": "#7E3A4A", "fontWeight": "700"}}>See details for companies <span className="ct-arrow">→</span></a>
 </div>
 </section>
-<section style={{"padding": "clamp(50px, 5.8vw, 84px) 20px"}}>
-<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
-<img src="/calm-touch/images/09-calm-touch-sarok.webp" alt="A quiet office relaxation corner with an upholstered chair, a burgundy cushion, a small table, a QR sign and plants." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "40px 10px 40px 40px"}} />
+<section style={{"padding": "clamp(32px, 3.8vw, 52px) 20px"}}>
+<div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "32px", "alignItems": "center"}}>
+<img src="/calm-touch/images/09-calm-touch-sarok.webp" alt="A quiet office relaxation corner with an upholstered chair, a burgundy cushion, a small table, a QR sign and plants." style={{"display": "block", "width": "100%", "aspectRatio": "16 / 10", "objectFit": "cover", "borderRadius": "40px 10px 40px 40px"}} />
 <div style={{"display": "flex", "gap": "22px", "alignItems": "flex-start", "flexWrap": "wrap"}}>
 <span style={{"flex": "none", "width": "58px", "height": "58px", "borderRadius": "50%", "background": "#E9EBD6", "color": "#5C6830", "display": "flex", "alignItems": "center", "justifyContent": "center"}}><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style={{"fill": "none", "stroke": "currentColor", "strokeWidth": "1.6", "strokeLinecap": "round", "strokeLinejoin": "round"}}><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" /></svg></span>
 <div style={{"flex": "1 1 320px", "display": "flex", "flexDirection": "column", "gap": "6px", "maxWidth": "54rem"}}>
@@ -317,9 +317,9 @@ export default function CalmTouchPage() {
 </div>
 </div>
 </section>
-<section style={{"padding": "clamp(58px, 6.7vw, 96px) 20px clamp(62px, 7.2vw, 104px)", "background": "#F4E3E4"}}>
+<section style={{"padding": "clamp(36px, 4.2vw, 60px) 20px clamp(40px, 4.6vw, 64px)", "background": "#F4E3E4"}}>
 <div style={{"maxWidth": "760px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "26px", "textAlign": "center"}}>
-<img src="/calm-touch/brand/logo-negyzetes-en.webp" alt="Calm Touch – stress relief through touch" style={{"width": "220px", "maxWidth": "60%", "height": "auto"}} />
+<img src="/calm-touch/brand/logo-negyzetes-en.webp" alt="Calm Touch – stress relief through touch" style={{"width": "150px", "maxWidth": "50%", "height": "auto"}} />
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.5vw, 46px)", "lineHeight": "1.1", "color": "#4E2530", "textWrap": "balance"}}>Give your team 15 minutes when they don’t have to perform.</h2>
 <a href="/calm-touch/en/cegeknek" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot session</a>
 </div>
