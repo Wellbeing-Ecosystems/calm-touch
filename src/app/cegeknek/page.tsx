@@ -70,8 +70,8 @@ export default function CegeknekPage() {
 </nav>
 </div>
 </header>
-<section style={{"padding": "clamp(48px, 5.0vw, 72px) 20px clamp(48px, 5.6vw, 80px)"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
+<section style={{"padding": "clamp(28px, 3.4vw, 44px) 20px clamp(32px, 3.8vw, 52px)"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "32px", "alignItems": "center"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "22px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#55665A", "fontWeight": "500"}}>HR-NEK ÉS VEZETŐKNEK</span>
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 4.5vw, 58px)", "lineHeight": "1.04", "textWrap": "balance"}}>Mentális felfrissülés a munkanapon belül – követhető visszajelzéssel.</h1>
@@ -82,7 +82,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 <div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "clamp(20px, 3vw, 28px)", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
-<img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="HR-vezető és wellbeing szakember kötetlenül beszélget egy tárgyalóban, laptop és bögrék mellett." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "14px"}} />
+<img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="HR-vezető és wellbeing szakember kötetlenül beszélget egy tárgyalóban, laptop és bögrék mellett." style={{"display": "block", "width": "100%", "aspectRatio": "16 / 10", "objectFit": "cover", "borderRadius": "14px"}} />
 <b style={{"fontSize": "18px"}}>Miért most?</b>
 <span style={{"color": "#3B443E"}}>Az európai dolgozók 29%-a számol be stresszről, depresszióról vagy szorongásról; több mint 40%-uk súlyos időnyomás alatt dolgozik. A magyarok a munkahelyi feszültséget tartják egészségtelen szokásaik fő okozójának.</span>
 <span style={{"color": "#3B443E"}}>A Calm-Touch kiegészíti – nem helyettesíti – a pszichoszociális kockázatértékelést és a szervezeti intézkedéseket.</span>
@@ -90,8 +90,8 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="pulse" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#2C5069", "color": "#FFFFFF"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px"}}>
+<section id="pulse" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#2C5069", "color": "#FFFFFF"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px", "maxWidth": "50rem"}}>
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.18em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08", "color": "#FFFFFF"}}>Stresszoldás és rövid állapot-visszajelzés egyben.</h2>
@@ -158,8 +158,8 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "14px", "color": "#E6EAE4"}}>Minden mutató 1–10 skálán szerepel, ahol 10 = a legjobb állapot; a negatív tartalmú kérdéseknél (pl. feszültség, kimerülés) a pontozás fordított. A küszöbértékek kiinduló javaslatok; az első három hónap adatai alapján finomítjuk őket. A riport kimondja korlátait is: az önkéntes résztvevők önbevallását mutatja, nem az egész szervezetét. A kérdéssor szakirodalmi alapokra épülő saját összeállítás, nem validált diagnosztikai mérőeszköz.</span>
 </div>
 </section>
-<section style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "40px"}}>
+<section style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "28px", "alignItems": "start"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>A MÉRÉS SZABÁLYAI</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.1vw, 40px)", "lineHeight": "1.1"}}>Rövid, névtelen, és senkit nem terhel túl.</h2>
@@ -182,12 +182,14 @@ export default function CegeknekPage() {
 </ul>
 <b style={{"fontSize": "18px", "marginTop": "8px"}}>Mire van szükség az Ön részéről?</b>
 <span style={{"color": "#3B443E"}}>Egy csendes tárgyaló vagy sarok, egy szék és egy belső jelentkezési lista (sablont adunk). Minden mást – eszközöket, kérdőívet, riportot – mi hozunk.</span>
-<img src="/calm-touch/images/09-calm-touch-sarok.webp" alt="Csendes irodai pihenősarok kárpitozott székkel, bordó párnával, kis asztallal, QR-táblával és növényekkel." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "14px"}} />
+</div>
+</div>
+<div style={{"maxWidth": "1160px", "margin": "28px auto 0", "display": "flex", "flexDirection": "column", "gap": "8px"}}>
+<img src="/calm-touch/images/09-calm-touch-sarok.webp" alt="Csendes irodai pihenősarok kárpitozott székkel, bordó párnával, kis asztallal, QR-táblával és növényekkel." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 1", "objectFit": "cover", "borderRadius": "14px"}} />
 <span style={{"fontSize": "13px", "color": "#5E6A62"}}>Így néz ki egy előkészített Calm-Touch sarok.</span>
 </div>
-</div>
 </section>
-<section id="csomagok" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#FFFFFF"}}>
+<section id="csomagok" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#FFFFFF"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "32px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>CSOMAGOK</span>
@@ -246,7 +248,7 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Bevezető nettó árak, Budapesten és 20 km-es vonzáskörzetében; távolabbi helyszín esetén az árak az útiköltséggel nőnek. A létszám 15–20 perces egyéni alkalmakkal, egy szakemberrel, az érkezéshez és a váltáshoz szükséges idővel számol. Számlázás cégre, alkalmanként.</span>
 </div>
 </section>
-<section id="gyik" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
+<section id="gyik" style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>
 <div style={{"maxWidth": "860px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>Gyakori kérdések</h2>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "12px"}}>
@@ -261,7 +263,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="ajanlat" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#F4E3E4"}}>
+<section id="ajanlat" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#F4E3E4"}}>
 <div style={{"maxWidth": "860px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>Kérjen pilot ajánlatot</h2>

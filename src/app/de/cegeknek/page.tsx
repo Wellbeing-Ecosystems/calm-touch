@@ -73,8 +73,8 @@ export default function CegeknekPage() {
 </nav>
 </div>
 </header>
-<section style={{"padding": "clamp(48px, 5.0vw, 72px) 20px clamp(48px, 5.6vw, 80px)"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
+<section style={{"padding": "clamp(28px, 3.4vw, 44px) 20px clamp(32px, 3.8vw, 52px)"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "32px", "alignItems": "center"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "22px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#55665A", "fontWeight": "500"}}>FÜR HR UND FÜHRUNGSKRÄFTE</span>
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 4.5vw, 58px)", "lineHeight": "1.04", "textWrap": "balance"}}>Mentale Erfrischung innerhalb des Arbeitstages – mit nachvollziehbarer Rückmeldung.</h1>
@@ -85,7 +85,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 <div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "clamp(20px, 3vw, 28px)", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
-<img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="Eine HR-Leiterin und eine Wellbeing-Expertin unterhalten sich zwanglos in einem Besprechungsraum, mit Laptop und Tassen." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "14px"}} />
+<img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="Eine HR-Leiterin und eine Wellbeing-Expertin unterhalten sich zwanglos in einem Besprechungsraum, mit Laptop und Tassen." style={{"display": "block", "width": "100%", "aspectRatio": "16 / 10", "objectFit": "cover", "borderRadius": "14px"}} />
 <b style={{"fontSize": "18px"}}>Warum jetzt?</b>
 <span style={{"color": "#3B443E"}}>29 % der Beschäftigten in Europa berichten von Stress, Depression oder Angst; mehr als 40 % arbeiten unter starkem Zeitdruck. In Ungarn gilt Anspannung am Arbeitsplatz als Hauptursache ungesunder Gewohnheiten.</span>
 <span style={{"color": "#3B443E"}}>Calm-Touch ergänzt – ersetzt aber nicht – die Gefährdungsbeurteilung psychischer Belastungen und organisatorische Maßnahmen.</span>
@@ -93,8 +93,8 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="pulse" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#2C5069", "color": "#FFFFFF"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px"}}>
+<section id="pulse" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#2C5069", "color": "#FFFFFF"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px", "maxWidth": "50rem"}}>
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.18em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08", "color": "#FFFFFF"}}>Stressabbau und kurze Zustandsrückmeldung in einem.</h2>
@@ -161,8 +161,8 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "14px", "color": "#E6EAE4"}}>Alle Kennzahlen stehen auf einer Skala von 1–10, wobei 10 = bester Zustand; bei negativ formulierten Fragen (z. B. Anspannung, Erschöpfung) wird umgekehrt gewertet. Die Schwellenwerte sind erste Vorschläge und werden anhand der Daten der ersten drei Monate verfeinert. Der Bericht nennt auch seine Grenzen: Er zeigt die Selbsteinschätzungen der freiwillig Teilnehmenden, nicht der gesamten Organisation. Der Fragensatz ist eine eigene, auf der Fachliteratur beruhende Zusammenstellung, kein validiertes Diagnoseinstrument.</span>
 </div>
 </section>
-<section style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "40px"}}>
+<section style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "28px", "alignItems": "start"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>REGELN DER MESSUNG</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.1vw, 40px)", "lineHeight": "1.1"}}>Kurz, anonym und für niemanden eine Last.</h2>
@@ -185,12 +185,14 @@ export default function CegeknekPage() {
 </ul>
 <b style={{"fontSize": "18px", "marginTop": "8px"}}>Was brauchen wir von Ihnen?</b>
 <span style={{"color": "#3B443E"}}>Ein ruhiger Besprechungsraum oder eine Ecke, ein Stuhl und eine interne Anmeldeliste (wir stellen eine Vorlage bereit). Alles andere – Ausstattung, Fragebögen, Bericht – bringen wir mit.</span>
-<img src="/calm-touch/images/09-calm-touch-sarok.webp" alt="Eine ruhige Entspannungsecke im Büro mit Polstersessel, bordeauxrotem Kissen, kleinem Tisch, QR-Aufsteller und Pflanzen." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "14px"}} />
+</div>
+</div>
+<div style={{"maxWidth": "1160px", "margin": "28px auto 0", "display": "flex", "flexDirection": "column", "gap": "8px"}}>
+<img src="/calm-touch/images/09-calm-touch-sarok.webp" alt="Eine ruhige Entspannungsecke im Büro mit Polstersessel, bordeauxrotem Kissen, kleinem Tisch, QR-Aufsteller und Pflanzen." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 1", "objectFit": "cover", "borderRadius": "14px"}} />
 <span style={{"fontSize": "13px", "color": "#5E6A62"}}>So sieht eine vorbereitete Calm-Touch-Ecke aus.</span>
 </div>
-</div>
 </section>
-<section id="csomagok" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#FFFFFF"}}>
+<section id="csomagok" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#FFFFFF"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "32px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>PAKETE</span>
@@ -249,7 +251,7 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Einführungspreise netto, in Budapest und im Umkreis von 20 km; bei weiter entfernten Orten kommen Fahrtkosten hinzu. Die Teilnehmerzahl beruht auf 15–20-minütigen Einzelsitzungen mit einer Fachkraft, inklusive Zeit für Ankommen und Wechsel. Rechnung an das Unternehmen, pro Termin.</span>
 </div>
 </section>
-<section id="gyik" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
+<section id="gyik" style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>
 <div style={{"maxWidth": "860px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>Häufige Fragen</h2>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "12px"}}>
@@ -264,7 +266,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="ajanlat" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#F4E3E4"}}>
+<section id="ajanlat" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#F4E3E4"}}>
 <div style={{"maxWidth": "860px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>Pilot-Angebot anfragen</h2>

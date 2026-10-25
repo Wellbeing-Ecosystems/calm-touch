@@ -73,8 +73,8 @@ export default function CegeknekPage() {
 </nav>
 </div>
 </header>
-<section style={{"padding": "clamp(48px, 5.0vw, 72px) 20px clamp(48px, 5.6vw, 80px)"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "48px", "alignItems": "center"}}>
+<section style={{"padding": "clamp(28px, 3.4vw, 44px) 20px clamp(32px, 3.8vw, 52px)"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(440px, 100%), 1fr))", "gap": "32px", "alignItems": "center"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "22px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#55665A", "fontWeight": "500"}}>FOR HR AND MANAGERS</span>
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 4.5vw, 58px)", "lineHeight": "1.04", "textWrap": "balance"}}>Mental refreshment within the working day – with trackable feedback.</h1>
@@ -85,7 +85,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 <div style={{"background": "#FFFFFF", "borderRadius": "20px", "padding": "clamp(20px, 3vw, 28px)", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
-<img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="An HR manager and a wellbeing specialist chat informally in a meeting room, with a laptop and mugs." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "14px"}} />
+<img src="/calm-touch/images/08-ceges-megbeszeles.webp" alt="An HR manager and a wellbeing specialist chat informally in a meeting room, with a laptop and mugs." style={{"display": "block", "width": "100%", "aspectRatio": "16 / 10", "objectFit": "cover", "borderRadius": "14px"}} />
 <b style={{"fontSize": "18px"}}>Why now?</b>
 <span style={{"color": "#3B443E"}}>29% of European workers report stress, depression or anxiety; more than 40% work under severe time pressure. Hungarians name workplace tension as the main cause of their unhealthy habits.</span>
 <span style={{"color": "#3B443E"}}>Calm-Touch complements – but does not replace – psychosocial risk assessment and organisational measures.</span>
@@ -93,8 +93,8 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="pulse" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#2C5069", "color": "#FFFFFF"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "40px"}}>
+<section id="pulse" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#2C5069", "color": "#FFFFFF"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "28px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "14px", "maxWidth": "50rem"}}>
 <span style={{"alignSelf": "flex-start", "fontSize": "13px", "letterSpacing": "0.18em", "color": "#2C5069", "background": "#DDE8EF", "borderRadius": "999px", "padding": "6px 14px", "fontWeight": "700"}}>CALM-TOUCH PULSE</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08", "color": "#FFFFFF"}}>Stress relief and a short state check in one.</h2>
@@ -161,8 +161,8 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "14px", "color": "#E6EAE4"}}>All indicators are on a 1–10 scale where 10 = best state; for negatively worded questions (e.g. tension, exhaustion) scoring is reversed. Thresholds are initial proposals, refined using the first three months of data. The report also states its limits: it shows the self-reports of voluntary participants, not the whole organisation. The question set is our own compilation based on the research literature, not a validated diagnostic instrument.</span>
 </div>
 </section>
-<section style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
-<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "40px"}}>
+<section style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>
+<div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "28px", "alignItems": "start"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>MEASUREMENT RULES</span>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.1vw, 40px)", "lineHeight": "1.1"}}>Short, anonymous, and a burden to no one.</h2>
@@ -185,12 +185,14 @@ export default function CegeknekPage() {
 </ul>
 <b style={{"fontSize": "18px", "marginTop": "8px"}}>What do we need from you?</b>
 <span style={{"color": "#3B443E"}}>A quiet meeting room or corner, a chair and an internal sign-up list (we provide a template). We bring everything else – equipment, questionnaires and reports.</span>
-<img src="/calm-touch/images/09-calm-touch-sarok.webp" alt="A quiet office relaxation corner with an upholstered chair, a burgundy cushion, a small table, a QR sign and plants." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 2", "objectFit": "cover", "borderRadius": "14px"}} />
+</div>
+</div>
+<div style={{"maxWidth": "1160px", "margin": "28px auto 0", "display": "flex", "flexDirection": "column", "gap": "8px"}}>
+<img src="/calm-touch/images/09-calm-touch-sarok.webp" alt="A quiet office relaxation corner with an upholstered chair, a burgundy cushion, a small table, a QR sign and plants." style={{"display": "block", "width": "100%", "aspectRatio": "3 / 1", "objectFit": "cover", "borderRadius": "14px"}} />
 <span style={{"fontSize": "13px", "color": "#5E6A62"}}>This is what a prepared Calm-Touch corner looks like.</span>
 </div>
-</div>
 </section>
-<section id="csomagok" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#FFFFFF"}}>
+<section id="csomagok" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#FFFFFF"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "32px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "12px"}}>
 <span style={{"fontSize": "13px", "letterSpacing": "0.18em", "color": "#7E3A4A", "fontWeight": "500"}}>PACKAGES</span>
@@ -249,7 +251,7 @@ export default function CegeknekPage() {
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Introductory net prices, in Budapest and within a 20 km radius; for locations further away, travel costs are added. Participant numbers are based on individual 15–20-minute sessions with one practitioner, including time for arrival and changeover. Invoiced to the company per session.</span>
 </div>
 </section>
-<section id="gyik" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px"}}>
+<section id="gyik" style={{"padding": "clamp(34px, 4vw, 56px) 20px"}}>
 <div style={{"maxWidth": "860px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>Frequently asked questions</h2>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "12px"}}>
@@ -264,7 +266,7 @@ export default function CegeknekPage() {
 </div>
 </div>
 </section>
-<section id="ajanlat" style={{"padding": "clamp(53px, 6.1vw, 88px) 20px", "background": "#F4E3E4"}}>
+<section id="ajanlat" style={{"padding": "clamp(34px, 4vw, 56px) 20px", "background": "#F4E3E4"}}>
 <div style={{"maxWidth": "860px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "gap": "24px"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}>
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 3.7vw, 48px)", "lineHeight": "1.08"}}>Request a pilot quote</h2>
