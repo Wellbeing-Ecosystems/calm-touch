@@ -6,6 +6,7 @@ import { SiteLang, sitePath } from "@/app/SiteLang";
 import { MobileMenu } from "@/app/MobileMenu";
 import { LegalLinks } from "./LegalLinks";
 import { LEGAL_HTML } from "./content";
+import { FooterContact } from "@/app/FooterContact";
 
 /** A három jogi oldal (ÁSZF, Impresszum, Adatfelhasználási nyilatkozat) közös kerete, nyelvenként. */
 export type LegalDoc = "aszf" | "impresszum" | "adatkezeles";
@@ -80,7 +81,7 @@ export function LegalPage({ lang, doc }: { lang: Lang; doc: LegalDoc }) {
       </main>
       <footer style={{ padding: "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", borderTop: "1px solid #EADFD2" }}>
         <div style={{ maxWidth: "1160px", margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "16px", fontSize: "14px", color: "#5E6A62" }}>
-          <span>Calm Touch · {t.operator}: Alternatíva Tanácsadó Csoport Kft.</span>
+          <span>Calm Touch · {t.operator}: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span>
           <LegalLinks current={lang} />
         </div>
       </footer>

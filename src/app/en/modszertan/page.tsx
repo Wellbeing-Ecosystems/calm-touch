@@ -7,6 +7,7 @@ import { SiteLang } from "@/app/SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
 import { methodHtml } from "./content_en";
+import { FooterContact } from "@/app/FooterContact";
 
 export const metadata: Metadata = pageMeta("en", "/modszertan", "Calm-Touch Pulse – measurement method", "How Calm-Touch Pulse measures the effect of sessions: questions and their scientific background, indicators and colour ratings, data protection, limitations and references.");
 
@@ -53,7 +54,7 @@ export default function ModszertanPage() {
 </main>
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
-<span>Calm Touch · Operated by: Alternatíva Tanácsadó Csoport Kft.</span>
+<span>Calm Touch · Operated by: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span>
 <LegalLinks current="en" />
 </div>
 </footer>

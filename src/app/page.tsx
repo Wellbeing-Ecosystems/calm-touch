@@ -5,6 +5,7 @@ import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "./SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "./MobileMenu";
+import { FooterContact } from "@/app/FooterContact";
 
 export const metadata: Metadata = pageMeta("hu", "", "Calm Touch – munkahelyi stresszoldás érintéssel | Budapest", "15–20 perces, ruhán keresztüli, gyengéd érintéses stresszoldás az irodában, Budapesten és környékén. Rövid állapot-visszajelzés minden alkalom előtt és után, havi névtelen HR riport.", { absolute: true });
 
@@ -254,6 +255,22 @@ export default function CalmTouchPage() {
 <a href="/calm-touch/pillanatkep" style={{"textDecoration": "none", "color": "#FAF6F1", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "700", "border": "1px solid #F1D3D7", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Kipróbálom a pillanatképet</a>
 <a href="/calm-touch/modszertan" style={{"textDecoration": "underline", "color": "#FAF6F1", "padding": "14px 6px", "fontWeight": "600", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Mérési módszertan</a>
 </div>
+<aside aria-labelledby="kockazatfelmeres-cim" style={{ background: "#FAF6F1", color: "#2E3631", borderRadius: "28px", padding: "clamp(22px, 4vw, 40px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", gap: "clamp(18px, 3vw, 28px)", alignItems: "center" }}>
+<div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+<span style={{ alignSelf: "flex-start", fontSize: "13px", letterSpacing: "0.16em", fontWeight: 700, color: "#2C5069", background: "#DDE8EF", borderRadius: "999px", padding: "6px 14px" }}>KÖVETKEZŐ SZINT</span>
+<h3 id="kockazatfelmeres-cim" style={{ margin: 0, fontFamily: "var(--ct-display)", fontSize: "clamp(24px, 2.6vw, 32px)", lineHeight: 1.15, color: "#2C5069" }}>A Pulse megmutatja, hogyan bírja a csapat. A részletes kockázatfelmérés azt is, miért.</h3>
+<p style={{ margin: 0, color: "#3B443E" }}>Ha a havi Pulse tartós terhelést jelez, érdemes a háttérokokat is feltárni. A care4you anonim online pszichoszociális kockázatfelmérése a munkavédelmi kockázatértékeléshez is alapot ad, és megmutatja, hol érdemes a szervezet működésébe beavatkozni.</p>
+{/* A pszichoszoc.hu kezdőlapjára mutat (basePath nélkül), ezért nem Link. */}
+{/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+<a href="/" style={{ alignSelf: "flex-start", textDecoration: "none", background: "#2C5069", color: "#FFFFFF", padding: "14px 26px", borderRadius: "999px", fontWeight: 700, minHeight: "48px", boxSizing: "border-box", display: "inline-flex", alignItems: "center" }}>Megnézem a kockázatfelmérést →</a>
+</div>
+<ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
+<li style={{ background: "#FFFFFF", borderRadius: "16px", padding: "14px 18px" }}><b style={{ color: "#7E3A4A" }}>Vezetői értékelés:</b> a munkatársak anonim módon jelölik a vezető erősségeit és fejlesztendő területeit, NPS-mutatóval.</li>
+<li style={{ background: "#FFFFFF", borderRadius: "16px", padding: "14px 18px" }}><b style={{ color: "#7E3A4A" }}>Szervezeti beavatkozási pontok:</b> a három legfontosabb szervezeti probléma, a legsúlyosabb gond és a dolgozók saját javaslatai.</li>
+<li style={{ background: "#FFFFFF", borderRadius: "16px", padding: "14px 18px" }}><b style={{ color: "#2C5069" }}>57 dimenzió, 8 főterület:</b> az egészségi állapottól és a megküzdéstől a munkahelyi kollektíváig és a szervezeti működésig.</li>
+<li style={{ background: "#FFFFFF", borderRadius: "16px", padding: "14px 18px" }}><b style={{ color: "#2C5069" }}>Riportok minden szintre:</b> Egyéni Stresszleltár a kitöltőnek, vezetői és HR-riport demográfiai szűréssel.</li>
+</ul>
+</aside>
 </div>
 </section>
 <section style={{"padding": "clamp(58px, 6.7vw, 96px) 20px"}}>
@@ -322,7 +339,7 @@ export default function CalmTouchPage() {
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px"}}>
-<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos.webp" alt="Calm Touch – Stresszoldás érintéssel" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span></span>
+<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos.webp" alt="Calm Touch – Stresszoldás érintéssel" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Üzemeltető: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span></span>
 <LegalLinks current="hu" method color="#E9EBD6" />
 </div>
 </footer>

@@ -5,6 +5,7 @@ import { SiteLang } from "../SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "../MobileMenu";
 import { OfferForm } from "./OfferForm";
+import { FooterContact } from "@/app/FooterContact";
 
 export const metadata: Metadata = pageMeta("hu", "/cegeknek", "Cégeknek – irodai stresszoldó program, csomagok és árak", "Calm Touch céges csomagok Budapesten és 20 km-es körzetében: pilot (3 óra, legfeljebb 8 fő), rendszeres alkalmak és Wellbeing Day, havi névtelen Calm-Touch Pulse riporttal.");
 
@@ -271,7 +272,7 @@ export default function CegeknekPage() {
 </section>
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
-<span>Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft.</span>
+<span>Calm Touch · Üzemeltető: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span>
 <LegalLinks current="hu" method />
 </div>
 </footer>

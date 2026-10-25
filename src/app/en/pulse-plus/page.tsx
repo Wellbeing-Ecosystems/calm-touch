@@ -6,6 +6,7 @@ import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "@/app/SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
+import { FooterContact } from "@/app/FooterContact";
 
 export const metadata: Metadata = pageMeta("en", "/pulse-plus", "Calm-Touch Pulse+ – instrument-based mental state assessment", "A one-off, integrated instrument-based assessment: qEEG, HRV and a cognitive test in one session, with a personal feedback session and a six-week development plan.");
 
@@ -228,7 +229,7 @@ export default function PulsePlusPage() {
 
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
-<span>Calm Touch · Operated by: Alternatíva Tanácsadó Csoport Kft.</span>
+<span>Calm Touch · Operated by: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span>
 <LegalLinks current="en" method />
 </div>
 </footer>
