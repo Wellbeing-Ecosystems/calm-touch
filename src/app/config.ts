@@ -10,7 +10,7 @@ export const OFFER_EMAIL: string | null = "ugyfelszolgalat@stressz-m.hu";
  * ajánlatkérő része erre a címre visz (új lapon); ez elsőbbséget élvez az e-mailes űrlappal szemben.
  * Példa: export const OFFER_URL: string | null = "https://bevetel.hu/...";
  */
-export const OFFER_URL: string | null = "https://bevetel.hu/intrest?id=0c254daf0d919cc6&lang=hu";
+export const OFFER_URL: string | null = "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu";
 
 /**
  * Az Adatfelhasználási nyilatkozat (adatkezelési tájékoztató) címe – a pillanatkép és a havi kérdőív
