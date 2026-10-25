@@ -7,6 +7,7 @@ import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "@/app/SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
+import { FooterContact } from "@/app/FooterContact";
 
 export const metadata: Metadata = pageMeta("de", "", "Calm Touch – Stressabbau am Arbeitsplatz durch Berührung | Budapest", "15–20 Minuten Stressabbau im Büro durch sanfte Berührung über der Kleidung, in Budapest und Umgebung. Kurze Zustandsrückmeldung vor und nach jeder Sitzung, anonymer monatlicher HR-Bericht.", { absolute: true });
 
@@ -325,7 +326,7 @@ export default function CalmTouchPage() {
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px"}}>
-<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos-de.webp" alt="Calm Touch – Stressabbau durch Berührung" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Betreiber: Alternatíva Tanácsadó Csoport Kft.</span></span>
+<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos-de.webp" alt="Calm Touch – Stressabbau durch Berührung" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Betreiber: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span></span>
 <LegalLinks current="de" method color="#E9EBD6" />
 </div>
 </footer>

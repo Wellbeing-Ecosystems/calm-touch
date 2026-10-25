@@ -7,6 +7,7 @@ import { SiteLang } from "@/app/SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
 import { methodHtml } from "./content_de";
+import { FooterContact } from "@/app/FooterContact";
 
 export const metadata: Metadata = pageMeta("de", "/modszertan", "Calm-Touch Pulse – Messmethodik", "Wie Calm-Touch Pulse die Wirkung der Sitzungen misst: Fragen und ihr fachlicher Hintergrund, Kennzahlen und Ampelfarben, Datenschutz, Grenzen und Literatur.");
 
@@ -53,7 +54,7 @@ export default function ModszertanPage() {
 </main>
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
-<span>Calm Touch · Betreiber: Alternatíva Tanácsadó Csoport Kft.</span>
+<span>Calm Touch · Betreiber: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span>
 <LegalLinks current="de" />
 </div>
 </footer>

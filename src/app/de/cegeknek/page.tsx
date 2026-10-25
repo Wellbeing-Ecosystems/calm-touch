@@ -7,6 +7,7 @@ import { SiteLang } from "@/app/SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
 import { OfferForm } from "./OfferForm";
+import { FooterContact } from "@/app/FooterContact";
 
 export const metadata: Metadata = pageMeta("de", "/cegeknek", "Für Unternehmen – Stressabbau-Programm im Büro, Pakete und Preise", "Calm-Touch-Pakete für Unternehmen in Budapest und im Umkreis von 20 km: Pilot (3 Stunden, bis zu 8 Personen), regelmäßige Termine und Wellbeing Day, mit anonymem monatlichem Calm-Touch-Pulse-Bericht.");
 
@@ -274,7 +275,7 @@ export default function CegeknekPage() {
 </section>
 <footer style={{"padding": "clamp(22px, 3vw, 32px) clamp(20px, 3vw, 24px)", "borderTop": "1px solid #EADFD2"}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px", "color": "#5E6A62"}}>
-<span>Calm Touch · Betreiber: Alternatíva Tanácsadó Csoport Kft.</span>
+<span>Calm Touch · Betreiber: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span>
 <LegalLinks current="de" method />
 </div>
 </footer>

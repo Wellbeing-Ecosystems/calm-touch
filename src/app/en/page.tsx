@@ -7,6 +7,7 @@ import { JsonLd } from "@/app/JsonLd";
 import { SiteLang } from "@/app/SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
+import { FooterContact } from "@/app/FooterContact";
 
 export const metadata: Metadata = pageMeta("en", "", "Calm Touch – workplace stress relief through touch | Budapest", "15–20-minute stress relief in the office through gentle touch over clothing, in Budapest and the surrounding area. A short state check before and after every session, and an anonymous monthly HR report.", { absolute: true });
 
@@ -325,7 +326,7 @@ export default function CalmTouchPage() {
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>
 <div style={{"maxWidth": "1200px", "margin": "0 auto", "display": "flex", "flexWrap": "wrap", "justifyContent": "space-between", "gap": "16px", "fontSize": "14px"}}>
-<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos-en.webp" alt="Calm Touch – stress relief through touch" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Operated by: Alternatíva Tanácsadó Csoport Kft.</span></span>
+<span style={{"display": "flex", "flexDirection": "column", "gap": "10px"}}><img src="/calm-touch/brand/logo-fekvo-vilagos-en.webp" alt="Calm Touch – stress relief through touch" width={900} height={186} style={{"display": "block", "alignSelf": "flex-start", "height": "48px", "width": "auto", "maxWidth": "100%", "objectFit": "contain"}} /><span>Operated by: Alternatíva Tanácsadó Csoport Kft.<FooterContact /></span></span>
 <LegalLinks current="en" method color="#E9EBD6" />
 </div>
 </footer>
