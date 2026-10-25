@@ -155,7 +155,7 @@ We do not sell data, use it for advertising, or make automated decisions or prof
 |---|---|---|
 | Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA – vercel.com | website hosting | global network |
 | Supabase Inc., 970 Toa Payoh North #07-04, Singapore 318992 – supabase.com | database for the Pulse questionnaires and the admin area (company details, contact persons) | European Union (Ireland) |
-| the operator of bevetel.hu | quote request form | as stated in the bevetel.hu notice |
+| Kulcs-BiT Kft. (bevetel.hu), Mészáros utca 13., 1016 Budapest, Hungary – ugyfelszolgalat@bevetel.hu | quote request and registration form | Hungary (hosting: Rackforest Zrt.) |
 | our accounting provider | invoicing, bookkeeping | Hungary |
 
 Transfers to providers outside the European Union are based on the standard contractual clauses adopted by the European Commission (Article 46 GDPR) or the EU–US Data Privacy Framework.

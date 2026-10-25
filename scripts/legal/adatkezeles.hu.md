@@ -151,7 +151,7 @@ Adatot nem adunk el, nem használunk reklámcélra, és nem hozunk automatizált
 |---|---|---|
 | Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA – vercel.com | a honlap tárhelye és futtatása | globális hálózat |
 | Supabase Inc., 970 Toa Payoh North #07-04, Singapore 318992 – supabase.com | a Pulse kérdőívek és az adminfelület (cégadatok, kapcsolattartók) adatbázisa | Európai Unió (Írország) |
-| a bevetel.hu üzemeltetője | ajánlatkérő űrlap | a bevetel.hu tájékoztatója szerint |
+| Kulcs-BiT Kft. (bevetel.hu), 1016 Budapest, Mészáros utca 13. – ugyfelszolgalat@bevetel.hu | ajánlatkérő és jelentkezési űrlap | Magyarország (tárhely: Rackforest Zrt.) |
 | könyvelési szolgáltatónk | számlázás, könyvelés | Magyarország |
 
 Az Európai Unión kívüli szolgáltatóknál az adattovábbítás az Európai Bizottság által elfogadott általános szerződési feltételek (GDPR 46. cikk), illetve az EU–USA adatvédelmi keretrendszer alapján történik.
