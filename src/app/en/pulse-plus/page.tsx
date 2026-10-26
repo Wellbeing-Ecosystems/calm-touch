@@ -190,8 +190,8 @@ export default function PulsePlusPage() {
 <section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": pale}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "24px", "alignItems": "start"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
-<span style={eyebrow}>TRUST</span>
-<h2 style={h2}>No measurement without trust</h2>
+<span style={eyebrow}>PREVENTION</span>
+<h2 style={h2}>When leaders are well, the organisation works better</h2>
 <div style={card}>
 <b style={{"fontSize": "19px", "color": blue}}>The person measured</b>
 <span style={{"color": "#3B443E"}}>Sees their full individual result. The profile is theirs and no one else’s.</span>
@@ -200,7 +200,7 @@ export default function PulsePlusPage() {
 <b style={{"fontSize": "19px", "color": blue}}>The company</b>
 <span style={{"color": "#3B443E"}}>Only sees a combined, anonymised picture from at least 10 people – never with names.</span>
 </div>
-<p style={{"margin": "0", "color": "#3B443E"}}>If this boundary is crossed even once, no one will be honest at the next measurement.</p>
+<p style={{"margin": "0", "color": "#3B443E"}}>Leaders are currently carrying an especially heavy mental load. The measurement serves prevention: signs of overload become visible before they turn into exhaustion or poor decisions. When leaders are well, the company or institution works better too.</p>
 </div>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={eyebrow}>LED BY</span>

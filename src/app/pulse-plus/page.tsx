@@ -187,8 +187,8 @@ export default function PulsePlusPage() {
 <section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": pale}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "24px", "alignItems": "start"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
-<span style={eyebrow}>BIZALOM</span>
-<h2 style={h2}>Bizalom nélkül nincs mérés</h2>
+<span style={eyebrow}>MEGELŐZÉS</span>
+<h2 style={h2}>Ha a vezető jól van, a szervezet is jobban működik</h2>
 <div style={card}>
 <b style={{"fontSize": "19px", "color": blue}}>A mért személy</b>
 <span style={{"color": "#3B443E"}}>Látja a teljes egyéni eredményét. A profil az övé, és senki másé.</span>
@@ -197,7 +197,7 @@ export default function PulsePlusPage() {
 <b style={{"fontSize": "19px", "color": blue}}>A cég</b>
 <span style={{"color": "#3B443E"}}>Csak összesített, anonimizált képet lát, legalább 10 fő adatából – névvel soha.</span>
 </div>
-<p style={{"margin": "0", "color": "#3B443E"}}>Ha ez a határ egyszer is átjárhatóvá válik, a következő mérésnél már senki nem lesz őszinte.</p>
+<p style={{"margin": "0", "color": "#3B443E"}}>Ma a vezetőkön különösen nagy a mentális terhelés. A mérés a megelőzést szolgálja: a túlterhelés jelei még azelőtt láthatóvá válnak, hogy kimerültséggé vagy rossz döntésekké válnának. Ha a vezetők jól vannak, a vállalat vagy az intézmény is jobban működik.</p>
 </div>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={eyebrow}>A MÉRÉST VEZETI</span>
