@@ -86,9 +86,9 @@ export function RiskOfferBox({ lang = "hu" }: { lang?: Lang }) {
 <div style={{ display: "flex", flexDirection: "column", gap: "14px", background: "#2C5069", color: "#FFFFFF", borderRadius: "22px", padding: "clamp(20px, 3vw, 28px)" }}>
 <span style={{ alignSelf: "flex-start", fontSize: "13px", letterSpacing: "0.14em", fontWeight: 800, color: "#2E2300", background: "#F5B942", borderRadius: "999px", padding: "6px 14px" }}>{t.deal}</span>
 <b style={{ fontFamily: "var(--ct-display)", fontSize: "clamp(22px, 2.2vw, 28px)", lineHeight: 1.2 }}>{t.packs}</b>
-<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
-<div style={priceCard}><b style={{ display: "block", fontSize: "15px" }}>{t.a}</b><span style={{ fontSize: "20px", fontWeight: 800 }}>{t.priceA}</span><span style={{ fontSize: "13px", color: "#DDE8EF" }}>{t.vat}</span></div>
-<div style={priceCard}><b style={{ display: "block", fontSize: "15px" }}>{t.b}</b><span style={{ fontSize: "20px", fontWeight: 800 }}>{t.priceB}</span><span style={{ fontSize: "13px", color: "#DDE8EF" }}>{t.vat}</span></div>
+<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))", gap: "10px" }}>
+<div style={priceCard}><b style={{ display: "block", fontSize: "15px" }}>{t.a}</b><span style={{ fontSize: "20px", fontWeight: 800, whiteSpace: "nowrap" }}>{t.priceA}</span><span style={{ fontSize: "13px", color: "#DDE8EF" }}>{t.vat}</span></div>
+<div style={priceCard}><b style={{ display: "block", fontSize: "15px" }}>{t.b}</b><span style={{ fontSize: "20px", fontWeight: 800, whiteSpace: "nowrap" }}>{t.priceB}</span><span style={{ fontSize: "13px", color: "#DDE8EF" }}>{t.vat}</span></div>
 </div>
 <span style={{ fontSize: "15px", color: "#E7EFF4" }}>{t.incl}</span>
 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "4px" }}>
