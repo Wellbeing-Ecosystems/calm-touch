@@ -190,8 +190,8 @@ export default function PulsePlusPage() {
 <section style={{"padding": "clamp(40px, 5vw, 64px) 20px", "background": pale}}>
 <div style={{"maxWidth": "1160px", "margin": "0 auto", "display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", "gap": "24px", "alignItems": "start"}}>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
-<span style={eyebrow}>VERTRAUEN</span>
-<h2 style={h2}>Ohne Vertrauen keine Messung</h2>
+<span style={eyebrow}>PRÄVENTION</span>
+<h2 style={h2}>Geht es der Führungskraft gut, funktioniert auch die Organisation besser</h2>
 <div style={card}>
 <b style={{"fontSize": "19px", "color": blue}}>Die gemessene Person</b>
 <span style={{"color": "#3B443E"}}>Sieht das vollständige Einzelergebnis. Das Profil gehört ihr und niemandem sonst.</span>
@@ -200,7 +200,7 @@ export default function PulsePlusPage() {
 <b style={{"fontSize": "19px", "color": blue}}>Das Unternehmen</b>
 <span style={{"color": "#3B443E"}}>Sieht nur ein zusammengefasstes, anonymisiertes Bild aus den Daten von mindestens 10 Personen – nie mit Namen.</span>
 </div>
-<p style={{"margin": "0", "color": "#3B443E"}}>Wird diese Grenze auch nur einmal durchlässig, ist bei der nächsten Messung niemand mehr ehrlich.</p>
+<p style={{"margin": "0", "color": "#3B443E"}}>Auf Führungskräften lastet derzeit eine besonders hohe mentale Belastung. Die Messung dient der Prävention: Anzeichen von Überlastung werden sichtbar, bevor daraus Erschöpfung oder Fehlentscheidungen werden. Geht es den Führungskräften gut, funktioniert auch das Unternehmen oder die Einrichtung besser.</p>
 </div>
 <div style={{"display": "flex", "flexDirection": "column", "gap": "16px"}}>
 <span style={eyebrow}>DIE MESSUNG LEITET</span>
