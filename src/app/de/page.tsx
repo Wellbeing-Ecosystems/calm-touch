@@ -8,6 +8,7 @@ import { SiteLang } from "@/app/SiteLang";
 import { LegalLinks } from "@/app/jogi/LegalLinks";
 import { MobileMenu } from "@/app/MobileMenu";
 import { FooterContact } from "@/app/FooterContact";
+import { RiskOfferBox } from "@/app/RiskOfferBox";
 
 export const metadata: Metadata = pageMeta("de", "", "Calm Touch – Stressabbau am Arbeitsplatz durch Berührung | Budapest", "15–20 Minuten Stressabbau im Büro durch sanfte Berührung über der Kleidung, in Budapest und Umgebung. Kurze Zustandsrückmeldung vor und nach jeder Sitzung, anonymer monatlicher HR-Bericht.", { absolute: true });
 
@@ -258,6 +259,7 @@ export default function CalmTouchPage() {
 <a href="/calm-touch/pillanatkep?lang=de" style={{"textDecoration": "none", "color": "#FAF6F1", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "700", "border": "1px solid #F1D3D7", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Momentaufnahme ausprobieren</a>
 <a href="/calm-touch/de/modszertan" style={{"textDecoration": "underline", "color": "#FAF6F1", "padding": "14px 6px", "fontWeight": "600", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Messmethodik</a>
 </div>
+<RiskOfferBox />
 </div>
 </section>
 <section style={{"padding": "clamp(36px, 4.2vw, 60px) 20px"}}>
@@ -271,6 +273,16 @@ export default function CalmTouchPage() {
 <div style={{"borderTop": "3px solid #A65D6B", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Langsame Berührung mit wissenschaftlicher Grundlage</b><span style={{"color": "#5E6A62"}}>Eigene Nervenfasern reagieren auf langsames, sanftes Streicheln – sie sind mit Entspannung und einem Gefühl von Sicherheit verbunden.</span></div>
 <div style={{"borderTop": "3px solid #A17856", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Ayurvedisch inspiriert, ASMR-Erlebnis</b><span style={{"color": "#5E6A62"}}>Traditioneller Entspannungsansatz und beruhigende, wiederkehrende Sinnesreize.</span></div>
 <div style={{"borderTop": "3px solid #3F6E8C", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Nachvollziehbar, nicht nur angenehm</b><span style={{"color": "#5E6A62"}}>Jede Sitzung endet mit einer Vorher–nachher-Momentaufnahme, dazu monatlich ein Trendbericht.</span></div>
+</div>
+<div style={{"background": "#E9EBD6", "borderRadius": "28px 28px 28px 8px", "padding": "clamp(22px, 3vw, 36px)", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
+<span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#5C6830", "fontWeight": "700"}}>WAS SAGT DIE FORSCHUNG?</span>
+<h3 style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(24px, 2.6vw, 32px)", "lineHeight": "1.15", "color": "#2E3631"}}>Berührung hat ihre eigene Nervenbahn</h3>
+<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "20px 32px"}}>
+<p style={{"margin": "0", "fontSize": "17px", "lineHeight": "1.6", "textWrap": "pretty"}}>In der Haut gibt es eigene Nervenfasern, sogenannte C-taktile (CT) Fasern. Sie reagieren nicht auf Druck oder das Durcharbeiten der Muskeln, sondern auf langsame, sanfte, streichende Berührung – genau darauf baut Calm-Touch auf.</p>
+<p style={{"margin": "0", "fontSize": "17px", "lineHeight": "1.6", "textWrap": "pretty"}}>Ihre Signale laufen nicht in das Hirnareal für das Tasten, sondern dorthin, wo Gefühle und das Sicherheitsempfinden verarbeitet werden. Studien zufolge kann langsame Berührung den Herzschlag verlangsamen, das Stresshormon Cortisol senken und Oxytocin freisetzen.</p>
+<p style={{"margin": "0", "fontSize": "17px", "lineHeight": "1.6", "textWrap": "pretty"}}>Eine klassische Massage bearbeitet die Muskeln. Calm-Touch spricht dieses andere, emotionale Berührungssystem an – an Schultern und oberem Rücken, wo diese Fasern besonders dicht sind.</p>
+</div>
+<span style={{"fontSize": "14px", "color": "#5E6A62"}}>Quelle: <a href="https://pubmed.ncbi.nlm.nih.gov/24853935/" target="_blank" rel="noopener noreferrer" style={{"color": "#5C6830"}}>McGlone, F., Wessberg, J. & Olausson, H. (2014). Discriminative and affective touch: Sensing and feeling. Neuron, 82(4), 737–755.</a></span>
 </div>
 </div>
 </section>

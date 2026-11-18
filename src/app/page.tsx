@@ -271,6 +271,16 @@ export default function CalmTouchPage() {
 <div style={{"borderTop": "3px solid #A17856", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Ajurvedikus ihlet, ASMR-élmény</b><span style={{"color": "#5E6A62"}}>Hagyományos relaxációs szemlélet és nyugtató, ismétlődő érzékszervi ingerek.</span></div>
 <div style={{"borderTop": "3px solid #3F6E8C", "paddingTop": "20px", "display": "flex", "flexDirection": "column", "gap": "8px"}}><b>Követhető, nem csak kellemes</b><span style={{"color": "#5E6A62"}}>Minden alkalom előtte–utána pillanatképpel zárul, havonta trendriporttal.</span></div>
 </div>
+<div style={{"background": "#E9EBD6", "borderRadius": "28px 28px 28px 8px", "padding": "clamp(22px, 3vw, 36px)", "display": "flex", "flexDirection": "column", "gap": "14px"}}>
+<span style={{"fontSize": "13px", "letterSpacing": "0.2em", "color": "#5C6830", "fontWeight": "700"}}>MIT MOND A KUTATÁS?</span>
+<h3 style={{"margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(24px, 2.6vw, 32px)", "lineHeight": "1.15", "color": "#2E3631"}}>Az érintésnek saját idegpályája van</h3>
+<div style={{"display": "grid", "gridTemplateColumns": "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", "gap": "20px 32px"}}>
+<p style={{"margin": "0", "fontSize": "17px", "lineHeight": "1.6", "textWrap": "pretty"}}>A bőrben külön idegrostok, úgynevezett C-taktilis (CT) rostok működnek. Nem a nyomásra vagy az izmok átmozgatására reagálnak, hanem a lassú, gyengéd, simító érintésre – épp arra, amire a Calm-Touch épül.</p>
+<p style={{"margin": "0", "fontSize": "17px", "lineHeight": "1.6", "textWrap": "pretty"}}>Jelzéseik nem a tapintásért felelős agyterületre futnak, hanem oda, ahol az érzelmek és a biztonságérzet feldolgozása zajlik. Kutatások szerint a lassú érintés közben lassulhat a szívverés, csökkenhet a stresszhormon (kortizol) szintje, és oxitocin szabadul fel.</p>
+<p style={{"margin": "0", "fontSize": "17px", "lineHeight": "1.6", "textWrap": "pretty"}}>A klasszikus masszázs az izmokat dolgozza meg. A Calm-Touch ezt a másik, érzelmi érintési rendszert szólítja meg – a vállon és a felső háton, ahol ezek a rostok különösen sűrűn találhatók.</p>
+</div>
+<span style={{"fontSize": "14px", "color": "#5E6A62"}}>Forrás: <a href="https://pubmed.ncbi.nlm.nih.gov/24853935/" target="_blank" rel="noopener noreferrer" style={{"color": "#5C6830"}}>McGlone, F., Wessberg, J. és Olausson, H. (2014). Discriminative and affective touch: Sensing and feeling. Neuron, 82(4), 737–755.</a></span>
+</div>
 </div>
 </section>
 <section style={{"padding": "clamp(36px, 4.2vw, 60px) 20px", "background": "#F5EEE3"}}>

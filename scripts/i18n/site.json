@@ -1870,5 +1870,37 @@
  "Ma a vezetőkön különösen nagy a mentális terhelés. A mérés a megelőzést szolgálja: a túlterhelés jelei még azelőtt láthatóvá válnak, hogy kimerültséggé vagy rossz döntésekké válnának. Ha a vezetők jól vannak, a vállalat vagy az intézmény is jobban működik.": [
   "Leaders are currently carrying an especially heavy mental load. The measurement serves prevention: signs of overload become visible before they turn into exhaustion or poor decisions. When leaders are well, the company or institution works better too.",
   "Auf Führungskräften lastet derzeit eine besonders hohe mentale Belastung. Die Messung dient der Prävention: Anzeichen von Überlastung werden sichtbar, bevor daraus Erschöpfung oder Fehlentscheidungen werden. Geht es den Führungskräften gut, funktioniert auch das Unternehmen oder die Einrichtung besser."
+ ],
+ "MIT MOND A KUTATÁS?": [
+  "WHAT DOES RESEARCH SAY?",
+  "WAS SAGT DIE FORSCHUNG?"
+ ],
+ "Az érintésnek saját idegpályája van": [
+  "Touch has its own nerve pathway",
+  "Berührung hat ihre eigene Nervenbahn"
+ ],
+ "A bőrben külön idegrostok, úgynevezett C-taktilis (CT) rostok működnek. Nem a nyomásra vagy az izmok átmozgatására reagálnak, hanem a lassú, gyengéd, simító érintésre – épp arra, amire a Calm-Touch épül.": [
+  "The skin contains dedicated nerve fibres called C-tactile (CT) afferents. They do not respond to pressure or to working the muscles, but to slow, gentle, stroking touch – exactly what Calm-Touch is built on.",
+  "In der Haut gibt es eigene Nervenfasern, sogenannte C-taktile (CT) Fasern. Sie reagieren nicht auf Druck oder das Durcharbeiten der Muskeln, sondern auf langsame, sanfte, streichende Berührung – genau darauf baut Calm-Touch auf."
+ ],
+ "Jelzéseik nem a tapintásért felelős agyterületre futnak, hanem oda, ahol az érzelmek és a biztonságérzet feldolgozása zajlik. Kutatások szerint a lassú érintés közben lassulhat a szívverés, csökkenhet a stresszhormon (kortizol) szintje, és oxitocin szabadul fel.": [
+  "Their signals do not go to the brain area for touch perception, but to where emotions and the sense of safety are processed. Research shows that slow touch can slow the heart rate, lower the stress hormone cortisol and release oxytocin.",
+  "Ihre Signale laufen nicht in das Hirnareal für das Tasten, sondern dorthin, wo Gefühle und das Sicherheitsempfinden verarbeitet werden. Studien zufolge kann langsame Berührung den Herzschlag verlangsamen, das Stresshormon Cortisol senken und Oxytocin freisetzen."
+ ],
+ "A klasszikus masszázs az izmokat dolgozza meg. A Calm-Touch ezt a másik, érzelmi érintési rendszert szólítja meg – a vállon és a felső háton, ahol ezek a rostok különösen sűrűn találhatók.": [
+  "A classic massage works the muscles. Calm-Touch addresses this other, emotional touch system – on the shoulders and upper back, where these fibres are especially dense.",
+  "Eine klassische Massage bearbeitet die Muskeln. Calm-Touch spricht dieses andere, emotionale Berührungssystem an – an Schultern und oberem Rücken, wo diese Fasern besonders dicht sind."
+ ],
+ "Forrás:": [
+  "Source:",
+  "Quelle:"
+ ],
+ "McGlone, F., Wessberg, J. és Olausson, H. (2014). Discriminative and affective touch: Sensing and feeling. Neuron, 82(4), 737–755.": [
+  "McGlone, F., Wessberg, J. & Olausson, H. (2014). Discriminative and affective touch: Sensing and feeling. Neuron, 82(4), 737–755.",
+  "McGlone, F., Wessberg, J. & Olausson, H. (2014). Discriminative and affective touch: Sensing and feeling. Neuron, 82(4), 737–755."
+ ],
+ "noopener noreferrer": [
+  "noopener noreferrer",
+  "noopener noreferrer"
  ]
 }
