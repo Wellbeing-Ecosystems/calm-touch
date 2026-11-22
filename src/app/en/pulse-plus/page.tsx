@@ -62,9 +62,9 @@ export default function PulsePlusPage() {
 <a href="/calm-touch/en" style={{"textDecoration": "none", "color": "#2E3631"}}>Home</a>
 <a href="/calm-touch/en/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>For companies</a>
 <a href="/calm-touch/en/modszertan" style={{"textDecoration": "none", "color": mid}}>Pulse method</a>
-<a href="/calm-touch/en/cegeknek#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a quote</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a quote</a>
 <SiteLang current="en" path="/pulse-plus" />
-<MobileMenu lang={{ current: "en", path: "/pulse-plus" }} items={[{ href: "/calm-touch/en", label: "Home" }, { href: "/calm-touch/en/cegeknek", label: "For companies" }, { href: "/calm-touch/en/modszertan", label: "Measurement method" }, { href: "/calm-touch/en/pulse-riport", label: "Example report" }, { href: "/calm-touch/en/cegeknek#ajanlat", label: "Request a quote", primary: true }]} />
+<MobileMenu lang={{ current: "en", path: "/pulse-plus" }} items={[{ href: "/calm-touch/en", label: "Home" }, { href: "/calm-touch/en/cegeknek", label: "For companies" }, { href: "/calm-touch/en/modszertan", label: "Measurement method" }, { href: "/calm-touch/en/pulse-riport", label: "Example report" }, { href: "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu", label: "Request a quote", primary: true }]} />
 </nav>
 </div>
 </header>
@@ -222,7 +222,7 @@ export default function PulsePlusPage() {
 <span style={eyebrow}>WHO IT’S FOR</span>
 <p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>For ongoing stress, attention difficulties or mood swings, or for anyone who wants to improve their performance at work. In a company setting we recommend it for managers and high-pressure teams, as a complement to the Calm-Touch programme.</p>
 <p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>We prepare individual quotes for company packages, group assessments and on-site measurement; we send the price based on your request.</p>
-<a href="/calm-touch/en/cegeknek#ajanlat" style={{"alignSelf": "flex-start", "textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": 600, "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a Pulse+ quote</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"alignSelf": "flex-start", "textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": 600, "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a Pulse+ quote</a>
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>The integrated mental state assessment is an assessment and development service; it does not provide a medical diagnosis and does not replace treatment.</span>
 </div>
 </section>

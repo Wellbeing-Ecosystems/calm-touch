@@ -38,9 +38,9 @@ export default function ModszertanPage() {
 <a href="/calm-touch/en" style={{"textDecoration": "none", "color": "#2E3631"}}>Home</a>
 <a href="/calm-touch/en/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>For companies</a>
 <a href="/calm-touch/en/pulse-riport" style={{"textDecoration": "none", "color": "#3F6E8C"}}>Example report</a>
-<a href="/calm-touch/en/cegeknek#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a quote</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a quote</a>
 <SiteLang current="en" path="/modszertan" />
-<MobileMenu lang={{ current: "en", path: "/modszertan" }} items={[{ href: "/calm-touch/en", label: "Home" }, { href: "/calm-touch/en/cegeknek", label: "For companies" }, { href: "/calm-touch/en/pulse-plus", label: "Pulse+ instrument-based assessment" }, { href: "/calm-touch/en/pulse-riport", label: "Example report" }, { href: "/calm-touch/en/cegeknek#ajanlat", label: "Request a quote", primary: true }]} />
+<MobileMenu lang={{ current: "en", path: "/modszertan" }} items={[{ href: "/calm-touch/en", label: "Home" }, { href: "/calm-touch/en/cegeknek", label: "For companies" }, { href: "/calm-touch/en/pulse-plus", label: "Pulse+ instrument-based assessment" }, { href: "/calm-touch/en/pulse-riport", label: "Example report" }, { href: "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu", label: "Request a quote", primary: true }]} />
 </nav>
 </div>
 </header>

@@ -49,9 +49,9 @@ export default function CalmTouchPage() {
 <a href="#hogyan" style={{"textDecoration": "none", "color": "#2E3631"}}>Hogyan működik?</a>
 <a href="#pulse" style={{"textDecoration": "none", "color": "#3F6E8C"}}>Calm-Touch Pulse</a>
 <a href="/calm-touch/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>Cégeknek</a>
-<a href="/calm-touch/cegeknek" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 22px", "borderRadius": "999px", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 22px", "borderRadius": "999px", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
 <SiteLang current="hu" path="" />
-<MobileMenu lang={{ current: "hu", path: "" }} items={[{ href: "#hogyan", label: "Hogyan működik?" }, { href: "#pulse", label: "Calm-Touch Pulse" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "/calm-touch/cegeknek", label: "Pilot alkalmat kérek", primary: true }]} />
+<MobileMenu lang={{ current: "hu", path: "" }} items={[{ href: "#hogyan", label: "Hogyan működik?" }, { href: "#pulse", label: "Calm-Touch Pulse" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu", label: "Pilot alkalmat kérek", primary: true }]} />
 </nav>
 </div>
 </header>
@@ -62,7 +62,7 @@ export default function CalmTouchPage() {
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(41px, 5.7vw, 74px)", "lineHeight": "1.02", "color": "#55665A", "letterSpacing": "-0.015em"}}>Rövid megállás.<br /><span style={{"color": "#7E3A4A", "fontStyle": "italic", "fontWeight": "600"}}>Valódi feltöltődés.</span></h1>
 <p style={{"margin": "0", "fontSize": "20px", "lineHeight": "1.65", "color": "#3B443E", "maxWidth": "32rem", "textWrap": "pretty"}}>Lassú, gyengéd érintés az irodában, amikor a fejed már nem kapcsol ki magától. Minden alkalom után látod, mi változott – a cég pedig havonta látja, hogyan bírja a csapat.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "14px"}}>
-<a href="/calm-touch/cegeknek" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
 <a href="#hogyan" style={{"textDecoration": "none", "background": "#E9EBD6", "color": "#4A5426", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Hogyan működik?</a>
 </div>
 </div>
@@ -330,7 +330,7 @@ export default function CalmTouchPage() {
 <div style={{"maxWidth": "760px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "26px", "textAlign": "center"}}>
 <img src="/calm-touch/brand/logo-negyzetes.webp" alt="Calm Touch – Stresszoldás érintéssel" style={{"width": "150px", "maxWidth": "50%", "height": "auto"}} />
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.5vw, 46px)", "lineHeight": "1.1", "color": "#4E2530", "textWrap": "balance"}}>Adjon a csapatának 15 percet, amikor nem kell teljesíteni.</h2>
-<a href="/calm-touch/cegeknek" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot alkalmat kérek</a>
 </div>
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>

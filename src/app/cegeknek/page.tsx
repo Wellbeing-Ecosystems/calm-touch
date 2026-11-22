@@ -65,9 +65,9 @@ export default function CegeknekPage() {
 <a href="#pulse" style={{"textDecoration": "none", "color": "#3F6E8C"}}>Pulse riport</a>
 <a href="#csomagok" style={{"textDecoration": "none", "color": "#2E3631"}}>Csomagok</a>
 <a href="#gyik" style={{"textDecoration": "none", "color": "#2E3631"}}>GYIK</a>
-<a href="#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
 <SiteLang current="hu" path="/cegeknek" />
-<MobileMenu lang={{ current: "hu", path: "/cegeknek" }} items={[{ href: "/calm-touch", label: "Főoldal" }, { href: "#pulse", label: "Pulse riport" }, { href: "#csomagok", label: "Csomagok" }, { href: "#gyik", label: "GYIK" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "#ajanlat", label: "Ajánlatot kérek", primary: true }]} />
+<MobileMenu lang={{ current: "hu", path: "/cegeknek" }} items={[{ href: "/calm-touch", label: "Főoldal" }, { href: "#pulse", label: "Pulse riport" }, { href: "#csomagok", label: "Csomagok" }, { href: "#gyik", label: "GYIK" }, { href: "/calm-touch/pulse-plus", label: "Pulse+ műszeres felmérés" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu", label: "Ajánlatot kérek", primary: true }]} />
 </nav>
 </div>
 </header>
@@ -78,7 +78,7 @@ export default function CegeknekPage() {
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 4.5vw, 58px)", "lineHeight": "1.04", "textWrap": "balance"}}>Mentális felfrissülés a munkanapon belül – követhető visszajelzéssel.</h1>
 <p style={{"margin": "0", "fontSize": "19px", "color": "#3B443E", "textWrap": "pretty"}}>Munkatársai nem a feladatok mennyiségébe fáradnak bele, hanem abba, hogy nincs megállás. A Calm-Touch 15–20 perces irodai alkalmai ezt a megállást adják vissza – és havonta névtelen, összesített Pulse riportot kap arról, hogyan bírja a csapat, és mit változtattak az alkalmak.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "12px"}}>
-<a href="#ajanlat" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot ajánlatot kérek</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pilot ajánlatot kérek</a>
 <a href="/calm-touch/pulse-riport" style={{"textDecoration": "none", "color": "#55665A", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "500", "border": "1px solid #55665A", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Példa Pulse riport</a>
 </div>
 </div>
