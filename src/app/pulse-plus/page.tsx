@@ -59,9 +59,9 @@ export default function PulsePlusPage() {
 <a href="/calm-touch" style={{"textDecoration": "none", "color": "#2E3631"}}>Főoldal</a>
 <a href="/calm-touch/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>Cégeknek</a>
 <a href="/calm-touch/modszertan" style={{"textDecoration": "none", "color": mid}}>Pulse módszertan</a>
-<a href="/calm-touch/cegeknek#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Ajánlatot kérek</a>
 <SiteLang current="hu" path="/pulse-plus" />
-<MobileMenu lang={{ current: "hu", path: "/pulse-plus" }} items={[{ href: "/calm-touch", label: "Főoldal" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "/calm-touch/pulse-riport", label: "Példa riport" }, { href: "/calm-touch/cegeknek#ajanlat", label: "Ajánlatot kérek", primary: true }]} />
+<MobileMenu lang={{ current: "hu", path: "/pulse-plus" }} items={[{ href: "/calm-touch", label: "Főoldal" }, { href: "/calm-touch/cegeknek", label: "Cégeknek" }, { href: "/calm-touch/modszertan", label: "Mérési módszertan" }, { href: "/calm-touch/pulse-riport", label: "Példa riport" }, { href: "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu", label: "Ajánlatot kérek", primary: true }]} />
 </nav>
 </div>
 </header>
@@ -219,7 +219,7 @@ export default function PulsePlusPage() {
 <span style={eyebrow}>KINEK AJÁNLJUK</span>
 <p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>Tartós stressz, figyelmi nehézségek vagy hangulatingadozás esetén, illetve ha valaki a munkahelyi teljesítményén szeretne javítani. Céges keretben vezetőknél és nagy terhelésű csapatoknál ajánljuk, a Calm-Touch program kiegészítéseként.</p>
 <p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>Céges csomagra, több fős felmérésre és helyszíni mérésre egyedi ajánlatot készítünk; az árat az ajánlatkérés alapján küldjük.</p>
-<a href="/calm-touch/cegeknek#ajanlat" style={{"alignSelf": "flex-start", "textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": 600, "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pulse+ ajánlatot kérek</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"alignSelf": "flex-start", "textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": 600, "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pulse+ ajánlatot kérek</a>
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Az integrált mentális állapotfelmérés állapotfelmérő és fejlesztő szolgáltatás, orvosi diagnózist nem ad, és kezelést nem helyettesít.</span>
 </div>
 </section>

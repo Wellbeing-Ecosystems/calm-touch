@@ -68,9 +68,9 @@ export default function CegeknekPage() {
 <a href="#pulse" style={{"textDecoration": "none", "color": "#3F6E8C"}}>Pulse report</a>
 <a href="#csomagok" style={{"textDecoration": "none", "color": "#2E3631"}}>Packages</a>
 <a href="#gyik" style={{"textDecoration": "none", "color": "#2E3631"}}>FAQ</a>
-<a href="#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a quote</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a quote</a>
 <SiteLang current="en" path="/cegeknek" />
-<MobileMenu lang={{ current: "en", path: "/cegeknek" }} items={[{ href: "/calm-touch/en", label: "Home" }, { href: "#pulse", label: "Pulse report" }, { href: "#csomagok", label: "Packages" }, { href: "#gyik", label: "FAQ" }, { href: "/calm-touch/en/pulse-plus", label: "Pulse+ instrument-based assessment" }, { href: "/calm-touch/en/modszertan", label: "Measurement method" }, { href: "#ajanlat", label: "Request a quote", primary: true }]} />
+<MobileMenu lang={{ current: "en", path: "/cegeknek" }} items={[{ href: "/calm-touch/en", label: "Home" }, { href: "#pulse", label: "Pulse report" }, { href: "#csomagok", label: "Packages" }, { href: "#gyik", label: "FAQ" }, { href: "/calm-touch/en/pulse-plus", label: "Pulse+ instrument-based assessment" }, { href: "/calm-touch/en/modszertan", label: "Measurement method" }, { href: "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu", label: "Request a quote", primary: true }]} />
 </nav>
 </div>
 </header>
@@ -81,7 +81,7 @@ export default function CegeknekPage() {
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "600", "fontSize": "clamp(32px, 4.5vw, 58px)", "lineHeight": "1.04", "textWrap": "balance"}}>Mental refreshment within the working day – with trackable feedback.</h1>
 <p style={{"margin": "0", "fontSize": "19px", "color": "#3B443E", "textWrap": "pretty"}}>Your employees aren’t worn out by the amount of work, but by never being able to stop. Calm-Touch’s 15–20-minute office sessions give that pause back – and each month you receive an anonymous, aggregated Pulse report on how the team is coping and what the sessions changed.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "12px"}}>
-<a href="#ajanlat" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot quote</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot quote</a>
 <a href="/calm-touch/en/pulse-riport" style={{"textDecoration": "none", "color": "#55665A", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": "500", "border": "1px solid #55665A", "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Example Pulse report</a>
 </div>
 </div>

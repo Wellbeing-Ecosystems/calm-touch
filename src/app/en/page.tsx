@@ -52,9 +52,9 @@ export default function CalmTouchPage() {
 <a href="#hogyan" style={{"textDecoration": "none", "color": "#2E3631"}}>How does it work?</a>
 <a href="#pulse" style={{"textDecoration": "none", "color": "#3F6E8C"}}>Calm-Touch Pulse</a>
 <a href="/calm-touch/en/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>For companies</a>
-<a href="/calm-touch/en/cegeknek" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 22px", "borderRadius": "999px", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot session</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 22px", "borderRadius": "999px", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot session</a>
 <SiteLang current="en" path="" />
-<MobileMenu lang={{ current: "en", path: "" }} items={[{ href: "#hogyan", label: "How does it work?" }, { href: "#pulse", label: "Calm-Touch Pulse" }, { href: "/calm-touch/en/pulse-plus", label: "Pulse+ instrument-based assessment" }, { href: "/calm-touch/en/cegeknek", label: "For companies" }, { href: "/calm-touch/en/modszertan", label: "Measurement method" }, { href: "/calm-touch/en/cegeknek", label: "Request a pilot session", primary: true }]} />
+<MobileMenu lang={{ current: "en", path: "" }} items={[{ href: "#hogyan", label: "How does it work?" }, { href: "#pulse", label: "Calm-Touch Pulse" }, { href: "/calm-touch/en/pulse-plus", label: "Pulse+ instrument-based assessment" }, { href: "/calm-touch/en/cegeknek", label: "For companies" }, { href: "/calm-touch/en/modszertan", label: "Measurement method" }, { href: "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu", label: "Request a pilot session", primary: true }]} />
 </nav>
 </div>
 </header>
@@ -65,7 +65,7 @@ export default function CalmTouchPage() {
 <h1 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(41px, 5.7vw, 74px)", "lineHeight": "1.02", "color": "#55665A", "letterSpacing": "-0.015em"}}>A short pause.<br /><span style={{"color": "#7E3A4A", "fontStyle": "italic", "fontWeight": "600"}}>Real recharge.</span></h1>
 <p style={{"margin": "0", "fontSize": "20px", "lineHeight": "1.65", "color": "#3B443E", "maxWidth": "32rem", "textWrap": "pretty"}}>Slow, gentle touch in the office, when your mind no longer switches off on its own. After every session you see what changed – and each month the company sees how the team is coping.</p>
 <div style={{"display": "flex", "flexWrap": "wrap", "gap": "14px"}}>
-<a href="/calm-touch/en/cegeknek" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot session</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot session</a>
 <a href="#hogyan" style={{"textDecoration": "none", "background": "#E9EBD6", "color": "#4A5426", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>How does it work?</a>
 </div>
 </div>
@@ -333,7 +333,7 @@ export default function CalmTouchPage() {
 <div style={{"maxWidth": "760px", "margin": "0 auto", "display": "flex", "flexDirection": "column", "alignItems": "center", "gap": "26px", "textAlign": "center"}}>
 <img src="/calm-touch/brand/logo-negyzetes-en.webp" alt="Calm Touch – stress relief through touch" style={{"width": "150px", "maxWidth": "50%", "height": "auto"}} />
 <h2 style={{"overflowWrap": "break-word", "margin": "0", "fontFamily": "var(--ct-display)", "fontWeight": "700", "fontSize": "clamp(32px, 3.5vw, 46px)", "lineHeight": "1.1", "color": "#4E2530", "textWrap": "balance"}}>Give your team 15 minutes when they don’t have to perform.</h2>
-<a href="/calm-touch/en/cegeknek" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot session</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "15px 30px", "borderRadius": "999px", "fontWeight": "700", "minHeight": "52px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Request a pilot session</a>
 </div>
 </section>
 <footer style={{"padding": "28px 24px", "background": "#3E4720", "color": "#E9EBD6"}}>

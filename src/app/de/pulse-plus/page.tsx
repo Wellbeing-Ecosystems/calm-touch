@@ -62,9 +62,9 @@ export default function PulsePlusPage() {
 <a href="/calm-touch/de" style={{"textDecoration": "none", "color": "#2E3631"}}>Startseite</a>
 <a href="/calm-touch/de/cegeknek" style={{"textDecoration": "none", "color": "#2E3631"}}>Für Unternehmen</a>
 <a href="/calm-touch/de/modszertan" style={{"textDecoration": "none", "color": mid}}>Pulse-Methodik</a>
-<a href="/calm-touch/de/cegeknek#ajanlat" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Angebot anfragen</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" className="ct-nav-cta" style={{"textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "12px 20px", "borderRadius": "999px", "fontWeight": "500", "minHeight": "44px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Angebot anfragen</a>
 <SiteLang current="de" path="/pulse-plus" />
-<MobileMenu lang={{ current: "de", path: "/pulse-plus" }} items={[{ href: "/calm-touch/de", label: "Startseite" }, { href: "/calm-touch/de/cegeknek", label: "Für Unternehmen" }, { href: "/calm-touch/de/modszertan", label: "Messmethodik" }, { href: "/calm-touch/de/pulse-riport", label: "Beispielbericht" }, { href: "/calm-touch/de/cegeknek#ajanlat", label: "Angebot anfragen", primary: true }]} />
+<MobileMenu lang={{ current: "de", path: "/pulse-plus" }} items={[{ href: "/calm-touch/de", label: "Startseite" }, { href: "/calm-touch/de/cegeknek", label: "Für Unternehmen" }, { href: "/calm-touch/de/modszertan", label: "Messmethodik" }, { href: "/calm-touch/de/pulse-riport", label: "Beispielbericht" }, { href: "https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu", label: "Angebot anfragen", primary: true }]} />
 </nav>
 </div>
 </header>
@@ -222,7 +222,7 @@ export default function PulsePlusPage() {
 <span style={eyebrow}>FÜR WEN</span>
 <p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>Bei anhaltendem Stress, Konzentrationsproblemen oder Stimmungsschwankungen oder wenn jemand seine Leistung im Beruf verbessern möchte. Im Unternehmen empfehlen wir es für Führungskräfte und stark belastete Teams, als Ergänzung zum Calm-Touch-Programm.</p>
 <p style={{"margin": "0", "maxWidth": "860px", "fontSize": "19px", "color": "#3B443E"}}>Für Unternehmenspakete, Gruppenerhebungen und Messungen vor Ort erstellen wir individuelle Angebote; den Preis senden wir auf Anfrage.</p>
-<a href="/calm-touch/de/cegeknek#ajanlat" style={{"alignSelf": "flex-start", "textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": 600, "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pulse+-Angebot anfragen</a>
+<a href="https://bevetel.hu/intrest?id=521e16bcad0d4d75&lang=hu" style={{"alignSelf": "flex-start", "textDecoration": "none", "background": "#7E3A4A", "color": "#FFFFFF", "padding": "14px 26px", "borderRadius": "999px", "fontWeight": 600, "minHeight": "48px", "boxSizing": "border-box", "display": "inline-flex", "alignItems": "center"}}>Pulse+-Angebot anfragen</a>
 <span style={{"fontSize": "14px", "color": "#5E6A62"}}>Die integrierte mentale Zustandserhebung ist ein Erhebungs- und Entwicklungsangebot; sie stellt keine medizinische Diagnose und ersetzt keine Behandlung.</span>
 </div>
 </section>
